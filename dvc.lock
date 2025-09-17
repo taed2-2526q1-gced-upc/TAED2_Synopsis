@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  get_raw_data:
+    cmd: python -m src.data.scripts.get_raw_data
+    deps:
+    - path: src/data/scripts/get_raw_data.py
+      hash: md5
+      md5: 363c407701289bb57d01e8533dfa7a13
+      size: 176
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: 10aa9fcd0db59162a97632e2575b74f5.dir
+      size: 1369471328
+      nfiles: 12

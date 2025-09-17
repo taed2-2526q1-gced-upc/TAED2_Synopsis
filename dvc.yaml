@@ -1,0 +1,7 @@
+stages:
+  get_raw_data:
+    cmd: python -m src.data.scripts.get_raw_data
+    deps:
+    - src/data/scripts/get_raw_data.py
+    outs:
+    - data/raw

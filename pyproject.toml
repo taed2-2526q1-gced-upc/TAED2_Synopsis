@@ -16,6 +16,9 @@ classifiers = [
     
 ]
 dependencies = [
+    "datasets>=4.1.0",
+    "dotenv>=0.9.9",
+    "dvc>=3.63.0",
     "ipython",
     "jupyterlab",
     "loguru",
@@ -44,4 +47,11 @@ extend-select = ["I"]  # Add import sorting
 [tool.ruff.lint.isort]
 known-first-party = ["src"]
 force-sort-within-sections = true
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pylint>=3.3.8",
+    "pytest>=8.4.2",
+]
 
