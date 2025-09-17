@@ -3,6 +3,8 @@ from pathlib import Path
 from loguru import logger
 from tqdm import tqdm
 import typer
+import mlflow
+from sklearn.linear_model import LogisticRegression
 
 from src.config import MODELS_DIR, PROCESSED_DATA_DIR
 
@@ -17,12 +19,17 @@ def main(
     model_path: Path = MODELS_DIR / "model.pkl",
     # -----------------------------------------
 ):
-    # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Training some model...")
-    for i in tqdm(range(10), total=10):
-        if i == 5:
-            logger.info("Something happened for iteration 5.")
-    logger.success("Modeling training complete.")
+    # ---- MLflow dummy training ----
+    with mlflow.start_run():
+        logger.info("Training dummy model...")
+        
+        model = LogisticRegression(C=1.0, max_iter=100, random_state=42)
+
+        mlflow.log_param("C", 1.0)
+        mlflow.log_param("max_iter", 100)
+        mlflow.log_param("random_state", 42)
+
+        logger.success("Dummy model training complete with MLflow logging.")
     # -----------------------------------------
 
 
