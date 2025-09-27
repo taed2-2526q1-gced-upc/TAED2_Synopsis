@@ -4,7 +4,7 @@
 {{ card_data }}
 ---
 
-# Dataset Card for {{ pretty_name | default("Dataset Name", true) }}
+# Dataset Card for CNN-DailyMail News Text Summarization
 
 <!-- Provide a quick summary of the dataset. -->
 
@@ -102,7 +102,7 @@ The dataset is not anonymized as individuals names can be found in the articles.
 
 <!-- This section is meant to convey both technical and sociotechnical limitations. -->
 
-The dataset consists of news articles from CNN and the Daily Mail, which may result in differences in editorial policies, political views in articles and other biases. As a result, language, topics and perspectives represented in the dataset may not be fully representative of disperse viewpoints.
+The dataset consists of news articles from CNN and the Daily Mail, which may result in differences in editorial policies, political views in articles and other biases. Because of this, language, topics and perspectives represented in the dataset may contain some bias.
 
 ### Recommendations
 
@@ -117,3 +117,4 @@ There should be some considerations when training models. Users should evaluate 
 **APA:**
 
 Gowri, S. P. CNN-DailyMail News Text Summarization. Kaggle. https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail/data.
+
