@@ -1,7 +1,5 @@
----
-# For reference on dataset card metadata, see the spec: https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1
-# Doc / guide: https://huggingface.co/docs/hub/datasets-cards
----
+<!--# For reference on dataset card metadata, see the spec: https://github.com/huggingface/hub-docs/blob/main/datasetcard.md?plain=1
+# Doc / guide: https://huggingface.co/docs/hub/datasets-cards -->
 
 # Dataset Card for CNN-DailyMail News Text Summarization
 
@@ -116,5 +114,6 @@ There should be some considerations when training models. Users should evaluate 
 **APA:**
 
 Gowri, S. P. CNN-DailyMail News Text Summarization. Kaggle. https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail/data.
+
 
 
