@@ -4,9 +4,9 @@ from fastapi import FastAPI
 from loguru import logger
 import uvicorn
 
-from app.api.api import api_router
-from app.config import settings
-from app.middleware import setup_middleware
+from src.backend.app.api.api import api_router
+from src.backend.app.config import settings
+from src.backend.app.middleware import setup_middleware
 
 
 @asynccontextmanager
@@ -44,5 +44,5 @@ logger.info("[BACKEND] Middleware and FastAPI application configured successfull
 if __name__ == "__main__":
     logger.info("[BACKEND] Starting backend application with uvicorn...")
     uvicorn.run(
-        app, host=settings.HOST, port=settings.PORT, reload=settings.DEBUG, log_level="info"
+        "src.backend.app.main:app", host=settings.HOST, port=settings.PORT, reload=settings.DEBUG, log_level="info"
     )

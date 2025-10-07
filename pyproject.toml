@@ -51,6 +51,10 @@ extend-select = ["I"]  # Add import sorting
 known-first-party = ["src"]
 force-sort-within-sections = true
 
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = "tests"
+
 [dependency-groups]
 dev = [
     "black>=25.1.0",

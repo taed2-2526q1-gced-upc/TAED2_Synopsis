@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from loguru import logger
 
-from app.api.endpoints import health
-from app.config import settings
+from src.backend.app.api.endpoints import health
+from src.backend.app.config import settings
 
 # Create the main API router
 api_router = APIRouter()

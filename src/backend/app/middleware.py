@@ -6,7 +6,7 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 from loguru import logger
 
-from app.config import settings
+from src.backend.app.config import settings
 
 
 def add_cors_middleware(app: FastAPI) -> None:

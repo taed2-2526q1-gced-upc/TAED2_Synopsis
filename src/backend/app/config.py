@@ -13,7 +13,7 @@ class Settings:
     # API Settings
     API_PREFIX: str = "/api"
     PROJECT_NAME: str = "Synopsis API"
-    DEBUG: bool = False
+    DEBUG: bool = True
 
     # Server Settings
     HOST: str = "0.0.0.0"
