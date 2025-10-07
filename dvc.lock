@@ -13,3 +13,27 @@ stages:
       md5: 10aa9fcd0db59162a97632e2575b74f5.dir
       size: 1369471328
       nfiles: 12
+  train_model:
+    cmd: python -m src.modeling.train
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 10aa9fcd0db59162a97632e2575b74f5.dir
+      size: 1369471328
+      nfiles: 12
+    - path: src/modeling/train.py
+      hash: md5
+      md5: bcef794affb33733af3d7943fe140b10
+      size: 4104
+    params:
+      params.yaml:
+        max_length: 130
+        min_length: 30
+        model_name: facebook/bart-large-cnn
+        task: summarization
+    outs:
+    - path: models/bart_summarizer
+      hash: md5
+      md5: 239faf27e37a6c75629c78a72c81dba6.dir
+      size: 1628896861
+      nfiles: 8

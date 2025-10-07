@@ -5,3 +5,16 @@ stages:
     - src/data/scripts/get_raw_data.py
     outs:
     - data/raw
+  
+  train_model:
+    cmd: python -m src.modeling.train
+    deps:
+    - src/modeling/train.py
+    - data/raw
+    params:
+    - model_name
+    - task
+    - max_length
+    - min_length
+    outs:
+    - models/bart_summarizer
