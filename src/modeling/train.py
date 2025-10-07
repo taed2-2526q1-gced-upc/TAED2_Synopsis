@@ -364,8 +364,8 @@ def train_model():
         print(f"  • CO2 per sample: {efficiency_metrics['co2_per_sample_g']:.2f}g")
         print(f"  • Energy per sample: {efficiency_metrics['energy_per_sample_wh']:.2f}Wh")
         print(f"  • Time per sample: {efficiency_metrics['time_per_sample_s']:.2f}s")
-        print(f"\n📊 Check MLflow UI for detailed metrics and artifacts")
-        print(f"🌱 Emissions report saved to: reports/emissions/")
+        print(f"Check MLflow UI for detailed metrics and artifacts")
+        print(f"Emissions report saved to: reports/emissions/")
 
 
 if __name__ == "__main__":
