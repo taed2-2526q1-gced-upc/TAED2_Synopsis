@@ -133,19 +133,20 @@ class NewsScraper:
     def clean_text(self, text: str) -> str:
         
         emoji_pattern = re.compile(
-            "["
-            "\U0001F600-\U0001F64F"  # emoticons
-            "\U0001F300-\U0001F5FF"  # symbols & pictographs
-            "\U0001F680-\U0001F6FF"  # transport & map
-            "\U0001F1E0-\U0001F1FF"  # flags
-            "\U00002702-\U000027B0"  # other pictographs
-            "\U000024C2-\U0001F251"
-            "\U0001F900-\U0001F9FF"  # supplemental symbols
-            "\U0001FA70-\U0001FAFF"  # symbols extended
-            "[\u2600-\u26FF]\uFE0F"    # misc symbols (☀️☂☕ etc.)
-            "]+",
-            flags=re.UNICODE
-        )
+        "[" 
+        "\U0001F600-\U0001F64F"
+        "\U0001F300-\U0001F5FF"
+        "\U0001F680-\U0001F6FF"
+        "\U0001F1E0-\U0001F1FF"
+        "\U00002700-\U000027BF"
+        "\U0001F900-\U0001F9FF"
+        "\U0001FA70-\U0001FAFF"
+        "\U00002600-\U000026FF"
+        "\U0001F30D"       
+        "\uFE0F"    
+        "]+",
+        flags=re.UNICODE
+    )
         
         cleaned_text = emoji_pattern.sub(r"", text)
         return cleaned_text.strip()
@@ -188,10 +189,10 @@ class NewsScraper:
     
     def accept_cookies(self, timeout: int = 5) -> bool:
         xpath = (
-            "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'acceptar') "
+            "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'accept') "
             "or contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'aceptar') "
             "or contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'cookies')]"
-            "|//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'acceptar') "
+            "|//a[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'accept') "
             "or contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'aceptar') "
             "or contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'cookies')]"
         )
@@ -291,7 +292,7 @@ class NewsSession(Session):
         return resp
 
 
-# class NewsScraperNotPossibleError(Exception):
-#     """Raised when news scraping is not possible for the given URL.
-#     """
-#     raise Exception("News scraping is not possible for the given URL.")
+class NewsScraperNotPossibleError(Exception):
+    """Raised when news scraping is not possible for the given URL.
+    """
+    pass
