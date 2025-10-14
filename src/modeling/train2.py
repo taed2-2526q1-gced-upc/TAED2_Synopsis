@@ -122,7 +122,7 @@ def fine_tune_model():
 
     tracker = EmissionsTracker(
         project_name="bart_finetuning",
-        output_dir="reports/emissions",
+        output_dir="reports",
         log_level="warning"
     )
     tracker.start()
