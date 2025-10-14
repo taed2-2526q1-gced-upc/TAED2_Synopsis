@@ -1,0 +1,38 @@
+{
+  "actions": [
+    {
+      "name": "update_data_docs",
+      "site_names": [],
+      "type": "update_data_docs"
+    }
+  ],
+  "id": "5bb76f48-6609-4f3f-a74f-eed7ca72e6a4",
+  "name": "validation_checkpoint",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "ae9ec0b2-637e-4f73-85d9-531e01fc6c24",
+      "name": "raw_train_validator"
+    },
+    {
+      "id": "ca14c4b3-4bc3-4565-8a70-94e30effe01e",
+      "name": "raw_val_validator"
+    },
+    {
+      "id": "e863b031-5901-4b77-843b-e7e1410c2034",
+      "name": "raw_test_validator"
+    },
+    {
+      "id": "82ae0028-b64a-4f71-92bc-4c32e72846f1",
+      "name": "clean_train_validator"
+    },
+    {
+      "id": "4027831a-6454-4953-8705-39e31f35f749",
+      "name": "clean_val_validator"
+    },
+    {
+      "id": "27429c09-f4e4-4556-b6d5-8a7136ef6cd9",
+      "name": "clean_test_validator"
+    }
+  ]
+}

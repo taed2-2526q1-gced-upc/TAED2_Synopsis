@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251014T130947.332590Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-14T15:07:45Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                Table-Level Expectations
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-5"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">12</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">10</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">2</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈83.33%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-a117c444-5aef-401d-a3ee-f459d0ccfee5" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-a117c444-5aef-401d-a3ee-f459d0ccfee5 class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-14T15:07:45Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251014T130745.645156Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >954675c3a559ea095ee7aec0f7275646</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\raw\train.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Table-Level Expectations
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>6186 unexpected values found. ≈2.155% of 287113 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-2-content-block-2-cell-1-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-1-1" ><div class="show-scrollbars"><span>AMMAN, Jordan (CNN) -- In the sunbathed schoolyard of the Shmisani Institute for Girls in Amman, Jordan, principal Sanaa Abu Harb makes an announcement over the speaker system. Iraqi students at the Shmisani school in Amman gather around a teacher. One in 5 students there is Iraqi. "All Iraqi girls come outside now. All Iraqi girls. Iraqi girls only!" she repeats several times, making sure the message is clear and waving away Jordanian pupils attracted by the commotion. Dozens of girls in green apron-like uniforms pour out into the courtyard and cluster on the top level of a stone staircase overlooking a concrete playground. Harb wants the CNN crew to see how many Iraqi refugee girls her school is accommodating. This school year, she says, 145 students are Iraqi -- roughly 20 percent of the students at this state-funded institution -- with another 40 Iraqi children on a waiting list.  Watch Iraqi girls describe a long way from home » . The reason behind the jump in the number of Iraqis at the school is a new government policy: For the first time since the start of the Iraq war, Jordan is allowing all Iraqi children -- regardless of refugee status -- to enroll in state-funded schools. Simply, this means that even illegal refugees with no paperwork can send their kids to school with no questions asked. The move is cementing a massive population shift in the Middle East. More than 2.2 million Iraqis have fled the violence in their homeland, most of them seeking refuge in neighboring Jordan and Syria, according to humanitarian officials. Jordanian Minister of Education Khalid Touqan says he expects Jordan to accommodate 40,000 to 50,000 Iraqi students this year. That's more than double the number of Iraqi children enrolled in public school two years ago. Harb, on the front line of the phenomenon, says the influx is putting a strain on her school. Even with some U.N. and U.S. aid to Jordan, there's still not enough money. "We need more teachers here, more resources, more buildings, more chairs for all Iraqi students and our students," she says. In a nearby neighborhood, in the study room of the Ahmed Toukan School for Boys, a handful of Iraqi kids talk of their experience living far from home. Seated at a rectangular table covered with a red and white tablecloth, the boys tell stories of horror and displacement. Eighteen-year-old Qutaiba lost five immediate family members before moving to Jordan to try to live a normal life. Matter-of-factly and with a straight-ahead stare, he repeats the number: "Five members." Most of the boys and young men from Iraq have missed several years of school -- up to a four-year educational gap that will delay not only their high school graduation, but also their entry into the workforce. All say, though, that they feel lucky to have gotten out, even if the violence in their country means always having to be on the move, ready to live far from home and away from loved ones. "It's not strange for me to be in the middle of people I don't know," says eleventh grader Ziad Tarek Al Shamsi. "I had friends in Iraq when I was small, I left them. In America, I left them. I came here, I left them." He pauses: "But you have to miss your country." The United Nations High Commissioner for Refugees estimates up to 250,000 school-age Iraqi children are in Jordan. Many of them are enrolled in private institutions. But as families run out of money they had when they left Iraq, they turn to public schools. Even so, more than a month into the new academic year, fewer Iraqi families than first anticipated enrolled their kids in schools this year. According to the charity Save the Children, 21,000 Iraqi children have so far enrolled in Jordanian classrooms. As a result, the government extended the deadline for student applications and cut down on the required paperwork for Iraqi families. The lower registration numbers were attributed in part to illegal refugees' fears of being identified through their children's school records. Regardless of what the final number will be this year, the population shift in the Middle East is, according to UNHCR head Antonio Guterres, the largest urban refugee situation in the world. Iraqi families are changing the social fabric of Jordanian society. About 10 percent of Jordan's population is now made up of Iraqi refugees -- the estimates range from 500,000 to 750,000 of them. The schoolchildren are living examples of how the Iraq war may permanently change the Middle East. "Iraqi children will be incorporated and integrated within our mainstream line of education," says Touqan, the education minister. "We will not run a parallel system of education." E-mail to a friend .</span><span>Jordan opens school doors to all Iraqi children, regardless of refugee status .
+Principal says her school is 20 percent Iraqi this year .
+Education minister: Iraqi kids will be incorporated into "mainstream" life .
+One student says he lost five family members in Iraq .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-2-1" ><div class="show-scrollbars"><span>(CNN)  -- One Australian soldier, three civilians and Taliban militants were killed early Friday during heavy fighting in southern Afghanistan, according to information from Australian and NATO officials. Four Australian troops have now died in the conflict in Afghanistan. The incident occurred in Tarin Kowt in Uruzgan province, where Taliban militants killed an Australian commando, the Australian Defence Ministry said. The 26-year-old commando -- Pvt. Luke Worsley of Sydney -- served with the Special Operations Task Group. This is the fourth Australian troop to die in the Afghan conflict. "The action in which Private Worsley died only concluded in the last few hours and was characterized by heavy, close quarter fighting. The SOTG was conducting an operation to clear an identified Taliban bomb making facility in Uruzgan province, when the soldier was hit by small arms fire," Chief of the Defence Force Air Chief Marshal Angus Houston said. NATO's International Security Assistance Force said "a significant number of Taliban insurgents were killed or captured as part of the operation. Taliban insurgents initiated the firefight which lasted several hours." Gen. Carlos Branco, ISAF spokesman, said it is not known how the civilians, two women and a child, died. "However, we do know that the insurgents fired upon ISAF soldiers from the compound in which the Afghan civilians (two women and one child) were found after the fight. ISAF makes all effort to prevent losses of innocent civilian lives."  E-mail to a friend .</span><span>Taliban militants kill Australian commando in southern Afghanistan .
+He was shot during operation to clear Taliban bomb making facility in Uruzgan .
+This is the fourth Australian soldier to die in the conflict in Afghanistan .
+Several militants killed and a coalition troop injured in other fighting in southeast .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-3-1" ><div class="show-scrollbars"><span>(CNN) -- A girl who was shown on a videotape being sexually assaulted in Las Vegas has been found and is safe, officials in Nye County, Nevada, said Friday. Chester Arthur Stiles, 37, is being sought as a suspect, police say. "We have found the child, Madison. She's safe. The detectives say she is in good condition," Nye County Sheriff Tony De Meo said. The girl, now 7, was shown in a sex video made four years ago, Detective David Boruchowitz said at a news conference Friday night. She was found Friday with family in Las Vegas after thousands of tips poured in, thanks to an appeal by police to the news media to show the girl's picture. CNN and other news organizations did so until the child was found, when De Meo asked them to stop showing the picture. "The mother has cooperated with us," De Meo said. "We believe that the mother was not aware of anything that went on with this young girl," he said. "It was very sad for her to find this out." A former Las Vegas animal trainer, Chester Arthur Stiles, 37, a resident of Pahrump, Nevada, has been identified as a suspect and is being sought in the case, De Meo said. Pahrump is about 60 miles west of Las Vegas.  Watch what's known about Stiles » . Stiles was a distant friend of the girl's family, De Meo said. Someone close to Stiles has told investigators that Stiles is a "survivalist type" and always carries a weapon, Nye County District Attorney Bob Beckett said. De Meo addressed Stiles directly: "Turn yourself in to your local law enforcement agency," he said. "Understand this: Law enforcement not only has a long arm, but a long memory. You will not be forgotten by members of this agency or any other law enforcement agency."   The FBI is also seeking Stiles on state charges of sexual assault and lewdness with a minor under the age of 14 in a separate matter, De Meo said. Police, who had called Stiles a person of interest, began calling him a suspect late Friday. There appeared to be physical similarities between Stiles and the man in the videotape, De Meo said. "Nothing that I have seen in my career comes close to what this girl has gone through. Whoever this person is is a predator that, as far as I'm concerned, belongs in custody and, if successfully prosecuted, in jail for as long as the law allows,"  De Meo said earlier.  Detectives said the child showed little emotion during the rapes, indicating she may have been brutalized before. Nevadan Darren Tuck recently gave police the videotape, saying he found it in the desert, De Meo said. Police said the tape was in his possession at least since May before he handed it over to authorities. He is being sought on a parole violation for failure to pay child support, but police -- who want to question him further -- have been unable to locate him. Tuck, who also allegedly showed the tape to others before giving it to police, faces a possible 10-years-to-life sentence for exhibiting pornography and another one to six years for possession of child pornography, De Meo said. Harry Kuehn, Tuck's attorney, said this week on CNN's "Nancy Grace" that Tuck was "racked by indecision" about what to do with the tape once he realized what it was. Asked why, Kuehn said, "He's explained that to us, and at this point, we're not going to share that, because it goes to the defense of the matter." "You have to consider what kind of concerns my client had; He's previously dealt with the sheriff's office in Nye County; it was previously unsatisfactory," the attorney said.  E-mail to a friend .</span><span>Stiles described as "survivalist type" who carries a weapon .
+Mother has cooperated with police, sheriff says .
+Girl on tape, now 7, found safe with family .
+Tape shows man sexually abusing the girl 4 years ago .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-4-1" ><div class="show-scrollbars"><span>(CNN) -- Authorities in Azerbaijan recently uncovered a radical Islamic terror plot against the U.S. Embassy in the capital, Baku, prompting the facility to close its doors to the public Monday, Azerbaijan and U.S. officials told CNN. The Bibi Heybat Mosque, just outside the capital Baku. As a precaution, Britain also shut its embassy in Baku to the public on Monday "following security concerns nearby," Britain's Foreign Office said. The terror plot was unraveled after a weekend raid outside Baku that netted several suspected members of the radical group, two U.S. officials who asked not to be identified and a spokesman for Azerbaijan's National Security Ministry told CNN. U.S. State Department spokesman Sean McCormack stressed that the details "are still unfolding," and the threat "may or may not be" linked to the Saturday raid. "There were some specific and credible threat information concerning the embassy and plans by militants to in some way do harm to individuals in and around the U.S. Embassy there," McCormack said, noting that no specific individuals were targeted. Several days ago, an Azerbaijani army officer who had connections to a radical Islamic group seized four assault rifles, a machine gun and 20 hand grenades from his military unit and hid them in the outskirts of Baku, the ministry spokesman and U.S. officials said. Government security forces tracked down the group and arrested several members during a sweep on Saturday in the village of Mastaga, about 20 miles (32 km) northeast of Baku, the spokesman said. One suspected member of the militant group resisted arrest and was killed in the sweep, the spokesman said. Several others are still at large, he added. He said the terror plot also targeted Azerbaijani government buildings. The U.S. Embassy in Baku issued a warden message warning Americans in Azerbaijan to take precautions. "While there is no information at this time that other American or Western interests in Azerbaijan are being targeted, the U.S. Embassy encourages Americans to maintain a high level of vigilance and take appropriate steps to bolster their own personal security," it said. Azerbaijan is a former Soviet republic that borders the Caspian Sea, and lies just north of Iran. McCormack said U.S. authorities are working closely with their counterparts in Baku and will determine when normal embassy operations will resume. He said he expects the embassy to limit its operations on Tuesday, as well. E-mail to a friend . CNN's Igor Malakhov in Moscow, Zain Verjee in Washington and Roger Clark in London contributed to this report .</span><span>Authorities uncover a radical Islamic terror plot against the U.S. embassy in Baku .
+The United States has reduced its embassy's operations .
+Britain also shut its embassy in Baku to the public on Monday .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-5-1" ><div class="show-scrollbars"><span>(CNN) -- Explorer Dennis Schmitt found an island nearly two years ago near Greenland. Fishermen pass by Greenland's Ilulissat fjord in this September 2004 picture. Such a discovery would usually elicit curiosity, even wonder perhaps, but it evoked mixed feelings for the explorer. The island was once thought to be a peninsula attached to Greenland by an ice shelf or a glacier. But such a large amount of ice melted, it revealed the distinct island. "I very quickly realized two things," he told CNN's Anderson Cooper during a visit to the island earlier this year. "One [was] that this was going to be significant because it was going to be an example of climate change." "The other thing was that it meant it was really happening. It wasn't a joke. It wasn't just statistics. It was really happening." He calls his discovery Warming Island. Many climatologists and scientists say arctic ice melt and other changes in the Earth's climate are the result of an increase in the world's temperature, a trend widely called global warming. Many global warming experts say the phenomenon, if unchecked, is capable of altering the world's climate and geography. In the worst-case scenario, experts say oceans could rise to overwhelming and catastrophic levels, flooding cities and altering seashores. Other scientists and observers, a minority compared to those who believe the warming trend is something ominous, say it is simply the latest shift in the cyclical patterns of a planet's life. Most of the scientific community believes that some warming is occurring across the globe and through some layers of the atmosphere. But why it is occurring and what that means for the future is scientifically and politically contentious. The Earth's temperature averages about 60 degrees Fahrenheit (about 16 degrees Celsius). The average surface temperature has warmed one degree Fahrenheit (0.6 degrees Celsius) during the last century, according to the National Research Council. The temperatures were relatively unchanged from 1880 to 1910, according to the U.S. Environmental Protection Agency. They rose till about 1945, cooled until about 1975 and have risen steadily to present day. There are several possible reasons for the warming, scientists say. A change in the Earth's orbit or the intensity of the sun's radiation could change, triggering warming or cooling. The reason most cited -- by scientists and scientific organizations -- for the current warming trend is an increase in the concentrations of greenhouse gases, which are in the atmosphere naturally and help keep the planet's temperature at a comfortable level. The amount of carbon dioxide in the atmosphere, for instance, has increased by 35 percent since the dawn of the industrial age, according to the United Nations' Intergovernmental Panel on Climate Change, commonly referred to as the IPCC. The presence of methane is now 151 percent above pre-industrial levels, but the rate of increase has slowed in recent decades, according to the EPA. Meanwhile, nitrous oxide increased by about 18 percent during the past 200 years. Many scientists and experts who have studied global warming believe the increase is primarily the result of human activities, like the burning of fossil fuels, emissions from vehicles and the clearing of forests. "For the last 30 years, there's no way there's anything natural that can explain it," Stephen Schneider, a professor of environmental studies at Stanford University in California, said. "A vast bulk of the knowledgeable and honest community ... will say the science is settled and humans are at least a majority of the reason behind the warming," he added. Many scientific organizations share Schneider's view, ranging from the national academies of the countries that comprise the G8 to the National Research Council, the American Meteorological Society and the American Geophysical Union. But there are those who do not share his view, and among the skeptics is Richard Lindzen, a professor of atmospheric sciences at the Massachusetts Institute of Technology. "We've suddenly taken to reading tea leaves," he said. "When we saw cooling from 1940 to 1970, we were proclaiming global cooling. Since then, there's been a few tenths of global warming, so we're proclaiming global warming." He believes the current warming trend is the result of natural variability, where a planet goes through phases of warming and cooling and the human contribution to it is minimal. "The Earth is always getting colder and warmer," he said. "It's always changing. In fact, this is true of any fluid-covered planet." Asked about glacial melt, which many observers point to as evidence of global warming, Lindzen said the way glaciers change and move are phenomena largely unexplained. "We don't know why, but it's perfectly clear that glaciers change even though the temperature is cooling at the place that they've occurred," he said. "What we're doing is cherry picking any event that occurs and then saying that's occurring due to global warming." Yet, for Schneider, it is a cause for concern and alarm. "We're already in serious melt, nobody can explain it. The models don't predict it," he said. "We don't know what's going on up there. All we know is that we could be triggering something really nasty." The greatest point of contention is the possible implications for future political and economic policies for the world's nations. The IPCC in February 2007 projected that if carbon dioxide levels doubled relative to pre-industrial levels, temperatures could rise between 3.6 to 8.1 degrees Fahrenheit (2 to 4.5 degrees Celsius) by 2100. The lower end of the range could cause more intense hurricanes, droughts, wildfires and flooding, Schneider said. The higher end could lead to the catastrophes commonly associated with the visions of Hollywood filmmakers. Uncertainties, however, plague such forecasts, which are based on computer simulations and models. The models contemplate factors associated with how the atmosphere, oceans and continents interact, all natural elements that have unpredictability intrinsic to them. "Exactly how much it's going to warm up, we don't know," Schneider said. "That it's going to warm up? I'd bet anything on that." E-mail to a friend .</span><span>Earth has warmed one degree in past 100 years .
+Majority of scientists say greenhouse gases are causing temperatures to rise .
+Some critics say planets often in periods of warming or cooling .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-6-1" ><div class="show-scrollbars"><span>(CNN) -- Tens of thousands of Congolese refugees fled camps Tuesday in the Democratic Republic of Congo as rebel troops attacked government forces in the area, the U.N. refugee agency said. Refugees move along a road Tuesday in Mugunga, near Goma, in the Democratic Republic of Congo. A press release from the U.N. High Commissioner for Refugees said it didn't appear rebels had targeted the camps, but it reported some were looted after camp residents, classified as internally displaced persons, fled. Roads to Goma, about 10 miles from the camps, were crowded with refugees and local residents fleeing the fighting, the UNHCR reported. Torrential rain made the movement even more difficult. "The main road toward Sake was crowded with people; we had difficulties getting through," UNHCR field safety adviser Pierre Nazroo was quoted as saying in the agency's release. "Internally displaced people are moving from site to site, direction Goma." UNHCR spokesman Ron Redmond said, "They have been living in extremely difficult conditions anyway. Now they have nothing but what they can carry." Redmond added, "These are people in poor health; they are soaking wet because of the torrential downpours. They need shelter, they need water, they need a lot of assistance so we're going to have to move quickly to get that help to them because a lot of them are already in a weakened state." While the Congolese government accused troops under rebel general Laurent Nkunda of staging the attack, a Nkunda spokesman denied the allegation, according to a report from the Integrated Regional Information Networks, a U.N.-affiliated news service. The spokesman, Bwambale Kakolele, said Rwandan Hutu rebels who also operate in the area were behind the attack, that report said. A spokesman for the U.N. military mission in the Congo said it was uncertain which group attacked the Congo army outpost near the village of Kishangazi, according to the U.N.-affiliated news service. "We think it could have been insurgents close to Nkunda who attacked, but we cannot rule out the [Rwandan rebels]," spokesman Col. Pierre Cherayron was quoted as saying. The UNHCR identified the affected camps as Mugunga I, Mugunga II, Lac Vert and Bulengo, saying about 28,000 had abandoned the first three camps and about 2,000 had left Bulengo. The UNHCR said 375,000 Congolese in North Kivu province have been forced from their homes in the past year. In the past two months alone, 160,000 have fled their homes amid the fighting between renegade troops and government forces, the agency said. North Kivu is in eastern Congo near the borders of Rwanda and Uganda. Congolese President Joseph Kabila has tried to gain a cease-fire with the rebels in the area under Nkunda, but fighting continues as hard-liners among the rebels and in the government have blocked reconciliation efforts, according to the International Crisis Group, an nongovernmental organization looking for solutions to conflicts. E-mail to a friend .</span><span>NEW: Congo rebels blame Rwandan Hutus for attack, report says .
+Internally displaced Congolese flee as rebels attack government troops .
+Torrential rain makes refugee movement difficult .
+U.N. refugee agency: Some 375,000 have been forced from homes in past year .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-7-1" ><div class="show-scrollbars"><span>(CNN) -- The owner of a North Carolina beach house where seven college students died in a weekend fire said Monday that his family's "lives were just changed forever" by the tragedy. Chip Auman said his 18-year-old daughter survived the fire but was hospitalized and in stable condition because of complications from smoke inhalation. "The thought of losing a child is unimaginable to me, and as a father my heart goes out to the families that lost a loved one in this situation," he said. Auman said the situation was "hard to fathom." "There's just no words to describe what we've been going through," he said, asking for prayers for survivors and the families of those who died. "We're numb, we're confused, we're heartbroken." Two college campuses mourned Monday. Six University of South Carolina students and a Clemson University student died in the fire early Sunday morning in Ocean Isle Beach, North Carolina. Six other South Carolina students were able to get out of the house in time. The six were treated and released from nearby Brunswick Community Hospital, but Auman's daughter was hospitalized again in Hartsville, South Carolina. Authorities from the state Bureau of Investigation and the federal Bureau of Alcohol, Tobacco, Firearms and Explosives are leading the investigation into the cause of the fire. Ocean Isle Beach Mayor Debbie Smith said the house was "engulfed" in flames when the fire department arrived on the scene, about five minutes after being notified. The flames shot into the sky and ultimately left little more than portions of the framing. Fire officials do not believe foul play was involved.  Watch a neighbor's video, fears of fast-burning fire » . Dennis A. Pruitt, the vice president for student affairs for the University of South Carolina, said investigators have said it would be Tuesday or Wednesday before the identities of the victims are confirmed publicly. It could be as much as a month until investigators know the cause of the fire, Pruitt said. The university did not cancel classes on Monday, but Pruitt said arrangements had been made for those who need to go home or stay out of class at the 28,000-student campus. Pruitt said meetings had been held Sunday with members of Delta Delta Delta sorority and Sigma Alpha Epsilon fraternity. The South Carolina students were affiliated with those houses, he said, although he stressed that the weekend was not an official Greek function. He also said counselors and ministers were available to help students deal with the loss of their classmates. The university president, Dr. Andrew Sorenson, contacted the families of those who died in the fire to express the condolences and support of the university community. Jay Laura, student president of the USC chapter of Sigma Alpha Epsilon, said the campus would pull together after the tragedy. "If any place can come together to help in the healing process and the aftermath of an event like this, it is South Carolina," Laura said at a Monday afternoon press conference. Fire survivor Tripp Wylie, a 20-year-old South Carolina sophomore, said he jumped out of a third-story window into a canal to escape the flames and was unable to get back in to help his friends. "I could see a buddy of mine off to the left who had gotten out. He was just yelling at me to jump and stuff," Wylie told CNN affiliate WYFF. "The smoke was pouring out, couldn't really breathe, so I had to make a quick decision. [I] just kind of leaned out the window and luckily I jumped far enough to make it into the canal." Neighbors flocked to see the fire as firefighters battled and ultimately got the blaze under control.  See the scenes of devastation » . George Smith, who lives across the street from the house, said he heard sirens between 6:30 and 7 a.m. and went outside to see "the whole sky lit up." "The whole house was completely engulfed in flames, up to about 20 feet," he said. "I have never seen [a fire] move so fast." George Smith said the house's occupants were "partying in there yesterday and into the night." After about 10:30 p.m. Saturday they quieted down, he said. Linda Sing said she was walking her dog when she saw the fiery destruction. She noted that firefighters had saved an adjacent house by spraying it down with water. "We knew there were people in there, but we hoped and prayed they'd gotten out," Sing said. "This is the worst thing I've ever seen. We've had hurricanes, but this is worse." Ocean Isle Beach is a popular resort destination along North Carolina's southern coast. The year-round population of the 7-mile-long island is about 425, but it swells to about 25,000 during the summer season, according to the town's Web site. E-mail to a friend .</span><span>"Heartbroken" house owner's daughter among six survivors hospitalized .
+One survivor jumped out of a third-story window into a canal to escape .
+University of South Carolina mourns deaths of six students .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-8-1" ><div class="show-scrollbars"><span>(CNN) -- This week MME speaks to the man charged with boosting growth in the Kingdom of Bahrain: Sheikh Mohammed bin Isa Al Khalifa. Sheikh Mohammed is concerned the nuclear dispute with Iran  is deterring potential investors . As chief executive of the Economic Development Board, one of Sheikh Mohammed's main tasks is to ensure Bahrain stays ahead of its competitors. The government's pushing ahead with economic reforms to reduce the Kingdom's dependence on oil. But with crude prices near $100 a barrel, John Defterios asked whether the appetite for change had diminished. SM: The reforms are being done for aspirational reasons rather than necessity, so we are trying to enter the post-oil area because we want to. And therefore, because of this aspirational aspect, trying to get to as opposed to people pushing us somewhere we don't want to go. JD: How do you redefine Bahrain's role? Traditionally it's been a financial center, but you have Qatar, Saudi Arabia, Dubai even Abu Dhabi emerging in financial services. How you redefine it to sustain a lead? SM: The rising tide lifts a lot of places and as the region is booming and growing, financial services are growing throughout the region. Bahrain's strengths have been and will continue to be its human capital, the people that have led the financial sector and the long standing regulations that have been established in Bahrain. JD: Strategically and a geopolitical question here: the Crown Prince came out and declared what Iran's intentions really are -- in his view -- for a nuclear policy, and called for greater diplomacy right ahead of a visit by the President of Iran to the country. What's the motivation here? SM: We feel that the distraction caused by the Iranian nuclear issue is holding investment back in the region as a whole, and increasing the security threat of the region. Nobody is debating the right to peaceful nuclear power, but we all have that need and we all need a peaceful resolution to this. JD: Historically, Iran has even made claims against Bahrain, what do you do now moving forward now? Do you bring Russia, China, the United States and the European Union closer together, in terms of where we should be going in the future? SM: We've resolved our historical issue with Iran, and we are well beyond that, but going forward... This is such a important issue affecting security worldwide, that we feel it is important and at a level high enough that we need all powers involved because it does affect everybody. JD: Can the GCC (Gulf Cooperation Council) become much tighter as an organization to have a voice in that process; as opposed to speaking from the sidelines and hoping that the major powers move forward? SM: Absolutely, I mean, the GCC is speaking with a unified voice. The Kingdom of Saudi Arabia came out with a proposal for providing nuclear fuel from an independent authority; this was completely backed from the GCC. We are all moving forward and are willing to play a beneficial role to resolve this issue. Meet the Sheikh: . Sheikh Mohammed bin Isa Al Khalifa is chief executive of the Economic Development Board, the organization responsible for stimulating and supporting growth of the Bahraini economy. He was appointed in June 2005, following 10 years working directly for His Highness Sheikh Salman bin Hamad Al Khalifa, Crown Prince, Commander-in-Chief of the Bahrain Defense Force and Chairman of the Economic Development Board. From 1995 to 1999, he was director of the Crown Prince's office. In 1999, he was appointed head of the court and also deputy head of the Crown Prince's International Scholarship Program. During this time, Sheikh Mohammed was heavily involved with the Crown Prince's initiatives to liberalize the telecommunications sector and with labor market and economic reforms. A keen motor sports enthusiast, Sheikh Mohammed was deputy board chairman of the Bahrain International Circuit and is a former vice president of the Bahrain Motor Club, now known as the Bahrain Motor Federation. Sheikh Mohammed, who is married with two sons and one daughter, was born on April 14, 1969. In 1992, he received a bachelor's degree in economic theory from the American University, Washington DC. Two years later, he received a post-graduate diploma in business studies from the London School of Economics. (source: Bahrain Economic Development Board) E-mail to a friend .</span><span>Sheikh Mohammed bin Isa Al Khalifa steers Bahrain's economic growth .
+Says Bahrain's strength is its "human capital" in the finance sector .
+Calls on world to unite to resolve nuclear dispute with Iran .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-9-1" ><div class="show-scrollbars"><span>ALGIERS, Algeria (CNN) -- Rescuers are sifting through the rubble of the United Nations headquarters in Algiers hoping to find survivors after a powerful bomb ripped off the building's facade and leveled nearby U.N. offices. Rescuers and bomb experts search for survivors in the rubble of a destroyed building. It was one of two suspected car bombs that struck Algiers within 10 minutes of each other. The death toll is unclear: the official government count is at least 26, but hospital sources in Algiers told CNN affiliate BFM-TV that 76 people were killed in the two blasts. A statement from the United Nations said 45 people were reported killed. Algerian Interior Minister Noureddine Yazid Zerhouni blamed a militant Islamic group with ties to al Qaeda for the attacks, which also targeted a building housing Algeria's Constitutional Council and Supreme Court. In a posting on an Islamist Web site, the group al Qaeda Islamic Maghreb claimed responsibility. CNN could not immediately corroborate that claim, but the Web site is known to carry messages, claims and videos from al Qaeda and other militant groups. In the posting, the bombers were identified as Sheikh Ibrahim Abu Othman and Abdel Rahman Abu Abdel Nasser al-Asimi. It said two trucks were filled with "no less than 800 kg (1,763 pounds) of explosives." The group called the operation "another successful conquest and a second epic that the knights of faith have dictated with their blood, defending the wounded Islamic nation and in defiance to the Crusaders and their agents, the slaves of America and the sons of France." At least 10 U.N. staffers were among those killed, according to U.N. spokeswoman Marie Okabe. The offices of the UN High Commissioner for Refugees -- located across the street from the U.N. headquarters -- were leveled by a blast that struck about 9:30 a.m. (3:30 a.m. ET) Tuesday. "Our offices are basically destroyed now, nothing works," UNHCR spokesman Ron Redmond said from its Geneva headquarters. Watch his full interview . He said rescuers are working into the night trying to get to the trapped U.N. workers. "It's a very serious situation still with the U.N. in Algiers," he said. In a strongly worded statement, U.N. Secretary-General Ban Ki-moon condemned what he called "an abjectly cowardly strike against civilian officials serving humanity's highest ideals under the U.N. banner." "The perpetrators of these crimes will not escape the strongest possible condemnation -- and ultimate punishment -- by Algerian authorities and the international community," Ban said in the written statement. He said he has sent senior advisers and other top U.N. officials to head to Algiers to assist in the investigation and rescue effort. Most of those killed in the coordinated attacks were victims of the first suspected car bombing near the Constitutional Council -- which oversees elections -- and Supreme Court in the Algiers neighborhood of Ben Aknoun, according to the state-run Algeria Press Agency. That blast struck a bus outside the targeted building, killing many of those on board, the news agency reported. One man said he heard the first blast then the second exploded in front of him. "I saw the trees falling and the glass shattering in front of me. I had to run away from the car," he said. Zerhouni said the attack was the work of the Salafist Group for Preaching and Combat (GSPC), the same group that took responsibility for an attack in April in downtown Algiers that killed 33 people. That group also uses the name al Qaeda Islamic Maghreb after merging with al Qaeda earlier this year. It abandoned small-scale attacks in favor of headline-grabbing blasts after it joined with al Qaeda. CNN International Security Correspondent Paula Newton said the merger combined the expertise of Algerian guerrillas with the operational ability of al Qaeda in North Africa, enabling the group to penetrate the usually extensive security in high-profile areas of Algiers. She said the group's goal is to destabilize countries like Algeria, Morocco and Tunisia, which it sees as enemies of the Islamic state. Zerhouni said police interrogations of GSPC members arrested in the wake of the April attack revealed that Algeria's Constitutional Council and Supreme Court were on a list of GSPC targets. Algeria, which has a population of 33 million, is still recovering from more than a decade of violence that began after the military government called a halt to elections which an Islamist party was poised to win. Tens of thousands of people died in the unrest. Although the country has remained relatively peaceful, recent terrorist attacks have raised fears of a slide back to violence. E-mail to a friend .</span><span>Two bombs explode in Algerian capital near government and U.N. buildings .
+Algeria blames group linked to al Qaeda .
+Official death toll is 26, but some sources say as high as 76 .
+U.N. officials say five of its staff killed and 14 missing .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-10-1" ><div class="show-scrollbars"><span>BAGHDAD, Iraq (CNN) -- The women are too afraid and ashamed to show their faces or have their real names used. They have been driven to sell their bodies to put food on the table for their children -- for as little as $8 a day. Suha, 37, is a mother of three. She says her husband thinks she is cleaning houses when she leaves home. "People shouldn't criticize women, or talk badly about them," says 37-year-old Suha as she adjusts the light colored scarf she wears these days to avoid extremists who insist women cover themselves. "They all say we have lost our way, but they never ask why we had to take this path." A mother of three, she wears light makeup, a gold pendant of Iraq around her neck, and an unexpected air of elegance about her. "I don't have money to take my kid to the doctor. I have to do anything that I can to preserve my child, because I am a mother," she says, explaining why she prostitutes herself. Anger and frustration rise in her voice as she speaks. "No matter what else I may be, no matter how off the path I may be, I am a mother!"  Watch a woman describe turning to prostitution to "save my child" » . Her clasped hands clench and unclench nervously. Suha's husband thinks that she is cleaning houses when she goes away. So does Karima's family. "At the start I was cleaning homes, but I wasn't making much. No matter how hard I worked it just wasn't enough," she says. Karima, clad in all black, adds, "My husband died of lung cancer nine months ago and left me with nothing." She has five children, ages 8 to 17. Her eldest son could work, but she's too afraid for his life to let him go into the streets, preferring to sacrifice herself than risk her child. She was solicited the first time when she was cleaning an office. "They took advantage of me," she says softly. "At first I rejected it, but then I realized I have to do it." Both Suha and Karima have clients that call them a couple times a week. Other women resort to trips to the market to find potential clients. Or they flag down vehicles. Prostitution is a choice more and more Iraqi women are making just to survive. "It's increasing," Suha says. "I found this 'thing' through my friend, and I have another friend in the same predicament as mine. Because of the circumstance, she is forced to do such things." Violence, increased cost of living, and lack of any sort of government aid leave women like these with few other options, according to humanitarian workers. "At this point there is a population of women who have to sell their bodies in order to keep their children alive," says Yanar Mohammed, head and founder of the Organization for Women's Freedom in Iraq. "It's a taboo that no one is speaking about." She adds, "There is a huge population of women who were the victims of war who had to sell their bodies, their souls and they lost it all. It crushes us to see them, but we have to work on it and that's why we started our team of women activists." Her team pounds the streets of Baghdad looking for these victims often too humiliated to come forward. "Most of the women that we find at hospitals [who] have tried to commit suicide" have been involved in prostitution, said Basma Rahim, a member of Mohammed's team. The team's aim is to compile information on specific cases and present it to Iraq's political parties -- to have them, as Mohammed puts it, "come tell us what [they] are ... going to do about this." Rahim tells the heartbreaking story of one woman they found who lives in a room with three of her children: "She has sex while her three children are in the room, but she makes them stand in separate corners." According to Rahim and Mohammed, most of the women they encounter say they are driven to prostitution by a desperate desire for survival in the dangerously violent and unforgiving circumstances in Iraq. "They took this path but they are not pleased," Rahim says. Karima says when she sees her children with food on the table, she is able to convince herself that it's worth it. "Everything is for the children. They are the beauty in life and, without them, we cannot live." But she says, "I would never allow my daughter to do this. I would rather marry her off at 13 than have her go through this." Karima's last happy memory is of her late husband, when they were a family and able to shoulder the hardships of life in today's Iraq together. Suha says as a young girl she dreamed of being a doctor, with her mom boasting about her potential in that career. Life couldn't have taken her further from that dream. "It's not like we were born into this, nor was it ever in my blood," she says. What she does for her family to survive now eats away at her. "I lay on my pillow and my brain is spinning, and it all comes back to me as if I am watching a movie." E-mail to a friend .</span><span>Aid workers: Violence, increased cost of living drive women to prostitution .
+Group is working to raise awareness of the problem with Iraq's political leaders .
+Two Iraqi mothers tell CNN they turned to prostitution to help feed their children .
+"Everything is for the children," one woman says .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-11-1" ><div class="show-scrollbars"><span>Editor's note: In our Behind the Scenes series, CNN correspondents share their experiences in covering news and analyze the stories behind the events. Here, Soledad O'Brien takes users inside a jail where many of the inmates are mentally ill. An inmate housed on the "forgotten floor," where many mentally ill inmates are housed in Miami before trial. MIAMI, Florida (CNN) -- The ninth floor of the Miami-Dade pretrial detention facility is dubbed the "forgotten floor." Here, inmates with the most severe mental illnesses are incarcerated until they're ready to appear in court. Most often, they face drug charges or charges of assaulting an officer --charges that Judge Steven Leifman says are usually "avoidable felonies." He says the arrests often result from confrontations with police. Mentally ill people often won't do what they're told when police arrive on the scene -- confrontation seems to exacerbate their illness and they become more paranoid, delusional, and less likely to follow directions, according to Leifman. So, they end up on the ninth floor severely mentally disturbed, but not getting any real help because they're in jail. We toured the jail with Leifman. He is well known in Miami as an advocate for justice and the mentally ill. Even though we were not exactly welcomed with open arms by the guards, we were given permission to shoot videotape and tour the floor.  Go inside the 'forgotten floor' » . At first, it's hard to determine where the people are. The prisoners are wearing sleeveless robes. Imagine cutting holes for arms and feet in a heavy wool sleeping bag -- that's kind of what they look like. They're designed to keep the mentally ill patients from injuring themselves. That's also why they have no shoes, laces or mattresses. Leifman says about one-third of all people in Miami-Dade county jails are mentally ill. So, he says, the sheer volume is overwhelming the system, and the result is what we see on the ninth floor. Of course, it is a jail, so it's not supposed to be warm and comforting, but the lights glare, the cells are tiny and it's loud. We see two, sometimes three men -- sometimes in the robes, sometimes naked, lying or sitting in their cells. "I am the son of the president. You need to get me out of here!" one man shouts at me. He is absolutely serious, convinced that help is on the way -- if only he could reach the White House. Leifman tells me that these prisoner-patients will often circulate through the system, occasionally stabilizing in a mental hospital, only to return to jail to face their charges. It's brutally unjust, in his mind, and he has become a strong advocate for changing things in Miami. Over a meal later, we talk about how things got this way for mental patients. Leifman says 200 years ago people were considered "lunatics" and they were locked up in jails even if they had no charges against them. They were just considered unfit to be in society. Over the years, he says, there was some public outcry, and the mentally ill were moved out of jails and into hospitals. But Leifman says many of these mental hospitals were so horrible they were shut down. Where did the patients go? Nowhere. The streets. They became, in many cases, the homeless, he says. They never got treatment. Leifman says in 1955 there were more than half a million people in state mental hospitals, and today that number has been reduced 90 percent, and 40,000 to 50,000 people are in mental hospitals. The judge says he's working to change this. Starting in 2008, many inmates who would otherwise have been brought to the "forgotten floor"  will instead be sent to a new mental health facility -- the first step on a journey toward long-term treatment, not just punishment. Leifman says it's not the complete answer, but it's a start. Leifman says the best part is that it's a win-win solution. The patients win, the families are relieved, and the state saves money by simply not cycling these prisoners through again and again. And, for Leifman, justice is served. E-mail to a friend .</span><span>Mentally ill inmates in Miami are housed on the "forgotten floor"
+Judge Steven Leifman says most are there as a result of "avoidable felonies"
+While CNN tours facility, patient shouts: "I am the son of the president"
+Leifman says the system is unjust and he's fighting for change .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-12-1" ><div class="show-scrollbars"><span>ISLAMABAD, Pakistan (CNN) -- Hours after declaring a state of emergency Saturday, Pakistani President Pervez Musharraf ordered troops to take a television station's equipment and put a popular opposition leader under house arrest. President Pervez Musharraf explains his actions in a televised address Saturday. Musharraf also suspended the constitution and dismissed the Pakistan Supreme Court's chief justice for the second time. On Sunday, police arrested the Javed Hashmi, the acting president of ex-Prime Minister Nawaz Sharif's opposition party was arrested, along with 10 aides, The Associated Press reported. Hashimi was arrested when he stepped outside his house in the central city of Multan, AP reported. The country is at a critical and dangerous juncture -- threatened by rising tensions and spreading terrorism, Musharraf said in a televised address to the nation after declaring martial law. As Pakistani police patrolled the streets of the capital, Islamabad, Musharraf said his actions were "for the good of Pakistan."  Watch Musharraf's speech » . There was quick condemnation from within and outside his country. The Supreme Court declared the state of emergency illegal, claiming Musharraf -- who also is Pakistan's military chief -- had no power to suspend the constitution, Chief Justice Iftikhar Mohammed Chaudhry said. Shortly afterward, government troops came to Chaudhry's office and told him the president had dismissed him from his job. Justice Abdul Hameed Dogar was quickly appointed to replace him, according to state television. It was the second time Chaudhry was removed from his post. His ousting by Musharraf in March prompted massive protests, and he was later reinstated.  See a timeline of upheaval in Pakistan » . Musharraf complained in his speech that the media -- which he made independent -- have not been supportive, but have reported "negative" news. Early Sunday, two dozen policemen raided the offices of AAJ-TV in Islamabad, saying they had orders to take the station's equipment. The government also issued a directive warning the media that any criticism of the president or prime minister would be punishable by three years in jail and a fine of up to $70,000,  said Talat Hussain, director of news and current affairs for AAJ.  Watch a former Pakistani P.M. call the developments in his country 'disturbing' » . U.S. Secretary of State Condoleezza Rice -- who is in Turkey for a conference with Iraq and neighboring nations -- said The United States doesn't support any extra-constitutional measures taken by Musharraf. "The situation is just unfolding," Rice said. "But anything that takes Pakistan off the democratic path, off the path of civilian rule is a step backward, and it's highly regrettable." A senior Pakistani official said the emergency declaration will be "short-lived," and will be followed by an interim government. Martial law is only a way to restore law and order, he said. Mahmud Ali Durrani, Pakistan's ambassador to the United States, agreed. "I can assure you, he will move on the part of democracy that is promised ... and you will see that happen shortly." Musharraf was re-elected president in October, but the election is not yet legally official, because the Supreme Court is hearing constitutional challenges to Musharraf's eligibility filed by the opposition. Under the constitution, Musharraf couldn't run for another term while serving both as president and military leader. The court allowed the election to go ahead, however, saying it would decide the issue later. Some speculated that the declaration of emergency is tied to rumors the court was planning to rule against Musharraf. Musharraf has said repeatedly he will step down as military leader before the next term begins on November 15 and has promised to hold parliamentary elections by January 15. Meanwhile, popular opposition leader Imran Khan said early Sunday that police surrounded his house in Lahore, barged in and told him he was under house arrest. Musharraf also had Khan placed under house arrest during a government crackdown in March 2006. Asked about Musharraf's actions Saturday, Khan said, "We are going to oppose this in every way." "None of us accept ... this whole drama about emergency." Former Prime Minister Benazir Bhutto -- who arrived in Karachi Saturday from Dubai, where she had gone to visit her family -- described a "wave of disappointment" at Musharraf's actions.  Watch crowds surround Bhutto upon her arrival » . Bhutto -- who returned to Pakistan last month after several years in exile -- wants to lift her Pakistan People's Party to victory in January's parliamentary election in the hope she can have a third term as prime minister. The nation's political atmosphere has been tense for months, with Pakistani leaders in August considering  a state of emergency because of the growing security threats in the country's lawless tribal regions. But Musharraf, influenced in part by Rice, held off on the move.  Watch a report on the volatile situation in Pakistan » . Musharraf, who led the 1999 coup as Pakistan's army chief, has seen his power erode since the failed effort to oust Chaudhry. His administration is also struggling to contain a surge in Islamic militancy. E-mail to a friend . Copyright 2007 CNN. All rights reserved.This material may not be published, broadcast, rewritten, or redistributed. Associated Press contributed to this report.</span><span>NEW: President Musharraf orders troops to take a television station's equipment .
+Pakistani opposition leader Imran Khan says he's under house arrest .
+President Musharraf says his actions are for the good of the country .
+White House calls Musharraf's emergency declaration "disappointing"</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-13-1" ><div class="show-scrollbars"><span>LONDON, England (CNN) -- A chronology of bombings and attempted bomb attacks in the mainland UK since the 1970s: . Police close off streets around Haymarket, in London's busy theater district. June 29, 2007: Police defuse a bomb consisting of 200 liters of fuel, gas cylinders and nails found in an abandoned car in Haymarket, central London. A second car packed with gas and nails was later found to have been parked just a few hundred yards from the first, before it was towed away by traffic wardens in the early hours of Friday for violating parking restrictions. Police say two vehicles clearly linked. July 21, 2005: Two weeks after the deadly 7/7 bombings, four men are alleged to have attempted to carry out a second wave of attacks against London's transport network at three London underground stations and aboard a bus. But their alleged rucksack bombs fail to explode. July 7, 2005: Four suicide bombers detonate themselves aboard three underground trains and a bus in a morning rush hour attack against London's transport network, killing 52 people and injuring around 700 more. Al Qaeda claims responsibility in a video statement. August 2004: Anti-terrorist police disrupt a plot by Islamic militants to blow up targets including the Ministry of Sound nightclub and the Bluewater shopping center in southeast England using explosives packed into limousines and large vehicles. Seven men are convicted in May 2007 and sentenced to up to 26 years in prison. March 2001: A car bomb explodes outside the BBC's London headquarters, wounding one man. Police blame the Real IRA, a republican splinter group opposed to the IRA's cease fire. April 1999: Three people die when a nail bomb explodes in the Admiral Duncan pub in London's gay district -- the third in a spate of series of nail bomb attacks also targeting immigrant areas of the city that left dozens injured. A 23-year-old self-declared "Nazi", David Copeland, is sentenced to six life terms. June 1996: A massive IRA bomb explodes in a shopping center in central Manchester, injuring more than 200 people. February 1996: Two people die as IRA terrorists detonate a bomb in London's Docklands area, causing damage estimated at around $170m and ending the group's 17-month cease fire. April 1993: An IRA truck bomb devastates part of London's financial district, killing one and wounding 44. March 1993: Two boys aged three and 12 are killed and dozens are injured by two bombs left in litter bins in Warrington, northern England. The IRA admits planting the bombs. April 1992: A huge IRA car bomb in London's financial district kills three people and wounds 91. February 1991: IRA terrorists launch a mortar attack at Prime Minister John Major's Downing Street offices. No-one is injured. September 1989: Eleven people die and 22 are wounded when an IRA bomb explodes at a Royal Marine music school in Deal, southern England. December 1988: A Pan Am airliner explodes over the Scottish town of Lockerbie, killing 259 aboard and 11 people on the ground. Libyan agent Abdel Basset al-Megrahi, convicted of the attack in 2001, was this week granted the right to mount a fresh appeal. (Read about Lockerbie bomber) October 1984: Five people die in an IRA bomb attack on a hotel in Brighton, southern England, where Prime Minister Margaret Thatcher and her cabinet are staying for the Conservative Party's annual conference. December 1983: An IRA bomb at London's Harrods department store kills six people. July 1982: Two IRA bomb attacks on soldiers in London's parks kill 11 people and wound 50. October-November 1974: A wave of IRA bombs in British pubs in Birmingham and Guildford kill 28 people and wound more than 200. February 1974: A coach carrying soldiers and families in northern England is bombed by the IRA, killing 12 and wounding 14. E-mail to a friend .</span><span>Two cars loaded with gasoline and nails found abandoned in London Friday .
+52 people killed on July 7, 2005 after bombs exploded on London bus, trains .
+British capital wracked by violence by the IRA for years .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-14-1" ><div class="show-scrollbars"><span>LONDON, England (CNN) -- Previously unseen footage of Diana, Princess of Wales, taken just hours before she was killed in a car crash, has been shown to the jury at the inquest into her death. The footage showed Diana and Dodi step into an elevator at the Ritz Hotel. Images taken from a security camera at the Ritz Hotel in Paris show the 36-year-old smiling as she and her lover Dodi Fayed step into an elevator and later walk out of the hotel. Further footage shows Fayed visiting a jeweler's shop, images that could lend support to claims that he was buying an engagement ring. Earlier, a British coroner at the inquest said tt may never be known for certain whether Princess Diana was pregnant when she died in the Paris car crash. Lord Justice Scott Baker told the jury at the inquest into the deaths of the princess and her lover Dodi Fayed that scientific evidence might be unable to demonstrate "one way or the other" whether she was in the early stages of pregnancy. But he said they would hear "intimate" details of her personal life.  Watch footage of Diana's last hours » . Baker told the 11 members of the jury -- six women and five men -- Diana may have been on the contraceptive pill and that evidence she was poised to get engaged to Dodi on the night she died was contradictory. On Tuesday the judge, who is acting as coroner in the case, told the jury that a famous image taken in summer 1997 showing Diana wearing a swimsuit could not be proof she was pregnant with Dodi's child as she had not started a relationship with him at that stage. The jury is set to hear "scene setting" evidence, including CCTV and a tourist video. The inquest to establish cause of death is expected to be a six-month process. Fayed's father, Mohammed Al Fayed, has contended from the start that Diana and his son were murdered because the royal family "could not accept that an Egyptian Muslim could eventually be step-father to the future king of England," referring to Diana's son Prince William. "I'm hoping for justice," Al Fayed said outside court. "At last, we're going to have a jury from ordinary people and I hope to reach the decision which I believe that my son and Princess Diana have been murdered by the royal family." Baker told the jury of Al Fayed's allegations, but again reminded them that they were responsible for deciding the facts of the case, but not to assign blame or guilt. "You have to decide four important, but limited factual questions: who the deceased were, when they came by their deaths, where they came by their deaths and how they came by their deaths," Baker said, according to inquest transcripts. "The first three questions are unlikely to give rise to any difficulty. The fourth is a rather wider question and is directed towards the means by which they died." Diana, 36, and 42-year-old Dodi Fayed were killed on August 31, 1997 when the Mercedes-Benz they were traveling in hit a pillar in the Pont de l'Alma tunnel in Paris. They were being pursued at the time by the paparazzi after leaving the Ritz Hotel. Driver Henri Paul, who was also killed, was drunk and driving at high speed. Bodyguard Trevor Rees-Jones was the sole survivor. Next week, the jury is scheduled to travel to Paris to see the crash site, along the River Seine. They are also expected to hear testimony from the paparazzi who were present after the accident. In its evidence section, the Web site for the inquest has posted previously unpublished pictures taken by paparazzi of the limo before and immediately after the accident. One is a closeup -- looking into the front of the vehicle -- that shows Diana, Fayed, Paul and Rees-Jones minutes before the crash. E-mail to a friend .</span><span>NEW: Jury shown new footage of Diana taken hours before her death .
+Diana and Dodi Fayed inquest jury to hear "scene setting" evidence .
+On Tuesday coroner outlined controversial claims, published new images .
+Court will make final decision on what happened in car crash 10 years ago .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-15-1" ><div class="show-scrollbars"><span>PARIS, France (CNN) -- Interpol on Monday took the unprecendented step of making a global appeal for help to identify a man from digitally reconstructed photos taken from the Internet that it said showed him sexually abusing underage boys. This moving image shows how police used software to unscramble the image. (Source: Interpol) The man's face was disguised by digital alteration, but the images were capable of being restored, according to a bulletin from Interpol -- the international police agency based in Lyon, France. Interpol Secretary General Ronald K. Noble said the pictures have been on the the Internet for several years, but investigators have been unable to determine the man's identity or nationality. "We have tried all other means to identify and to bring him to justice, but we are now convinced that without the public's help this sexual predator could continue to rape and sexually abuse young children whose ages appear to range from six to early teens," Noble said. He said there is "very good reason to believe that he travels the world in order to sexually abuse and exploit vulnerable children." Interpol has determined the photos were taken in Vietnam and Cambodia. "The decision to make public this man's picture was not one which was taken lightly," said Kristin Kvigne, assistant director of Interpol's Trafficking in Human Beings Unit. The suspect's photo and more information can be seen online at Interpol's Web site. E-mail to a friend .</span><span>Man posted photos on the Internet of himself sexually abusing underage boys .
+Computer experts managed to undo digital masking to reveal the man .
+Man abused 12 boys in Vietnam and Cambodia .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-16-1" ><div class="show-scrollbars"><span>PARIS, France -- AC Milan's Brazilian midfielder Kaka has been named European player of the year, lifting France Football's Ballon d'Or award. Kaka has already claimed all of the game's major prizes. His success comes two years after his fellow countryman, Barcelona's Ronaldinho, claimed the award . The 25-year-old Kaka was a major factor in AC Milan's triumphant Champions League campaign. The runner-up was Manchester United's Portuguese winger Cristiano Ronaldo with Barcelona's Argentinian midfielder Lionel Messi finishing third. "This is very special for me - it culminates an astonishing year for me," Kaka said. "It's the top prize around and the only way to win something like this is to play for a team like AC Milan. It's great to be part of a team that wins." At 25 years old, he has already won all the game's major prizes, individually and collectively. He was part of Brazil's 2002 World Cup winning squad, although he was limited to just 19 minutes as a substitute against Costa Rica. He was top scorer in last season's Champions League, helping Milan to avenge their loss to Liverpool in the 2005 final. He won the Italian domestic title in his first season at Milan having joined from Brazilians Sao Paulo for$ 8.5 million, a sum that Milan president Silvio Berlusconi then described as peanuts. E-mail to a friend .</span><span>Brazilian Kaka is named European player of the year .
+The AC Milan player is chosen ahead of Cristiano Ronaldo of Manchester Utd .
+Argentine Lionel Messi of Barcelona finishes third .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-17-1" ><div class="show-scrollbars"><span>UNITED NATIONS (CNN) -- The United Nations is calling on NATO to do more to stop the Afghan opium trade after a new survey showed how the drug dominates Afghanistan's economy. Afghan villagers tend to opium poppies in Taliban-controlled Helmand province in April 2007. The report from the U.N.'s Office on Drugs and Crime shows the export value of this year's poppy harvest stood at around $4 billion, a 29 per cent increase over 2006. Despite Afghan security forces' efforts to curb the trade, 660 tons of heroin and morphine were trafficked out of the country in 2007, the report said. Opium is derived from poppies, and the data on cultivation was collected by examining satellite images and by assessments on the ground. The report said opium has accounted for more than half of Afghanistan's gross domestic product in 2007. InvestorWords.com defines GDP as the total market value of all final goods and services produced within a country in a given period of time, usually a calendar year. According to the U.N. survey, about a quarter of the earnings from opium go to farmers. The rest goes to district officials who collect taxes on the crop, to drug traffickers and to the insurgents and warlords who control the trade. Antonio Maria Costa, executive director of the U.N. Office on Drugs and Crime, urged NATO to take a more active role in countering the spread of the drug trade, which has increased dramatically since the American-led invasion to remove the hard-line Islamist government of the Taliban in October 2001. "Since drugs are funding the insurgency, NATO has a self-interest in supporting Afghan forces in destroying drug labs, markets and convoys," Costa said in a written statement to coincide with the release of the survey. "Destroy the drug trade and you cut off the Taliban's main funding source." James Appathurai, a NATO spokesman, said coalition forces were equally concerned by the rapid growth in the narcotics trade. "We share the U.N.'s concerns," Appathurai told CNN. "Drugs not only poison people, but they poison economies and governments, and it is in everyone's interest to stop this proliferation." He said NATO forces were providing assistance to Afghan police through training and transport but he said there were no plans to deploy coalition troops to intervene directly. "The issue of whether we can do more is certainly a live discussion for NATO, but at the moment this is a matter for the Afghan government," Appathurai said. Farming of opium poppies has been almost eradicated in the north and west of the country, Appathurai said. However, he said, in the lawless southern provinces and especially in the Taliban stronghold of Helmand, poppy production was going on largely unchecked. According to the report, U.N. observers have noticed a proliferation of heroin labs in neighboring countries and along trafficking routes. Costa said the labs are dependent on precursor chemicals, like acetic anhydride, that must be smuggled into the region. He called for tighter controls in chemical-producing countries and stronger intelligence-sharing between Afghanistan and its neighbors. "Drug trafficking is a transnational threat, and therefore national initiatives have their limitations," the U.N. drug chief said. Appathurai said the most effective way to curb the drug trade was tackling the insurgency head-on. He also said it was important to provide alternative work for poor Afghan farmers to encourage them to give up opium production. "You cannot have eradication in isolation. If we don't give them the support to produce alternative crops, then by wiping out their opium fields, you are only creating enemies for the future," he said. E-mail to a friend .</span><span>Study finds opium makes up half of Afghanistan's gross domestic product .
+Agency pushes NATO forces to attack skyrocketing problem aggressively .
+Drugs funds insurgency; poppy trade unchecked in Taliban strongholds .
+U.N. drug chief advocates providing income alternative for poppy farmers .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-18-1" ><div class="show-scrollbars"><span>WASHINGTON (CNN) -- Some Democrats appear to be wavering on a highly contentious House resolution labeling Turkey's treatment of Armenians in World War I as genocide. A KC-135 tanker lands at Incirlik Air Base in southern Turkey in 2003. Turkey, a longtime U.S. ally and NATO partner, was incensed by the resolution calling the killing of Armenians by Ottoman Turks genocide and threatened to block access to Incirlik Air Base after the resolution passed a House committee vote. The base, in southern Turkey near Syria, is a major resupply center for U.S. operations in Iraq and elsewhere in the Mideast and Asia. The Pentagon is preparing to set up new supply routes for troops in Iraq if Turkey cuts off U.S. access to the strategically important Incirlik, military officials said Tuesday. Ankara acknowledges the killings of Armenians during World War I but vehemently objects to the "genocide" label. The House Foreign Affairs Committee last week adopted the nonbinding resolution. House Speaker Nancy Pelosi said she would bring the measure to a vote of the full House sometime next month. But the Bush administration urged Congress to drop the issue, and some leading Democrats urged Pelosi not to bring it to the floor. Majority Leader Steny Hoyer signaled Tuesday that the vote might be put off. "I said I thought we would bring this up prior to us leaving here," said Hoyer of Maryland. "I have not changed on that, although I would be less than candid to say that there are a number of people who are revisiting their own positions. We will have to determine where everybody is." Democratic Rep. Ike Skelton, the chairman of the House Armed Services Committee, announced his opposition to the resolution last week. And Democratic Reps. Alcee Hastings of Florida and John Tanner of Tennessee, both members of the U.S. House delegation to NATO, urged Pelosi to reconsider in a letter released Tuesday. "More than half of the cargo flown into Iraq and Afghanistan comes through Incirlik Air Base, and this base would be a key component of any plans for redeployment of our troops in the future," they wrote. Lt. Gen. Carter Ham, the director of operations for the Joint Chiefs of Staff, said Pentagon planners are looking at "a broad range of options" to keep food, fuel and ammunition flowing to U.S. troops in Iraq if Turkey blocks Incirlik. "We're confident that we'll find ways to do that," Ham told reporters at the Pentagon. "There's likely to be some increased cost and some other implications for that, and obviously we'd prefer to maintain the access that we have." Defense Secretary Robert Gates echoed lawmakers' concerns last week. "About 70 percent of all air cargo going into Iraq goes through Turkey. ... About a third of the fuel that they consume goes through Turkey or comes from Turkey," Gates said. He also said that 95 percent of the Mine-Resistant Ambush-Protective vehicles, or MRAPs, being deployed in Iraq are flown through Turkey. The vehicles are built to withstand roadside bombs.  See Incirlik's key location » . The U.S. military issued a "warning order" a few days ago to ensure that alternative air crews, planes, fuel and routes are lined up if Turkey stops or restricts U.S. access to Incirlik, a source said. Jordan and Kuwait are among the alternatives the United States is considering. Some fear pursuit of the resolution would also embolden the Turks to attack Kurdish rebels in northern Iraq which could further complicate Iraqi stability, U.S. officials said. Incirlik offers 10,000- and 9,000-foot runways and 57 hardened aircraft shelters, according Globalsecurity.org, a source of background information about military issues. Globalsecurity said Incirlik has become a hub for cargo shipments to Iraq, taking over for Rhein-Main Air Base in Germany because it is closer to Iraq, reducing the strain on troops and aircraft. E-mail to a friend . CNN's Barbara Starr and Deirdre Walsh contributed to this report.</span><span>NEW: Majority Leader says a number of Dems are "revisiting their own positions"
+Turkey is upset about World War I "genocide" resolution in Congress .
+House resolution calls killing of Armenians "genocide"
+Incirlik Air Base is key point for U.S. military supply of Iraq mission .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-19-1" ><div class="show-scrollbars"><span>WASHINGTON (CNN) -- U.S. first lady Laura Bush -- in a rare foray into foreign policy -- called on Myanmar's military junta to "step aside," give up the "terror campaigns" against its people and allow for a democratic Myanmar in a commentary published in Wednesday's Wall Street Journal. U.S. first lady Laura Bush said the junta "should step aside to make way for a unified Burma." "Gen. Than Shwe and his deputies are a friendless regime," Bush said. "They should step aside to make way for a unified Burma [Myanmar] governed by legitimate leaders. "The rest of the armed forces should not fear this transition -- there is room for a professional military in a democratic Burma," Bush said, in keeping with the U.S. policy of still using Myanmar's former name. In Wednesday's commentary, Bush called on Myanmar's military leaders to release Aun Sung Suu Kyi and other opposition leaders so they can meet with and plan for a transition to democracy. "Meanwhile, the world watches -- and waits," Bush warns. "We know that Gen. Than Shwe and his deputies have the advantage of violent force. But Ms. Suu Kyi and other opposition leaders have moral legitimacy, the support of the Burmese people and the support of the world. "The regime's position grows weaker by the day. The generals' choice is clear: The time for a free Burma is now." The humanitarian rights situation in Myanmar has been a cause for the first lady in the past few months as the crisis there worsened. Myanmar state media has reported that 2,000 people were detained during the demonstrations and the crackdown against them -- under an emergency law imposed on September 25 banning assembly of more than five people -- and that 700 of those people have been released. The official death toll from Myanmar's leadership is at 10, but there are reports that hundreds were killed and thousands arrested in the wake of the demonstrations that peaked late September, which were led by Myanmar's Buddhist monks. On Tuesday morning, Bush received a phone call from U.N. Secretary-General Ban Ki-moon to update her on the efforts of his special envoy to Myanmar, Ibrahim Gambari. A representative of the secretary general said the call was a follow-up to a conversation they had weeks ago. Gambari met last week with the military junta leadership as well as with Nobel Peace Prize winner Suu Kyi, who is under house arrest in Yangon. The U.S. ambassador to the United Nations, Zalmay Khalilzad, told reporters that Laura Bush and her husband's administration believe that there is a "need to start preparing for transition" for Myanmar. "We believe it is very important that progress be made and prisoners be released and conditions for Aun Sung Suu Kyi be improved [so] that she can prepare for participation for negotiations for a transition," he said. E-mail to a friend .</span><span>Laura Bush calls on Myanmar junta to "step aside," allow for a democracy .
+Military leaders must give up the "terror campaigns" against its people, she says .
+Junta should release Aun Sung Suu Kyi and other opposition leaders, she says .
+Her rare foray into foreign policy was published in the Wall Street Journal .</span></div></td></tr></tbody>
+</table></div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">≈2.1546% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-4-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> characters long.
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>1 unexpected values found. ≈0.0003483% of 287113 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-3-content-block-2-cell-4-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Unexpected Value
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Count
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-4-2-content-2-cell-1-1" ><div class="show-scrollbars">Downton Abbey's famously grim butler, Mr Bates .</div></td><td id="section-3-content-block-2-cell-4-2-content-2-cell-1-2" ><div class="show-scrollbars">1</div></td></tr></tbody>
+</table></div></td><td id="section-3-content-block-2-cell-4-3" ><div class="show-scrollbars">≈0.00034829% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-5" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-5-content-block-1" class="col-12 p-0" >
+
+    <div id="section-5-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-5-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-5-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-5-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>

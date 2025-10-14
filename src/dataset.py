@@ -40,6 +40,14 @@ def remove_nulls_or_empty_or_duplicates(dataframe: pl.DataFrame) -> pl.DataFrame
     return dataframe.unique(subset=["article", "highlights"])
 
 
+def remove_short_articles(dataframe:pl.DataFrame) -> pl.DataFrame:
+    """
+    Remove short articles
+    """
+
+    dataframe = dataframe.filter(pl.col("article").str.len_chars() > 50)
+    return dataframe
+
 @app.command()
 def main():
 
@@ -65,8 +73,7 @@ def main():
     Path(PROCESSED_DATA_DIR).mkdir(parents=True, exist_ok=True)
 
     for name, df in tqdm(splits.items()):
-        df_clean = remove_nulls_or_empty_or_duplicates(remove_special_characters(df))
-        print(df_clean.height)
+        df_clean = remove_short_articles(remove_nulls_or_empty_or_duplicates(remove_special_characters((df))))
         df_clean.write_parquet(PROCESSED_DATA_DIR / f"clean_{name}.parquet")
 
     logger.success("Processing dataset complete.")

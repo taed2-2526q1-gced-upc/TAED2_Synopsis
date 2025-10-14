@@ -1,0 +1,126 @@
+{
+  "expectations": [
+    {
+      "id": "9ca8b4fe-d2c3-4106-97aa-2daebe8d4345",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "c244f38c-355d-4b7b-be78-b8b7b9f95757",
+      "kwargs": {
+        "column": "id",
+        "type_": "str"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "123519c6-1e7f-416c-a46d-edf81451b73c",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "774f34ae-b0cb-45c0-8663-b57535cab50a",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "8dd044d4-8fd3-4ea6-8a19-eb13d246b6c4",
+      "kwargs": {
+        "column": "article"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "dede2da9-4ee5-4273-ac97-74cc03dc8f7b",
+      "kwargs": {
+        "column": "article",
+        "type_": "str"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "7b4ecf07-127b-48b9-9790-bf2771f34070",
+      "kwargs": {
+        "column": "article"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "2817646a-d040-4fe7-8178-40badd4fc8fd",
+      "kwargs": {
+        "column": "article",
+        "min_value": 50,
+        "strict_min": true
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_value_lengths_to_be_between"
+    },
+    {
+      "id": "4ec382de-45b7-4a1b-92a0-c85c80a02bd3",
+      "kwargs": {
+        "column": "highlights"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "030f2efc-7627-4fbb-9bec-c3bd721d92f5",
+      "kwargs": {
+        "column": "highlights",
+        "type_": "str"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "34d7206b-694c-4993-b722-dff635356fa5",
+      "kwargs": {
+        "column": "highlights"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "0bcc0eba-8cad-49f1-8219-a0c97623257c",
+      "kwargs": {
+        "column_list": [
+          "article",
+          "highlights"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_compound_columns_to_be_unique"
+    }
+  ],
+  "id": "793cf347-f9a6-40d9-bd8c-31586f2ecb00",
+  "meta": {
+    "great_expectations_version": "1.7.0"
+  },
+  "name": "data_quality_validation",
+  "notes": null
+}

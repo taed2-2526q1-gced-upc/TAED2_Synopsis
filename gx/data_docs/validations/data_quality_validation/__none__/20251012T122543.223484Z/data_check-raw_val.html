@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251012T122720.212033Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-12T14:25:43Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">12</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">11</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">1</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈91.67%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-d0e8ad53-23f8-41b3-9dc6-3f24afba8817" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-d0e8ad53-23f8-41b3-9dc6-3f24afba8817 class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-12T14:25:43Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251012T122621.446827Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >52ba3d84159d70acea4faa0fe4bda908</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\raw\validation.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-5-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> and less than or equal to <span class="badge badge-secondary" >5000</span> characters long.
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>3409 unexpected values found. ≈25.5% of 13368 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-2-content-block-2-cell-5-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-1-1" ><div class="show-scrollbars">(CNN)"This is going to be a test for Serena Williams. We're going to find out what she's made of. How mentally tough she really is." Those were the words of tennis analyst Mary Joe Fernandez in 2001, early into Serena Williams' decider with Kim Clijsters in the final of one of tennis' most prestigious tournaments. The match was being televised on one of the biggest sports networks in the world, ESPN. The then 17-year-old Clijsters had just held to love amid vociferous cheers and -- in a breach of tennis etiquette -- a large portion of the fans on center court at the event now known as the BNP Paribas Open roared approvingly when Williams struck a double fault to begin the next game. Despite Williams growing up about 130 miles away in a suburb of Los Angeles, while Clijsters hailed from Belgium, there was clearly no home-court advantage. Williams' father, Richard, and older sister, Venus, were booed as they made their way to their seats prior to the finale, with Richard claiming in USA Today he was the victim of racial abuse. Venus Williams, meanwhile, said in a press conference at her next tournament she "heard whatever he heard." It was Richard Williams who shaped his daughters into grand slam winners from a humble background, bereft of the type of money used to help manufacture many a champion. "One guy said, 'I wish it was '75, we'd skin you alive,'" Richard Williams told USA Today. "I had trouble holding back tears. I think Indian Wells disgraced America." Charlie Pasarell, then the tournament director, said in the same story that he didn't discount Richard Williams was racially abused. CNN.com did not hear back from Pasarell when it put in an interview request for him and Clijsters declined an interview request. The fans' reaction apparently stemmed from the sisters' semifinal -- or lack of it. Venus Williams pulled out a mere minutes prior to the start, citing a knee injury. Whispers of Richard Williams pre-determining the outcome grew, no doubt aided by the comments of Elena Dementieva. After Venus Williams beat Dementieva in the quarterfinals, the Russian said the sisters' father would "decide" who won. Serena Williams, who was 19 back then, ultimately passed the 'test' that day against Clijsters, judging by the result: A three-set win. Serena Williams has certainly, too, shown her mental toughness over the years, adding 18 grand slam singles titles to the one she won prior to 2001. But what transpired tarnished the tournament, the sport and hurt one of tennis' all-time greats to such an extent that she stayed away from Indian Wells. Until now. Serena Williams plays her first match in Indian Wells in 14 years on Friday, saying she was "following her heart" in deciding to return. In the years that have passed since 2001, Williams went from teen to young adult to veteran, all the while collecting major titles elsewhere. "It has been difficult for me to forget spending hours crying in the Indian Wells locker room after winning in 2001, driving back to Los Angeles feeling as if I had lost the biggest game ever -- not a mere tennis game but a bigger fight for equality," Serena Williams told Time.com in February. "Emotionally it seemed easier to stay away. "There are some who say I should never go back. There are others who say I should've returned years ago. I understand both perspectives very well and wrestled with them for a long time. "I'm just following my heart on this one." Raymond Moore, a former owner of the tournament and now its chief executive, was "elated" to have Serena Williams back in the field. "In the past, the things that happened, there were no winners," Moore told CNN.com. "I think it was a terrible incident. Regrettable from all sides. Now, Serena has been able to change that. We're grateful, excited and happy and we're going to welcome her with open arms. "In terms of her reception, I would like her to be here feeling that her decision was received with the greatest and warmest reception possible." But Serena Williams will be the lone Grand Slam winner in her family attending. Serena speaks about nerves before 1st match back at Indian Wells . Even with the best efforts of the tournament -- now owned by billionaire Larry Ellison -- Venus Williams is continuing her boycott, as is Richard Williams, according to Moore. The siblings' mom, Oracene Price, will be alongside Serena Williams, though, added Moore. Serena Williams told reporters in Indian Wells on Thursday that her father, mother and Venus Williams gave her their blessing when she contemplated coming back to Indian Wells. "We wanted to get Venus," said Moore. "In fact we'd like to welcome the whole family. But Venus I think is not quite in the same place as Serena is. And so we've not been successful in enticing her to enter or take a wild card. "But Oracene is coming and so are some other family members." Serena Williams scoffed at suggestions that the sisters' match in Indian Wells -- or any other between them -- was fixed. "Throughout my whole career, integrity has been everything to me," she told Time. "It is also everything and more to Venus. The false allegations that our matches were fixed hurt, cut and ripped into us deeply. "The under-current of racism was painful, confusing and unfair. In a game I loved with all my heart, at one of my most cherished tournaments, I suddenly felt unwelcome, alone and afraid." Reflecting on the incident, Bart McGuire, the chief executive of the women's tour in 2001, said Venus Williams had been suffering from a genuine injury and that the notion that Richard Williams dictated the outcome of matches between his daughters was off the mark. But he admitted things could have been handled better. Venus Williams, for example, might have explained her withdrawal to fans on court and then signed autographs, he said, citing the example of last year's World Tour Finals. Roger Federer withdrew from the final in London -- but not before he addressed fans and signed autographs. What happened in the final between Serena Williams and Clijsters was awful, said McGuire. "I thought it was horrible," he told CNN.com. "I thought it was very tough on the players. "By that time I'd known enough to know that Venus had been significantly injured and that it was not a set-up of any kind. I thought it was unfair to Serena and Kim." Serena Williams is twice a champion at the tournament and winning this year would be "fantastic," said Moore. But even if not, he added: "I think it's a wonderful ending in closing an ugly chapter. We're just looking forward, we're not looking backward."</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-2-1" ><div class="show-scrollbars">(CNN)A U.S. Air Force veteran who allegedly tried to join ISIS in Syria but was turned back by Turkish authorities before he could get to the war-torn country entered a not guilty plea to terror-related charges Wednesday in a federal court in New York. Tairod Nathan Webster Pugh, accused of making the foiled attempt in January, was indicted by a grand jury on charges of trying to give material support to the terror group and obstruction of justice, the U.S. Justice Department said in a two-count indictment announced Tuesday. Among the evidence, prosecutors allege: Investigators discovered on his laptop computer a letter saying he wanted to "use the talents and skills given to me by Allah to establish and defend the Islamic States," and a chart of crossing points between Turkey and Syria, where ISIS controls some territory. Who has been recruited to ISIS from the West? Pugh, a 47-year-old convert to Islam and a former New Jersey resident who served in the Air Force from 1986 to 1990, was arrested upon his return to the United States in January, the Justice Department said. "Pugh, an American citizen and former member of our military, allegedly abandoned his allegiance to the United States and sought to provide material support to ISIL," Assistant U.S. Attorney General John Carlin said, using an alternate acronym for the Islamist terror group that controls territory in parts of Iraq and Syria. At his arraignment Wednesday in U.S. District Court in Brooklyn, Pugh appeared in a black T-shirt and khaki pants and stated his name. He pleaded not guilty through his attorney, Michael Schneider. The defendant, a former avionics instrument system specialist in the Air Force, flew from Egypt to Turkey on January 10, weeks after being fired from a Middle East-based job as an airplane mechanic, U.S. authorities allege. Why is ISIS so successful at luring Westerners? But Turkey denied him entry. In the indictment, U.S. authorities said Turkey was likely suspicious Pugh was headed for Syria. Instead Turkish officials sent him on a return flight to Egypt, where he was detained. In Egypt, he was carrying multiple electronic devices, "including four USB thumb drives that had been stripped of their plastic casings and an iPod that had been wiped clean of data," the Justice Department said in a statement. Pugh had purposefully tampered with the devices to prevent others from getting access to his electronic media, the indictment said. Pugh was deported to the United States, where agents with the FBI's Joint Terrorism Task Force obtained a warrant for his devices, including the laptop, the department said. Investigators found a letter from January addressed to a Misha, whom they believe is his wife, authorities said. In it, the writer says: "I am a (mujahedeen). I am a sword against the oppressor and a shield for the oppressed. I will use the talents and skills given to me by Allah to establish and defend the Islamic States." In addition to that letter and the Turkey/Syria border chart, agents also found recent Internet searches for information on "borders controlled by Islamic state," as well as "Internet searches for 'Flames of War,' an ISIL propaganda video," and "downloaded videos, including one showing ISIL members executing prisoners," the Justice Department said. They also found what the government said was another 180 jihadist propaganda videos. Pugh was arrested in Asbury Park, New Jersey, on January 16. While in the Air Force, Pugh was trained in installing and maintaining aircraft engine, navigation and weapons systems, the Justice Department said. Pugh converted to Islam after moving to San Antonio in 1998, according to the indictment. The indictment said he took a job as a mechanic with American Airlines in or about 2001. The airline has not responded to a request for comment. In 2001, an American Airlines co-worker alerted the FBI that Pugh "sympathized with Osama bin Laden, felt that the 1998 bombings of U.S. embassies overseas were justified, and expressed anti-American sentiment," the complaint said. One year later, an associate told the FBI that Pugh had expressed interest in traveling to Chechnya to "fight jihad." From October 2009 to March 2010, he worked in Iraq as an Army contractor for DynCorp, according to the complaint. According to Pugh's LinkedIn page, he listed himself as a maintenance manager for Gryphon Airlines, a Kuwait-based charter airline, since September 2014. But the airline told CNN that Pugh was only under consideration to work for it in 2014. "In third quarter 2014, Mr. Pugh was under consideration for a future Gryphon project, but did not meet the qualifications," the airline said in a statement. "Gryphon declined to hire Mr. Pugh. Gryphon personnel are cooperating with the authorities." His last known U.S. address was in Neptune, New Jersey, but he had lived in Egypt for about the last year, the indictment said. If convicted, Pugh could be sentenced to up to 35 years in prison. CNN's Ray Sanchez, John Newsome and Steve Almasy contributed to this report.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-3-1" ><div class="show-scrollbars">(CNN)Are the upcoming elections in Israel crucial? Will the results -- a fourth term for Prime Minister Benjamin Netanyahu or a first for opposition leader Isaac Herzog -- change Israel's policy in a significant way? As Israelis prepare to go to the polls, the answer seems to be negative. Many observers in Europe and the United States seem to be under the impression that during Netanyahu's time in power, Israel was hijacked by right wing zealots -- and that Herzog, leader of the Zionist Union opposition party, is the man who will save the country and return it to the path of sanity. But the fact is that when it comes to the most crucial question regarding the future of Israel and the Middle East -- what to do about the Palestinians -- the difference between the two candidates is negligible, a divergence that is short on substance but long on style and rhetoric. While Netanyahu's insistence on Israel's continued ruling over millions of Palestinians is expressed in aggressive, often religious and nationalistic language, Herzog's justifications for doing the same thing would sound much softer and easier to digest in the Western world. But at the end of the day, neither Netanyahu nor Herzog have any real intention to put an end to the occupation of the Palestinian territories. Netanyahu says it clearly and openly; Herzog and his coalition partners only hint at it. READ MORE: 5 key issues for next Israeli leader . This whitewash has been so evident throughout the entire election campaign that a foreigner arriving in Israel would have had a hard time understanding anything about what is really going on here. The main issues that have been discussed during the campaign are economic ones -- cost of living, housing prices, government oversight -- but even then, slogans and populist promises have largely replaced the in-depth debates we should be having. But the topics that seem to have consumed most of the headlines range from pure gossip to scandals, some of them concerning the behavior of Netanyahu and his wife Sara. There was the "bottlegate" affair -- claims that the wife of the Prime Minister had pocketed cash from bottle recycling at their official residence. The Netanyahus say they reimbursed the government. Israel is a country that is still looking for its way forward; one that lacks internationally recognized borders; one that has not yet decided whether it is a Western society or a Middle Eastern one; one that cannot decide whether it wants to be religious or secular, Jewish or bi-national. All of these critical issues -- none of them decided on -- have been cast aside, ignored, covered up or denied by a country that has busied itself with the important business of recycled bottles at the prime minister's residence. There is a big elephant in the room, but Israel is turning its back to it. There is a big elephant in the room, but Israel believes that if nobody talks about it, the elephant does not exist. This elephant is absent from the Israeli discourse on a day-to-day basis, and it is absent during elections -- a time when public discourse should be only be focused on what really matters. The elephant in the Israeli room is the unending occupation of Palestinian territories, and nobody is talking about it. Most of the parties running in the elections have not even bothered to try to answer questions about what their plans are for the Palestinians. But the occupation also continues to be a non-issue for too many ordinary Israelis, who know very little -- and care even less -- about the cruel reality for the millions of Palestinians who live without civil rights in the West Bank and who are kept under siege in Gaza. For those who regard Herzog and the center-left as the great hope of this campaign, it is important to remember that it was the Israeli Labor Party who established the occupation and settlement projects in Palestinian territory. Golda Meir, Moshe Dayan, Shimon Peres, Yitzhak Rabin: Those Labor leaders, so beloved by the West, are the founding fathers of the most significant venture of modern Israel -- the illegal transfer of a Jewish population to stolen land. It was a project whose purpose was to prevent any kind of equal division of the land, or a settlement with the Palestinians -- and as such it has been a great success story. Labor never had a real plan for the Palestinians, except to time and again renew the endless peace process, which may be the longest in history. This is still true now, on the eve of elections that stand a real chance of bringing the Zionist Union to power. The more than 500,000 settlers in the West Bank and East Jerusalem have created what may be an irreversible reality, but Herzog's only answer to it is to get back to the negotiation table. In private circles he mentions five years as the time he needs to conclude the process. There is no better indication that Herzog has no intention of ending the occupation any time soon. Numerous peace plans have already been worked out in great detail; all that is needed is for one courageous Israeli leader to implement any one of them. Herzog, at least at this stage, does not seem to be the one capable of doing this. On Tuesday the "only democracy in the Middle East" will elect a new parliament and a new government, in what is frequently described as a celebration of "people power." But the reality is that here in Israel, it is only the masters who will vote and decide on the future -- not only for themselves, but for the millions of Palestinians who have for nearly half a century been living under their control, directly in the West Bank and indirectly in Gaza. And yet, it seems, their fate is not a topic worthy of discussion. To call this a democracy in 2015 is rather problematic.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-4-1" ><div class="show-scrollbars">(CNN)I'm Candida Moss and I am professor of New Testament and Early Christianity at the University of Notre Dame. I was an adviser on the "True Cross" episode and served as one of the many on-camera experts in CNN's "Finding Jesus" series, which currently airs on Sundays. Viewers were invited to tweet and post their questions on the "Finding Jesus" Facebook page during the show. Below are some of the more interesting questions and my answers to them. My apologies to everyone I didn't get to. Feel free to tweet your questions to me directly. Herb Scribner: Can anyone explain to me what the Bible's deal is with 40 days/nights? Moss: It's more an interest in the number 40. In the Hebrew Bible the people of Israel wander in the wilderness for 40 years before they reach the Holy Land. The flood lasts for 40 days and nights; Moses spends 40 days and nights on the mountain; Goliath spends 40 days encouraging the Israelites to challenge him before David steps up; 40 is a common age for people to be when they get married; in the book of Judges it is always 40 years between judges; and David and Solomon each reigned for 40 years. What we can take away from all of this is that people in the ancient world saw 40 as suggesting a full, complete period of time. It's sort of like a narrative stock number, in the way that modern jokes follow the rule of three. Yalanda M. Price: Was there any division between the followers of Jesus and the followers of John the Baptist? Moss: One of the interesting things about the relationship between Jesus and John the Baptist is that John doesn't lay down his tools and follow Jesus after he baptizes him. Nor, it seems, did John's disciples. They had separate ministries and, while there may have been contact between the two groups, they were also de facto competitors in the ancient religious marketplace. There are some hints in the New Testament that Jesus and his followers had to differentiate themselves from John by stating that Jesus' baptism was better (Acts 11:6) and countering the idea that Jesus was actually John raised from the dead (Matthew 14:2) Some scholars argue that these references are evidence of tension between followers of Jesus and followers of John. Mark Goodacre answers your questions about the Shroud of Turin. Jeffery Graff: Can the DNA tests on the bones indicate whether he is a Jew or even whether he is of the tribe of Levi? Moss: I'm so glad someone brought up DNA. The DNA tests on the Bulgarian bones yielded only mitochondrial DNA (DNA passed down by the mother), not the more reliable nuclear DNA (the kind of DNA referred to in forensic investigations). In the original study of the Bulgarian relics (of which I was a part) the mitochondrial DNA revealed that the Bulgarian relics were of "probable Semitic origin." Thinking back to my time in the laboratory with the Copenhagen scientists, I recall that the lead investigator estimated that the probability was about 75%. The episode last night stated things a little too sharply when it said that the bones were from a Middle-Eastern man. As for the more specific question about the genetics of Jews and members of the tribe of Levi: Current scientific technology does not reveal this kind of information even if start-up genetic testing companies promise this kind of information. Cyndi Rosenthal: Are there any other historical references of John the Baptist outside of the Bible? Daniel José Camacho: Any extra-biblical sources that shed light on historical figure of John the Baptist? Moss: (These questions are on a similar topic, so I've chosen to answer them together.) Actually there is external attestation for the life and importance of John the Baptist. This is important because it's fairly rare to find this kind of evidence for ancient figures outside the writings of their followers. The Jewish historian Josephus mentions John the Baptist in his book, "The Jewish Antiquities." Josephus describes John as a "good man" who possessed "virtue" and had "great influence" over the people. According to Josephus, Herod put John the Baptist to death because he was afraid that he might raise a rebellion. This gives us another -- arguably more historical -- perspective on why John was executed and provides further evidence about just how important John was in his own day. Watch the latest full episode anytime on CNNgo . Daniel José Camacho: Wait, how did Jesus get "Our Father" prayer from Johnny B??? Didn't catch that. Moss: I'm also really glad someone brought this up, because I wondered about it too. In the Gospel of Luke, one of Jesus' disciples says, "Lord, teach us to pray, as John taught his disciples." It's an interesting request that tells us something about John the Baptist's ministry and the demanding characters of Jesus' disciples! In Luke, Jesus responds to this request by teaching them the Lord's Prayer. We don't know that the Lord's Prayer came from John, and personally I don't think it did; I think this is just how Luke shaped his version of events. But if you were just reading Luke you could come to that conclusion.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-5-1" ><div class="show-scrollbars">(CNN)Just when you didn't think Republicans could top themselves in finding ways to disrespect the President of the United States, on Monday, 47 Republican Senators -- that is, all but seven -- sent a letter to Iran that appeared aimed at scuttling President Obama's diplomatic efforts to prevent Tehran developing nuclear weapons capacity. The move comes on the heels of House Republicans inviting Israeli Prime Minister Benjamin Netanyahu to address Congress -- without even informing the White House of the plan to issue an invitation. But this latest measure went a step further, seeing Republicans in Congress literally stepping on the constitutional toes of the executive branch and formally intruding on U.S. diplomacy. Under the Logan Act passed by Congress way back in 1799, U.S. citizens are prevented from influencing "disputes or controversies" involving the United States and a foreign government, without express authority to do so. Now, it appears the Iran letter was carefully drafted by Sen. Tom Cotton, a smart constitutional lawyer, to come as close as possible to the line of legality without crossing it, specifically by not explicitly taking a position against the Iran negotiations. Yet the intent to interfere with the executive branch is clear. It's one thing for Congress to demand it ratify such a deal (as Democrats did in 2002 when President Bush negotiated arms reductions with Russian President Vladimir Putin). But it's something else entirely to undermine the authority of the White House by sending a partisan letter to a foreign government (something Democrats didn't do with Russia). Sadly, this is only the most recent and extreme example of dishonor and disrespect. In the Washington Post, columnist Jonathan Capehart recently outlines what he sees as the top six instances of disrespect toward President Obama. His list includes the example of former New York Mayor Rudy Giuliani saying, "I do not believe that the President loves America."  Also on Capehart's list are the time a reporter from the conservative Daily Caller website interrupted the President during remarks at the White House about immigration reform in 2012, and the time South Carolina congressman Joe Wilson, a Republican, heckled the President during his speech to a joint session of Congress about health care reform. (Wilson shouted "You lie!" in response to remarks by the President that, it should be noted, were in fact quite true). And there are plenty more examples of Republican slights against President Obama. Most famously, there was the widespread questioning of Obama's citizenship and academic credentials that included signs at conservative rallies describing Obama as a "lyin' African." And there was the Republican women's group that created an image of "food stamp dollars" with Obama's face on them (as well as a bucket of KFC and watermelon). There was also Republican presidential candidate and former Speaker of the House Newt Gingrich decrying Obama's "Kenyan, anti-colonial behavior."  Plus there was then-Arizona Gov. Jan Brewer waving her finger at President Obama when she greeted Air Force One on the tarmac. Brewer later alleged she "felt a little bit threatened" by the President. Taken as a whole, this list suggests a troubling pattern of profound disrespect for the President. But more than this, it seems to reflect an anti-Obama fever that has gripped the Republican Party -- one that the letter to Iran suggests shows no signs of breaking, and is a sure sign of sickness in the Republican Party. Is the lack of respect being shown toward President Obama about race, as some have suggested? Yes and no. Certainly, for a segment of the country, it really is about being uncomfortable with a black president. Indeed, even former Secretary of State Colin Powell, a Republican, noted what he described as a "dark vein" of intolerance in the party and parts of the country in general. But beyond that hopefully shrinking share of the population that is explicitly racist, there is a far wider issue of implicit racial bias -- an unconscious, yet nonetheless real tendency, to subject President Obama to extra scrutiny because of the color of his skin. None of this is to suggest that all of the criticism aimed at President Obama stems from implicit racial bias. But such bias appears to be a factor in the ease and extremity of disrespect aimed at America's first black president.  And this disrespect mirrors the disrespect shown against black Americans in general. "Honorable people can disagree over policy," Vice President Joe Biden said in a statement Tuesday.  Yes, and they should do so honorably. Whatever Republicans' gripes about President Obama's vision and leadership, the party and its followers are too often expressing their critiques in an ugly way. And that rampant pattern of disrespect -- for any fellow human being, let alone the president of the United States of America -- is what truly undermines the principles and values of our nation.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-6-1" ><div class="show-scrollbars">(CNN)Life on a Civil War ship in the Deep South was no pleasure cruise. Heat, humidity, the rigors of military life and bouts of boredom could frustrate a fella. So it may be no surprise that among the first artifacts to be brought up from the wreck of the CSS Georgia in Savannah are two sets of leg irons. "We all know about discipline in the Navy," said Jim Jobling, a project manager with Texas A&M University's Conservation Research Laboratory.  "It is for restricting the mobility of a prisoner who wanted to desert or had committed a crime." Of course, the leg irons could have been used on a Federal sailor or soldier taken captive. But that didn't occur with the Confederate ironclad. It was scuttled in December 1864, having never fired a shot in anger while it defended the city. About 400 artifacts have been brought up by divers in the initial stage of the recovery of the CSS Georgia, which must be moved for a deepening of the shipping channel. "We have scratched the surface as far as the artifacts are concerned. There are a lot more to come up," Jobling told CNN on Thursday. Texas A&M is working with the U.S. Army Corps of Engineers in Savannah to conserve many of the artifacts for eventual display. Archaeology isn't just about cool artifacts. It's about making a connection with the humans that used these items. And while experts haven't gleaned much about the daily life of the crew from the early dives, they have found some items that would have been used by an individual: An ironstone plate commonly used in the South, a musket trigger guard and the butt stock of a gun. Visibility at the site is practically nonexistent. Divers have to depend on feel to locate and remove smaller items. Much of it is is detritus of the wreck: small iron plates, nails and spikes. Among the items cataloged since the dives formally began at the end of January are two pieces that helped with the business end of the CSS Georgia: its cannons. Four of the artillery pieces are amid the wreckage about 40 feet down on the floor of the Savannah River. One iron piece had eyes, or holes, that connected a gun carriage to ropes that the ironclad's crew manipulated to move the gun forward and backward. Another piece, a trunnion cap, helped hold the cannon to the carriage. Divers and archaeologists are following a timetable and grid in the recovery, with smaller items being brought up by hand. A previous salvage effort and damage from dredging displaced some of the artifacts. Other items remain right where they fell. "Someone undid the engine, moved it and was dropped" into the depths, said Jobling. Contract divers are out on the site every day, weather permitting, not more than a couple miles east of the city's famous River Street and waterfront. The $15 million removal of the CSS Georgia is necessary for the state and federal harbor deepening project, which will see the channel go from 42 to a uniform 47 feet so massive cargo container ships can use the port without relying on the tide. In June or July, U.S. Navy divers are expected be on site, to bring up the larger pieces: two engines, the propeller, a steam condenser, the four guns and the casemates that housed them. One of the casemates is large: 68 feet by 24 feet. Four artillery shells will be recovered, with the U.S. Marine Corps to render them safe for museum display. The wooden lower hull no longer exists. The CSS Georgia didn't have enough power to maneuver and effectively trade artillery rounds with any enemy vessels that might approach from the Atlantic Ocean. Instead, the vessel became a stationary floating battery, bristling with artillery pieces. The Yankees refused to take on the CSS Georgia or other nearby defense obstructions. Archaeologists have the challenge of preserving portions of the CSS Georgia through chemical and other means, making her iron stable so  the remains one day can be displayed. Conservation of selected artifacts and parts will be done at Texas A&M and will take about two years to complete. State and local officials hope conserved pieces will be exhibited somewhere in the city. Much of the CSS Georgia is corroded, and archaeologists are gauging the integrity of each piece for conservation. But many pieces remain in pretty good shape. An X-ray of one of the leg irons shows a fair bit of corrosion. Experts will inject epoxy to fill those gaps and remove any concretion on the iron, said Jobling. Officials need more artifacts and investigation to tell the story of the crew. "Hopefully, there is a section of the wreck that will tell the human side of the CSS Georgia," said Jobling. While salvage operations soon after the Civil War removed a lot of iron from the site, there's a chance personal items survive, especially if  they are below the sediment line and protected from the ravages of oxygen. Interestingly, the vessel's crew had to run the main engine constantly, just to keep it afloat. Why? That's because the CSS Georgia's green wood made it susceptible to leaks. So on December 21, 1864, just as Union Maj. Gen. William T. Sherman's hordes of soldiers reached Savannah, the ironclad's crew likely opened its water valves. The CSS Georgia silently slipped below the surface. The sailors used small boats to get to shore and began a 20-mile walk from Savannah. "They took what they could carry with them," Jobling said.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-7-1" ><div class="show-scrollbars">(CNN)On the 6th of April 1996, San Jose Clash and DC United strode out in front of 31,683 expectant fans at the Spartan Stadium in San Jose, California. The historic occasion was the first ever Major League Soccer match -- a brave new dawn for the world's favorite sport in a land its charms had yet to conquer. Summarizing the action for ESPN, commentator Ty Keough eagerly described the momentous "birth of a new era for American soccer." Looking back at footage from that balmy evening now it's hard not to feel a certain nostalgia. Baggy shirts, questionable hairstyles and strange rule adaptations to make games more exciting were all part of the formative MLS experience. Countdown clocks were employed to provide drama at the end of each half. Even more bizarrely, tied games were settled by shootouts that saw attacking players run with the ball from 35-yards out before attempting to beat the opposing goalkeeper. As the MLS prepares to mark the beginning of its 20th season, it's hard to comprehend just how much the league has progressed in the intervening period. Long gone is the desire to tamper with the rules of the game for a start. Attendances are higher than ever before while the number of teams involved has doubled from 10 in the 1996 campaign to 20 in 2015. A further four are set to be added by 2020. On top of this, the new season is the first of a new domestic TV and media rights deal with FOX, ESPN and Univision worth $700 million over eight years. This figure may pale beside the $5.1 billion recently paid by UK broadcasters for the English Premier League, the richest football league in the world, but it represents a tripling in value of the previous MLS deal. According to Phil Rawlins, co-primary owner and president of the new MLS franchise, Orlando City Soccer Club, "the industry and the game itself has moved on dramatically" in the U.S.. He believes what would equal 50 years growth in most other industries has been experienced in the first two decades of the MLS. Rawlins' club is a prime example of this rapid transformation. He describes players being pushed out of changing facilities because of a schedule clash with a yoga class not so long ago. This weekend 60,000 fans are expected to witness Orlando City's opening weekend fixture against New York City, another new club making their MLS bow. World Cup winners Kaka and David Villa will turn out for Orlando and New York City respectively. "We're just on the crest of the wave at the moment," Rawlins said of football's American progress. "Can it be the number two, number three sport in this country? Yes, I think it can. And it can be in a short space of time." These positive assertions are backed by the huge interest U.S. fans showed in last year's World Cup in Brazil. Team USA's group stage clash with Portugal attracted 25 million viewers, according to figures from TV ratings firm, Nielsen. That's considerably more than the 15 million baseball's 2013 World Series averaged on FOX or the similar audience that tuned into the 2014 NBA finals on ABC. Anyone who saw 20,000 pumped-up young fans pack out Chicago's Grant Park to cheer on their country via big screens, meanwhile, would find it hard to argue against soccer in the U.S. now being anything other than a big deal. Reaching this promising stage, however, has been anything but a smooth ride. The MLS was reported to have lost as much as $250 million in its first five years while average attendances initially dwindled after the inaugural season. Three teams -- Miami Fusion, Tampa Bay Mutiny (both in 2001) and Chivas USA (2014) -- were disbanded along the way due to a mixture of lack of fan interest and ownership troubles. A report by Forbes at the end of 2013, meanwhile, claimed that only 10 out of 19 MLS teams were profitable. And as recently as this week, MLS players looked like they could be going on strike over wages and the right of players to become free agents when their contracts end. Then there's the way the league develops, attracts and trades players. A salary cap restricts the amount teams can spend on playing squads. Each side, however, has a number of spaces that can be allocated to "off budget" signings which are not included within the cap. This includes promising Generation Adidas players who enter the MLS through the draft systems before completing their college education. Homegrown players from club's development academies are also exempt as are a maximum of three designated players (DPs), usually stellar international names whose wages and transfer fees will be covered by club owners or sponsors. One of the main criticisms of the MLS and its complex player acquisition rulebook is that while it does entice prominent stars of the game like David Beckham, Freddie Ljungberg and Thierry Henry to appear in the MLS, it only does so when their careers are on a downward trajectory. Why would an exceptional player want to move to a league that can only attract a handful of top talents at any one time, after all? And herein lies one of the leagues biggest challenges in attracting and keeping the talented players fans want to see. Although the likes of the salary cap encourages fiscal probity, it means MLS teams are restricted by rules clubs in other markets are not. Head coach of Sporting Kansas, Peter Vermes, highlighted these difficulties in comments carried by the Kansas City Star newspaper last year. "We're in a place where at times you can't compete with foreign clubs because of the kind of dynamics they have in regards to finances. We have a salary cap. They don't," Vermes said. According to Paulo Teixeira, a football agent who has worked to bring in and sell players from the league in recent years, current philosophies with regards player-trading may be have to be tweaked to help the MLS grow yet further. He describes the importance of placing an emphasis on attracting younger players with European passports. Such talented individuals will have a sell-on value that can be recouped by the league and their clubs if they move on from the MLS to the biggest and wealthiest leagues across the Atlantic. Theoretically, at least, this money can then be reinvested in the league, player development and attracting yet more promising players to the MLS. This in turn will raise the standard further. An early example of this strategy can perhaps be found in the transfer of Oriol Rossell, a Spanish midfielder who moved from Sporting Kansas to Sporting Lisbon last year in a deal brokered by Teixeira. Rossell arrived on a free transfer aged 20 after being released by FC Barcelona in 2012. He excelled at Kansas, winning the MLS Cup before being sold to the Portuguese giants at a profit in June 2014. Teixeira is quick to make clear such plans would need good scouting systems to truly flourish. It could also be achieved by signing DPs closer to the peak stage of their career, he added. This last point is something that appears be happening already. "Before they used to have a lot of big names who could no longer run in Europe," Teixeira said. "(But) Villa is not an old guy, (Frank) Lampard is still going strong" and both could still offer something to teams in Europe, he said by way of example of New York City's first DP signings. Nevertheless, he continued, the signing of more young players with big potential  "is probably something we'll see more of." Whether Teixeira is correct will become apparent in the months and years ahead. Either way, that brave new MLS dawn that broke over San Jose back in 1996 has turned into a bright morning. CNN's Don Riddell contributed to this story.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-8-1" ><div class="show-scrollbars">(CNN)Relief workers reported "unbelievable destruction" after Tropical Cyclone Pam smashed the capital of Vanuatu, the Australian Red Cross said Saturday. The Australian Red Cross said via Twitter that "humanitarian needs will be enormous. Many people have lost their homes. Shelter, food and water (are) urgent priorities" in Port Vila. Meteorologists said the storm has weakened some, but it was still pounding the islands after hours of fierce winds and torrential rain. "#CyclonePam still tearing through #Vanuatu. 'Much bigger than expected,' says our colleague in Port Vila. Initial reports of devastation," the Australian branch of UNICEF said on Twitter earlier. Pam, one of the strongest storms seen in the South Pacific in years, earlier made a direct hit on the capital, raising fears of mass destruction. In its 8 a.m. Saturday update, the Vanuatu Meteorological Services warned of "very destructive hurricane force winds" of 155 mph (250 kilometers per hour) in Shefa and Tafea provinces, with several others facing "very rough to phenomenal seas with heavy swells." The Joint Typhoon Warning Center in Pearl Harbor, Hawaii, said the cyclone had weakened from the equivalent of a Category 5 hurricane to a Category 4. It has dumped more than 9 inches of rain on the capital in a 36-hour period and has wind gusts of up to 190 mph (305 kph). Track the storm . Pam is forecast to move southeastward along the western edge of the southern islands of Vanuatu. It isn't expected to make any additional landfalls before dissipating. It will continue to weaken as it crosses cooler waters and encounters higher wind shear. Pam is expected to pass east of New Zealand on Sunday and into Monday. It could bring heavy rainfall to North Island, including Auckland. The capital, the biggest city in the Vanuatu island chain, sits on the coastline, which is vulnerable to storm surges during powerful cyclones. Tropical Cyclone Pam is the strongest storm to make landfall since the devastating Super Typhoon Haiyan hit the Philippines in 2013. Chloe Morrison, an emergency communications director for the humanitarian organization World Vision, told CNN that she could see some light between her boarded-up windows but it was still hard to see the totality of the destruction outside the house where she and seven others huddled in a back room during the storm. "Seven hours hunkered down and it's still not safe to go outside," she said. "The winds are still really howling. We're really lucky to be in a concrete house." Part of the tin roof twisted off the house and landed by one of the windows, she said. She also noted that two trees outside didn't get uprooted, but they had not one bit of fruit or any leaves remaining. Despite the "quite terrifying ordeal," Morrison said, their house didn't have any damage. Through the night, the wind and torrential rain made it sound like an angry ocean was just outside their doors, she said. World Vision, which says it's been based in Vanuatu for more than 30 years, said its emergency assessment  team would head out to view the damage when it is safe. The staff helped prepare communities on the islands for the cyclone by positioning water, food, blankets, tarpaulins, and shelter, hygiene and kitchen kits in key places, it said, as well as advising on disaster preparedness. Residents have been advised to seek shelter in places such as churches, universities and schools. "The strongest thing they've got is cement churches," said Inga Mepham, program director for CARE International for the Vanuatu program. "Some of them don't have that. It's hard to find a structure that you'd think would be able to withstand a Category 5 (storm)." Earlier, photographer Michael McLennan -- who said the storm is being called the "Vanuatu Monster" -- told CNN that the "strength of winds is incredible." Video footage he shot earlier Friday showed palm trees being whipped by wind and rain. Evacuation alerts have been issued for several parts of the country. Even before the sun rose Saturday, Vanuatu was already getting hit hard, with most communication and power cut off due to the storm. "The wind outside is terrifying," Michael Wolfe, World Vision's national director in Vanuatu, told that organization. "I can't imagine what it's like for families out there who weren't able to find safe shelter before the storm." The archipelago nation northeast of Australia contains 83 small islands, many of which have little infrastructure and lack the strong housing structures that can endure a walloping storm. Because of the tropical climate in Vanuatu, some of the housing is made of lighter building materials, including straw and corrugated metals. Residents prepared for the storm, boarding up windows and chopping down trees that stand close to buildings in case they could become debris or cause further damage or injury. CNN host Bill Weir, who was recently in Vanuatu on assignment, said that while Port Vila has some modern development in the form of an airport, large hotels and a convention center that's under construction, life on some of the islands has remained almost unchanged for thousands of years. "For search and rescue, for bringing food and supplies and medicine, it's extremely challenging," he said. Pam has triggered watches and warnings in the Solomon Islands and New Zealand. CNN's Greg Botelho and Derek Van Dam contributed to this report.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-9-1" ><div class="show-scrollbars">(CNN)The news was stunning to hear: A young woman, 18-year-old Michelle Carter, was charged with involuntary manslaughter for allegedly sending text messages urging her friend to commit suicide. How could a young person -- who was a close friend of the deceased, Conrad Roy, 18 -- allegedly do such a horrifying thing? And what are the legal ramifications of what a teen says online or in a text? But a lesser discussed point this tragic story raises is how quickly a teen can go from normal everyday life to facing severe, life-altering legal consequences. That is why Lisa Green, author of the informative new book "On Your Case: A Compassionate (and Only Slightly Bossy) Legal Guide for Every Stage of a Woman's Life," believes every parent of a teen should have a criminal defense lawyer in mind and at the ready -- just in case. "To me this is the unrecognized area that parents, particularly parents of teens, miss all the time," said Green during a recent interview at CNN's studios. "So many of our friends have armies of tutors, extracurricular activities, all sorts of angles covered ... but when it comes to the law, there's this black hole." Mom arrested for leaving 9-year-old alone at park . Green, a journalist, lawyer and television legal analyst, says people often think of  the law as scary and intimidating and believe they don't need to worry about it because their kid is never going to get into legal trouble. Whether it's a case as serious as Carter's involuntary manslaughter charge, or a simple allegation of vandalism, parents need to be prepared, Green said. "I cannot count the number of kids I know, good kids, who find themselves in the wrong place at the wrong time," said Green. "I have now two young adults, and when they were going through their teenage years, it was a simple matter of a party that went wrong, a group of kids in the park when the police stop by and have some questions, bringing something to school they shouldn't have. "And in each of those cases, a little bit of knowledge of the law, a little bit of knowledge of what their rights are, the right way to behave, would have saved parents a heck of a lot of grief." Green thinks parents should think about the issue in the same way they would track down a good orthopedist if their child breaks a bone, or the best tutor if their child is struggling before the SAT. Parents' house seized after son's drug bust . "I am not saying that parents need to go out and get their own law degrees ... but just dipping your finger into the topic will help you understand what's available to you to help you parent better," she said. She gives some real-life examples especially in the social media age. For instance, what if a teen is asked by a school administrator to turn over his or her cell phone based on allegations the teen was sending inappropriate texts? What parents should know, Green said, is that a school can't open a cell phone for no reason at all. "They need to have reasonable suspicion that something's wrong," said Green, who said parents would be wise to talk to their teens about what's appropriate and what's not when it comes to handling such requests from school officials. "If you're asked, as a child, for a locker search, to open a phone, to open a laptop, if it's your property, pause and ask if you could call Mom and Dad," she said. "We can act whether we're lawyers or not as that first line of defense." Green also says that parents of college-bound teens should spend a few minutes looking online at the school's code of conduct. "They don't tell you about it during that fantastic tour with the kid walking backwards as your child is looking around to say, 'Who can I party with?' But it's a really important set of information because different schools have different levels of tolerance" for activities such as drinking on campus, she said. And even before teens head off to college, parents should know about social host laws, where parents could be held criminally responsible or face civil damages if teens drink alcohol in their home and then go off and do something inappropriate or even tragic. Scary consequences for parents hosting underage drinking . More than 150 cities or counties and 24 states currently have such laws on their books, according to Mothers Against Drunk Driving. In some cases, parents can be held liable even if they didn't know the drinking was taking place. "It doesn't have to be you with the shaker, like an episode of 'Mad Men,' serving up Manhattans to a group of grateful teens," said Green. "If you've made it possible in your home, if you don't lock your liquor cabinet -- I never did -- and all of a sudden kids are drinking, that could be a problem as well." While Green is passionate about educating parents on why they need to think about the law, she stresses that bad behavior by teens still needs to be punished either legally or at home. "I am not advocating that kids should be absolved of responsibility. If a kid does something wrong, if they broke the law, they ought to be punished appropriately by it. But we also live in a society where we have legal rights, and I want parents to know that they should be aware of what those are so they can help their child use better judgment." So if after reading this, you are moved to try to find a criminal defense lawyer, how on earth do you go about finding one? Green's advice is to ask friends and colleagues for referrals and also consult with your state bar association, since you would want someone in your state who has experience with criminal defense issues. Then she says you should call up and interview a few lawyers, asking them everything from how much their services would cost (that can vary), to who would handle the work, to what their philosophy is about the law and teens' rights. "You may or may not end up being friends afterwards, but that's not as important as feeling secure that your lawyer is approaching the situation in a way that feels right for you." Do you think it's important for parents of teens to be aware of the law and their children's legal rights? Share your thoughts with Kelly Wallace (@kellywallacetv) on Twitter or CNN Living on Facebook.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-10-1" ><div class="show-scrollbars">(CNN)They are very convincing when they call. They have a Washington phone number and can cite your financial history down to the cent. They say you're under investigation, in danger of losing your home, or worse, your freedom -- unless you pay thousands of dollars on the spot. But they're not real.  And you're not in trouble.  Not unless you take it seriously.  This is a scam. Email your story ideas and tips to CNNtips@cnn.com. A big one. Federal authorities say it's the largest IRS impersonation scam they've ever seen -- swindling victims out of more than $15 million since it began in 2013. "They have information that only the Internal Revenue Service would know about you," said Timothy Camus, deputy inspector general for investigations with the Treasury Department. "It's a byproduct of today's society. There's so much information available on individuals." Using identity theft technology, the thieves have successfully victimized more than 3,000 people in the past two years, although the Treasury Department cautions that number is only documented cases and the true number might be higher. Camus said they've recorded more than 366,000 reports of contact with the scammers, and it's increasing at a rate of 10,000 to 12,000 a week. Authorities believe the thieves are operating out of India, using phishing technology to make it appear they're IRS agents in Washington. Call 1: 'The IRS is filing a lawsuit against you' Call 2: 'Your address is under state investigation' The Federal Trade Commission, which goes after scammers like these from a civil standpoint, and the Treasury Department, which leads the criminal probe, both have open investigations. The largest loss reported was a staggering $500,000, Camus said. Most have lost about $5,000. One of those victims was former NFL player Frank Garcia, who is now a sports radio host in Charlotte, North Carolina. When he got the call, it sounded so authentic, he left the radio station in a panic, scramming to get the money they wanted. 12 scams to avoid . "The only thing running through my head is, I'm going to jail. I'm gonna be on television, in handcuffs, for tax evasion," he recalled. "I had to follow specific steps not to be arrested. That the authorities had been contacted and in fact, they are on the way and will be there in 30 minutes." Garcia says he spent five hours driving to various stores around Charlotte, depositing $500 each time into a PayPal account set up by the woman on the phone. He ended up losing about $4,000. He, and other victims, told CNN the swindlers never let their victims hang up the phone. "I have never been arrested in my life and was very scared," said Kin Ko, a New Jersey resident who lost about $5,000 after he says the impersonator told him he was facing five years in prison, and the IRS was about to confiscate his assets: His car, his house and all the money in his bank account. The person had a badge number, read him an arrest warrant from a nearby police jurisdiction. The thieves are incredibly smart and convincing. They harness stolen identities and use programs such as Google Earth to identity locations where their victims can transfer money. "It sounded as legitimate as could be," said Al Cadenhead, a pastor in North Carolina who also fell victim. "They knew where I was. He told me where to go -- to the Rite Aid, up two streets turn left to the Rite Aid. The names of the streets, it was really just incredible." Cadenhead told CNN he didn't come to his senses until he'd signed over $16,000. Identity theft tops list of consumer complaints . "It was like I came out of a coma and realized this was not normal and this is not how you do business," he said. "I know other people who've heard the story say 'How did a guy with a PhD fall victim?' I was the perfect victim. I've never been audited, never paid a traffic ticket. I don't know how to pay fines. How do I know they aren't stern and serious about everything?" Camus said many people are afraid when they hear from the IRS, so they do whatever the caller says. In December, federal authorities found and arrested two U.S.-based "runners" who admitted to transferring almost a million dollars from pre-paid cards to foreign bank accounts. In many cases, victims are warned and stopped from sending more money by bank tellers or clerks at money wiring locations. Ko said that it was a bank teller who told him this was a scam when the impersonator asked him to go through a second round of depositing money. If you think you have been a victim of an IRS impersonation scam, you can report it to TIGTA's web site or call 800-366-4484. For Frank Garcia, the light came on when the woman on the phone asked him for another $8,000 after he thought his debt had been paid. He says he decided to hang up and await what the woman promised would be an arrest -- which, of course, never came. How hackers are stealing your tax refund . "I felt taken advantage of. I felt small. And I was naive," he said. "I wasn't aware. I didn't understand the system. And didn't blame anybody but myself for not taking more time to understand those things." Often, Camus says, immigrants are targeted and threatened with deportation. The elderly are also a popular target, although the scam has grown so large, people of all ages, income levels and status are getting these calls. Treasury Department officials say if you get one of these calls, the best and simplest way to handle it is to hang up. Camus himself, a Treasury Department investigator, even got one. He told them, "Your time is coming." Watch The Lead with Jake Tapper weekdays at 4pm ET. For the latest on The Lead with Jake Tapper click here.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-11-1" ><div class="show-scrollbars">(CNN)Thiago Silva's path to redemption took a mere 12 minutes. For that short period of time the Brazilian must have been panicking that his needless error had cost his Paris Saint-Germain side a place in the last eight of the European Champions League. His handball had gifted English Premier League leaders Chelsea a 2-1 aggregate advantage in extra time, but this was one tale that would be adorned with a Silva lining. Seconds after being denied by a world class save from Thibaut Courtois, Silva looped a header into the net to send PSG through on away goals. Not only did he save himself from a barrage of criticism, he also got colleague Zlatan Ibrahimovic out of jail too. The maverick Swedish striker's dismissal after 31 minutes made PSG's passage into the quarterfinals all the more remarkable, as it battled the best team in England with 10 men for an energy-sapping 90 minutes. Gary Cahill looked to have ended PSG's resistance with a 81st minute goal before former Chelsea defender David Luiz equalized with four minutes left. Eden Hazard converted from the spot in extra time after Silva's misdemeanor before the 30-year-old popped up at the death to make amends and avenge PSG's defeat at the same stage by Chelsea last season. "We played a great game," Luiz told Sky Sports. "It was amazing tonight, the spirit, the players gave everything. When we lost Ibra we said we had to keep it simple and keep the ball. "It's amazing for the club and the city. We tried to win the game even with one less man. We have a long way to go to win the Champions League and we keep our feet on the floor." The first tie ended 1-1 in Paris three weeks ago but most of the headlines related to an ugly incident of racism on the city's Metro system. A group of supporters, apparently Chelsea fans, were caught on camera appearing to prevent a black man from boarding a train before chanting: "We're racist and that's the way we like it." The UK's Metropolitan Police announced on Wednesday that it had summoned five men to appear in court later in March, while Chelsea has vowed to ban for life any of its fans that are found guilty. The club extended an invitation to the man who was the the subject of the abuse, known as Souleymane S, but the 33-year-old refused. The opening stages were tense and feisty, just as they were in the French capital during the first leg, but the match in London ignited after a flashpoint just past the half hour mark. Ibrahimovic, so often the hero for PSG, turned villain after being dismissed for a forceful tackle on Chelsea's Brazilian playmaker Oscar. The home side surrounded referee Bjorn Kuipers who duly produced a red card -- the fourth of the Swede's often controversial career in the Champions League. But replays suggested the 33-year-old was perhaps unfortunate to see red, having tried to pull out of the tackle at the last second. Despite having a man advantage, Chelsea struggled to create clear cut openings as PSG defended resolutely. Kuipers was in the spotlight again as the half came to a close -- a mazy run from striker Diego Costa ended when he was felled by PSG's Uruguayan forward Edinson Cavani. The referee took a long look at the incident but decided to wave play on, much to the chagrin of Chelsea's players and manager Jose Mourinho. Mourinho's travails continued after the break as the Blues toiled in its attempts to open up a determined PSG rearguard. A half chance for Gary Cahill came and went before the visitors came to the fore. First Cavani played in Maxwell, whose ball across the face of goal was begging to be tapped in, before the Uruguayan had a chance to tilt the tie firmly in his side's favor. Played in on goal by Argentinian Javier Pastore, Cavani rounded Chelsea goalkeeper Thibaut Courtois but could only glance a shot off the near post from a tight angle. Pastore then got into the area after neat approach play and, though he got a powerful low shot away, Courtois was equal to it and palmed it clear. Chelsea began to reassert its dominance as PSG tired. Substitute Ramires weaved into the area and was denied by a fine save at his near post by Salvatore Sirigu. From the resulting corner a miskick from Costa presented the ball at the feet of England defender Cahill, who lashed home from 12 yards out. But Chelsea were unable to hold out. Luiz, who won the Champions League with Chelsea during a three-year stint at the club, had been booed throughout the game for a running battle with Costa. And he rose highest to power a header into the net and make the tie level on aggregate with just four minutes remaining. PSG began the extra half hour in sluggish fashion and were punished when Silva needlessly handled a looping cross into the area as he went up to challenge substitute Kurt Zouma for the ball. Belgium international Eden Hazard duly tucked the penalty away, to restore Chelsea's lead and ensure the tie would not go to penalties. Still Chelsea looked edgy. Courtois was forced to make a world class save from Silva, as the Brazilian desperately tried to make amends for his handball. But despite that warning, Silva netted with a fine header from the very next corner, looping a brilliant header over the goalkeeper from 14 yards out. After the game Mourinho admitted PSG had "clearly" been the better side: "Our performance was not good enough," he told Sky Sports. "We had the game in our hands twice but I think PSG were stronger than us and coped better with the pressure of the game." German champions Bayern Munich cemented its place in the last eight with a comprehensive 7-0 dismantling of Shakhtar Donetsk. After a 0-0 draw in the first leg in Ukraine, Shakhtar's task became an uphill one inside four minutes when Olexandr Kucher was dismissed for bringing down Mario Götze inside the penalty area. Thomas Muller tucked home the resulting penalty, and Bayern subsequently laid siege to Shakhtar's goal. Robert Lewandowski nodded Rafinha's cross against the post before Pep Guardiola's side doubled its advantage just after the half hour mark. Defender Jerome Boateng had the simple task of tapping home from point blank range after former Dortmund striker Lewandowski's effort had been saved. Bayern ran riot after the break, France international Franck Ribery grabbing the third with a fine low finish after a powerful run into the area. Muller grabbed a second moments later before Holger Badstuber made it five with a thumping header. Lewandowski finally got on the score sheet before Götze completed the rout.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-12-1" ><div class="show-scrollbars">(CNN)Two more American aid workers who had high-risk exposure to Ebola in Sierra Leone arrived back in the United States on Monday for monitoring. Neither is sick or known to be infected with the disease. Eight of their colleagues have already been flown back to the United States, where health authorities are watching them closely for signs of the disease, according to the Centers for Disease Control and Prevention. The returning workers are clinicians for Partners in Health, a Boston-based aid group. They all had contact with a colleague who's been diagnosed with the disease and is being treated at the National Institutes of Health in Bethesda, Maryland. The heath care worker with Ebola was in critical condition Monday, the NIH said. That changed from the NIH saying on Friday that the patient was in serious condition. Details about the patient's identity weren't released. While in West Africa, the workers "came to the aid of their ailing colleague," according to a Partners in Health statement. As the CDC investigates who else might have had contact with the Ebola patient, more workers might be flown back to the United States, according to Tom Skinner, a spokesman for the CDC. The workers are being housed near hospitals that specialize in treating Ebola patients, and if they show signs of the disease, they'll be admitted as patients -- as was the case with one worker in Nebraska. The person developed symptoms Sunday evening and "out of an abundance of caution" was taken to the biocontainment unit at the University of Nebraska Medical Center in Omaha. "At this point, this person has not tested positive for the Ebola virus," Phil Smith, M.D., medical director of the unit, said in a statement Monday. "However, because of a change in symptoms, we decided the most prudent course of action was to bring the individual to the Biocontainment Unit, where we can better monitor symptoms and safely perform testing. However, some of the symptoms which prompted the move to the Biocontainment Unit have resolved this morning." None of the other aid workers are showing symptoms of Ebola. Nurse who contracted Ebola sues hospital company . State health authorities say all 10 of the workers are deemed to have had high-risk exposure to Ebola. This includes people who were not wearing protective gear and were exposed to the bodily fluids of someone with Ebola while that person was symptomatic, or someone who lived in the same household and provided direct care to a symptomatic Ebola patient. The first of these workers arrived Friday night in Atlanta showing possible signs of Ebola, but testing over the weekend came back negative, according to a government official who did not want to be named. The worker is being isolated in housing near Emory University Hospital for 21 days. "Twice a day, we'll have visual monitoring, either face to face or we'll Skype with them, or do FaceTime," said Nancy Nydam, spokeswoman for the Georgia Department of Public Health. "And if it's Skype or FaceTime, they'll have to be in a place where we can clearly identify that they are where they're supposed to be." The next set of aid workers returned back to the United States on Saturday evening and went into isolation in housing on the campus of the University of Nebraska Medical Center, according to spokesman Taylor Wilson. As in Atlanta, these workers have voluntarily agreed not to leave their housing. "They will be monitored so they'll stay there," Wilson said. Another set of three workers arrived Sunday morning at housing near the National Institutes of Health. These workers will have more freedom to move around than the ones in Georgia and Nebraska. According to Christopher Garrett, a spokesman for the Maryland Department of Health, his state will follow the CDC's guidelines, which forbid monitored individuals from getting on public transportation but allow them to go outside as long as they stay at least 3 feet away from other people. '1686: That's my number' Two more workers arrived Monday morning in Atlanta and were isolated in housing near Emory. A third worker was expected to arrive Monday in Atlanta, but health authorities deemed this person to be lower risk and allowed for monitoring at home, according to a government official. The patient now at NIH is the second with Ebola admitted to the NIH hospital. Safety at Ebola funerals . Nina Pham, a nurse at Texas Health Presbyterian Hospital Dallas, was admitted to NIH in October after she contracted the disease while treating Liberian national Thomas Eric Duncan. Pham recovered and was released free of disease. Duncan died. Emory, the NIH and Nebraska are three of only four hospitals in the United States that have biocontainment units to deal with a highly infectious disease such as Ebola. More than 10,000 people have died in a West African epidemic of Ebola that dates back to December 2013, according to the World Health Organization. Almost all of the deaths have been in Guinea, Liberia and Sierra Leone. Ebola is spread by direct contact with the bodily fluids of an infected person. CNN's Carma Hassan, Joe Sutton and Eliott C. McLaughlin contributed to this report.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-13-1" ><div class="show-scrollbars">(CNN)Vigilante motorists in New Zealand have taken to snatching the car keys of foreign drivers amid rising concern over dangerous driving by tourists. New Zealand media have reported five cases this year of locals forcibly taking the keys of foreign motorists after witnessing driving that concerned them. All the incidents -- which have been condemned by authorities -- took place in the South Island, which draws tourists from around the world for its rugged scenery, including lakes and mountains featured in director Peter Jackson's "Lord of the Rings" films. The incidents occurred amid heightened public concern over tourist driving standards, with eight people killed in crashes involving foreign drivers in the space of a fortnight last month. Among the dead were a family of four from Hong Kong who were killed when their car crossed the center line and collided with a logging truck. The key snatchings have even prompted Prime Minister John Key to weigh in on the issue, advising that "people taking the law into their own hands is not sensible." New Zealand Police Assistant Commissioner of Road Policing Dave Cliff said the confiscations existed in a legal gray area, as there was no explicit statute dealing with the issue. Although there might be exceptional circumstances where taking someone's keys could be legally justified, such as preventing drunken driving, he said, "in the vast majority of cases, it won't be." "That extends to physically assaulting or abusing someone in response to their driving, which is simply not acceptable, and anyone found doing so should expect to face the consequences," he said. Diesel mechanic Robert Penman of Dunedin made headlines last month after he took the keys of a Chinese couple who had stopped their car on a narrow single-lane road to take pictures, causing a backlog of vehicles behind them. "I was coming into town with my wife and son and came around the corner, and there was a car stopped in the middle of the road," he told CNN affiliate TVNZ. He called police and took their keys as "a safety thing, you know, timeframe for police to get there," he said. The New Zealand Transport Agency later revealed that Penman was driving on an expired license himself. Penman told local media it was not the first time he had taken a tourist's car keys. Only 6% of crashes in New Zealand involve foreign drivers, according to the latest figures provided by the Ministry of Transport. But in some remote regions of the South Island particularly popular with tourists for their scenery -- such as the Mackenzie, Southland, Queenstown-Lakes and Kaikoura districts -- foreign drivers are involved in about a quarter of all crashes. In Westland District, on the South Island's rugged West Coast, foreign drivers are involved in 37% of road crashes resulting in death or injury. Tony Kokshoorn, mayor of the neighboring Grey District, said tourist driving behavior was a major problem in the region and attributed the issue to tourists from countries that drive on the right. New Zealanders drive on the left. "There's a huge number of tourists coming through to these destinations because of the scenery, but the scenery is a problem," he said. "There's so many beautiful sights to see that they're not concentrating on their driving. Once they lose their concentration, they tend to fall into old habits and drive on the right. Even for 20 seconds, it can cause damage." A Ministry of Transport spokesperson said that while this was a factor, figures showed that Australian and British drivers were involved in the most crashes overall, "so unfamiliarity with which side of the road to drive on is not the only factor." Kokshoorn said that he had seen three cases of tourists driving on the wrong side of the road recently but that the vigilante approach -- which had seen a visitor to his town punched in the face as he was stripped of his keys last month -- was "disgraceful." He said the best approach was better education on local driving conditions for foreign drivers, particularly at the rental companies where they picked up their vehicles. Anyone with a foreign drivers license or permit is able to drive in New Zealand for up to a year. Associate Transport Minister Craig Foss said the government recognized that "many people are concerned with poor driving behavior on challenging roads in and around popular tourist destinations" and had established a project in response. The measures include improvements to roading, such as "keep left" signage and no-passing markings on the extensive stretches of single-lane highway, and educational resources targeted at visiting drivers, including many targeting the growing Chinese market. Kokshoorn said it was important to "strike the right balance" in getting the message to foreign drivers to take care on the unfamiliar roads. "We value tourism and the dollars it brings to New Zealand, especially to our region here. We don't want to put tourists off, but we want them to be safe in our country," he said. "You cross that center line, and anything's possible." CNN's David Molko contributed to this report.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-14-1" ><div class="show-scrollbars">(CNN)We have no problem taking Wall Street executives to task for decisions that leave American families financially devastated, yet we give Silicon Valley billionaires a pass when they do the same thing. America needs to realize that instead of creating jobs, Silicon Valley is erasing them, leaving millennials financially stranded before their careers can get off the ground. Silicon Valley is tossing millennials aside like yesterday's laptop. The commonly held belief is that with hard work and a good education, a young person in America can get a good job. But despite falling unemployment, college grads age 22 to 27 are stuck in low-paying jobs that don't even require a college degree. The percentage of young people languishing in low-skill, low-paying jobs is 44%, a 20-year high. Only 36% of college grads have jobs that pay at least $45,000, a sharp decline from the 1990s, after adjusting for inflation. Perhaps most depressingly, the percentage of young people making below $25,000 has topped 20%, worse than in 1990. In other words, those with a bachelor's diploma were better off before the digital revolution. If this comes as a surprise, that's because images from popular culture push the idea that young college graduates are shrugging off bad employment prospects with their do-it-yourself attitude. In our collective imagination, millennials are saying, "No jobs? That's OK — I'll create my own!" And then they solve their own problems by heading to Silicon Valley with little more than an iPhone and an idea to create the next hip app that supposedly will turn them into overnight millionaires. A fictional example of this new breed of young idealistic entrepreneur would be Mike Bean, founder of Internet behemoth Gryzzl on the show "Parks and Recreation." Played by Blake Anderson, Bean might best be described as "barefoot and pregnant with ideas." The bumbling entrepreneur conquers the world practically by accident, armed only with his digital savvy, a can-do spirit, and a penchant for invading users' privacy. You get the idea that his success came easily. Privacy concerns aside, the Mike Beans of America are just about as rare as the Mark Zuckerbergs. In fact, the percentage of people under 30 who own private businesses has reached a 24-year low. Garages across the country are not exactly humming with millennials launching tech startups. But wait — won't the digital economy eventually lead to better jobs? After a period of adjustment, won't things get better? Unfortunately that's not the path we're on. One of the biggest misconceptions about the digital economy is that for every middle-class job rendered obsolete by technology, there's a new, equally good (or better) job created by Silicon Valley. But exactly the opposite is happening. The digital economy is vaporizing the good jobs and replacing them with two kinds of jobs: minimum wage jobs (think Amazon warehouse employees) and so-called "sharing-economy jobs" (think Uber drivers). The sharing-economy jobs are even worse than minimum wage jobs because they offer no stability or protections for workers. Sharing economy jobs aren't really jobs at all; they're freelance gigs. Sure, Silicon Valley doesn't owe America jobs. But something is wrong with the picture of a handful of tech billionaires overseeing a kingdom of falling wages, decreased worker protection and zero job security. This "winner-take-all" digital economy is not sustainable. People on both sides of the political spectrum are worried. Liberal luminary Robert Reich, a professor at the University of California at Berkeley and former secretary of labor under Bill Clinton, calls the sharing economy the "share-the-scraps" economy. Speaking of tech companies that utilize on-demand labor, such as Uber, Instacart and Taskrabbit, he says, "The big money goes to the corporations that own the software. The scraps go to the on-demand workers." Meanwhile, conservative columnist Ross Douthat fears a dystopian future in which "a rich, technologically proficient society will no longer offer meaningful occupation to many people of ordinary talents." Put simply, Silicon Valley's utopia is the rest of America's dystopia. And those who are punished more than anyone else are recent college graduates, whose lifetime earning potential has already suffered an irreversible setback. And if you think your own job is safe, think again. New research predicts that nearly half of all jobs are susceptible to automation over the next two decades. This is a giant leap backward, but it's deceptively described as technological "progress." As anyone who's talked to an automated system on the phone lately can attest, "automated" usually means "worse." What can be done? How can we fight this slide back toward the Middle Ages? If we take no action, we're headed toward a kind of digital world feudalism where there are a handful of kings, a lot of peasants and no middle class. There's no easy fix, but we can do three things immediately. First, we can stop glorifying tech titans and start talking openly about Silicon Valley's questionable tactics and its real job creation record (i.e., just follow the numbers). Second, we can encourage more lawsuits against the abusive practices of "sharing-economy" powerhouses. Third, we can elect leaders who are vocal about holding Silicon Valley accountable for their power over the entire American workforce, including white-collar employees. The fictional Gryzzl's tagline borrows some millennial slang: "Wouldn't it be tight if everyone was chill to each other?" Indeed it would. And if we want a better future for millennials and the generations after them, we need to challenge the prevailing Silicon Valley ethos before it's too late.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-15-1" ><div class="show-scrollbars">(CNN)When I was a child, a pale specter used to call our house most evenings, eager to chat with my doctor father about her myriad medical concerns. We called her the "White Bread Lady," a moniker she earned for one particularly inane call in which she panicked to my father after consuming white bread. She wasn't breaking out in hives or having any adverse effects to the bread. No, she was just concerned that some future illness could befall her given that one particular dietary decision. Although we all laughed at the time, it was with a bit of shifty-eyed shame. Because most of us (including if not particularly the illustrious Ehrlich family) have lurking within us our very own "White Bread Lady," ready to convince us that each cough, sniffle and less-than-nutritious meal might be a detriment to our health. And, naturally, that White Bread Lady looms even larger when we can type our worries into a search bar and unlock a bevy of potentially distressing information. Yup, so quoth Google, we all have cancer. According to the Pew Research Center, 80% of Internet users have looked up health information online. While that practice can be beneficial in some respects, the abundance of (variably valid) information online can turn us into e-hypochondriacs. (Or, worse, can lead us to neglect getting the care we need.) Read on for five mistakes -- courtesy of a selection of health care professionals -- that people make when diagnosing themselves online. Searching blind . Your eye is twitching like an overly caffeinated college student sitting behind a pretty girl in lecture hall, twirling his pencil and hoping to catch a whiff of her lovely shining hair. You type "eye twitch" into Google and come up with a really rad website that explains that this newfound spasm is actually an indication that your third eye is fixing to open, revealing to you wonders untold. You are the chosen one. Too bad that this trove of "medical information" is actually some dude's fan-fiction site. Sure, the above is an extreme example, but, as Dr. Kevin Pho of KevinMD.com pointed out, "There's a lot of bad information on the Web and information that can be dangerous." Especially if you're not considering who put up that information in the first place. Pho urges users to favor Web addresses ending in .org and .edu when looking for reputable health-care info, and to check who is funding the collection of that information. "There's so much information from organizations trying to sell products or push their agenda on the Web," he said. He suggests turning to sites like Mayo Clinic as well as troves of information curated by doctors (like Pho's own website) when trolling the web for info. And, of course, if a site mentions trolls and third eyes, one should definitely press on. Flailing in forums . If there's one thing people like to do online, it's talk about their problems -- especially mundane things like coughs and headaches and their babies' various and sundry discharges. That's all well and good; sharing experiences with others is enriching! Unless the people you're sharing with are idiots. "You can easily fall into that rabbit hole and find some forum that really isn't relevant but maybe sounds kind of close," warned Craig Monsen, co-founder of symptom-checker app SymCat. On the other hand, "sometimes you'll stumble on exactly the right forum where someone has your same exact problem, and their solution does help." "Health care forums are definitely another tool that individuals can use in order to crowdsource a diagnosis based on their symptoms," added Dr. Natasha Burgert of KC Kids Doc. "I think that these can be a really powerful tool not only for discussing potential diagnosis or symptom relief but also finding a forum of individuals in which you can discuss emotional and psychological parts of an illness and develop a wonderful online support community." The trick is to be wary about the issues being discussed in forums and how germane they are to you. And, you know, if people start talking about homemade remedies fashioned from bleach, maybe click off and see a doc. Getting emotional . You know that game "6 Degrees of Kevin Bacon"? There should seriously be a version of that called "6 Degrees of Cancer" -- as in, when looking up your symptoms online, how long does it take to deduce that you have a life-threatening disease instead of, say, a simple cold? According to Burgert, the root of this whole "worst-case scenario" thing is getting too emotional. "For most intents and purposes, when you're looking for online health information, it's about yourself or a family member," she said. "When you're looking through that lens, it's very hard to keep emotional distance. So you can read about a diagnosis that either makes you very scared or calms your fears -- and that's the path you'll continue down, whether it's correct or not." Burgert suggested using online symptom checkers simply to "understand possible diagnoses, find some initial steps for relieving the symptoms and determine if this is something that needs further evaluation or that can be managed at home." SymCat and Mayo Clinic's symptom checker let you type in what you're experiencing and unearth a spectrum of diagnoses and suggestions for when to seek a doctor's aid. Your doctor's website might also have such a tool. Voila, you just increased your separation from cancer by at least a couple of degrees. Keeping mum around MDs . "I think, traditionally, many physicians are a little apprehensive when that stereotypical patient comes to their office with big stacks of printouts from the Internet," Pho said. "But I think more and more doctors are accepting it. Personally, I think that transparency of information is helpful in a way." Translation: Help your doctor help you. If you're worried about a particular medical situation and did some research to help narrow down what's ailing you, share that info with your physician. "I really appreciate when patients bring in information that they found online, because it allows me to guide my instruction and plan based on their true concerns," Burgert said. "People get scared when they get sick and hurt, and they want to use multiple sources of information to help themselves. The Internet adds to that physician's expertise in order to do that." Remember, though, knowing how to use the Internet doesn't make you a doctor. Google doesn't count as a second opinion. If you're unhappy with your doc's diagnosis, go get one the traditional way. Putting off the inevitable . If your ailment isn't going away, all the symptom-checking and Mayo Clinic-ing in the world isn't going to help you. Make a doctor's appointment. Like, right now. Sites like ZocDoc make it super easy (and free; doctors pay to be listed) to set up an appointment ASAP, so no whining that you'll have to wait two weeks to see a doc and maybe by then "it" will have gone away. Unless, of course, "it" is that white bread you just ate. In that case, please stop calling my dad.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-16-1" ><div class="show-scrollbars">(CNN)With the ongoing protests over the shooting death by police of black teenager Tony Robinson in Madison, Wisconsin, the racist chanting of fraternity members at the University of Oklahoma, and now the inexcusable shootings of two police officers in Ferguson, Missouri, it's safe to say that the always-strained race relations in this country are being pushed to the breaking point. And the point with the most stress is the delicate relationship between police forces and the minority communities that they serve. To approach things from a more positive angle, the situation is dire enough that we absolutely have to try to uncover the good and not dwell on the negative. The best time to make things better is when it seems that everything is getting worse. This unacceptable status quo can motivate us to take the necessary steps to address the problems, which are not going to disappear unless we honestly deal with them. When things are going wrong, responsible people can begin by saying the right things. President Obama said on Twitter, "Violence against police is unacceptable. Our prayers are with the officers in MO. Path to justice is one all of us must travel together." The Congressional Black Caucus issued a statement saying, "The CBC understands the frustrations in Ferguson, but a response of violence is not the answer during this transformative moment in our country." And Attorney General Eric Holder noted, "This was not someone trying to bring healing to Ferguson. ... This was a damn punk, a punk who was trying to sow discord." For the most part, authorities in Missouri have been careful not to blame the peaceful protesters. Surely, not all responses have been as measured, but the gravity of the situation will hopefully bring out the best in people. While we pause for a moment to let passions cool, we can use the time to consider how best to move forward with common resolve instead of mutual recrimination. The way forward is to engage citizens in the community -- to bring them into the room when decisions are being made about policing policies and procedures to make sure that those policies and procedures address the community's real concerns. And it's about putting law enforcement officers in the community as welcome members of that community -- as guarantors of the safety and security of the people instead of intimidating outside forces. This approach would benefit both the community and the police. I'm certain that officers would rather be appreciated and valued by the people they serve than be pressured to fill city coffers by issuing unnecessary citations, as noted in the DOJ report on Ferguson. Nobody becomes a cop because they secretly long to be a collection agent. One of the easiest ways to integrate law enforcement officers into the community is to physically put them on the sidewalks by increasing the number of cops who work good old-fashioned foot beats. Officers who view the world through a patrol car window are separated from the people they serve by more than a sheet of glass. Being encased in a vehicle alienates a person from the world around them. The cop on the beat is not just a quaint notion from old movies, he can be a bridge between police forces and the people they serve. Another idea is to give cops bicycles, which has brought so many law enforcement officials in touch with other cyclists in the community. Lack of community policing is one of the shortcomings cited in the DOJ report on Ferguson. In areas where the gulf between law enforcement and the neighborhood is too wide, mediators can be used to initially bring the two sides together. After all, both sides ultimately have the same goal of safe and peaceful neighborhoods. Both police departments and members of the community can take proactive steps to come together on more than a purely professional level.  A tech services company in the South Bronx recently hosted a video game competition with police officers and residents of the neighborhood. The event left local teenagers saying things about the cops like "basically they're like us." Ultimately, police should be considered members of the community -- a notion that needs to be encouraged by police departments and neighborhoods alike. Communities can make the local cops part of their neighborhood celebrations. New Orleans Police Det. Winston Harbin became a minor Internet celebrity for his impromptu dancing with local people during Mardi Gras. Besides just being fun, Harbin's interaction with the community helped foster the type of mutual appreciation and respect that are essential to effective community policing. Fear and mistrust among minority communities toward police are the legacy of many decades of racism, unequal treatment, bias, subjective stereotyping and lack of opportunity. It is times like now, when that anger and resentment are boiling, that we address it. With the right approach, we can begin to change the attitude between the black community and the police from "HandsUpDon'tShoot" to "HandsTogetherInTrust."</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-17-1" ><div class="show-scrollbars">(WIRED)Screens are rectangles. Even the 3-year-old playing with your iPad could tell you that. But what would the digital world look like through a different sort of frame? Say... a circular one? Monohm, a startup based in Berkeley, California, was founded around this very idea. For the last year, the three-person team has been working a circular, palm-sized device dubbed Runcible. They cheekily refer to it as the "anti-smartphone," a description that goes for both its form factor and its value system. The round device is meant to be the antidote to our feed-obsessed, notification-saturated digital existence. It's a challenge to the rectangular status quo and everything it represents. That's a quixotic dream, but an interesting one. Display technologies have a long and rectangular history. Before smartphones there were movie screens, TVs, and computers, not to mention paintings and pages of print. And then of course there are windows—in some ways the original glass rectangles. In each case, the rectangle's prominence can be attributed in large part to practicality. Whether you're talking about film or glass or stone, rectangles are easy to make. They don't leave much wasted material. As frames for shaping the world, however, different types of rectangles can produce vastly different effects. 14 of the Best Architecture Photos From the Past Year . In her book The Virtual Window, which traces the rectangular frame from Renaissance painting up through Microsoft Windows, media theorist Anne Friedberg offers an example from the history of architecture, centering on a public feud between French builder August Perret and the preeminent modernist architect Le Corbusier. Perret was a strong advocate of the traditional French casement window, which was oriented vertically. Its main function, he said, was to let light into a room. Le Corbusier, making use of new manufacturing techniques, designed his buildings around long, horizontal windows, which were as much about framing the outside world as illuminating the space within. The disagreement influenced architecture for decades to come. The simple act of turning a rectangle on its side gave us entirely new ways to think about space. Rectangles are still subtly dictating our behavior today. Movie screens, chased by TVs, have gotten bigger and wider, encouraging us to sit back and lose ourselves in the spectacle. (In 1930, Russian filmmaker Sergei Eisenstein lamented how the cinema's "passive horizontalism." He wanted the screen to be square.) Smartphones, with their slender, touch-controlled displays, have become a distinctly more active rectangle. Paired with the never-ending vertical feeds that fill apps like Facebook, Instagram, and Twitter, they've become an irresistible, inexhaustible diversion. The point is this: Frames matter. They suggest certain things about how we should approach them. They shape the type of stuff that's made for them. And if just turning a rectangle on its side can make such a big difference, imagine all the interesting things that might happen if you left the rectangle behind altogether. Runcible isn't meant to be a smartphone replacement so much as an alternative. "I think we've become really, really good at getting interrupted and creating conduits for interruption," says Monohm CEO Aubrey Anderson, who met his co-founders during a stint at Apple. "It's time now to use technology to get a little quieter." If miniaturizing the computer is what got us the smartphone, Runcible asks what a gizmo might look like if you started by souping up a pocket watch. And the shape of the device is central to that thinking. A circular frame, after all, is no good for browsing a Twitter feed. 12 Most Ancient and Magnificent Trees From Around the World . So what is it good for? That's the question. At this point, Runcible as much a provocation as an actual product. The three-person team, which has been working with the San Francisco design studio Box Clever on the concept for nearly a year, has some prototype hardware and a crude sketch of an operating system, but they've still got a long way to go. They've got a few vague ideas for applications. One is a sort of dashboard that gives you an overview of activity on your social media accounts. Another is a compass-style mapping system that encourages wandering instead of pure A-to-B efficiency. But they're more enthusiastic about the philosophy behind it all: They want to see applications that distill information and streamline interaction, software that constrains the smartphone experience as it exists today. All this is easier said than done, of course. Throwing out centuries of rectangular thinking and starting from scratch ain't easy. Plus, it's not clear that people really want constraint to begin with. Smartphones are distracting, sure, but they're also incredibly useful and immensely entertaining and maybe a little distraction is a fair price to pay for all the good stuff. Still, even as a hint of a possible device, Runcible is compelling. For one thing, the company's hardware model feels great in the hand (The team's hardware guy, George Arriola, came from Sony, where he helped design the PlayStation 4.) The model's curved back brings to mind the very first iPhone—and makes you consider how each successive generation has become a little bit harder to hold. And though unformed, the vision for the software is interesting too. If today's interactive rectangles and infinite feeds signal that there's always more stuff just outside the frame, circles could offer something more self-contained, more complete. Maybe even something actively inefficient. Rectangles are beautiful and functional. Circles are zen. A circular device would sever the link to the printed page, the TV and the computer, and invite developers to look elsewhere for metaphor and inspiration. Pocket watches and compasses. Microscopes and telescopes. Peep holes, port holes, and wormholes. Dials, buttons, and other circular controls. 15 Incredible Photos That'll Remind You to Be Awed by Planet Earth . If nothing else, the concept could be valuable simply for helping us identify some of the assumptions and habits that underlie our existing devices. Maybe thinking about circles could help us make our rectangles better. Runcible is just one scrappy, literal attempt to abandon the rectangle. But similar thinking is happening elsewhere. Android Wear, Google's smartwatch operating system, reconsiders what apps should look like on a tiny circular display. Apple Watch is in some ways another rectangle, but its real estate is limited enough that it will also encourage new, less rectangular thinking. (Note how its home screen ditches iPhone's grid of icons for a blob of circular ones. Also note the recent rise of circular avatars over the traditional square ones in apps and interfaces of all kinds). We've seen how sensors can be harnessed to choreograph experiences that happen outside of the frame entirely, as with Disney's Magic Bands, which usher you through the company's parks. And then of course there are technologies like augmented reality and virtual reality, where your nose is effectively pressed so close to the glass that the frame disappears entirely. Here, the screen is less of a window, more of a lens. The only frame is your field of vision. Rectangles will endure. They're easy, they're efficient. But as new components and manufacturing techniques make it easier to experiment with other forms, we'll likely find people exploring the unique effects they can produce. Just recently, in fact, we saw an instance of a tech industry giant leaving the glass rectangle behind in a very big way. In a 10 minute video, Google proposed a new headquarters that would leaves boxy buildings behind in favor of tent-like structures draped in glass. These buildings don't have vertical windows or horizontal windows. They're nothing but windows, or maybe they're so radical that the concept of "window" doesn't even really apply. Whatever the case, there's nothing rectangular about them, and Google's convinced they're the future. Read more from WIRED: . There's a Super-Fast Method for Boarding Planes, But Airlines Aren't Using It . 21 Awesomely Well-Designed Products We're Dying to Own . What Cities Would Look Like if Lit Only by the Stars . Subscribe to WIRED magazine for less than $1 an issue and get a FREE GIFT! Click here! Copyright 2011 Wired.com.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-18-1" ><div class="show-scrollbars">Andre Spicer is Professor of Organizational Behavior, Cass Business School at City University London. The views expressed in this commentary are solely those of the writer. CNN is showcasing the work of The Conversation, a collaboration between journalists and academics to provide news analysis and commentary. The content is produced solely by The Conversation. LondonApple CEO Tim Cook has released the much-anticipated Apple watch -- his company's first new product since the iPad. Cook said the new watch, in addition to telling the time, was a "comprehensive health and fitness companion." But we're unlikely to hear much about how people will actually use this new product for some time. Our research has found that smartwatches certainly do have some benefits for users. But they also have a hidden, darker side which the companies selling them are unlikely to talk about. As part of a research project with Alberto Rizzoli, we have tried to understand what drives people to invest in smartwatches. One participant, a judge, hoped he could keep track of the deluge of emails during long hours in the courtroom when he had to pay attention -- and be seen to pay attention. The dilemma is familiar to many of us. We spend our days engaged in social interaction. Huge proportions of our time are taken up with meetings or impromptu encounters with colleagues. However when we are in these meetings, our smartphone is buzzing away reminding us that our inbox is filling up. We may want to check these incoming messages, but know it would be rude to glance at our phone. When one of the first smartwatches came to market, the judge thought he had found the solution to this problem. We found that heavy smartwatch users valued how the devices helped them track information as it arrived while still appearing socially attentive. It also saved users the hassle of having to dig through their pockets or handbags to find a buzzing phone. Surprisingly only about half the people we spoke with actually used all the health tracking technology built in to the watches. They were more interested in keeping abreast of their inbox than their calorie count. We also noticed a worrying side to these new devices as heavy users of the watches incorporate them into their daily routines -- we call it the "phantom device effect." They would compulsive check their watch not just for the time, but for a wide range of information. In some cases their new gizmo would become such an instinctive part of their life that even when not wearing one they would check their bare wrist. Some would feel a phantom buzz, notifying them of an imaginary incoming email. The phantom device effect leads us to ask about just how ingrained in our daily habits these devices might become. Recent research has suggested that average smartphone users check their phone 150 times a day, starting just minutes after waking up. We also know this has the effect of extending work into all areas of our lives -- monitoring work emails late into the night or during social or family events. We used to worry that the average American watched television for six hours a day. Now we accept as a matter of course the fact that we tied to our devices for most of the time we're awake. Indeed many of us go to bed with our smart devices quietly monitoring our rhythms as we sleep. This raises the question of what impact it will have on our lives. In the work Carl Cederström and I have done on the hidden dangers of wearables, a big big concern is privacy. The Apple Watch, like most wearables, is essentially a tracking device, recording heart rate, sleep patterns, movement, whereabouts, and much more depending on the apps installed. All this is packaged and transmitted to datacentres for analysis. The result? A database of personal information of which the Stasi could only have dreamed. As well as sucking up personal information, wearables could fuel an unhealthy obsession with personal wellness. By pumping health and wellbeing information at us non-stop, we start to become a little too focused on our bio-rhythms. Data which would have been generated only in the most unusual situations now becomes commonplace, making people not just health conscious, but also self-obsessed. Instead of checking in with social networks, we spend more time checking in with our own bodily rhythms. As a result other people start to become more interested in what is going on inside themselves rather than what is happening in the world. As we pay more attention to our feed of personal biodata we're likely to become more anxious about things that we may never have given a second thought to in the past. Not walking your allotted steps in a day or finding you had a poor sleeping pattern at night can become a source of significant personal guilt or worry. As a result, we pour more attention into monitoring and controlling ourselves, giving us less time to do the things which actually make us happy. If Apple's projections are indeed correct and tens of millions of people purchase smartwatches, it's likely to create a step change in our lives. We already see people routinely posting on social media information they would have only shared with their doctor a few years ago. Widespread use of smartwatches could mean that instead of relieving our boredom by answering emails, people will spend their time sifting through their biodata stream, planning ways to maximize their personal wellness ratings. Rather than talking about what was on television last night, people will start comparing charts of their sleeping patterns. When this happens we will know that the internet of me has arrived. READ: Will your Apple Watch program YOU? Copyright 2015 The Conversation. Some rights reserved.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-19-1" ><div class="show-scrollbars">Ferguson, Missouri (CNN)Loistine Hoskin cared for her old car as a sentimental possession, missing a tire while parked beside her home, until one day the city ticketed her for having a "derelict vehicle in driveway." A tow truck took it away in 2009. So began an odyssey with Ferguson police, municipal court and city hall that left her with $1,200 in fines that to this day she still doesn't fully understand. She paid the sum because endless court hearings about the car wore her down. "I don't have a lawyer. I'm not a lawyer. It's me going up against the city of Ferguson when the attorneys won't help," Hoskin said this week. She never saw again her 1996 Oldsmobile Ninety-Eight with 168,000 miles. Its location is a mystery. She accepts the loss because at least she's not  in jail, where city authorities threatened to put her at one point, she said. While Hoskin's surrender of both car and $1,200 to the city may seem a matter of personal choice, the U.S. Justice Department revealed this week a "pattern and practice" of racial discrimination within Ferguson that may lend credibility to Hoskin's account of a government run amok. Just about every branch of Ferguson government -- police, municipal court, city hall -- participated in "unlawful" targeting of African-American residents such as Hoskin for tickets and fines, the Justice Department concluded this week. The millions of dollars in fines and fees paid by black residents served an ultimate goal of satisfying "revenue rather than public safety needs," the Justice Department found. To the outside world, the federal findings were staggering, but to Hoskin and other longtime residents, the conclusion was nothing new. They've felt it all along, they say. It's only now that federal authorities have documented the institutionalized racism, as part of a civil rights investigation after a white police officer's fatal shooting of an unarmed black teen, Michael Brown, 19, last summer. The officer, Darren Wilson, was cleared of federal civil rights violations this week and was earlier cleared of criminal wrongdoing. The Justice Department is expected to pursue a court-supervised consent decree that requires the city of Ferguson to make changes to its police and courts. "It's definitely a vicious cycle," said Hoskin, 64, a retired airline reservation agent. "Unfortunately for most people who are in this cycle, they continue to be in a downward spiral because they can't get jobs, they can't do anything, they can't pay the fines." Hoskin's household has experienced its share of ugly encounters with Ferguson police, the family said. Hoskin's daughter was ticketed by police in what she described as racial profiling, she said. In 2007, Kimberly Hoskin got a $124 ticket for driving her sister's car, which wasn't insured in Missouri, and then had to pay an additional $100 fine when she missed a court appearance because of an emergency appendectomy. The court, she said, rejected her medical excuse and issued a warrant for her arrest. She paid a total of $224 in fines because she was in the middle of a job search and didn't want an outstanding warrant to prevent her from getting a good job. "Why is it that all the people in court are black?" Kimberly Hoskin said of defendants in municipal court. "I've had so many police officers make a U-turn, follow me, run my plates, find out everything is OK, then turn around and go back in the direction they were going. "There's nothing we can do. In Ferguson, the police do what they want to do. Ferguson does what it wants," said Kimberly Hoskin, 35, who now works the overnight shift on a General Motors manufacturing line. City officials and police declined to respond to CNN's requests this week for comment about the Hoskin family's assertions. Last September, the City Council repealed administrative fees imposed by police when overseeing the release of a towed vehicle, the mayor said. The city also no longer has a specific offense for failing to appear in court, which eliminates certain additional fees and court costs, the mayor said. The Justice Department's report details how Ferguson operated a vertically integrated system -- from street cop to court clerk to judge to city administration to city council -- to raise revenue for the city budget through increased ticketing and fining. Ferguson's budget increases were so sizable that city officials exhorted police and court staff to levy more and more fines and tickets against violators, who turned out to be largely African-American, the Justice Department said. The demands for revenue were so intense that the police department had "little concern with how officers do this," even disciplining officers who failed to issue an average of 28 tickets a month, the Justice Department report said. Officers competed "to see who could issue the largest number of citations during a single stop," the Justice Department said. One apparent winner was an officer who issued 14 tickets at a single encounter, according to the federal investigation report. Many police stops of civilians "have little relation to public safety and a questionable basis in law," the report said. Ferguson police chief mum on federal report . Indeed, Ferguson enjoyed so much success in issuing tickets and fines that Ferguson, population 21,000, was ranked in the top eight of the 80 municipal courts in St. Louis County by having more than $1 million in revenue in 2010, the report said. When Ferguson court revenues exceeded $2 million in 2012, the city manager responded to the police chief in an internal email: "Awesome! Thanks!" according to the federal report. Even municipal judges were pressured to boost revenue. "The city has made clear to the police chief and the municipal judge that revenue generation must also be a priority in court operations," the federal investigation found. The city finance director said in a 2011 report that the municipal judge had been successful since 2003 in increasing court collections, and that internal 2011 city report noted a judge's statement that "none of these changes could have taken place without the cooperation of the court clerk, the chief of police, and the prosecutor's office," the Justice Department investigation found. Cash filled the city treasury. By 2013, revenue from enforcing municipal codes reached $2.46 million, the federal report said. By 2015, the city anticipated that fines and fees would account for 23% of the budget, or $3.09 million of $13.26 million in general fund expenses, the Justice Department found. Just five years earlier, court fines and fees made up only 12% of the budget, or $1.38 million of $11.07 million in general fund revenues, the Justice Department found. The fines were among the highest of surrounding municipalities. For example, area parking fines ranged from $5 to $100, but Ferguson's parking fine was $102. A fine for "weeds/tall grass" was $5 in one nearby city, but Ferguson's fine ranged from $77 to $102, the Justice Department found. The federal government made a forceful conclusion: . "City, police and court officials for years have worked in concert to maximize revenue at every stage of the enforcement process, beginning with how fines and fine enforcement processes are established," the federal report said. After the Justice Department's announcement this week, Ferguson Mayor James Knowles told reporters that he, Police Chief Tom Jackson and City Attorney Stephanie Karr met with federal officials about their findings and initiated several initiatives, including reforms to the municipal court. Knowles said municipal judges have created a docket for alleged offenders having trouble paying fines. Also, a defendant may ask a judge or prosecutor about different payment plans or alternative sentencing, the mayor said. Defendants have been required to pay an entire fine at once, regardless of ability to pay, the federal report said. The city also passed an ordinance last September to cap municipal court revenues at 15% of the city's overall budget, the mayor said. That figure is half Missouri's legal limit, he added. All the reforms are intended to "move this city, its residents and our entire community forward," the mayor said. Back at her home, Loistine Hoskin recalled the height of absurdity in her fight against the city, which occurred shortly after her husband, Calvin, died in 2008 of complications from paralysis he suffered in a car accident three years earlier. She had been his caregiver. She appeared in court to appeal the citation, but an officer arrested her and put her in the back of the squad car. Her offense? Failing to appear in court, she said. She spent four hours in jail. She insists she made every court date. For now, she lives in fear of the police, even at home. "We just got to a point where we said we're just not going to have anyone over -- because they were fearful when they left they would get some ticket, and they didn't even live here," Hoskin said. CNN's Ed Lavandera and Tristan Smith contributed from Ferguson. Michael Martinez reported and wrote this story from Los Angeles.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-20-1" ><div class="show-scrollbars">Kuala Lumpur (CNN)The initial hours after the disappearance of flight MH370 were characterized by confusion and chaos, as air traffic controllers struggled to comprehend the situation and radar operators failed to take notice, according to data contained in an interim report. The report -- released one year after the disappearance of the Boeing 777 and its 239 passengers and crew --- provides a detailed picture of delays and protocol violations before the launch of the search and rescue. An astonishing five hours and 13 minutes passed between the last communication from the flight crew and Kuala Lumpur's first distress signal concerning the missing plane. And it was another five hours before the first search flights took off to try to find it. CNN's aviation correspondent Richard Quest said he believes the delayed response was the most disturbing thing revealed by the interim report -- "the lack of somebody pushing the big red button that says crisis and panic." A year later after the plane's disappearance, not a single trace of Flight MH370 has been found despite extensive search efforts. Investigators believe the wreckage lies somewhere on the bottom of the Indian Ocean, based on the analysis of satellite communications data. The first sign that something was wrong with flight MH370 came after plane failed to check in with Vietnamese Air Traffic Controllers after leaving Malaysian airspace. According to protocol, Ho Chi Minh ATC should have informed their Kuala Lumpur counterparts (KL ATCC) about this within five minutes. Instead they waited 20. When Ho Chi Minh finally did inform Kuala Lumpur, the confusion was evident, as seen in transcripts of the conversation released Sunday. KL ATCC asked three times at what point Ho Chi Minh lost contact, then went on to express concern at the delay, asking "Why you didn't tell me first? Within five minutes you should be (sic) called me." The confusion only got worse after Malaysia Airlines mistakenly told Kuala Lumpur Air Traffic Controllers they could see the flight somewhere over Cambodia. It took an hour and a half to clear this up, after Malaysia Airlines admitted to controllers they were only looking at the projected flight track. Malaysia Airlines CEO Ahmad Jauhari Yahya said the misinformation was a momentary lapse by a company employee. "Our information was only to be as a guide. We are not an ATC per se. We don't have radar," he told CNN. The watch supervisor then waited another two hours to activate the rescue coordination center. Still another hour went by before before Kuala Lumpur issued the distress signal. No explanation for the delay is given in the interim report, which is composed of factual data and provides no conclusions or recommendations. After the air traffic controllers lost contact with MH370, the plane continued to fly within the range of multiple radar systems belonging to four different countries. Yet little seems to have been done with the data in the immediate hours after the plane disappeared. The interim report says that "for unknown reasons" Indonesia's Medan Radar did not see the flight. And Thailand "did not pay much attention," since MH370's flight path did not fall within its borders. Malaysian military radar tracked the flight for an additional hour, including its turn back across the Malay Peninsula. Despite this information, search and rescue teams did not begin expanding the search area for a full day. Though the interim report makes no mention of it, a failure by the Malaysian military to alert others to the relevant radar data may be blame. A briefing document prepared by the International Civil Aviation Organization (ICAO) said military authorities failed to share the final radar fix of MH370 with their civilian counterparts for 20 hours. CNN approached Malaysia's Ministry of Defence for comment but is yet to receive a response . Another working document notes that MH370's turn back might have been discovered much earlier, if the military and non-military agencies had coordinated better. "In essence, a week or more was lost in the initial search because of poor civil/military cooperation," reads the ICAO working document. The interim report released by Malaysian investigators on Sunday provides no information about when the military radar data was shared with other authorities. It's impossible to know if a speedier response from air traffic controllers, or more immediate access to radar data, would have changed the course of events for MH370. But it would have provided authorities with more time, either to track the flight or to search the ocean before the batteries died in the emergency locator beacons. Looking back at the series of miscommunication between air traffic controllers and the radar lapses also provides valuable lessons that could help future search and rescue operations. Though the MH370 investigation team did not draw lessons in the current report, it plans to provide safety recommendations in the months ahead. Journalist Chan Kok Leong contributed to this report.</div></td></tr></tbody>
+</table></div></td><td id="section-2-content-block-2-cell-5-3" ><div class="show-scrollbars">≈25.501% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>

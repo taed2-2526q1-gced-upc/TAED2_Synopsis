@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251012T122724.533474Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-12T14:25:43Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">12</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">11</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">1</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈91.67%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-c4850101-430f-4b7f-8a7c-6ed500d802c1" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-c4850101-430f-4b7f-8a7c-6ed500d802c1 class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-12T14:25:43Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251012T122713.018288Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >a0bbfc71545115cc4670293433956e9d</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\processed\clean_val.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-5-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> and less than or equal to <span class="badge badge-secondary" >5000</span> characters long.
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>3409 unexpected values found. ≈25.5% of 13368 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-2-content-block-2-cell-5-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-1-1" ><div class="show-scrollbars">(CNN)In the midst of all the shouting over Indiana's new religious-freedom law, which many fear will lead to increased discrimination against LGBT people, culture warriors marked the grim anniversary of another conservative "victory," one that left more than 10,000 needy children without their pledged financial support. A year ago this week, I rose each morning with red, puffy eyes and heavy sense of exhaustion. I hadn't slept soundly since March 26, a day many of my friends and readers mark as the last day they wanted anything to do with organized Christianity. It all started when World Vision, a humanitarian organization I had long supported and promoted, announced a change to its hiring policy allowing people in same-sex marriages to work in its U.S. offices. In response, conservative evangelicals rallied, and within 72 hours, more than 10,000 children had lost their financial support from canceled World Vision sponsorships. Ten-thousand children. In addition, funding for schools, hospitals, water projects, and medical care was threatened as churches vowed to cut off support to an organization that hired LGBT people. As one of my readers, Anthony, recalls, "Our church leadership vowed that they would pull all support, including over $2 million to build two hospitals in Zambia." To try and stem some of the bleeding, I joined with other World Vision bloggers to encourage my readers to sponsor children or make one-time donations to the organization. We had raised several thousand dollars and multiple sponsorships -- many coming from gay and lesbian couples -- when the CEO of World Vision announced the charity would reverse its decision and return to its old policies discriminating against gay and lesbian employees. It had worked.  Using wells and hospitals and child sponsorships as bargaining chips in the culture wars had actually worked. Never in my life had I been so angry at my own faith tradition. Many conservative evangelicals count the World Vision reversal as a major victory in the culture wars. Eric Teetsel, director of the Manhattan Declaration, told Christianity Today he considered it "the best news of 2014" for evangelical Christians. "This was Christianity at its best," he said. But as I survey the battlefield a year later, I can't help but wonder if even the most strident culture warriors would consider the World Vision campaign worth its many casualties. There are, of course, the families around the world affected by the sudden drying up of funds meant to support their hospitals and schools, not to mention the kids who used to receive letters and gifts from their sponsors, but whose pictures were casually ripped from the refrigerator and tossed into the garbage can once they were deemed expendable collateral in an American political battle. Then there are the many gay, lesbian, bisexual, and transgender people, (especially LGBT Christians caught in the middle), for whom the campaign represented yet another blow to their humanity.  I remember a gay friend of mine telling me, through tears, "Christians don't even think I'm worthy of answering phones in the office of a humanitarian organization. What makes them think I would be welcome in their churches?" And then there are the many Christians and former Christians for whom the World Vision campaign was the final straw in a drawn-out disillusionment with organized religion. When I marked the anniversary with a Facebook status on the topic, I was surprised by how many of my readers marked March 26 as the day they left the church. "I don't think I can ever get over this," wrote Kelly. "Changed my views on evangelicalism and my faith forever." Anthony, who once taught Sunday school at his church, only rarely attends now. This is the tragic irony of the culture wars: The casualties tend to be the very people Jesus went out of his way to serve: the poor, the sick, the marginalized, the outcasts, the people ostracized and deemed "sinners" by the religious elite. And when the world sees Christians hurting rather than helping such people, in the name of political gain, our testimony is profoundly diminished. We have lost the way of Jesus when we are more committed to self-preservation than service, more occupied with waging war than washing feet. In all likelihood, Indiana's religious-freedom law will not directly affect many people. But the conversation that has surrounded it, in which discrimination against LGBT people has been characterized as a "deeply held religious belief," will have far more lasting effects, not unlike the effects of the campaign against World Vision. So to the culture warriors, I plead: Before you wage the next campaign, assess the potential collateral damage and ask yourself if it's worth it. Remember that the fruit of the Spirit is not power or might, influence or entitlement. The fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self control, and  "against such things, there is no law" (Galatians 5:23). And to the wounded, I offer only this: You are not alone. Please know there are field medics -- pastors and priests, artists and activists, poets and parents and healers and dreamers -- ready to welcome you back to faith and to church whenever you're ready. We can walk the long road to healing together, even if it's with a limp.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-2-1" ><div class="show-scrollbars">(CNN)The United States and Great Britain have pulled their last forces out of strife-torn Yemen, raising fears that the failed state will become even more of a breeding ground for terror groups plaguing the Middle East and the West. Over the weekend, the United States evacuated the last of its special operations forces -- including Navy SEALs and Army Delta Force troops -- amid the deteriorating security situation in the country, the U.S. State Department said. On Monday, a security source in the region familiar with the situation in Yemen told CNN's Nic Robertson that British special forces had also left Yemen in the last few days. The British Ministry of Defence declined to comment. The U.S. move came a day after terrorists bombed two mosques in the capital, Sanaa, on Friday, killing at least 137 and wounding 357 others, according to Yemen's state-run Saba news agency. The terror group ISIS, based in Syria, claimed responsibility for the attack. It also followed months of fighting between government forces and Houthi rebels, who on Sunday seized the international airport in Taiz. The rebels now control both the airport and Sanaa. Yemen has been a key U.S. ally in the fight against al Qaeda in the Arabian Peninsula, allowing U.S. drones and special operations forces to stalk terrorists in the country. Now, that arrangement is in tatters, along with any semblance of peace in the Middle Eastern nation. While State Department spokesman Jeff Rathke said Saturday that the United States would continue to "take action to disrupt continuing, imminent threats to the United States and our citizens," the move left some wondering what role the U.S. could play with no forces on the ground. The country closed its embassy in Sanaa last month. "I don't think there is an active role for the U.S. other than intelligence and trying to see where the dust is going to settle," said U.S. Sen. Angus King, a Maine Independent who serves on the Senate Armed Services and Intelligence committees. That raises the possibility of the already unstable country becoming an even more fertile environment for terror groups to collaborate, grow and export violence, according to Robin Wright, a security and defense analyst with the Woodrow Wilson Center. "It's becoming much like Syria, much like Afghanistan was at the peak of its instability," she said. On Sunday, U.N. officials said the country appeared to be on a "rapid downward spiral." The Security Council again deplored the violence and called for an end to the fighting and for Houthi rebels to return government facilities to the elected government of President Abdo Rabbo Mansour Hadi. But officials said recent events "seemed to be leading the country further away from a peaceful settlement and towards the edge of civil war." In addition to counterterrorism issues, all sorts of geopolitical influences are at work in Yemen -- chief among them the regional power play between regional rivals Iran and Saudi Arabia. The Houthi rebels are Shiites with ties to Iran, who have long felt marginalized in majority Sunni Yemen. Sunni Arab countries in the Gulf Cooperation Council want to limit the influence of Iran, particularly Saudi Arabia, said CNN military analyst Lt. Col. Rick Francona. "They believe now that Iran is in control in Beirut, in Damascus, in Baghdad and now on their southern border in Yemen," Francona said. "So the Saudis are beginning to feel a little threatened here and are hoping the Yemen situation doesn't spiral out of control." The Saudis and other Gulf Arab nations have called for every effort to be made to roll back the Houthi gains and hand full control back to Hadi's government. On Monday, Houthi leader Abdul Malik al-Houthi criticized regional governments over their stance on the fighting. Al-Houthi said his group was striking back at al Qaeda and ISIS in self defense, and said he found it "very strange" that nearby governments would condemn the group for such acts while welcoming the United States, which he called "the umbrella of tyranny in the world." Yemen: What you need to know about how we got here . There's little reason to believe the Security Council's calls for peace will have much impact. Last month the council slammed the rebels for taking over democratic institutions and holding officials under house arrest, with little effect on the fighting. Last week, a Yemeni jet commanded by the Houthi fired missiles at a palace housing Hadi in the port city of Aden. No one was injured, but the direct strike marked an escalation in the deadly fighting between the two sides. That same day, Yemeni military forces -- some under the Houthis, others led by officers loyal to Hadi -- battled in Aden, leaving at least 13 people dead in the clashes, Aden Gov. Abdul Aziz Hobtour said. The fighting is taking a huge toll on Yemen's people and economy, said Rafat al Akhali, the country's former youth minister. Aside from the direct impact of fighting, people are losing jobs and businesses are closing, he said. There's still time, he said, to implement a political solution to the crisis. "I don't think we're past the point of no return yet," he said. Francona was less sanguine. "I don't see anything stopping a major war going on," he said. CNN's Hakim Almasmari, Catherine E. Shoichet, Richard Roth and Stephanie Halasz  contributed to this report.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-3-1" ><div class="show-scrollbars">(CNN)The fury of Tropical Cyclone Pam, one of the most powerful storms ever to make landfall, has moved on, but the misery it left behind in the islands of Vanuatu is just starting to become apparent. Aid workers described scenes of extensive devastation in the capital, Port Vila, and expressed fears of even more destruction farther afield. Thousands were in need of shelter, food and water, the Red Cross said Sunday. "Homes have been lost, crops are destroyed. The damage is enormous, and people need our help," said Aurelia Balpe, head of the Red Cross in the Pacific. "Yet it will still take some time before we really understand the full extent of the damage." The storm flattened houses, scattered trees across roads and inflicted damage on key buildings meant to serve as safe havens, such as the hospital, schools and churches. "It's becoming increasingly clear that we are now dealing with worse than the worst-case scenario in Vanuatu," said Helen Szoke, executive director in Australia for the aid group Oxfam. "This is likely to be one of the worst disasters ever seen in the Pacific." At least 90% of housing in Port Vila has been badly damaged, parts of the hospital are flooded and the state mortuary took a hit, Oxfam said. Some 60,000 children are in need of assistance, UNICEF reported Sunday. How to help Vanuatu residents . At least six people have been confirmed dead. But communications with many of the 80-plus islands in the archipelago are down, so the fear is that the toll will climb as more information emerges. The confirmed deaths, reported by the National Disaster Management Office, are just from Port Vila. For most of a 24-hour period between Friday and Saturday, the cyclone pummeled Vanuatu, where some 260,000 people live, many in flimsy homes built of thatch. It is unclear how many thousands of people have been displaced by the massive storm, which had the power of a Category 5 hurricane when it made landfall. Aerial assessments are being carried out by military aircraft from New Caledonia, Australia and New Zealand. Relief workers are raising concerns about a lack of clean water and sanitation for the many people left homeless. Aid has started to trickle in. The Australian government said a first contingent of officials and supplies arrived in Port Vila around noon Sunday and more flights were expected to follow. "In Port Vila, there's a lot of activity now -- people are starting to emerge," said Tom Perry of the aid group CARE International. "You can see trees that are strewn across roads being chopped down. The evacuation centers are beginning to be set up." Perry, who arrived on one of the first Australian military flights into Port Vila, told CNN the damage there was "very significant" with trees that looked like "snapped toothpicks." "It's like a bomb has gone through," said journalist Michael McLennan, who lives in Port Vila. "It's really quite apocalyptic." Most buildings in the capital were destroyed or damaged, he told CNN on Sunday. Many roads were blocked by fallen trees or power lines. The main objective now is to get disaster response teams into Vanuatu and kick-start the humanitarian operation, Sune Gudnitz, regional head for the U.N. Office for the Coordination of Humanitarian Affairs, told CNN from Fiji, about 600 miles away. His aid agency has had word of much destruction on Efate, the island where Port Vila is located, and from the southern island of Tanna, he said. Only a little information has so far trickled out from beyond the capital, but Gudnitz said he fears the worst. "Unfortunately, the more that comes out, the worse it looks," he said. Vanuatu President Baldwin Lonsdale, who was at a U.N. conference on disaster risk reduction in Japan on Saturday, issued an appeal to the global community to help his shattered nation. Vanuatu has officially declared a state of emergency, opening the door for other countries to help. Vanuatu's remote location adds to the challenges the international response faces. Port Vila is more than 1,770 kilometers (1,100 miles) northeast of Brisbane on Australia's east coast, and some 2,200 kilometers (1,367 miles) north of Auckland, the closest city in New Zealand. Reaching the more isolated communities will also take time. Vanuatu's archipelago -- comprising 83 small islands, about 65 of them inhabited -- is roughly 850 kilometers (528 miles) long. Many of the people are subsistence farmers, said CNN's Bill Weir, who visited Vanuatu recently. He recalled talking to a resident who built the first indoor bathroom on his island and sought advice on where to find a toilet paper dispenser. "It's setting them back years," Weir said of the storm. People away from the capital live much as their ancestors did generations ago. Homes are built of weak materials, including straw and corrugated steel, that stood little chance against Pam's raging winds. "When you've got a Category 5 cyclone that essentially just sat here for 24 hours -- where do you go when you have a storm that powerful?" Perry of CARE International said. "It's very terrifying to think about what people have been through." While international teams are finding a way in, it will be up to humanitarian agency staffers on the ground and the local communities themselves to do what they can to get by amid the wreckage. Aid workers said the most immediate challenge is to get clean water to people. Many people will be spending another night in emergency shelters. Track the storm . Pam is the South Pacific's second strongest cyclone since record-keeping began in 1970. And it's the strongest of any type since Super Typhoon Haiyan smashed into the Philippines in 2013, killing more than 6,000 people. CNN's Ralph Ellis, Ben Brumfield and Laura Smith-Spark contributed to this report.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-4-1" ><div class="show-scrollbars">A Sydney theatre has apologised after refusing a young Jewish theatre group’s request to use its venue in an alleged act of discrimination. The Jewish group, Hillel is a not-for-profit educational and cultural organisation which aims to ‘inspire university-aged young adults to engage with Jewish life’ and become future leaders. The group are planning a series of performances about survivors of the holocaust and were in search of a venue. When Hillel made an application to perform at The Red Rattler Theatre in Sydney’s inner west, they were shocked at the email they received in response. ‘Our policy does not support colonialism/Zionism. Therefore we do not host groups that support the colonisation and occupation of Palestine,’ the Marrickville Theatre group responded curtly. Assistant director Shailee Mendelvich was confounded when she received the rejection email from The Red Rattler Theatre group . The Red Rattler Theatre in Marrickville refused Jewish group Hillel's request to use the performance space with a curt email saying they would not host a group they support the occupation of Palestine . The group are planning a series of performances the holocaust and the third generation who will be the last to know Holocaust survivors. They were in search of a venue . Members of the youth group could not believe that they were being rejected, allegedly due to their religious beliefs. Assistant director Shailee Mendelvich was confounded when she received the rejection email from The Red Rattler Theatre group. ‘I was shocked and disappointed because I believe that denying a Jewish group the right to make a commercial booking is clearly racial discrimination and, in this case, Antisemitism,’ Ms Mendelvich told Daily Mail Australia . Ms Mendelvich was particularly troubled by the rejection as The Red Rattler Theatre are also a not-for-profit, artist-run company which purports to have ‘community at heart’. The Jewish group, Hillel is a not-for-profit educational and cultural organisation which aims to ‘inspire university-aged young adults to engage with Jewish life’ and become future leaders . The NSW Jewish Board of Deputies chief executive Vic Alhadeff have written to the theatre to express his concern that Hillel have been discriminated ‘based on conflicts taking place far away from Australia' Members of the youth group could not believe that the rejection allegedly due to their religious beliefs . On their website, the Red Rattler claim that the theatre ‘was set up as a space where racism, homophobia, transphobia and sexism are not welcome on stage, in the audience, at the door, and at the bar' The theatre issued a statement later Monday saying it was sorry for the email that refused the youth group's request.'The Red Rattler apologises for the email that was sent to Hillel. It does nit reflect the values of the community Board of the Red Rattler Theatre Inc,' the statement said. 'The Red Rattler condemns racism of any kind.' The theatre said it actively encouraged cultural diversity. 'In effort to further the conversation we have directly contacted Hillel to discuss the situation in the hope of obtaining a positive outcome.' the statement said. On their website, the Red Rattler claim that the theatre ‘was set up as a space where racism, homophobia, transphobia and sexism are not welcome on stage, in the audience, at the door, and at the bar.’ ‘We ask you to join us in efforts to make this space welcoming, stimulating, and happiness producing to people regardless of their ethnicity, sexuality or gender.’ Hillel believes that the decision to reject a Jewish theatre group contradicts the company’s ethos. ‘I hope that people working in community service and the not-for-profit sector can acknowledge the common ground we share, especially for events that encourage honest and open creative expression for important cultural or social issues.’ The event series, called ‘Moth’, is a performance evening to ‘encourage people to express themselves in a creative way’. ‘I was shocked and disappointed because I believe that denying a Jewish group the right to make a commercial booking is clearly racial discrimination and, in this case, Antisemitism,’ Ms Mendelvich said . The event series, called ‘Moth’, is a performance evening to ‘encourage people to express themselves in a creative way’ The upcoming event aims to ‘unpack what it means to be the third generation of holocaust survivors.' The NSW Jewish Community have been left ‘shocked and distressed’. The NSW Jewish Board of Deputies chief executive Vic Alhadeff have written to the theatre to express his concern that Hillel have been discriminated ‘based on conflicts taking place far from Australia.’ Mr Alhadeff sent the letter on March 13 and has placed several calls with The Red Rattler but is yet to receive a response. ‘It is disappointing that a theatre group (The Red Rattler Theatre company) let politics get in the way of policies, as they claim their ethos is about equality and acceptance,' Mr Alhadeff told Daily Mail Australia. Mr Alhadeff also reiterated that the group are apolitical and the purpose of the performance would be to explore the impact of the holocaust on modern generations, rather than engaging with the issue of the occupation of Palestine . ‘It is disappointing that a theatre group (The Red Rattler Theatre company) let politics get in the way of policies, as they claim their ethos is about equality and acceptance,' said Mr Alhadeff . Mr Alhadeff also reiterated that the group are apolitical and the purpose of the performance would be to explore the impact of the holocaust on modern generations, rather than engaging with the issue of the occupation of Palestine. ‘These young people have been the subject of discrimination because of an overseas conflict whilst conducting a play which had nothing whatsoever to do with any conflict overseas,' he said. ‘Their focus was on exploring the lessons future generations can learn from the holocaust survivors.’ ‘The Jewish community in Australia are Australians. This is very disappointing as we need to be able to embrace difference and focus on the shared values we have as Australians.' The Hillel theatre group continue to search for a venue for their performance and are looking forward to the series, which will include the spoken word, poetry, acoustic instrumental performances and rap. Daily Mail Australia attempted to contact The Red Rattler Theatre Company for comment but did not receive any reply. The Hillel theatre group continue to search for a venue for their performance and are looking forward to the series, which will include the spoken word, poetry, acoustic instrumental performances and rap .</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-5-1" ><div class="show-scrollbars">A whale that swam hundreds of miles up an African river after taking a wrong turn 17 million years ago is helping shed light on a key moment in human evolution. Palaeontologists discovered the fossilised remains of the ancient ancestor to modern beaked whales in the middle of one of the harshest desert areas of Turkana, Kenya. It has allowed scientists to pinpoint when the landscape in east Africa began to change as the land around the Great Rift Valley began to rise up. This 17 million-year-old fossil shown in the photograph above is from a whale found far inland in Kenya and has shed light on when east Africa's tectonic uplift that drastically altered the climate in the area first began . This was a crucial moment in human evolution from primates as it created the dry open habitats that led our ape-like ancestors to walk upright for the first time. They say that for the whale to have travelled so far inland in a river the area must have been much wetter, far flatter and dominated by forests. It is probably one of the most peculiar aspects of human biology - that females of a certain age lose the ability to reproduce. But scientists have discovered that killer whales - a species separated from humans by almost 94 million years of evolution - also suffer from the menopause. The finding could provide clues as to why the menopause evolved in the first place. The evolution of a trait that reduces the reproductive capability of a species has long baffled biologists and there are a number of theories for why it emerged in humans. Now a team of researchers from the University of Exeter and the University of York may have unraveled the reason for the menopause - in killer whales at least. They have found that it frees up the older, more experienced females to lead their families in the search for food and so boost the ability of the entire group to survive. The findings may now also help to explain why the menopause emerged in human populations - it allowed older women to impart their knowledge and help care for the younger members. Professor Louis Jacobs, a vertebrate palaeontologist at Southern Methodist University in Dallas who led the study, said: 'The whale was stranded up river at a time when east Africa was at sea level and was covered with forest and jungle. 'As that part of the continent rose up, that caused the climate to become drier and drier. So over millions of years, forest gave way to grasslands. 'Primates evolved to adapt to grasslands and dry country. And that's when - in human evolution - the primates started to walk upright.' The whale fossil was first discovered in Loperot, west Turkana, Kenya in 1964 by palaeontologist James Mead, a curator at the Smithsonian Instution at the time. It was initially mistakenly identified as a turtle fossil but later identified as a whale in 1975. He named it Turkana ziphiid - a type of beaked whale that is related to modern marine mammals like the Baird and Cuvier's beaked whales - and estimated it had been 22ft (6.7 metres) long. Ziphiids are among the deepest diving mammals on the planet, plunging to nearly 10,000 feet (3,050 metres) in the ocean to feed on squid. The whale fossil was discovered nearly 459 miles (740km) inland and 2,000 feet (620 metres) above sea level. For it to have ended up there, the landscape at the time  must have looked very different. Palaeontologists found the remains of fish, crocodiles, turtles and mammals including primates, suggesting the area was dominated by a river and surrounded by a forest habitat. The fossil of the whale's beak (above), was found in 1964, and is thought to belong to an extinct species that became stranded in an ancient river after taking a wrong turn while swimming down the coast of east Africa . The fossil was found in an area of desert at Loperot in west Turkana, in Kenya, on the site of an ancient river . However, the whale fossil disappeared in 1979 and was only rediscovered in 2011 at Harvard University after Professor Jacobs asked curators to search for it. Professor Jacobs and his colleagues, whose work is published in the Proceedings of the National Academy of Sciences, have now re-examined the specimen and claim the whale has provided a definitive date for when the geological changes in East Africa began. Determining ancient land elevation is notoriously difficult, but the whale has provided new clues. The area of Turkana in Kenya where the fossil was found (above) is now a desert, but was a forest 17 million years ago when the whale is thought to have taken a wrong turn and swam hundreds of miles up a river . Professor Jacobs said for the whale to end up where it did, it must have swam far inland up the ancient Anza River with a low gradient ranging from 78 feet (24m) to 121 feet (37m) over 372 miles (600km) to 559 miles (900km). This suggests the landscape was very flat and close to sea level. Professor Jacobs and his colleagues believe the whale may have been migrating along the east African coast and mistakenly entered the mouth of the river. Once it began swimming up the river it could not change its course. James Mead shown above excavating the whale fossil in the 'Open Pit Turtle Mine' in Loperot, Kenya, in 1964 . The fossil was originally recorded as a large turtle in expedition log books but later it was found to be a whale. Scientists also discovered fossils of many other species including crocodiles and primates at the same site . There are some modern examples of whales making similar mistakes such as the sperm whale that swam up the Thames towards London, and other whales what have become stranded in the Sacramento River in California and the Amazon in Brazil. Professor Jacobs said: 'You don't usually find whales so far inland. Many of the known beaked whale fossils are dredged by fishermen from the bottom of the sea.' Estimates for exactly when human ancestors began walking on two feet instead of four are varied and controversial. Some claim that a six-million-year-old species called Sahelanthropus was the first to become bipedal while others point to the four-million-year-old Australopithecus anamensis. However, the latest study has now provided clues as to when the landscape in the part of Africa where these ancestors are thought to have taken their first bipedal steps began to change. Dr Henry Wichura, the lead author of the study an a palaeontologist at the University of Postdam in Germany, said: 'Surface uplift from near sea level coincides with paleoclimatic change from a humid environment to highly variable and much drier conditions, which altered biotic communities and drove evolution in east Africa, including that of primates.' The whale fossil  belongs to an ancestor of modern beaked whales like the Blainville's beaked whale pictured .</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-6-1" ><div class="show-scrollbars">Con Edison found a 'hazardous situation' in August in one of the three buildings that was destroyed in an explosion and fire in Manhattan's East Village last week. Utility workers dispatched in August found 'dangerous gas line connections' after a Con Edison worker reading gas meters smelled gas, according to a Con Edison spokesman. The worker smelled gas on August 6 in the basement of the building that exploded at 121 Second Avenue on Thursday. Scroll down for video . Photographs show the three buildings that entirely collapsed following the East Village explosion last week . Firefighters kept blasting water at pockets of flames among the rubble on Friday as it continued to smoulder . Cars were flattened by the debris as the three buildings collapsed overnight following the explosion . When they were at the building in August, the utility workers found 'multiple leaks' in hoses that were connected to the gas line, the New York Times reported. The company spokesman said Con Edison shut off the building's gas for about ten days, until it was determined to be safe. The owner of Sushi Park, the restaurant where the explosion occurred, told the  Times that utility workers determined that gas intended for his restaurant was being siphoned off illegally for use in newly-renovated apartments upstairs. New York Mayor Bill de Blasio said on Friday that the blast was possibly tied to someone 'inappropriately' tapping into a gas line. An hour before the blast, Con Edison utility inspectors had been at the scene and determined that pre-existing work was not satisfactory, but the problems were not safety related, the mayor said. A general contractor who went to check out the gas leak report as Sushi Park was one of 50 people arrested in February in a sweep of the city by building and housing inspectors. Dilber Kukic was accused of bribing an undercover investigator to dismiss violations at two properties, the Manhattan District Attorney's office said. He is hospitalized and could not be reached for comment. In all 11 buildings were evacuated after the blast, leaving residents of 144 apartments needing places to stay . New York Mayor Bill de Blasio said it could take up to a week for rubble to be cleared from the explosion site . Firefighters have gone through the rubble but Nicholas Figueroa, 23, and Moises Luconare, 26, are stil missing . Twenty-two people were injured - four critically - and Nicholas Figueroa, 23, and Moises Lucon, 26, remain unaccounted for after the explosion. On Saturday, rescue crews with cadaver dogs clawed through smoldering rubble in the search for Figueroa and Lucon. Authorities said it could take a week of careful digging through twisted debris, bricks and splintered wood before the basement is reached. In all 11 buildings were evacuated, leaving residents of 144 apartments needing places to stay. Con-Ed said they may return to their homes as soon as Sunday. The Manhattan district attorney's office and the NYC Department of Investigation are looking into whether gas and plumbing work being done privately in one building led to the explosion. The Manhattan district attorney's office and the city's Department of Investigation are looking into the blast . Rescue crews with cadaver dogs clawed through smoldering rubble in the search for Figueroa and Lucon . March 12, 2014: A gas leak caused an explosion that destroyed two buildings in East Harlem on Wednesday, killing at least two people and injuring more than 20. July 12, 2013: An explosion and fire inside a Chinatown beauty salon apparently was caused by the deployment of two dozen bug bombs. The explosion blew out a wall and caused the partial collapse of the building. A dozen people were injured. October 9, 2008: A manhole explosion in Brooklyn killed one utility worker and injured another. October 6, 2007: An apparent gas explosion at a 20-unit Harlem apartment building injured more than 20 people, including a firefighter. July 18, 2007: An underground steam pipe explosion tore through a Manhattan street near Grand Central Terminal, swallowing a tow truck and killing one person as hundreds of others ran for cover amid a 40-story geyser of steam, mud and flying rubble. At least 45 people were injured, and more than 100 businesses were affected. July 10, 2006: Dr. Nicholas Bartha, who died from severe wounds after his $6.4 million Manhattan town house blew up, was suspected of causing the explosion by tampering with a gas line, and his death was ruled a suicide. At least 14 other people were injured, including 10 firefighters. August 31, 2000: A steam pipe near the entrance to New York University's main library burst, spewing debris and traces of asbestos onto dozens of people and several cars and buildings in the area. As a precaution, city officials set up a decontamination site for more than 55 people who had been exposed to the asbestos. November 10, 1992: A huge steam explosion at the city's oldest power plant killed a utility employee and injured six other people. The blast shook the neighborhood around the Con Edison utility's 91-year-old Waterside Station in midtown Manhattan. December 29, 1989: A gas explosion and fire at Con Edison's Hellgate Station in the Bronx shot balls of flames hundreds of feet into the sky, blacked out thousands of buildings and traffic lights and brought subway trains to a halt. Two people were killed and 30 were injured in the blast, which was caused by a utility worker's backhoe. August 19, 1989: An explosion ripped open a Manhattan street in the exclusive Gramercy Park neighborhood, spewing a geyser of steam and asbestos 12 stories high for four hours. Three people were killed, and at least 26 were injured. More than 350 people were kept from their homes for weeks, and the cleanup cost at least $90 million. Executives of Con Edison later were charged with concealing the presence of the asbestos for four days until residents discovered it. July 15, 1989: A four-story apartment building apparently rocked by a gas explosion collapsed in northern Manhattan, killing one person and injuring seven others.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-7-1" ><div class="show-scrollbars">Desmond Brooks (pictured) stabbed his wife Keisha McKenzie to death in front of their screaming seven year-old son during a horrific knife rampage . A Jamaican man stabbed his estranged wife to death and then and tried to kill a former partner because he was 'fed up of their nagging'. Desmond Brooks, 42, of Brixton, South London, stabbed his wife Keisha McKenzie, 28, to death in front of their screaming seven year-old son during a horrific 30-minute knife rampage. The frenzied attacks at two homes just 350 metres apart also left Brooks' 46 year-old 'babymother' Joan Wade and Ms McKenzie's 17-year-old sister Saffron Yeboah-Simpson permanently disfigured with life-threatening injuries. Miss Yeboah-Simpson, an art and design student, was repeatedly stabbed after she tried to intervene to save her sister and pull her young nephew to safety. Jamaican national Brooks, who was facing deportation after serving a 12 month jail sentence for possessing cannabis, was arrested five hours later on a bus after telling the driver to flag police down. He told officers: 'I want to hand myself in. 'I killed my wife earlier. I couldn't take it any more. I killed my wife and hurt my baby's mother. 'My babymother told me to hand myself in. I couldn't take it any more, nagging me all day, disrespecting me in front of others, couldn't take it any more.' Brooks is now facing at least 29 years in prison after admitting murder, the attempted murder of Ms Wade and grievous bodily harm with intent of Miss Yeboah-Simpson. Prosecutor Simon Russell-Flint QC said Brooks came to the UK in 2002 and stayed here on a student visa until he married Ms McKenzie in September 2003. They had a son in 2006 but had split up by 2009 when he started a relationship with Ms Wade and had a son with her in 2010. By the time of the murder, the couple had separated and there were active deportation proceedings under way. The court heard that he would 'inevitably' be sent back to Jamaica once he has served his sentence. Keisha McKenzie (pictured) was stabbed to death by her estranged husband Brooks in front of their son. She suffered at least 42 separate injuries including a cut to her jugular vein and punctures to both lungs . Although he had split up with her and started seeing another women they were still living together at a flat in  Brixton at the time of the attacks on July 29 2013. The court heard Brooks launched the attack on Ms Wade 'out of the blue' after collecting their son from nursery. At around 6.30pm he went into the kitchen and approached Ms Wade as she lay on the sofa, and told her: 'I'm gonna kill you.' Brooks then began stabbing and hacking at her with a meat cleaver as she desperately tried to defend herself with her hands. She managed to retreat on to a balcony but he followed her and continued the attack while she shouted 'murder, murder'. As well as multiple stab wounds, two of Ms Wade's fingers were chopped off as she tried to guard herself from the onslaught and her lip and tongue were sliced through. Brooks is now facing at least 29 years in prison after admitting murder, the attempted murder of Ms Wade and grievous bodily harm with intent of Miss Yeboah-Simpson at this block of flats in Brixton, South London . A doctor later described the self-defence injuries to her hands as 'one of the worst hand injuries I have ever seen.' Ms Wade, 48, told police: 'I haven't got a clue why this happened. It is not like we had an argument or anything.' Brooks then made his way to Ms McKenzie's home. When she opened the front door Brooks told her: 'Suck your mum Keisha, you are for dead.' He then attacked her with a knife he had brought from Ms Wade's flat. Her sister, Miss Yeboah-Simpson emerged to find Ms McKenzie on her knees in the hallway with Brooks standing over her stabbing her in the chest. The prosecutor said: 'She jumped on the defendant's back to stop him continuing the attack but he managed to push her away. 'She pushed him away but again he pushed her out of the way. It was at this point she saw he was holding a knife.' Brooks then began stabbing Miss Yeboah-Simpson in the head and tried to stab her in the stomach before turning back to Keisha, who was lying defenceless on the floor. The attack took place in front of their sobbing seven-year-old son. The court heard Brooks then  said 'Suck your mum' again before leaving the flat. By the time police arrived Ms McKenzie had already stopped breathing and was pronounced dead at 7.31pm. She had suffered 42 separate injuries including a cut to her jugular vein and punctures to both lungs. Mr Russell-Flint said: 'Both Joan Wade and Saffron Yeboah-Simpson suffered significant and potentially life threatening injuries. 'They have both been left permanently disfigured as a result of the attacks on them.' The court heard following the attack Brooks boarded a bus at 7.05pm and made a series of phone calls, telling a friend of Ms Wade: 'I just killed Joan and my wife.' Police forensics officers at the scene following the bloody rampage which saw Brooks kill his estranged wife . He also told his current girlfriend 'I am fed up of it' and told her the women 'took him for a boy'. Brooks was arrested after midnight on another bus in Leigham Court Road, Streatham, still wearing the same blood-stained clothing. He made no comment in interview and now claims he cannot remember anything about the attack. His mental health deteriorated in September 2013 and three months later he was transferred to Broadmoor Hospital, where he is still being treated for paranoid schizophrenia. Mr Russell-Flint said the Home Office had been pursuing Brooks' deportation as a result of his drugs conviction in September 2012. Police outside the flat where Brooks attacked his former partner. He has now been jailed for life . He had been released from prison about ten weeks before the attacks, the court heard. His barrister Elizabeth Marsh QC said Brooks 'could not believe' what he had done, adding he may have been suffering from previously undiagnosed paranoid schizophrenia which had only been identified since he was on remand. She said: 'He's at a loss as to why he hurt three of the women closest to him. He cannot understand now what would have provoked him.' Judge Stephen Kramer QC said: 'Over the period of about an hour you engaged in a stabbing spree properly said by your counsel to have been one of extreme violence and ferocity. 'The catalogue of injuries inflicted is truly appalling. 'It is clear that what you did has had deeply damaging physical and psychological effects.' The judge said he took into account psychiatrists' reports on Brooks' mental illness, although the court heard there was evidence to suggest that he may have feigned some symptoms. While on remand at Belmarsh Prison, Brooks had tried to kill himself and was transferred to Broadmoor hospital where he has remained, the court heard. Brooks has now been jailed for life with a minimum sentence of 29 years. Brooks was also jailed for 19 years concurrent for attempted murder and 12 years concurrent for GBH with intent. Relatives of the victims held hands and tearfully hugged each other as he was sentenced. Speaking after today's hearing, Ms McKenzie's family said: 'After 20 months the family of Keisha McKenzie are satisfied that we finally have some justice for Keisha. 'We have lost Keisha forever but no amount of years will bring back the loving mother and bubbly, smiley daughter, auntie and sister that we all knew and loved. 'We would like to thank the investigating team and all who have supported us during this traumatic and difficult time.' Investigating officer Detective Chief Inspector Will Reynolds, of the Homicide and Major Crime Command, added: 'Brooks went on a lengthy and extremely violent rampage, intent on harming the women in his life. 'Keisha's injuries were so severe she never stood a chance while Joan is still recovering from her horrendous ordeal. 'His excuse was that he could no longer face the perceived 'disrespect' shown to him by these women. 'I am pleased he at least admitted his crimes and will now serve a lengthy sentence behind bars.'</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-8-1" ><div class="show-scrollbars">Disgraced MP Eric Joyce used his taxpayer-funded credit to pay for  £450-a-night hotels during his £13,000 expenses binge, it has been revealed. The ex-Labour backbencher, who is standing down at the next election after he was convicted of headbutting a Tory MP in a Commons bar, repeatedly used his Parliamentary card to settle big bills. Many of these payments were later declared unclaimable on expenses, but his card was not blocked by the Independent Parliamentary Standards Authority (Ipsa) for more than two years. He even claimed that one £896.92 bill for two nights was for a 'whole bunch of people' to stay at the four-star Park Plaza near Westminster. Disgraced MP Eric Joyce used his taxpayer-funded credit to pay for £450-a-night hotels during his £13,000 expenses binge . Mail Online's  Tom McTague revealed earlier this week that Commons expenses chiefs made the unprecedented decision to recoup the cash by deducting around £1,000 a month from his salary. But that will not clear the outstanding sum of around £10,000 before Parliament is dissolved. The Falkirk MP accepts that he made mistakes in filing claims after using his card, suggesting he was also paying for rooms for staff. However, he is disputing at least £6,000 of the debt. If he refuses to repay voluntarily the watchdog's only option will be to pursue him in the civil courts. The details emerged after Ipsa admitted it has been labelling some of Mr Joyce's hotel claims as 'not paid' in its regular disclosures - when in fact it has paid a much higher bill in full. The Falkirk MP accepts that he made mistakes in filing claims after using his card, suggesting he was also paying for rooms for staff . The watchdog confirmed he put £743 on a card to fund a three night-stay at a 'non-London' hotel, believed to be in Glasgow, in September last year. The bill was automatically paid by Ipsa. But as he is only entitled to claim up to £120 a night for hotels outside the capital, an excess of £383 was added to his debt. The published expenses records merely state that £383 was 'not paid'. He was was 'not paid' £272.33 for a non-London hotel claim in August, and £208 for another in September. Mr Joyce stayed at a prestigious Intercontinental Hotel in London in May 2013, when he appears to have broken the £150 a night limit for hotels in the capital by £203.05. He used the same group again the following month, but this time breached the ceiling by just £61.45. The issues seem to go back to at least 2012. In December of that year - 10 months after he headbutted a Tory MP during a brawl in a Commons bar - he charged £896.92 to the card for a two-night stay at a London hotel. It is understood that the claim was declared invalid because key parts of the receipt had been blacked out - although again Ipsa had already footed the cost and subsequently reported it as 'not paid'. Altogether there are dozens of hotel claims listed as either 'not paid' or 'part paid' since 2012, totalling some £4,000. Mr Joyce insisted he was using hotels booked through the parliamentary travel office, and said some bills were high because staff stayed at the same time. The £896.92 bill was for a 'whole bunch of people' to stay at the Park Plaza near Westminster, he said. 'That was all of my staff in London,' he said. 'That was essentially an error. It should have come off my (personal) card. 'They would have all been eligible (for expenses) but the parliamentary card was used rather than their cards or my card.' Mr Joyce said Ipsa had contacted him about spending in late 2013, but he heard nothing else and believed they had dropped the matter until last December. He even claimed that one £896.92 bill for two nights was for a 'whole bunch of people' to stay at the four-star Park Plaza near Westminster (pictured) 'The whole figure was only exposed in December,' he said. 'Some of these figures are legitimate debts to Ipsa but they would not discuss the rest of it.' Mr Joyce said there was a 'particular issue' with a member of staff who moved to Brighton from Scotland. He said the watchdog had signed off an arrangement where the employee worked from home but occasionally stayed at hotels in London. However, after 16 months, Ipsa decided the claims were invalid and demanded the money back, according to Mr Joyce. The MP said he had asked the watchdog's compliance officer to look again at the situation. An Ipsa spokesman said: 'MPs have a responsibility to manage their financial affairs and we publish details of all of their claims - both paid and not. 'We have consistently told the MP that he has a budget to keep to and that he is liable for any excess. We have stressed this time and again throughout the Parliament, as we do to every MP. 'We've been talking to the MP since autumn 2013 to put his financial affairs on an even keel. As you would expect, when this didn't work we escalated these conversations within Ipsa and this approach resulted in a personal assurance from the MP that he would repay the amounts due. Mr Joyce stayed at a prestigious Intercontinental Hotel in London in May 2013, when he appears to have broken the £150 a night limit for hotels in the capital by £203.05 . 'When those assurances were not followed through, we turned off his payment card in January 2015 and in February 2015 we moved to recovering money directly from his salary. We will continue to recover this money until it is repaid in full. 'This is a very unusual case. We've tried to encourage the MP to manage this situation. Clearly, this hasn't worked and we are committed to getting this money back. That is why have moved to more direct measures of recovery, including taking money straight from his pay packet.' In 2008, before Ipsa took over the system, Mr Joyce had his parliamentary expenses suspended after putting nearly £5,000 in 'non-parliamentary' travel expenses to Tokyo, Kinshasa and Nairobi on a Commons card, and then ignoring repeated demands from officials to repay. The latest situation could fuel calls for Ipsa to publish fuller, receipt-level information about MPs' spending. The watchdog has already lost two rounds of an Freedom of Information battle to avoid publishing copies of every receipt filed, a process that could potentially cost millions of pounds. The Court of Appeal is due to hear the case later this month - but no judgement is expected until after the election. In March 2013 the former Army major was banned from buying alcohol in Parliament following another bust-up. He was fined £1,500 for abusive language towards a baggage handler at Edinburgh Airport earlier this year. Mr Joyce has refused to resign his seat despite pressure from critics. Sorry we are not currently accepting comments on this article.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-9-1" ><div class="show-scrollbars">Hundreds of believers have flocked to a hillside in Colombia after a landslide revealed the face of Jesus. The 'miraculous' discovery was made in the San Francisco area of Putumayo, Colombia, on Saturday. Since then police have had to be called in to control the crowds as believers from across the country have descended on the hill to witness the 'miracle.' Scroll down for video . Hundreds of visitors have flocked to a hillside in the San Francisco area of Putumayo, Colombia, after the face of Jesus appeared after a landslide . Now some local landowners are cashing in by charging visitors to view the holy image, according to a local newspaper. 'If you believe in Jesus, you will see your image,' Ximena Rosero Arango told Colombian newspaper El Tiempo after visiting the site to photograph the hillside. The image has also been making the rounds on social media since Saturday. But not everyone was impressed with the 'miracle'. There was some debate on social media whether it was the face of Jesus as one Twitter user Magui, under the handle ‏@AdasOz, said: 'Congratulations to those who can see the face of Jesus in landslide in Putumayo. 'I just see a mountain of earth surrounded by trees.' It certainly is not the first time that Jesus has turned up somewhere unexpected. The face of Christ has appeared on everything from Marmite lids, tacos and naan bread, to tree stumps and laundry. In 2012 the image of Jesus was discovered on a wall by a painter and decorator working on a house in Eldroth, near Austwick, North Yorkshire . Divine sign: The image of Jesus was found on a drainpipe, left, by nurse Alex Cotton in Coventry . In 2012, the son of God was discovered on a wall by a painter and decorator working on a house in Eldroth, near Austwick, North Yorkshire. Sam Dalby discovered the divine countenance on a roughly plastered section of wall. His face has also been spotted in household items and even stains. Nurse Alex Cotton, 38, found an image of Jesus in a drainpipe at her home in Coventry, West Midlands which was dubbed 'the Second plumbing'. Bank worker Toby Elles claimed he was saved by divine intervention when he woke to find a burning frying pan on his cooker. On further inspection of his singed bacon snack he also found the face of the Son of God burnt to the bottom of the pan. My mate: Jesus in the lid of a Marmite jar, left, and in a frying pan containing bacon which was on fire . They both thought it looked like the images of Jesus you see in paintings and on stained glass windows,' she said. In the U.S., Mary Jo Coady, a medical secretary from Massachusetts made a similar discovery burned on her iron while doing housework. The 44-year-old said the image immediately renewed her faith in God. Drinkers at the Tanners Hall pub in Darlington, County Durham, were stunned to see the face of Christ in the foil top of a Bulmers cider bottle. And mother-of-three Claire Allen, 36, found the Saviour's friendly features in the lid of a jar of Marmite which was smeared with the yeast-based spread. She said: 'I opened the Marmite jar and the lid caught my eye. Immediately I thought, that's Jesus. 'It wasn't a new jar, but I'd never noticed that before.' The face of Christ appears in a crumpled sock (left) while the image appears in a burnt on stain on an iron (right) Ms Allen, of Ystrad, Rhondda, South Wales, showed the lid to her older boys Jamie, 14, and Tomas, 11. 'They both thought it looked like the images of Jesus you see in paintings and on stained glass windows,' she said. Sarah Crane, from Orpington, was stunned when she hung her laundry out to dry and discovered the face of Jesus staring back at her from a crumpled sock. Miss Crane was so impressed by the clarity of the face she even built a shrine to the holy image. 'I'd left the washing out to dry overnight - and it had probably been sitting there a bit too long when I noticed the face in the sock,' she said. 'I called my boyfriend over straight away - we could both clearly see the face of Jesus in the sock. There is a straight-on face, and a side profile too - we couldn't believe it. 'We think it's a bit of a sign - but for what we don't know.' An image of  Jesus Christ also appeared on a tree stump in a Belfast cemetery. The tree, which was felled at Belfast City Cemetery in west Belfast, appeared to show the face of a bearded man resembling Jesus on the remaining stump beside a grave. While in Texas, a man found the holy image in the middle of breakfast and the revelation came in his bacon and egg taco. Ernesto Garza, 80, says he was busy munching away when he realised that Christ was staring back at him -- his face visible in the burn marks of the tortilla. It's a blessing from God,' Mr Garza told KTVB news. A Texan found a picture of Jesus in the middle of his breakfast bacon and egg taco which he was hoping to frame and save . Churchgoers in Russia began worshipping at a tree after this image of Jesus appeared in the bark . Mr Garzo was hoping to keep the taco and eventually figure out how to preserve it so he can frame it to hang on his wall. While in Russia, churchgoers have begun worshipping at a tree after claiming that religious icons with the faces of Jesus and the saints appeared on its trunk. The images began to appear on the birch tree in the village of Burmakino in central Russia's Kirov Oblast last month in the places where gardeners had trimmed off old branches. Villager Valentina Naumova explained: 'We thought nothing of it until the tree started to form these arched shapes, just like church icons. 'Then the faces of Jesus and his disciples began to appear in them and we realised this really must be God's work.' Now whole congregations of people gather in front of the tree to pray and give thanks.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-10-1" ><div class="show-scrollbars">Indonesia's president Joko Widodo has said abolishing the death penalty is possible, but this provides no hope for Andrew Chan and Myuran Sukumaran. In an exclusive interview with Al Jazeera, Widodo shared his views on Indonesia's drug problem, executions, religion and economy. He democratically confirmed that if the people of Indonesia wished to abolish the death penalty, then it was more than possible. In an interview with Al Jazeera, Widodo shared his views on Indonesia's drug problem, executions, religion and economy . Sukuraman (left) and Chan (right) were sentenced to death after they were caught trying to smuggle 8.3kg of heroin from Bali into Australia . 'I think we are heading there,' he said. 'We want to hear what the people want, their opinion and it's a long process.' When asked on whether he had any remorse for the current 64 drug traffickers inevitably facing death row, including Chan and Sukumaran, Widodo defended his decision on denying them clemency. 'We want to send a strong message to drug smugglers that Indonesia is firm and serious in tackling the drug problem and one of the consequences is execution,' he said. 'We want to send a strong message to drug smugglers that Indonesia is firm and serious in tackling the drug problem and one of the consequences is execution,' Widodo said . Utter despair is etched on the face of condemned prisoner, Myuran Sukumaran, as he arrived at Cilacap airport in Central Java . Shackled and handcuffed, Andrew Chan cut a sad figure as he was escorted by four faceless Indonesian police officers across the tarmac after being taken from Kerobokan prison . 'The court has sentenced them and we cannot discriminate between countries.' The Indonesian president justified his hard stance on the issue by stating that there are 4.5 million people in the country affected by drugs and this paints a grim picture for the future generations of Indonesia. However, he would not comment on whether he is a personal supporter of the death penalty. Al Jazeera's Step Vassen asked Widodo if he believes he is portraying a double standard by trying to free Indonesian drug traffickers who are facing the death penalty in other countries. 'No... As head of state of course I am going to try and save my citizens from execution,' he said. 'That's my obligation as a president, to protect my citizens.' Scroll down for video . Julian McMahon (centre R) and Australian embassy official Majell Hind (centre L) arrive to visit two Australian death row prisoners, at the ferry crossing for the prison island of Nusakambangan, where they are requesting access for their families following the delay of execution . Protesters in Cilacap held up signs urging the Indonesian president to execute the Bali Nine duo as soon as possible . Tony Abbott revealed that he had again reached out to Joko Widodo to directly speak to him regarding the fate of Chan and Sukumaran. He is still waiting for a response. 'At this stage, it hasn't been able to be arranged,' he told reporters in Sydney. The executions of Bali Nine duo Andrew Chan and Myuran Sukumaran were due as early as the weekend but have been delayed until all legal avenues have been exhausted, prompting fresh hope of a 'change of mind' from Foreign Minister Julie Bishop. A spokesperson from the office of  Muhammad Prasetyo, Indonesia's attorney-general, confirmed on Friday afternoon that the government had placed the executions on hold. The planned executions of Australians Myuran Sukumaran, 33, and Andrew Chan, 31, have ramped up diplomatic tension between Australia and Indonesia . Indonesian police officers stand guard at Wijayapura port near the Nusakambangan Nusakambangan Prison Island in Cilacap . Indonesian police secure the entrance of Nusakambang island prison . Julian McMahon (C, back), the lawyer of Australian death-row prisoners Myuran Sukumaran and Andrew Chan is seen on board of a ferry boat along with prison officers as they cross the water for a visit to Nusakambangan Prison Island in Cilacap . Spokesman Tony Spontana said that no time frame could be placed on the legal processes, which may include a challenge to court decisions and further appeals. Australia's Foreign Minister Julie Bishop said that the delay may be the result of 'other reasons', but that she hoped the postponement showed a 'change of mind' by the Indonesian government, reported The ABC. Despite the postponement, Chan and Sukumaran will not be able to see their families until next week, with the earliest opportunity for visiting hours coming on Monday and Wednesday. After planning for weeks to execute 10 prisoners at once and keep them on Nusakambangan for as little time as possible, he now won't say how many will go to the firing squad and has speculated about a 10-day delay. Australia's Consul General to Bali Majell Hind  talks to officials at the entrance of Nusakambang island prison . Labor foreign affairs spokeswoman Tanya Plibersek said the uncertainty around the date of the executions was undoubtedly causing the condemned men anguish, but that the delays had also brought hope of a reprieve . Australia's Consul General to Bali Majell Hind and lawyer Julian McMahon are pictured on board a boat at the entrance jetty of Nusakambang island . The family of condemned Australian drug smuggler Andrew Chan, his mother Helen (centre) and brother Michael (wearing pink shorts) arrive at Yogyakarta airport on Thursday to make the five-hour drive to Cilacap . On Friday, artist Ben Quilty, who has been an outspoken ally of the Bali Nine duo, posted a challenge to Indonesia's president Joko Widodo, accompanying a photograph of Sukumaran being escorted by heavily armed authorities. 'Why the Special Force soldiers? Myu is not a terrorist. He is not even mildly dangerous. He was a self indulgent kid,' Quilty wrote. 'But now he is a quiet, dignified, young man. He is an artist. He is humble and generous and kind. Who are you Joko Widodo?' Daily Mail Australia has learned Andrew Chan and Myuran Sukuraman are taking to each other through their cell walls in semi-isolation . Angelita Muxfeldt (centre) talks with officials as she heads off to visit Brazilian Rodrigo Gularte who is on death row . Armed military troops have increased their presence around Nusakambangan following the transfer of the Bali Nine duo . A smiling Djoko Hariutomo, the police commissioner of the Balinese capital of Denpasar, poses for a photo with his hand upon the shoulder of condemned prisoner Andrew Chan inside the plane before take off . Surrounded by armed police officers officers and on the road of no return, 33-year-old Australia Myuran Sukumaran looks up at Bali police commissioner Djoko Hariutomo . It is located up a winding dirt track around 3km from the prison where they are being held in isolation cells . This weather beaten hut in Nirbaya or Death Valley sits near the sport where foreign drug smugglers were executed in January and where the Australian Bali Nine duo may be taken soon and put to the firing squad . This is the exterior of Batu prison on Nuskambangan island where special isolation cells away from non death row prisoners were prepared to hold the Australians . Sodong port (above) on Nusakambangan Island was the dropping off point on Wednesday for the Australian Bali Nine duo before being taken by road on to the prison where they are currently being held in isolation . Underneath the photograph was a shot of Sukumaran's graduation certificate for his Fine Arts degree which he completed while in prison through Curtin University. Australia's Prime Minister Tony Abbott on Friday lashed Bali police for posing with the condemned men in photos that turned up in Indonesian media, calling them 'unbecoming'. There are a total of 10 death row drug dealers slated to be executed simultaneously, Chan, Sukumaran, an Indonesian, a Filipino woman and six other male foreigners.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-11-1" ><div class="show-scrollbars">Italy has reopened one of the most famous ruins of Pompeii, following threats the site might lose its UNESCO World Heritage site listing and millions in EU funding unless it is restored. The Villa dei Misteri (Villa of Mysteries), an estate on the outskirts of Pompeii's city centre that features some of the best-preserved frescoes of the site, is now open to the public after one of many restoration projects ordered by the EU. The historic Roman city, which was destroyed by a volcanic eruption in 79 AD, has been accused of mismanagement and neglect, and the EU has given the Italian government until the end of 2015 to fix its problems. Scroll down for video . Like new: The Villa dei Misteri(The Villa of Mysteries) in Pompeii has been restored and reopened . Work: Years of neglect has meant that Italy faced losing Pompeii's World Heritage status, along with funding, and the government was issued with a deadline by EU to spend £78 million by 2016 for restoration projects . Preserved paintings: The Villa dei Misteri features some of the best-preserved frescoes in the remains of Pompeii and is classed as a Unesco World Heritage Site . Revamp: One of the frescoes that has been restored to its former glory at the Villa of the Mysteries at the ancient archaeological site of Pompeii . Culture Minister Dario Franceschini, who cut the ribbon to open the villa on Friday, said that while problems still remain at Pompeii, Italy is on schedule to meet their EU deadline. Italy has been ordered to spend 105 million euros (£78million) in EU funds by the end of the year for maintenance and restoration projects, or lose its funding. While only three projects have been completed, 13 are underway and some 65 million euros has been awarded in contracts, officials said. In addition, 85 people have been hired to work on the site and visitor numbers last year were 200,000 more than in 2013. More than 80 people have worked on the Pompeii site to restore the artwork in a bid to boost visitor numbers . Italy had been ordered to restore the works of art by the EU in a programme, which cost the country 105million euros . The historic Roman city, which was destroyed by a volcanic eruption in 79 AD, has been accused of mismanagement and neglect . 'We know well that the world looks with great attention at everything that happens at Pompeii,' Franceschini said as he stood before a fresco of Dionysius and Aphrodite in the villa's main salon. 'Today, Italy is proud to say to the world that we have turned a page.' Pompeii, a busy commercial city overlooking the Mediterranean, was destroyed in A.D. 79 by an eruption of Mount Vesuvius that killed thousands of people and buried the city in 20 feet of volcanic ash. UNESCO threatened to take the ancient city of Pompeii off its World Heritage site list unless the artwork was restored . Two of the frescos, which are now available to view in the ancient city of Pompeii, after it opened up to the public once again . The mold of a victim of the volcanic eruption, which destroyed the ancient city of Pompeii in A.D. 79 . But the ash also helped preserve Pompeii's treasures, providing precious information about life in the ancient world. The first excavations began in the 18th century, but even today only two-thirds of the site's 60 hectares (150 acres) have been uncovered. In recent years, Pompeii has been bedeviled by neglect and mismanagement characteristic of Italy's underdeveloped south, as well as brushes with the corruption that has infected some other important public works in Italy, including its Expo 2015 World's Fair in Milan and the Moses water barrier project in Venice. Big project: Italian Culture Minister Dario Franceschini, right, flanked by Massimo Osanna, Superintendent for the Archaeological Heritage of Pompeii, unveils the newly restored Villa dei Misteri on Friday . The restoration of the Villa dei Misteri (pictured) is one of three completed restoration projects in Pompeii . A general view of the newly restored Villa of Mysteries on the occasion of its presentation to journalists in the ancient site of Pompeii, Italy, on Friday . Hit by heavy rains, some of Pompeii's walls have literally crumbled. The 2010 collapse of the Villa of Gladiators, and further collapses at Pompeii the following year, caused such international alarm that the EU stepped forward with funding and Italy created a mini-administration to govern the restoration project and make sure it wasn't infiltrated by the mafia. Among other things, the EU project called for the site to be shored up and for a drainage system to be built. Meeting targets: Culture Minister Franceschini said that while problems still remain at Pompeii, Italy is on schedule to meet their EU deadline. Italy unveiled the restored crown jewel of the ancient city of Pompeii, the Villa of Mysteries, on Friday, showing off a rare success story as it races to shore up the site that has been marred by mismanagement . A view of one of the frescoes of the newly restored Villa of Mysteries on the occasion of its presentation to journalists in the ancient site of Pompeii . Pompeii, a busy commercial city overlooking the Mediterranean, was destroyed in A.D. 79 by an eruption of Mount Vesuvius that killed thousands of people and buried the city in 20 feet of volcanic ash . But Italy's chronic bureaucratic delays prevented progress and the EU made clear it that Italy would lose the money if it didn't use it by Dec. 31. At the same time, UNESCO threatened to take Pompeii off its World Heritage list — a coveted designation that inspires many of the site's more than 2 million visitors each year. A UNESCO inspection in November, however, acknowledged that progress had been made. Franceschini quoted from the UNESCO report, which said any question about Pompeii's place on the list had been 'overcome' and that there had been a 'profound change in the behaviour' of its administration.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-12-1" ><div class="show-scrollbars">Millions of male workers who leave their rural homes to work in large cities can only have sex with their wives for a fortnight every year. At least 47 million women live in rural China while their husbands work away - leaving them desperate for intimacy when they return. 'All I can think of when returning home for Chinese New Year is sex,' one migrant claimed. And now a series of photographs, taken in Shangnan County in Shaanxi Province, has captured the moment many of these migrants return to their own bedrooms. Wang Libao (right) and wife Zhu Chunlian (left): When Mr Wang is away, his wife and children sleep on a 1.5-metre-wide bed. But when he’s home, the two children are sent to stay with grandparents . Wang Libao, 34, and his 30-year-old wife, Zhu Chunlian,  got married in 2003, according to a report by People’s Daily.   . Mr Wang works in a gold mine in Lingbao, Henan Province, in central China. He said that because he does not visit his wife in their three-bedroom house very often their two children are sent to stay with grandparents when he returns. Although he has been back for a few days, Mrs Wang said she is already trying to persuade her husband to stay for three more. Wu Maojiang (left) and wife Wang Xiaojing: Mr Wu says he spends about 20 days with his wife every year . Similarly Wu Maojiang, 36, only gets to spent 20 days with his wife Wang Xiaojing a year. The couple got married in 2006 and have a daughter, 8, and a five-year-old son. In 2013, Mr Wu spent ¥36,000 (£3,820) buying a five-bedroom house for his family. But as Mr Wu has works away, including in Shanxi, Shaanxi and Henan provinces in central China, it is his father who lives with his wife and children. Jiang Quanbao (right) and wife: In order to support the entire family, Mr Jiang has been working even though he is very sick . But for some couples it is not just working away that prevents sex. Work injuries are also common as migrants choose to take on dangerous, but high-paid, jobs such as coal mining. Jiang Quanbao, 45, works at different coal and gold mines. He does not get to spend much time with his wife, who he married five years ago. A few years ago Mr Jiang was suffering from back pain when his body collapsed. The doctors told him he had kidney stones and would require surgery. Mr Jiang said he and his wife now don’t have sex life because of his poor health. Qiao Chengfeng (right) and wife Zhang Juan (left): Mr Qiao, who got pneumoconiosis from long-time mining, cannot go out for work any more. Due to health, he has not had sex with his wife for two years . Qiao Chengfeng used to work at different mines. He is suffering from pneumoconiosis and doesn't have the strength to lift a bag of rice. The 31-year-old said although he sleeps with his wife Zhang Juan, 27, every day on the same bed, he has not been able to have sex with her for two years. On hearing this, his wife, who he married in 2005, turns around to weep. Jiang Kun (left) and wife: Mr Jiang and his late father are both miners. He has decided to stay at home for two more weeks in order to spend time with family . Jiang Kun, 31, who is also a miner, said the reason many men spend so much time away from home is because it is not possible to feed the whole family by working in a nearby factory. He added that this decision was made despite many men being aware of the dangers of coal mining. Mr Jiang’s wife is two years younger than him. The two have a nine-year-old son and a seven-year-old daughter. He said he decided to return to work after the Lantern Festival, the fifteenth day after Chinese New Year, because he wants to spend more time with his family. Huang Jiao (left) with her daughter and mother in law their house. Ms Huang's husband left home in central China on the eighth day of Chinese New Year to return to his factory in southern China . But it is not just couples who have been together for years that are affected. Huang Jiao, 26, got married around six months ago. Her husband works in an electronic factory in Guangdong in southern China and earns some ¥3,000 (£318) every month. Ms Huang said every year she only has opportunity to ‘be with my husband’ for a handful of days – the same applies for most of her female neighbours. Zhu Xianshun (left), whose wife died 14 years ago, is taking care of his paralysed mother-in-law. He has given up the idea of re-marrying . Zhu Xianshun, 64, has been supporting his wife’s parents since his wife died 14 years ago. His father-in-law passed away and his mother-in-law, 85, is now paralysed. Mr Zhu, who has four children, thought of re-marrying but has given up the idea. He says no woman would want to marry a man like him. Yang Fan (left) and wife: The couple married three years ago and now have a little daughter . Yang Fan, 22, married wife Chuan Zhenzhao in May 2012 and now have a little daughter. Mr Yang did not graduate high school as he went out with his father to work. Because they both are working in coal industry, the family is financially stable. The Yang family even bought a pickup truck – a luxury for people with his background. Mr Huang (right) and his wife: Mr Huang suffers from pneumoconiosis while his wife and daughter work in Xi'an . Mr Huang, 48, suffers from pneumoconiosis. He got the disease from working in coal mining and was diagnosed in 2009. In 2014 he developed a more serious illness. Mr Huang says that this disease cannot be cured and many of his colleagues have died. His wife Chen Qiuqin and his daughter work in Xi’an, the provincial capital of Shaanxi. His youngest son is studying in a university in Xi’an. The bedroom of Zhang Chengjun, 28, who works as a welder in Guangdong . Zhang Chengjun, 28, shows his bedroom. Mr Zhang works in Guangdong and is a master of welding. He left home with his wife and four year old son. Mr Zhang father says long-term separation is not an option for young couples. Although it’s expensive to support the wife and child in the city, the family will be more stable and the couple happier.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-13-1" ><div class="show-scrollbars">Nazakat Ali, 30 (above), has been jailed for 14 years for attempted murder after stabbing his 27-year-old wife Shahzana Kausar 15 times during an argument . A domineering husband tried to murder his wife by stabbing her 15 times after she said she wanted to take up English lessons. Nazakat Ali, 30, stabbed his 27-year old partner Shahzana Kausar during a row at their home in Rochdale, Greater Manchester, after she made it clear she wanted to enrol at college to study English. Manchester Crown Court heard how he grabbed a knife and, in front of his own mother, stabbed his wife more than a dozen times as he refused to accept that she wanted to gain a 'degree of independence'. Following the attack on September 29 last year, Ali fled the scene and Ms Kausar was left lying in a pool of the blood on the floor. She was later flown to hospital where doctors carried out two emergency operations to heal stab wounds to her neck, collarbone, abdomen, ribs and a severed artery which caused her to lose one third of her body's blood. Ali has now pleaded guilty to attempted murder and has been jailed for 14 years by the judge who called him a 'dangerous man'. The court heard how the incident unfolded after Ms Kausar returned home from the Jobcentre and told her husband that she had been advised to enrol at college to improve her English. He told his mother, who was living with the couple at the property, that he was not going to allow his wife to join the course, and an argument ensued. The couple had known each other for 16 years and married in Pakistan in 2005 before moving to the UK together in 2008. Mark Kellet, prosecuting, said: 'When the defendant and Shahzana were upstairs in their bedroom, he became angry and started shouting and slapped her across the head. She asked for her mobile phone so she could contact her sister or the police, but he refused to return it. 'She left the house to walk to her sister's address but was followed by the defendant. She asked for help from a bystander but the defendant apologised and they returned home. Once they had returned home they sat in the kitchen with the defendant's mother. 'Shahzana told the defendant if he were to behave in a similar manner again, she would leave him. 'He became angry and punched her, knocking her to the floor. He picked up a knife from a kitchen drawer and repeatedly stabbed her. 'She described it as "the way he stabbed me, it was like dying". She begged him to stop, which he did, before running from the house.' Ali's mother provided a statement to the court which said the pair had been abusive towards each other and Ali had stabbed his wife when she ran at him. When Ms Kausar was taken to hospital, X-rays revealed she had blood within her chest, which had to be drained, and that she was bleeding from an artery. She also had further stab wounds to her liver, colon and pancreas. She has since started to recover from her injuries but is still undergoing surgical treatment and has a constant pain in her left shoulder. She said the incident had changed her life significantly and that she had even even contemplated self-harm as a result of the attack. Ali stabbed his wife after becoming angry at their home in Rochdale, Greater Manchester (pictured), when she told him she wanted to enrol at college to learn English. He left her for dead after the attack and fled the scene . The court heard how Ali handed himself in to police the day after the attack. The judge was also told how he was convicted in 2009 for his part in a burglary in which he and an accomplice forced their way into a family home, gagged a 40-year-old woman and threatened her and her baby with a screwdriver. Ian Harris, defending, said: 'His family have told me that when they visited the defendant he has been in tears when he has discussed what he did. 'A letter he has written may be starting to point towards maturity which clearly hasn't been demonstrated hitherto. He has set out how deeply sorry and remorseful he is for his actions towards his wife and family. 'It is a case of loss of temper. An intent to kill formed in the heat of the moment. The incident itself would have taken a matter of seconds.' Passing sentence, Judge David Stockdale QC told Ali: 'There was an argument between you, triggered, it seems, by her express wish to attend a college course to improve her English. 'That wish was, in my judgement, a wish for a degree of independence on her part, which you would not tolerate. 'Your desire to dominate and control her, it seems to me, lies at the heart of the dreadful events which were to follow. 'The attack was sustained and repeated. There was extensive life-threatening internal injuries. You took a lethal bladed weapon and used it repeatedly on a defenceless woman - your own wife in her own home. 'You are, in my judgement, a dangerous man. I am unhesitatingly of the opinion there is a significant risk of serious harm from future offences committed by you.' Following the sentencing, detective sergeant Louise Ashurst described the attempted murder as 'one of the most brutal and horrific attacks I have experienced as a detective.' She said: 'The injuries she suffered were so severe that the first officer on the scene thought she was dead, her defensive injuries showed that he stabbed her with such force that the knife went right through her hand, breaking her forefinger. 'It was only after the officer felt for her pulse, that he realised she was still alive and even then it was touch and go, with the victim undergoing life-threatening surgery and several harrowing weeks in intensive care. 'But the victim was strong and brave, and I hope this sentence goes some way to helping her overcome what has happened.'</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-14-1" ><div class="show-scrollbars">One Sunday morning last summer, John Bieniewicz, a referee in the Michigan United Soccer League, showed a player a yellow card for a bad tackle. The player, Bassel Saad, began to shout abuse at him, so Bieniewicz reached for his pocket and prepared to send him off. Before Bieniewicz could dismiss him, Saad felled him with a punch that knocked him unconscious. Bieniewicz died two days later in hospital. On Friday, as Saad’s trial in a Detroit courtroom came to an end, the referee’s widow was determined to do one last thing to honour her dead husband’s memory. Kris Bieniewicz approached the bench as Saad waited to be sentenced and pulled something from her pocket. She stood there and brandished it at her husband’s killer. ‘I would like to serve Mr Saad with the red card that he was entitled to,’ she said. John Bieniewicz's widow, Kris Bieniewicz, addresses the court and holds up a red card to Bassel Saad . Saad (left) will spend at least eight years in prison after killing Bieniewicz with one punch . It sounds almost like a parody, doesn’t it? But it wasn’t. The judge sentenced Saad to eight to 15 years in prison. ‘You’ve come to personify all that’s wrong with the escalation of violence in sports,’ he told him. It was a human tragedy most of all, of course, a tragedy for young children who lost their father and a wife who lost her husband. But it also told a sad and unpalatable tale of the behaviour that is leaving an ugly, ugly stain on football. Tragedies like the one that happened in Michigan are rare but you only had to watch Manchester United–Arsenal and Chelsea-Paris Saint-Germain last week to know that referees are under siege. Many observers still see them as acceptable victims in football’s great passion play. Threatening officials is just part of the game, they say. Anything to get an edge. I listened to some of the Chelsea-PSG game on the radio and the dismay in the voice of Mark Lawrenson as he commented on what he saw was powerful. ‘This is an angry game being played by angry men,’ he said. Bjorn Kuipers was hounded by nine Chelsea players as Zlatan Ibrahimovic was sent off for a tackle on Oscar . Paris Saint-Germain players also surrounded the Dutch official as tempers threatened to boil over . Let’s be honest about this: it is getting to the point now where if you want to be a referee, only heroes need apply. You will be threatened and you will be ridiculed — on and off the pitch. If you make a decision that meets with the disapproval of a manager who is trying to shift the blame for a poor performance, you will be hounded and you will be abused. If we carry on like this, we’re going to have to start paying referees danger money. You think I’m joking? I’m not. A few years ago, I watched a Sunday league game between two junior teams at Paddington Rec in west London that ended amid some disagreement about whether the referee had blown the final whistle too early. As the referee was walking off, he was kicked by several of the kids, who were in their mid-teens. Proper kicks, too. A few of the players tried to trip the referee up as he headed for the touchline. I asked the kids’ coach why he was tolerating their behaviour. ‘They’re just disappointed,’ he said. Casual intimidation comes with the territory for referees now. It’s part of the deal. It’s getting worse, not better. How have we sunk this low? How have we got to the point where Angel di Maria thinks it is acceptable to chase after Michael Oliver and yank at his shirt? Angel di Maria puts his hands on referee Michael Oliver following his first yellow card for diving . Oliver received plaudits for his swift and stern reaction to Di Maria's display of disrespect . How have we got to the point where it is deemed merely a pragmatic part of the game for Chelsea’s players to fall upon Dutch referee Bjorn Kuipers like hungry beasts when they want a decision to go in their favour? How has it got to the point where some seek to justify that kind of behaviour as shrewd or cute or clever? The gist of the defence appears to rest on the morally bankrupt idea that everybody else is doing it so we have to do it, too. It is a dangerous principle. I am uncomfortable with the notion that players should be role models for kids because that is an abrogation of parental responsibility. But it is easy to see how the sight of Premier League players hounding a referee will influence children on a local park to do the same and possibly worse. If there is any hope that things will change, it lies in the reaction of the majority of fans to the epidemic of cheating and bullying that is infesting the game. This is not just about Chelsea or United, by the way. It is not confined to English clubs. Far from it. They were just last week’s worst offenders. After the United-Arsenal game, there was an immediate and protracted outpouring of support for Michael Oliver. He was, indeed, treated like a hero for refusing to tolerate Di Maria grabbing at his shirt despite the angry protestations of United’s players. Di Maria protests his innocence in vain, but the Manchester United playmaker was admirably dealt with . Di Maria trudges off to leave United depleted and facing an FA Cup exit following his tug at Oliver's shirt . It was as if a great wave of relief was flooding over the wider football community that finally someone was standing up for what was right. People pointed out, quite rightly, that Oliver had done a great service to parks referees everywhere. He had made it plain that grabbing a referee should not be tolerated. Something needs to be done to help Oliver and his colleagues. Enforcing a rule where only the captain can talk to the official would be a start. Punishing all dissent, as they do in rugby, would be better. Allowing referees to review contentious decisions with video technology would take the heat out of the situation, too. Better still, let’s stop making excuses for players’ behaviour. Let’s stop defending the intimidation of referees with bogus arguments about how clever it is. Let’s remember where it can lead. ‘Referees are out there on an island with no one to defend them,’ said the widow of John Bieniewicz yesterday. It’s about time we put that right. Sir Peter, friend of the beaten gambler . I listened to an enchanting radio interview last week with the great racing commentator, Sir Peter O’Sullevan, who recently celebrated his 97th birthday. During his conversation with Garry Richardson, Sir Peter explained that he had always tried to avoid levity in his race commentaries because he was aware that many among his audience would be ‘haemorrhaging fiscally’ as they listened. I thought of Sir Peter when I paid my first ever visit to the Cheltenham Festival on Tuesday. Peter O'Sullevan relaxes in the Newbury commentary box in 1997 during his last day working for the BBC . It was a wonderful day in the beautiful sporting amphitheatre below Cleeve Hill and it was a thrill to watch the horsemanship of Ruby Walsh as Willie Mullins’ horses carried all before them. But when the last race had been run, I contemplated a succession of betting slips showing the names of also-rans like Mischievous Milly, Jezki, Vibrato Valtat and L’Ami Serge that had brought me plenty of fiscal haemorrhaging and thought how welcome it would have been to have the commentaries of Sir Peter soothing my losses. When Peter Moores reacts to defeat against Bangladesh by saying he is going to have to ‘look at the data’ and Eoin Morgan says he has ‘no regrets’ about England’s wretched performances in the World Cup, it is hardly surprising that talk of a Kevin Pietersen comeback should gain credence. The World Cup debacle was the latest chapter of Peter Moores' turbulent time as England coach . Let’s not pretend Pietersen’s return would draw a line under the mayhem that has overrun the ECB, though. It would merely mark a new phase in English cricket’s civil war.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-15-1" ><div class="show-scrollbars">Richard Johnson's striking blue eyes water as bright sunlight floods into the Royal Box at Newbury Racecourse and he casts his mind back to a Monday night in Stratford almost 21 years ago. ‘That was the first time I met him,’ he says. ‘He was a lot skinnier and younger looking, as we all were. It was my first year as an amateur and his first as a conditional because he’d been riding on the Flat in Ireland for a couple of years. It was towards the end of the season and he’d already ridden 70-odd winners and I had 10. But even before that I’d heard people saying “This Anthony McCoy rode a winner today, he was amazing”. It takes very little time in the racing world for word to get around. He was getting horses to win that other people couldn’t and all the people that you want to be talking about you were talking about him.’ If AP McCoy had been a postman, a plumber or a professor, Johnson would probably be talked about as the greatest jump jockey ever. He has been runner-up 15 of the 19 times McCoy has been champion jockey and that figure will probably be 16 come the end of the season. Johnson’s tally of nearly 2,800 winners far outstrips the totals of giants of the game such as Richard Dunwoody, John Francome and Peter Scudamore, all of whom won the title at least three times. Richard Johnson would be talked about as one of the greatest jump jockeys ever if it weren't for AP McCoy . Johnson has finished runner-up to McCoy in the race to be crowned champion jockey 15 times . When McCoy retires at the end of the season Johnson, 37, is favourite to finally achieve his dream but there is no hint of bitterness at the years of playing second fiddle. ‘My main ambition has always been to be champion jockey and AP has been the thorn in my side for a long time,’ he says. ‘But it’s not his fault. It’s my fault that I haven’t ridden more winners than him. I find it slightly strange when people say, “Now he’s retired you can give it a real kick”. I go for it every day of the week, every year. I’ll start off the first day of next season as always. ‘Obviously without AP it’s definitely going to help but you’ve got a host of young jockeys like Tom Scudamore, Sam Twiston-Davies, Aidan Coleman and older ones like Noel Fehily and Jason Maguire so there’s going to be no easy run of it.’ Johnson has ridden nearly 2,800 winners during his career but never been champion jockey . Johnson rides Royale Django as he wins Ladbrokes 'National Hunt' Novices' Hurdle at Southwell Racecourse . McCoy celebrates after winning the Cheltenham Gold Cup on Synchronised in 2012 . McCoy has often credited the pressure Johnson puts on him for motivating him to ride on wet winter evenings as well as at the big occasions like the Cheltenham Festival. In 2009 he wrote: ‘Having Dickie as an adversary has, more than anyone else, spurred me on to ride more winners. The threat of him beating me to the title has made me more driven.’ At this, Johnson chuckles. ‘I’m not sure about that, I’ve just chased him a lot,’ he says. ‘It’s like running with Usain Bolt, he’s just turning back and laughing as he’s moving away.’ Many of the great sporting rivalries of the past have been characterised by sniping and swiping. But Johnson claims there is no room for that in racing, where jockeys know the perils every time they line up at the start and on a more basic level, they have to live with each other day in, day out. ‘The valets set up our gear every morning. It doesn’t matter how many winners you’ve ridden, it’s how long you’ve been riding. Because we started at the same time we’re usually sat next to or near each other. The longer you’ve been there the closer you get to the door. He’s been pushed out and I’m going to be next to the door. Cloud Creeper ridden by jockey Richard Johnson jumps the last to win Nicol & Fielding Mechanical Services Ltd Steeple Chase at Leicester Racecourse on Friday . McCoy credited pressure from Johnson as his motivation for riding so many winners . ‘Through the winter when we’re racing seven days a week there’s every chance we’ll be at the same meetings for days on end. I leave home at 4am and get back at 7pm. I rarely see my children [Willow six, Casper three and Percy, one] awake during the winter. I definitely see AP more than my children and probably my wife, Fiona.’ Johnson grew up on an arable and cattle farm in Hereford. He rode ponies as a child and as a teenager spent summers working at David Nicholson’s yard. ‘He offered me a job when I left school at 16,’ says Johnson, ‘I think my parents thought I’d go for two years, see a bit of life then go to agricultural college and come back and be a farmer.’ He would read copies of the racing newspaper Sporting Life, now defunct, at breakfast time. ‘Peter Scudamore was from the same county so I looked up to him,’ says Johnson. ‘When I understood racing a bit more Richard Dunwoody was the man I looked up to. He’s still someone I look up to today. Even though I’ve won more races, to be champion jockey would make me feel I belong in that bracket.’ The Cheltenham Festival is live on Channel 4. For tickets go to www.cheltenham.co.uk .</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-16-1" ><div class="show-scrollbars">Russian television presenter and opposition supporter Ksenia Sobchak has received death threats following the murder of Boris Nemtsov . A glamorous Russian television presenter and opposition campaigner - who Vladimir Putin has known since she was a child - today revealed she is facing internet threats warning she will be the next to die after slain Boris Nemtsov. Ksenia Sobchak, 33, retweeted sickening messages, one of which warned her: 'Give up Ksenia, your death will be fast.' The poisonous postings - which also threaten other prominent Putin foes - came after she gave a warm recollection of Mr Nemtsov, remembering how, as a child, she was taken on a sledge ride by him in Davos, Switzerland. Mr Nemtsov was gunned to death in the shadow of the Kremlin late on Friday. Ms Sobchak is the daughter of Putin's political mentor, the late Anatoly Sobchak, liberal mayor of St Petersburg, the Russian President's former law professor who gave him his first political job after he quit the KGB. For years there were rumours that she was Putin's goddaughter - and though this is not the case, many of his supporters have not forgiven her stinging and articulate opposition to his policies. One tweet, using an insulting nickname for the TV host, posted online about Mr Nemtsov's slaying said: 'I am also very happy that there is one bastard less; when is it your turn, Horse?' A user called Vadim, posting a picture of a man pointing a gun, and a list of six prominent opposition surnames - Nemtsov, Navalny, Sobchak, Kudrin, Kasyanov, Khodorkovsky - wrote: 'Just politics, nothing personal'. Mr Nemtsov's name has been ticked off and Ms Sobchak's was number three on the list. 'Good News' - another user - sent Ms Sobchak a message which said: 'Give up Ksenia, your death will be fast'. He used the hashtag: 'Death to Sobchak'. User Unosobad posted: 'Your turn soon, Ksysha. MGER and RKSM promise it.' Ksysha is a fond name in Russian for Ksenia while the acronyms stand for radical groupings - the Young Squadron of United Russia, and the Russian Communist Youth Union. Ms Sobchak (right), who has known Vladimir Putin (left) since she was a child, was threatened after she recalled fond memories of Mr Nemtsov . The glamorous television presenter has long-opposed Putin's policies despite it being being rumoured for years that she was the president's goddaughter . Opposition supporters Ksenia Sobchak (right) and Ilya Yashin (left) join mourners in Moscow hours after the shooting of Boris Nemtsov . Last year, Ms Sobchak claimed many well-to-do young Russians were fleeing the country because of Putin's authoritarian policies and the Ukrainian conflict. In the wake of Mr Nemtsov's death, she warned that Putin had unleashed forces in Russia over which he now has no control. 'Actually it would be in some way less worrying if Putin had ordered Nemtsov's killing,' she wrote. 'It would be an awful system, but at least a system, a manageable system. But I feel, unfortunately, this is not the case. 'There is no Putin who gave a command to kill. But there is a Putin who has built a hellish Terminator, and he has lost control of it.' She also warned: 'There is no one controlling the process any more - there is chaotic hatred. 'Hatred that is fuelled every day by the federal mass media.' Ms Sobchak's late father Anatoly (left) was Mayor of St Petersburg with Putin as his deputy . President Putin clutches flowers at Ms Sobchak's father's funeral in 2000 . Of the shots that killed Mr Nemtsov, she said in her blog: 'These are only the first six bullets. There are troubled times ahead.' In December, she bravely challenged Putin in a television press conference, quizzing him about 'fifth columnists' - groups of people who bring down a government from within. Opposition leader Boris Nemtsov was shot dead in Moscow on Friday night . Putin predicted that the West would use such people to undermine Russia. 'Action by a fifth column, this disparate bunch of national traitors,' he said. Although he did not name who the 'traitors' were, Russian language sites soon suggested opposition figures including Mr Nemtsov and Ms Sobchak. When she was called to ask a question at Putin's press conference, the president chided his press spokesman: 'Why did you give her the floor?' Ms Sobchak told Putin: 'I would like to clarify for myself and our audience this fine line between the fifth column and the opposition.' She also claimed 'bullying' was again rife in Russia, as it was in her father's time, when Putin had acted to protect him. Earlier the former IT girl told how wealthy Russians are seeking an escape route. 'This is the main society talk in good restaurants in Moscow. It is either getting citizenship, or residence permits, or the like,' she said. Mr Nemtsov was shot dead on Friday night as he walked home with his Ukrainian model girlfriend Anna Duritskaya, 23. She has been held under armed guard by the Russians since and has not been allowed to return to Kiev. There are fears the Kremlin is trying to link the shooting to the conflict in Ukraine. An estimated 70,000 marched through Moscow yesterday to mourn the fallen opposition leader and to protest against the Putin government.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-17-1" ><div class="show-scrollbars">Scotland's long-term plan to abolish the airport passenger duty (APD) tax completely could significantly harm England's already suffering smaller airports, revealed a report from MPs. A report from the House of Commons Transport Committee said the success of the UK's smaller airports are being held back by the existence of the APD, one of the world's heftiest departure taxes. The MPs said that Northern Ireland was suffering in terms of jobs, growth and connectivity as aviation taxes were higher than in the Republic of Ireland. And when APD is charged at both ends of a trip the tax 'incentivises airlines and passengers to fly from airports located in other EU member states', said the MP's report. The Scottish Government's plans to abolish the airport passenger duty could harm England's airports . The Scottish Government wants to reduce APD by 50 per cent in the next term of the Scottish Parliament and eventually get rid of it altogether in a bid to win the country's airports a 'competitive advantage'. However, there is no such commitment to axing APD in the rest of the UK, despite a decision by the Chancellor to abolish APD payments on children's tickets back in December. A spokesman for the campaign A Fair Tax on Flying, Stephen D'Alfonso, welcomed the report and called on the rest of the UK to follow Scotland's lead. 'We welcome the Transport Committee's report highlighting the detrimental effect that APD has on smaller airports, and the Committee's recognition that a lower level of APD in Scotland will have a negative effect on the rest of the UK,' Mr D'Alfonso said. 'With UK passengers currently paying one of the highest rates of tax on flying anywhere in the world, it is not surprising that the Scottish Government is committed to cutting this damaging tax. However, a cut in APD in Scotland needs to be matched by a cut in APD across the rest of the UK, so that no part of the country is disadvantaged in any way.' A report from the House of Commons Transport Committee said the success of the UK's smaller airports are being held back by the departure tax, which is one of the largest in the world . The report warned that if APD is scrapped in Scotland - the wheels are already in motion with the tax being devolved to Holyrood - 'airports in England would be subject to a similar competitive disadvantage to that currently experienced in Northern Ireland'. £26 per ticket to Europe . £69 per ticket to US, Canada, North and West Africa . £97 per ticket to Australia, Singapore and Indonesia . The abolition of the tax at Holyrood would bring £1billion into the economy by 2020 along with almost 4,000 jobs, according to a report commissioned by Edinburgh Airport. Plans to exempt children from APD, announced in the autumn statement of 2014, was 'a marginal change which did nothing for business travellers and little for smaller airports', the report added. The committee said: 'We found that APD is the principal threat to the smaller airports sector. 'APD cannot be amended to support people, businesses and regional economies because of the operation of European competition law, while proposals to devolve it to the regions would serve only to spread a patchwork of market distortions across the UK.' The report covered around 40 smaller airports ranging in size from Newcastle, which handled 4.4 million passengers in 2013, to Lydd in Kent which handled 1,000 . Launching the report today the committee's chairwoman Louise Ellman said: 'Smaller airports drive economic growth. But the smaller airports sector - which is vital to people and businesses in the regions - is limited by APD. Transport ministers must stand up for smaller airports and make the case to the Treasury that APD squeezes jobs, growth and connectivity.' She added: 'The whole country should share the economic benefits of expanded airport capacity. But that will only happen if new capacity includes new domestic flights to airports outside London. 'The Department for Transport needs to take a proactive approach and ensure that the regions are connected.' Scotland's Transport Minister Derek Mackay told BBC Radio Scotland's Good Morning Scotland programme found validation in the report and said they would do what was best for their airports. 'It does somewhat validate what we've been saying - that reducing air passenger duty would create economic growth in terms of more routes and sustain the lines that we have at the moment,' he said. 'That's why airports and the airlines have called within Scotland for the power to be transferred to us so that we can be more adept. Scotland's Transport Minister Derek Mackay said didn't mind that 'other parts of the UK may well be nervous but if we have the power then we'll use it to put Scotland at a competitive advantage' 'Some other parts of the UK may well be nervous but if we have the power then we'll use it to put Scotland at a competitive advantage.' The report covered around 40 smaller airports ranging in size from Newcastle, which handled 4.4 million passengers in 2013, to Lydd in Kent which handled 1,000. Airport Operators Association chief executive Darren Caplan said: 'The past few years have been tough for many of our smaller members. 'Reducing APD is the single biggest thing that could enable airports to attract new routes and increase their passenger numbers. APD is the highest aviation tax in the world and is increasingly putting the UK at a disadvantage.' A Department for Transport spokesman said: 'Regional airports make a vital contribution to the UK economy by boosting local jobs and providing important domestic and international connectivity. We want to help these airports thrive as part of our long- term economic plan, which is why we launched the Regional Air Connectivity Fund to support more new air routes. 'We are now assessing bids from airports and airlines for this funding and will soon announce a short list of routes, with a final announcement over the summer. 'We welcome the publication of the committee's report on smaller airports and we will study their conclusions carefully before responding in due course.'</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-18-1" ><div class="show-scrollbars">Seven decades of separation has seen even the language of North and South Korea split into two different dialects. The two countries, though enemies, are tied together by history, by family and by language - but only to a point. South Koreans have incorporated many English words and phrases into their language while isolated communist North Korea has eliminated words with foreign origins and created homegrown substitutes. North Korean defector Pak Mi-ok ended up going without water during a meal in the South because she was too shy to admit she didn't understand the term 'self-service' For those south of the divide, English-based words like 'shampoo,' 'juice' and 'self-service' are common. But they mean absolutely nothing to defectors from the insular North Korea. When Pak Mi-ok first arrived in South Korea after her defection in 2002, she was told by a waitress at a restaurant that water was 'self-service,' an English phrase she had not heard before. She ended up going without water during her meal because she was too shy to admit she didn't understand. 'I worried the waitress would look down on me,' she told the Associated Press. She started out working at restaurants but struggled to understand customers. 'I thought they spoke a different language,' she said. But she gradually picked up the new vocabulary and uses words like 'stress' and 'claim' that are not heard up in the North. Similarly, people in Seoul are confused by homegrown North Korean words like 'salgyeolmul,' which literally translates to 'skin water' - but is just 'lotion' in the South. The Korean Peninsula's 70-year split has created a widening linguistic divide that produces misunderstandings, hurt feelings and sometimes even laughter. The North's isolation near-worship of the ruling Kim family (pictured centre, leader Kim Jong-un) has also skewed the language . The gap has grown so wide that about a third of everyday words used in the two countries are different, according to scholars. North and South Koreans are generally able to understand each other given that the majority of words and grammar are still the same . But the differences show how language can change when one half of the country becomes an international economic powerhouse and the other isolates itself, suspicious of outside influences. The huge cultural influence of America through its military presence, business ties and Hollywood has flooded the South Korean vernacular with words borrowed from English. 'Konglish' uses English words in non-standard ways, like 'handle' for steering wheel, 'hand phone' for cellphone and 'manicure' for nail polish. In North Korea's view, this is just further evidence that the South is an American cultural colony. The North's isolation and near-worship of the ruling Kim family has also skewed the language. South Koreans use the English loan word 'juice' but North Koreans say 'danmul,' or 'sweet water.' South Koreans watch a 'musical' but North Koreans see a 'gamuiyagi,' or 'music and dance story.' 'Suryong' is the revered title for North's founding leader and his son, but in the South it's a historical term referring to a medieval regional or faction leader. The sea creatures that South Koreans call 'cuttlefish' are known in North Korea by the word South Koreans use for 'octopus.' The term 'elderly person' is considered neutral in the North, but pejorative in the South. South Koreans wash their hair with 'shampoo' but North Koreans use 'meorimulbinu,' or 'hair water soap.' The word 'dongmu' is used in North Korea to refer to a revolutionary colleague, but South Koreans seldom use the term. A 'dosirak' is South Korean word for a lunch box while North Koreans call it 'gwakbab.' South Koreans use the English loan phrase 'skin lotion' but it's 'salgyeolmul,' or 'skin water' in the North. North and South Korea have different spelling and pronunciation rules for the first syllable of some Korean words, so the common family name is 'Lee' in the South but 'Ri' in the North. South Koreans often end their conversations with phrases like 'Let's have lunch someday' or 'Let's go out for drinks soon,' but North Korean defectors who have just arrived often take those as literal invitations and expect a follow-up phone call to arrange the appointment. Source: AP . 'Suryong' is the revered title for the North's founding leader and his son, Kim Jong Il, the father of the current ruler, Kim Jong Un. But in the South it's used to refer to a faction or local leader from centuries ago. Misunderstandings can arise to seemingly innocuous Korean phrases like, 'Let's do lunch sometime,' which those in the South frequently use as a friendly ending to conversations, even with casual acquaintances. But newly arrived North Korean defectors take such invitations literally, and are often dismayed or offended when they don't get a follow-up phone call. 'If someone uses such empty words in North Korea, they'll see their relations with others cut off and be branded as a faithless person,' said a defector who asked not to be identified because of worries that doing so would put family members in the North at risk. Linguists say it takes about two years for North Korean defectors to feel comfortable conversing in South Korea. Over the past 10 years, there have been efforts to produce a joint dictionary containing 330,000 words from both countries - a rare example of co-operation. But as is often the case, political tensions have interfered with progress. The meetings only resumed last July after a more than four-year hiatus following the 2010 sinking of a South Korean warship. A new round of meetings, tentatively set for last month, hasn't been held as North Korea bristled over the annual springtime joint U.S.-South Korea military drills. Even language experts from the two countries can have trouble understanding each other. During last year's meeting in Pyongyang, South Korean linguist Kim Byungmoon said he tried to explain how South Koreans use the English word 'glamour' as a noun to refer to a voluptuous woman, but North Korean scholars had difficulty understanding its usage.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-19-1" ><div class="show-scrollbars">The British crew of the new James Bond film triggered an international air safety alert by going on a drunken rampage aboard the official 007 jet. Last night, the producers of the forthcoming Spectre film confirmed that they were investigating the 'intimidatory and frightening' behaviour on board the privately chartered plane flying from Stansted Airport in Essex to Mexico City 11 days ago. The Mail on Sunday can reveal that charter aircraft company Hi Fly sent a damning a report to the Bond film production company Eon that revealed how some of the film's crew: . Scroll down for video . The British crew of the new James Bond film went on a drunken rampage aboard the official 007 jet, pictured  filming  in Mexico city last week - there is no suggestion those pictured were involved in rampage . The report also made clear that the reckless behaviour of some of the film crew, fuelled by excess alcohol, had 'compromised' the safety of the Airbus 330 and had breached international aviation regulations. Last night, a worker at Toluca airport in Mexico City said the mayhem had left the interior of the plane looking like a 'pack of wild animals' had gone through it. The source added that vomit had been left inside the toilet and on the floor outside. The producers of the forthcoming Spectre film, starring Monica Bellucci and Daniel Craig, confirmed that they were investigating the 'intimidatory and frightening' behaviour . He also claimed the airline had to bring in a specialist firm to clean the plane at a cost of 20,000 pesos – about £1,000. The incident will prove embarrassing for Eon, which only yesterday launched a glossy trailer for the new £190 million movie, which will again star Daniel Craig as 007. About 150 of the film's crew, including cameramen, technicians and stunt men, were on their way to Mexico to film some of the most spectacular action sequences, including one that takes place during Mexico's macabre Day of the Dead festival. It is understood that neither Craig nor any other member of the cast was on board the jet, which landed at Toluca Airport for the two-week shoot on March 18. Hi Fly, which has told Eon that its staff breached the conditions of the charter, will deploy extra security at the airport to ensure that no passengers arrive drunk for the jet's return journey to the UK on Wednesday. The airline has agreed to fly the crew back to Britain only on condition that no alcohol is served or consumed on board. The privately chartered plane (pictured) was flying from Stansted Airport in Essex to Mexico City 11 days ago . Members of the film crew removed a safety pin from one of the aircraft's doors - there is no suggestion those pictured were involved in rampage . Eon, led by Michael G. Wilson and his stepsister Barbara Broccoli, have now told staff that the flight will be 'dry'. However, in a twist worthy of the Bond films, it is unclear whether the American watchdog, the Federal Aviation Administration, is investigating the incident. On Friday night, spokeswoman Laura Brown confirmed that the incident was 'under investigation' but declined to comment further after being given a detailed account of the reckless behaviour on the plane. But the following day her colleagues denied any such probe was under way. The FAA has some jurisdiction over international airspace around the US, which could have been passed through by the 007 film crew's flight. A spokesman for Eon last night confirmed it was conducting an internal investigation to find out exactly what had happened. But The Mail on Sunday understands that Wilson and Broccoli read the riot act to staff at a production meeting held shortly after the plane's arrival in Mexico. They have also apologised to horrified air crew members. One source, who asked not to be named, said: 'Michael and Barbara have both made it very clear that this sort of behaviour is unacceptable and should never be allowed to happen again. It is understood that neither Craig (pictured) nor any other member of the cast was on board the jet . Some of the film's crew vomited and urinated in the aisles and verbally abused cabin crew - there is no suggestion those pictured were involved in rampage . 'The behaviour of a handful of crew members got out of hand and made things very unpleasant for their fellow passengers. 'Eon has apologised to all the crew members who had to endure this intolerable behaviour.' Airline expert Chris Yates said last night that 'it was entirely possible' that the removal of the safety pin could have caused the door to open. He said: 'The pin is part and parcel of the locking mechanism on the aircraft door. Essentially, if you remove it there is a possibility that you could potentially open the door and decompress the cabin.' However, while the risk was real, he added that in all likelihood the door would have been held shut by the speed of the plane moving through the air. Hi Fly, which is based in Lisbon, leases its 12 Airbuses to governments, companies and individuals. Last night, a spokesman declined to comment on the incident. He said: 'This particular flight from the UK to Mexico was a private charter, not open to the public. We have an obligation towards the privacy rights of our clients and therefore we are unable to comment.' A spokesman for Eon said: 'We are investigating the matter so cannot comment further at this time.' Spectre is the 24th movie in the Bond franchise and co-stars Christoph Waltz, Ralph Fiennes and Monica Bellucci. It is due to open in Britain in November.</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-5-2-content-2-cell-20-1" ><div class="show-scrollbars">The shooting of two police officers during protests in Ferguson was 'a professional job' by a sniper-style gunman, witnesses have claimed. Both officers were struck outside the police headquarters by shots believed to come from across the street from up to 120 yards away, possibly from a rooftop building. One was shot in the right shoulder, with the bullet exiting through his back. The other in the right cheek, just below the eye. The bullet lodged behind his ear. Speculation is now growing that it must have been the work of a highly skilled shooter possibly using a rifle. Scroll down for video . Tensions: Protesters gather outside the Ferguson Police Department in Ferguson a day after two officers were shot during demonstrations . Both officers were struck outside the police headquarters by shots believed to come from across the street from up to 120 yards away . A police officer removes a demonstrator from the middle of the street during a protest in front of the police station in Ferguson . Sit-in protest: A police officer prepares to remove a demonstrator from the middle of the street during a demonstration outside the station . A witness told Fox News: 'This was a professional job, a sniper type of deal because you could hear the silencer on the gun. 'Living in North St Louis, you know what a shotgun sounds like, unfortunately.But you could tell that was a very professional job.' The witness, who did not give his name, claimed that the shots came from the rooftop of a building across the street from the police headquarters. Gabe Crocker, head of the St Louis Police Association, said the circumstances of the shooting suggest that the gunman may be someone with weapons experience. Protesters called for calm but vowed to keep pushing for change in Ferguson a day after the shootings. Dozens gathered for a candlelight vigil last night, where they expressed sympathy for the wounded officers. They also prayed for peace as Ferguson moves forward in the wake of a scathing Justice Department report on racial bias in its law-enforcement practices. Protesters lie in the street in front of the Ferguson Police Department. Officers from the St Louis County Police Department and the Missouri Highway Patrol were summoned to bolster security but largely stood idle in the distance . Making his views known: A protester talks with a police officer in front of the Ferguson Police Department tensions remained high in the city . On alert: St Louis County police officers stand in riot gear as protesters demonstrate outside the Ferguson Police Department in Ferguson . A larger crowd of about 200 protesters gathered later outside the police department, but the scene was a marked contrast to the previous night, when fights broke out before the shootings. Some called for specific changes: the resignation of Ferguson's mayor or the disbanding of the police department. Others were there to remember 18-year-old Michael Brown, whose shooting death by a Ferguson police officer in August made the city a national focal point. 'We'll not be derailed in the pursuit of justice by anybody or anything that wants to get in our way,' said the Rev Traci Blackmon, a member of the state's Ferguson Commission who led the prayer vigil at a public plaza in downtown Ferguson near the police department. 'We refuse to stop.' Officers from the St Louis County Police Department and the Missouri Highway Patrol were summoned to bolster security but largely stood idle in the distance. The protesters had largely disbanded by 11.30pm. No arrests were made. The shootings just after midnight on Thursday came as protesters had gathered after the resignation of the city's embattled police chief. Up in arms: Protesters called for calm but vowed to keep pushing for change in Ferguson a day after the shootings . Vocal: Protesters gathered later outside the police department, but the scene was a marked contrast to the previous night . Taking a stand: A protester wearing a Guy Fawkes mask holds a sign as demonstrators march through the streets of Ferguson . They marked the first time in more than seven months of tension in Ferguson that officers were shot at a protest, and the bloodshed threatened to inflame the already fraught relationship between police and demonstrators. Both wounded officers were released from the hospital Thursday, but St. Louis County Police Chief Jon Belmar - who called the attack an ambush - said they could have been killed. One was shot in the right shoulder, the bullet exiting through his back. The other in the right cheek, just below the eye. The bullet lodged behind his ear. Several people were taken in for questioning but were later released and no arrests were made by late Thursday. Three people were rounded up and taken from their home in a pre-dawn raid carried out by a SWAT team. Lamont Underwood, 47, Iresha Turner, 22, and Martez Little, 25, were handcuffed and questioned, but they were eventually released without charge. All three were taking part in a rowdy demonstration in front of the Ferguson Police Department when shots rang out in the crowd, sending protesters running for their lives and leaving two offices wounded. Speaking to The Guardian, Underwood and Turner denied playing any part in the shooting, but said that they drew suspicion because they fled the scene. In the early hours of Thursday morning, a heavily armed SWAT team surrounded the Dade Avenue home shared by Underwood, Little and Turner and climbed over its roof in search of the cop shooter and the gun used in what St Louis County Police Chief Jon Belmar described as an 'ambush' attack. Officers scoured the home and seized a gun from the attic, which Turner said they have been keeping for protection and self-defense. 'I feel disrespected,' said Underwood. 'I kept telling them I didn’t know anything about who shot the cop. Eventually they said they believed me.' Clergy and other religious leaders participate in a candlelight memorial vigil near the the Ferguson Police Department in Ferguson . Vigil: People hold candles and pray during a prayer near the Ferguson Police Department where two police officers were shot . The 47-year-old Ferguson resident described the SWAT raid as terrifying and disturbing. Underwood said officers barged into the house with their guns drawn and yelled at him and the others that they were the target of the raid. Iresha Turner recounted how she and the other inhabitants of the house, including her 6-year-old son, were awakened at 3am by the sounds of police pounding on the door. ‘We were forced outside. I looked down at my chest and there was a red dot on my chest. I said, “I surrender I surrender please don’t shoot me,”’ the young mother recalled. In Washington, President Barack Obama took to Twitter to relay his prayers to the officers and to denounce violence against police. 'Path to justice is one all of us must travel together,' Obama wrote, signing the tweet with his initials to indicate the president personally composed it. Attorney General Eric Holder said the gunman was 'a damn punk' who was 'trying to sow discord in an area that was trying to get its act together, trying to bring together a community that had been fractured for too long.' In a statement, Ferguson Mayor James Knowles III and the city council said that although they respect the right to protest peacefully, 'we cannot continue to move forward under threats of violence and destruction to our community. 'We ask our residents and clergy in this area to partner with us as we make our way through this process.' Police have converged on a home in Ferguson and taken people in for questioning following the shootings of two police officers . The SWAT team could be seen targeting the Ferguson home's attic as the search to find the gunman intensified . Under suspicion: Iresha Turner (left), 22, and Martez Little (right), 25, were among three people who were taken in for questioning after their house was raided by a SWAT team following the Ferguson police shooting . Scary experience: Iresha Turner recounted how she and the other inhabitants of the house were awakened at 3am by the sounds of police pounding on the door. She said: 'I looked down at my chest and there was a red dot on my chest.' The calls for healing and reconciliation weren't received favourably by all. As participants gathered before the prayer vigil Thursday night, shouts of 'white power' came from a passing pickup truck. Brown's August shooting by former Ferguson Police Officer Darren Wilson prompted protests locally and across the nation, and tensions escalated in November after a county grand jury declined to prosecute Wilson. Justice Department investigators concurred with that finding in a report released March 4. The Justice Department also released a separate report that day that found racial profiling in the city police force, and a municipal court system driven by profit, largely on the backs of black and low-income residents. Police Chief Tom Jackson's resignation on Wednesday marked the sixth departure or firing in the week since the release of that report. Ferguson's court clerk was fired and the municipal judge, two police officers and the city manager voluntarily stepped aside. Wilson resigned in November.</div></td></tr></tbody>
+</table></div></td><td id="section-2-content-block-2-cell-5-3" ><div class="show-scrollbars">≈25.501% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>

@@ -2,7 +2,7 @@ from loguru import logger
 import great_expectations as gx
 
 from src.config import PROJ_ROOT
-from src.gx_context_configurations import CHECKPOINT, batch_dataframes
+from src.gx_context_configurations import CHECKPOINT
 
 context = gx.get_context(mode="file", project_root_dir=PROJ_ROOT)
 

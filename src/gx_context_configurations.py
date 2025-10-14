@@ -27,12 +27,6 @@ CLEAN_TEST_VALIDATOR = "clean_test_validator"
 EXPECTATIONS_SUITE = "data_quality_validation"
 CHECKPOINT = "validation_checkpoint"
 
-df_train = load_from_disk(RAW_DATA_DIR / "train").to_pandas()
-df_val = load_from_disk(RAW_DATA_DIR / "validation").to_pandas()
-df_test =  load_from_disk(RAW_DATA_DIR / "test").to_pandas()
-
-batch_dataframes = {"dataset": df_train}
-
 if __name__ == "__main__":
     context = gx.get_context(mode="file", project_root_dir = PROJ_ROOT)
 
@@ -79,13 +73,14 @@ if __name__ == "__main__":
     expectation_suite.add_expectation(gx.expectations.ExpectColumnToExist(column="article"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToBeOfType(column="article", type_="str"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(column="article"))
+    expectation_suite.add_expectation(gx.expectations.ExpectColumnValueLengthsToBeBetween(column='article', min_value=50, strict_min=True))
 
     # Validate of column highlights
     expectation_suite.add_expectation(gx.expectations.ExpectColumnToExist(column="highlights"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToBeOfType(column="highlights", type_="str"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(column="highlights"))
 
-    # Validate of column pair-wise
+    # Validate of column pair-wise article-highlight
     expectation_suite.add_expectation(gx.expectations.ExpectCompoundColumnsToBeUnique(column_list=["article", "highlights"]))
 
     expectation_suite.save()
