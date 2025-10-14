@@ -298,7 +298,7 @@ def fine_tune_model():
         print(f"  → CO2 emissions: {emissions * 1000:.2f}g")
         print(f"  → Energy consumed: {tracker.final_emissions_data.energy_consumed:.6f} kWh")
         
-        emissions_file = "reports/emissions/emissions.csv"
+        emissions_file = "reports/emissions.csv"
         if os.path.exists(emissions_file):
             mlflow.log_artifact(emissions_file, "emissions_report")
         
