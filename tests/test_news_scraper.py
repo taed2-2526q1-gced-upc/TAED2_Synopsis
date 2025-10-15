@@ -1,6 +1,6 @@
 import pytest
 from bs4 import BeautifulSoup
-from src.news_scraper import NewsScraper, RateLimiter, NewsSession
+from src.backend.app.services.news_scraper import NewsScraper, RateLimiter, NewsSession
 
 
 def test_clean_text_removes_emojis_correctly():

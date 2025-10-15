@@ -181,10 +181,11 @@ class NewsScraper:
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
 
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
-        driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-            "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
-        })
+        # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
+        driver = webdriver.Chrome(options=options)
+        # driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+        #     "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
+        # })
         return driver
     
     def accept_cookies(self, timeout: int = 5) -> bool:

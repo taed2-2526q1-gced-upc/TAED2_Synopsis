@@ -1,4 +1,4 @@
-from src.news_scraper import NewsScraper
+from src.backend.app.services.news_scraper import NewsScraper
 
 if __name__ == "__main__":
     urls = [
