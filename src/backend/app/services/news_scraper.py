@@ -1,5 +1,5 @@
 from typing import Iterable, Optional, List, Dict
-from requests import Session, RequestException, Request, Response
+from requests import Session, RequestException, Response
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
@@ -29,10 +29,11 @@ DEFAULT_USER_AGENTS = [
 
 class NewsScraper:
     """
-    News scraper class. Gets a link and returns the text content.
+    News scraper class. Gets a link from a news media website and returns its text content.
     
-    For scraping, it uses a requests session, a selenium driver or a cloudscraper.
-        
+    For scraping, it uses a requests session, a selenium driver or a cloudscraper, depending on the difficulty.
+    
+    In case it is not possible to scrape the news article, it raises a NewsScraperNotPossibleError.
     """
     def __init__(self):
         self.session = self.get_session()
@@ -42,39 +43,62 @@ class NewsScraper:
         return self.scrape_news(url)
     
     def scrape_news(self, url: str, method: str = "REQUESTS") -> dict[str,str]:
-        
+        """Main code. First gets a soup from one of the three methods, then extracts the title and the text."""
         if method == "REQUESTS":
-            resp = self.session.request("GET", url)
+            try:
+                resp = self.session.request("GET", url)
+            except RequestException as e:
+                print(f"Error fetching {url} with REQUESTS: {e}")
+                return self.scrape_news(url, "CLOUDSCRAPER")
             soup = BeautifulSoup(resp.text, 'html.parser')
         elif method == "CLOUDSCRAPER":
             scraper  : cloudscraper.CloudScraper = cloudscraper.create_scraper()
-            response = scraper.get(url)
-            soup = BeautifulSoup(response.text, 'html.parser')
+            try:
+                response = scraper.get(url)
+                soup = BeautifulSoup(response.text, 'html.parser')
+            except Exception as e:
+                print(f"Error fetching {url} with CLOUDSCRAPER: {e}")
+                return self.scrape_news(url, "SELENIUM")
         else:
-            self.driver.get(url)
-            self.accept_cookies()
-            time.sleep(1)
-            soup = BeautifulSoup(self.driver.page_source, 'html.parser')
-
+            try:
+                self.driver.get(url)
+                self.accept_cookies()
+                time.sleep(1)
+                soup = BeautifulSoup(self.driver.page_source, 'html.parser')
+            except Exception as e:
+                print(f"Error fetching {url} with SELENIUM: {e}")
+                raise NewsScraperNotPossibleError(f"Could not scrape the news article from {url}.")
             
         title = soup.find(['h1'])
         title = soup.find(['h2']) if not title else title
+        
         if title is None:
             if method=="REQUESTS":
                 return self.scrape_news(url, "CLOUDSCRAPER")
             elif method=="CLOUDSCRAPER":
                 return self.scrape_news(url, "SELENIUM")
             else:
-                raise Exception("No title found.")
+                raise NewsScraperNotPossibleError("No title found.")
         
+        article = soup.find('article') # Easy case
+        if article:
+            text = '\n'.join(article.stripped_strings)
+            if len(text) > 200:
+                text = self.clean_text(text)
+                return {
+                    'link' : url,
+                    'title' : self.clean_text(title.text),
+                    'text' : text
+                }
+
         pes = soup.find_all('p')
-        parents = self.get_parents(pes)                
+        parents = self.get_parents(pes)
         main_parent, max_counts = self.find_main_parent(parents)
         if not main_parent:
             main_parent, max_counts = soup, 1
         text = self.get_text(main_parent)
         j = 1
-        while len(text) / max_counts < 200:
+        while len(text) / max_counts < 150:
             parents = {p:c for p,c in parents.items() if p!=main_parent}
             main_parent, max_counts = self.find_main_parent(parents)
             if not main_parent:
@@ -88,11 +112,11 @@ class NewsScraper:
                 elif method=="CLOUDSCRAPER":
                     return self.scrape_news(url, "SELENIUM")
                 else:
-                    raise Exception("Not enough words.")
+                    raise NewsScraperNotPossibleError("Not enough words.")
             j += 1
             if j%12 == 0:
                 return self.scrape_news(url, "CLOUDSCRAPER")
-        title = self.clean_text(title.text)
+        title = self.clean_text(title.text, title=True)
         text = self.clean_text(text)
         
         return {
@@ -102,9 +126,11 @@ class NewsScraper:
         }
         
     def get_parents(self, elements) -> dict[BeautifulSoup, int]:
+        """Returns a dictionary with the parents of the elements and their counts. 
+        In websites, the main content is usually contained in the parent that contains most <p> tags."""
         parents = {}
         for elem in elements:
-            parent = elem.parent
+            parent = elem.parent.parent
             if parent in parents:
                 parents[parent] += 1
             else:
@@ -112,6 +138,7 @@ class NewsScraper:
         return parents
     
     def find_main_parent(self, parents : dict[BeautifulSoup, int]) -> tuple[BeautifulSoup|None, int]:
+        """Given a dictionary of parents and their counts, returns the parent with the highest count."""
         main_parent = None
         max_count = 0
         for parent, counts in parents.items():
@@ -121,17 +148,18 @@ class NewsScraper:
         return main_parent, max_count
     
     def get_text(self, main_parent: BeautifulSoup) -> str:
+        """Extracts the text from the main parent."""
         content = main_parent.find_all('p')
         text = ''
         for elem in content:
-            text += f' {elem.text.strip()}\n' 
+            text += f' {elem.text.strip()} \n' 
         if not len(text):
             for elem in main_parent.stripped_strings:                
                 text += f'{elem.strip()}\n' 
         return text
         
-    def clean_text(self, text: str) -> str:
-        
+    def clean_text(self, text: str, title:bool=False) -> str:
+        """Cleans the text by removing emojis and short lines."""
         emoji_pattern = re.compile(
         "[" 
         "\U0001F600-\U0001F64F"
@@ -146,9 +174,10 @@ class NewsScraper:
         "\uFE0F"    
         "]+",
         flags=re.UNICODE
-    )
-        
+    )  
         cleaned_text = emoji_pattern.sub(r"", text)
+        if not title:
+            cleaned_text = '\n'.join([line.strip() for line in cleaned_text.split('\n') if len(line.strip())>30])
         return cleaned_text.strip()
     
     def get_session(self, verify:bool = True) -> Session:
@@ -170,6 +199,7 @@ class NewsScraper:
         return session
     
     def get_driver(self) -> webdriver.Chrome:
+        """Returns a selenium Chrome driver for difficult scraping."""
         options = Options()
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
@@ -181,14 +211,11 @@ class NewsScraper:
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         options.add_experimental_option('useAutomationExtension', False)
 
-        # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
         driver = webdriver.Chrome(options=options)
-        # driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-        #     "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
-        # })
         return driver
     
     def accept_cookies(self, timeout: int = 5) -> bool:
+        """Tries to accept cookies by clicking on buttons with 'accept' or 'aceptar' in their text."""
         xpath = (
             "//button[contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'accept') "
             "or contains(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'aceptar') "
@@ -207,7 +234,7 @@ class NewsScraper:
             return False
     
 class RateLimiter:
-    """Simple Limiter: permits a petition every `min_interval` on behalf of (thread-safe)."""
+    """Simple Limiter: permits a petition every `min_interval` on behalf of thread-safe."""
     def __init__(self, min_interval: float = 0.5):
         self.min_interval = float(min_interval)
         self.lock = threading.Lock()
@@ -222,6 +249,7 @@ class RateLimiter:
             self._last = time.time()
 
 class NewsSession(Session):
+    """A requests Session with robust settings for legal web scraping."""
     def __init__(
         self,
         user_agents: Optional[List[str]] = None,
@@ -294,6 +322,5 @@ class NewsSession(Session):
 
 
 class NewsScraperNotPossibleError(Exception):
-    """Raised when news scraping is not possible for the given URL.
-    """
+    """Raised when news scraping is not possible for the given URL."""
     pass
