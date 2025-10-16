@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251016T105854.570619Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-16T12:57:57Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                Table-Level Expectations
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-5"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">13</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">12</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">1</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈92.31%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-72a5f191-3533-43e7-9782-ed138ee56e8c" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-72a5f191-3533-43e7-9782-ed138ee56e8c class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-16T12:57:57Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251016T105847.838971Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >d29fbbba5944bba1a5936155b6151709</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\processed\clean_val.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Table-Level Expectations
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> characters long.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >10</span> and less than or equal to <span class="badge badge-secondary" >700</span> characters long.
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>168 unexpected values found. ≈1.257% of 13368 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-4-content-block-2-cell-4-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-1-1" ><div class="show-scrollbars">'It was on property guarded by the Secret Service, and there were no security breaches,' Clinton said at a press conference on Tuesday .
+A document passed out by Clinton's staff says 'robust protections were put in place' by the secretary and updated as needed .
+Email or server could have been hacked without her knowledge, though - possibly exposing  communications between she and the president .
+White House acknowledged on Monday that Clinton and Obama did email each other from time to time .
+Clinton's office says she viewed classified information via hard copy; a former State official from before Clinton's time says that's 'hard to imagine'
+Republicans want to inspect Clinton's server to determine if any of the emails she deleted can be retrieved .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-2-1" ><div class="show-scrollbars">Alex Gibney, the director of the Scientology documentary Going Clear, blasted Tom Cruise after a screening of the film on Monday .
+Gibney called Cruise 'irresponsible' over his refusal to comment on the many claims made against him and Scientology over the years .
+The film speaks to former members of the church, one of whom claims that Cruise asked the church to tap Nicole Kidman's phone during their marriage .
+There are also claims that Cruise used workers who were paid less than a dollar and hour by the church to maintain his motorcycles and plane .
+'The accusations made in the film are entirely false and alleged without ever asking the Church,' said the Church of Scientology is a statement .
+HBO meanwhile had a reported 160 lawyers watch and vet the documentary, which airs at 8pm this Sunday .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-3-1" ><div class="show-scrollbars">Anthony Hill, a 27-year-old Air Force veteran who had served in the Middle East, was shot dead by a police officer in Dekalb County on Monday .
+Police has responded to reports of a naked man acting erratically, hanging from balconies and crawling on the floor at the apartment complex .
+The officer asked Hill to stand still but instead he ran at him and the officer shot him twice, killing him, police said .
+The officer is believed to have been carrying a Taser at the time and the Georgia Bureau of Investigation is investigating the incident .
+Hours before his death, he wrote online: 'Where i once saw death i only see life' and previously claimed he had bipolar .
+Hill's girlfriend wrote on Twitter: 'I thought cops were suppose to protect and serve? They took the love of my life away!'</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-4-1" ><div class="show-scrollbars">Attorney said the girl will receive probation and counselling for four years .
+The January 5 shooting resulted in the arrests of two sisters, aged 15 and 11, on a second-degree murder charge in Lake City, Florida .
+No charges were filed against the younger sister after the incident .
+Documents show the elder girl had suffered  sexual abuse by her uncle .
+In 2011, the brother and sister were discovered having sex by their mother .
+Investigators said the elder girl was held in a locked bedroom by her older brother while their parents were away on a work trip .
+Parents would lock elder girl in her room with only a blanket and a bucket to use the bathroom for up to 20 days as punishment, police said .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-5-1" ><div class="show-scrollbars">British No1 Andy Murray beat John Isner in straight sets on Sunday .
+That secured Great Britain's passageway to the Davis Cup quarter-finals .
+The 27-year-old unintentionally landed his GB team-mate Dominic Inglot in it after a hilarious post-match interview .
+Murray suggested Inglot would celebrate the GB win by spending the evening with a 'little girlfriend'
+Inglot, clearly embarrased, said Murray had landed him in it as he had a girlfriend at home watching this .
+The doubles players confirmed on Twitter it was a joke by Murray and that he didn't have another girlfriend .
+READ: Murray would prefer GB's Davis Cup tie with France to be on grass .
+CLICK HERE for all the latest from the 2015 Davis Cup .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-6-1" ><div class="show-scrollbars">Chelsea knocked out of Champions League after away goals defeat by PSG .
+Chelsea surrounding the referee: It's a calculated, orchestrated reaction, and they've been doing it for a while It's the quickest you'll ever see John Terry run!
+It was like PSG had been hypnotised into thinking they had 11 men .
+Chelsea didn't go out to win the match .
+Premier League the best? It's still interesting, it's about finding consistency .
+Chelsea look to have the wrong mentality, Capital One Cup win may have taken the edge of them. It shouldn't be handed out so early in the season .
+Both David Luiz and Danny Welbeck were right to celebrate. They were shown the door, so why not?
+Manchester United would be near the top of the league under Sir Alex Ferguson. Is Louis van Gaal's man management failing?
+'Babies' is a good way to sum Chelsea up... but pressurising the referee certainly works .
+Did Arsenal underestimate Monaco, and Jose Mourinho the Parisians?
+Arsenal knocked Manchester United out of the FA Cup after 2-1 victory .
+Keown made 'money' gesture to manager Arsene Wenger prior to kick-off .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-7-1" ><div class="show-scrollbars">Former AFL star Ben Cousins has been arrested in Perth, whilst trying to break into a Sikh temple in Canningvale to take photos .
+He also attempted to break into a second property before scaling the two-story building and fleeing from police .
+He is currently in Armadale Hospital awaiting a mental health assessment .
+Cousins underwent mental health checks after he was caught behind secure fences of an SAS base on March 15 .
+The 36-year-old was moved out of hospital the next day but doctors 'remained concerned for his mental health'
+Cousins was arrested the week prior for allegedly driving erratically and not stopping when requested by police .
+He is scheduled to face the Fremantle Magistrates Court on April 8 .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-8-1" ><div class="show-scrollbars">Four MPs could be questioned over 'Establishment sex ring cover-up'
+Scotland Yard have said they will go ‘where the evidence takes us'
+Former Rochdale MP Cyril Smith was held and freed seven times over 30 years by police investigating claims he was a paedophile.
+A Royal was identified in a suspected paedophile ring under investigation before it was shut down because it could ‘destabilise national security’.
+Flamboyant Welsh MP Leo Abse, who died in 2008, is under investigation by police after being named by three alleged survivors of child abuse.
+A serving MP is at the centre of at least one of the cover-up inquiries because his name was discovered in documents at the home of a paedophile in the early 1990s.</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-9-1" ><div class="show-scrollbars">George Osborne had portrayed Britain as ‘comeback country’ with better times ahead in his sixth budget .
+Chancellor has said that families will be £900 better off this year, compared to when Coalition started in 2010 .
+Proposed tax cuts will be paid for in part by £5billion double strike on banks, including rise in bank levy .
+He also pledged that 95% will be freed from paying tax on their life saving, by abolishing tax on first £1,000 .
+Government will add £50 to every £200 saved in new first-time buyer Isa to help people build up a deposit for a home .
+There will be 1p off beer and an extension on longest freeze in fuel duty - the longest run for more than 20 years .
+George Osborne said: ‘The sun is starting to shine – we are fixing the roof. ‘We took difficult decisions in the teeth of opposition and it worked. Britain is walking tall again'
+Labour leader Ed Miliband claimed Chancellor had 'failed working families' and said: 'This is a Budget that people won’t believe from a government that is not on their side'
+A new ‘help-to-buy Isa’ for first-time homebuyers with the Government adding £50 to every £200 saved for a deposit; .
+A rise in the income tax allowance to £10,800 next year and to £11,000 by 2017, meaning 5.4million people will have been taken out of tax; .
+Relief for those paying the 40p higher rate with the first above-inflation rise in the threshold in seven years; .
+Drinkers being given 1p off beer and drivers being granted an extension of the longest freeze in fuel duty for over 20 years. Mr Osborne said the Tories had cut £10 off a tank of fuel; .
+An expected change in the law to give five million pensioners the right to cash in their annuities without punitive charges; .
+An increase in a new transferable tax allowance for married couples; .
+A hike in the annual ISA savings limit to £15,240 and rights to move money in and out without penalty; .
+Annual paper tax returns to be replaced by digital accounts; .
+A review of the business rate system blamed for damaging high streets; .
+A £1.25billion boost for mental health services on the NHS.</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-10-1" ><div class="show-scrollbars">Lambs were born in Stafford this week as today marks first official day of Spring, according to meteorologists .
+But as Spring begins snow, frost, cold and blustery winds - and temperatures below freezing - are forecast .
+Four inches of snow expected to fall tonight in Highlands, and two inches in North West England and Wales .
+Met Office issues weather warning for snow in the North and rain turning to ice for most of the UK overnight .
+Cold snap forecast throughout March with more rain, cold evenings and wintry showers in North on the way .
+Mercury is expected to fall after a break from cold this weekend, as temperatures reach around 10C today .
+By Easter forecasters predict temperatures could soar to 21C - around 8C above average for the time of year .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-11-1" ><div class="show-scrollbars">Luke Goodman bought $78 worth of edibles and marijuana with his cousin on Saturday and the two went back to their condo in Keystone to get high .
+When the effects of the edibles didn't immediately kick in after taking two, Goodman ate two more and a THC cookie - five times the recommended dosage .
+A few hours later, the college grad became withdrawn and started mumbling incoherently .
+Apparently unaware of his serious condition, his cousin went outside to use the hot tub and that's when Goodman shot himself in the head .
+Goodman shot himself with his personal gun he brought on the vacation .
+Goodman's family blame the tragedy on the edibles, since he had never appeared depressed or suicidal before taking the drugs .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-12-1" ><div class="show-scrollbars">Names, addresses and dates of birth among information sold off to firms .
+Pharmacy 2U is the country's leading NHS approved online pharmacy .
+But Mail investigation can reveal that patients personal details were sold .
+MPs said company put thousands at risk and it should face a police probe .
+Comes amid outcry over medical and financial data being sold to conmen .
+NHS dentists are buying data on patients in order to try to sell them treatments; .
+Payday loan brokers are passing on the financial details of vulnerable people who have been refused cash – leading to them being targeted by conmen; .
+Schools are buying information on teenagers’ parents from a data firm already exposed for selling medical details; .
+The Department for Business paid an unscrupulous data firm up to £15,000 in public money to help them target small business owners.</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-13-1" ><div class="show-scrollbars">New veiled chameleon hatchlings have just popped out into the world at Sydney's Taronga Zoo this week .
+Two of final three clutches of the eggs have hatched with third in process of producing last of seriously cute critters .
+More than 20 baby chameleons, which are only about 5cm long, are the first born at the zoo in over five years .
+The green creatures, native to Yemen and Saudi Arabia, will mature and showcase full colour palette within a year .
+Normally green or brown shade while resting, they change colour when frightened, courting or defending territory .
+Visitors can see these amazing adaptations in action when up to four of the hatchlings will go on display once they reach maturity over the next year .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-14-1" ><div class="show-scrollbars">Nigel Hayes, 20, a sophomore forward for the Wisconsin Badgers, sat down to attend a press conference at the Staples Center in Los Angeles .
+The 6ft 7in sportsman failed to realize the mic was still running and loudly whispered to his teammate 'God she's beautiful' after spotting a reporter .
+The audience broke into laughter after the slip-up .
+'I've been working to get out there for years and my mom gets called beautiful by a basketball player' joked the woman's daughter Sophia .
+Hayes, who grew up in Toledo, Ohio, has caused quite a raucous on the microphone recently, testing stenographers with trick words such as 'cattywampus', 'antidisestablishmentarianism' and 'soliloquy'
+Hayes and the Badgers went head-to-head with the North Carolina Tar Heels in the Sweet Sixteen on Thursday night and were victorious .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-15-1" ><div class="show-scrollbars">One DEA Acting Assistant Regional Director had sex with hookers at his own office farewell party – and taxpayer dollars may have paid for it .
+At least 7 agents admitted sleeping with prostitutes while on overseas assignments – while they had Top Secret security clearances .
+Encounters left them open to 'coercion, extortion, and blackmail,' the DOJ's inspector general concluded .
+Three supervisors allegedly also received 'money, expensive gifts and weapons from drug cartel members'
+Instead of firing or prosecuting agents, the DEA treated prostitution cases as 'local management issue' and suspended them for no more than 14 days .
+An FBI agent also spent 7 years on the job sleeping with prostitutes, strippers, students in his classes, and foreign law enforcement officers .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-16-1" ><div class="show-scrollbars">Plainclothes police officer was caught on camera as he screamed at an Uber driver, mocking his accent  and also pounding his car .
+This after the driver beeped at the cop when he reportedly failed to put on his blinker while backing his unmarked car into a parking spot .
+'How long have you been in this country?' screams the NYC cop at one point, and according to one passenger he also threw things in the car .
+Both passengers can be heard assuring the driver that he did nothing wrong, urging him to simply agree with the cop as they film everything .
+Sanjay Seth, one of the passengers, posted video online .
+An NYPD spokesperson has revealed they have seen the video and are investigating the incident .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-17-1" ><div class="show-scrollbars">Rep. Trey Gowdy, chair of a special House Benghazi committee, wants Clinton's secret email server in the hands of a neutral, third-party examiner .
+April 3 deadline, or he will ask House Speaker John Boehner to take action .
+He also demanded documents from former Clinton staffers .
+Committee is looking for clues about what the State Department knew – and when – about the deadly Sept. 11, 2012 terror attack in Libya .
+Nancy Pelosi predicted Republicans would keep pressure on, 'whether it's her emails or it's her hair or whatever it happens to be'
+Clinton also slammed as foundation bearing her name took millions from people with connections to foreign governments .
+Bill Clinton had pledged not to accept funds from overseas regimes while his wife was secretary of state .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-18-1" ><div class="show-scrollbars">The Ringling Bros. and Barnum & Bailey Circus has announced they are phasing out their elephant acts, and will eliminate them in 2018 .
+The decision was largely based on the fact that many cities have anti-circus and anti-elephant ordinances in addition to public outcry .
+The company's three shows visit 115 cities each year, and vice president Alana Feld said it's expensive to fight legislation in each jurisdiction .
+13 animals will continue to tour with the circus before retiring to the company's 200-acre Center for Elephant Conservation in  Florida .
+There will be a new structure built to house the retiring elephants, and the company hopes to open the conservation to the public eventually .
+The circus will still continue to use other animals, including Mongolian camels, which they just added to their live shows this year .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-19-1" ><div class="show-scrollbars">Weekend report claimed that Valerie Jarrett, one of President Barack Obama's top advisers, leaked the Hillary Clinton email scandal to the press .
+What's more, the leak was reportedly planned to hit at the same time Clinton planned to announce her run for presidency .
+The New York Post claims Jarrett was angry that the Clintons had been working to 'marginalize' President Obama .
+Jarrett allegedly blames the Clintons for members of the Democratic party refusing to campaign with Obama during the midterm elections .
+Six more probes into Clinton reportedly underway; more leaks expected .
+President Obama allegedly told Clinton in a meeting with Jarrett and the First Lady that he would not support her in the presidential primary .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-20-1" ><div class="show-scrollbars">White House says Obama did not watch Netanyahu's speech on Monday .
+Speech at the American Israel Public Affairs Committee meeting on Monday preceded his address to a Joint Meeting of Congress .
+House Speaker John Boehner says 'we've had 10 times the number of requests for tickets than there are seats available in the gallery' on Tuesday .
+White House sent Susan Rice and Samantha Power to rebut Netanyahu .
+'Imagine what Iran would do with nuclear weapons,' Netanyahu warned as the US continues negotiations that could ultimately allow it .
+He suggested Israel might act against Iran on its own, listing times when it's defied the US to defend itself .
+Prime minister will speak to Congress Tuesday, but some Democrats are boycotting the event; he won't meet with Obama or Biden in Washington .</div></td></tr></tbody>
+</table></div></td><td id="section-4-content-block-2-cell-4-3" ><div class="show-scrollbars">≈1.2567% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-5" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-5-content-block-1" class="col-12 p-0" >
+
+    <div id="section-5-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-5-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-5-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-5-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>

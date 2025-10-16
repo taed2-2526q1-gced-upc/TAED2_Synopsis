@@ -73,12 +73,13 @@ if __name__ == "__main__":
     expectation_suite.add_expectation(gx.expectations.ExpectColumnToExist(column="article"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToBeOfType(column="article", type_="str"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(column="article"))
-    expectation_suite.add_expectation(gx.expectations.ExpectColumnValueLengthsToBeBetween(column='article', min_value=50, strict_min=True))
+    expectation_suite.add_expectation(gx.expectations.ExpectColumnValueLengthsToBeBetween(column='article', min_value=50))
 
     # Validate of column highlights
     expectation_suite.add_expectation(gx.expectations.ExpectColumnToExist(column="highlights"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToBeOfType(column="highlights", type_="str"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(column="highlights"))
+    expectation_suite.add_expectation(gx.expectations.ExpectColumnValueLengthsToBeBetween(column='highlights', min_value = 10)) 
 
     # Validate of column pair-wise article-highlight
     expectation_suite.add_expectation(gx.expectations.ExpectCompoundColumnsToBeUnique(column_list=["article", "highlights"]))
