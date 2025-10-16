@@ -22,6 +22,7 @@ const providerLogos: Record<string, string> = {
   "Financial Times": ftLogo,
 }
 
+
 function App() {
   // State variables
   const [articleUrl, setArticleUrl] = useState('')
@@ -31,6 +32,7 @@ function App() {
   const [isCheckingHealth, setIsCheckingHealth] = useState(false)
   const [isSummarizing, setIsSummarizing] = useState(false)
   const [urlError, setUrlError] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   // Helpers
   const isValidUrl = (url: string): boolean => {
@@ -45,6 +47,8 @@ function App() {
   const handleReset = () => {
     setArticleUrl('');
     setSummary(null);
+    setTitle(null);
+    setError(null);
   }
 
   const checkHealth = async () => {
@@ -67,6 +71,7 @@ function App() {
   // Main API Call
   const handleSummarize = async () => {
     setUrlError(null);
+    setError(null);
     if (!isValidUrl(articleUrl)) {
       setUrlError('Please enter a valid link!');
       return;
@@ -85,13 +90,18 @@ function App() {
 
       if (response.ok) {
         const data = await response.json();
-        setSummary(data.message);
+        setSummary(data.summary);
         setTitle(data.title);
       } else {
-        setSummary('Error fetching summary');
+        const errorData = await response.json();
+        setError(errorData.detail || 'An error happened. Try with a different article or again in a few minutes.');
+        setSummary(null);
+        setTitle(null);
       }
-    } catch (error) {
-      setSummary('Error: Could not connect to the server');
+    } catch (err) {
+      setError('Error: Could not connect to the server');
+      setSummary(null);
+      setTitle(null);
     } finally {
       setIsSummarizing(false);
     }
@@ -171,7 +181,7 @@ function App() {
 
         {/* Main Form */}
         <div className="w-full max-w-2xl bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 mt-14">
-          {!summary ? (
+          {!summary || error ? (
             <>
               <div className="mb-6">
                 <input
@@ -180,6 +190,7 @@ function App() {
                   onChange={(e) => {
                     setArticleUrl(e.target.value);
                     setUrlError(null);
+                    setError(null);
                   }}
                   placeholder="Paste article URL here — e.g. https://..."
                   className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${urlError
@@ -189,11 +200,19 @@ function App() {
                   disabled={isSummarizing}
                 />
                 {urlError && (
-                  <p className="mt-2 text-red-400 text-sm flex items-center gap-2">
+                  <p className="mt-4 text-red-400 text-base font-semibold flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {urlError}
+                  </p>
+                )}
+                {error && (
+                  <p className="mt-4 text-red-400 text-base font-semibold flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {error}
                   </p>
                 )}
               </div>
