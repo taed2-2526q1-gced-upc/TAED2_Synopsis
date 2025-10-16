@@ -26,6 +26,7 @@ function App() {
   // State variables
   const [articleUrl, setArticleUrl] = useState('')
   const [summary, setSummary] = useState<string | null>(null)
+  const [title, setTitle] = useState<string | null>(null)
   const [healthStatus, setHealthStatus] = useState<string | null>(null)
   const [isCheckingHealth, setIsCheckingHealth] = useState(false)
   const [isSummarizing, setIsSummarizing] = useState(false)
@@ -85,6 +86,7 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         setSummary(data.message);
+        setTitle(data.title);
       } else {
         setSummary('Error fetching summary');
       }
@@ -181,8 +183,8 @@ function App() {
                   }}
                   placeholder="Paste article URL here — e.g. https://..."
                   className={`w-full px-4 py-3 bg-gray-700 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-1 transition-colors ${urlError
-                      ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-                      : 'border-gray-600 focus:border-purple-500 focus:ring-purple-500'
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                    : 'border-gray-600 focus:border-purple-500 focus:ring-purple-500'
                     }`}
                   disabled={isSummarizing}
                 />
@@ -223,18 +225,39 @@ function App() {
           ) : (
             <>
               <div className="prose prose-invert max-w-none mb-6">
-                <h3 className="text-xl font-serif mb-4 text-white">Summary</h3>
-                <p className="text-gray-300 whitespace-pre-wrap">{summary}</p>
+                <h3 className="text-2xl md:text-4xl font-serif font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{title}</h3>
+                <p className="text-gray-300 whitespace-pre-wrap text-justify">{summary}</p>
               </div>
-              <button
-                onClick={handleReset}
-                className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-                Summarize Another Article
-              </button>
+              <div className="flex flex-col gap-4 mt-4">
+                <button
+                  className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
+                // TODO: Implement show full news logic
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 17l4 4m0 0l4-4m-4 4V3" />
+                  </svg>
+                  Show Full News
+                </button>
+                <button
+                  className="flex-1 bg-gray-800 hover:bg-purple-700 text-purple-300 py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors border border-purple-600"
+                // TODO: Implement sentiment analysis logic
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                  </svg>
+                  Analyze Sentiment
+                </button>
+                <button
+                  onClick={handleReset}
+                  className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Summarize Another Article
+                </button>
+
+              </div>
             </>
           )}
         </div>
