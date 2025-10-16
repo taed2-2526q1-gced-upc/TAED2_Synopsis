@@ -10,7 +10,7 @@ def client():
     """Fixture that returns a TestClient for the FastAPI app."""
     # Use the TestClient with a `with` statement to trigger the lifespan events.
     with TestClient(app) as client:
-        yield client
+       yield client
 
 
 def test_root(client):
