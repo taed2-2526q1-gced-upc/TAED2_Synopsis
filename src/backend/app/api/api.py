@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from loguru import logger
 
-from src.backend.app.api.endpoints import health, summarize
+from src.backend.app.api.endpoints import analyze, health, summarize
 from src.backend.app.config import settings
 
 # Create the main API router
@@ -28,5 +28,6 @@ async def root():
 # Include all endpoint routers
 api_router.include_router(health.router, prefix="/health", tags=["health"])
 api_router.include_router(summarize.router, prefix="/summarize", tags=["summarize"])
+api_router.include_router(analyze.router, prefix="/analyze", tags=["analyze"])
 
 logger.info("[BACKEND] API router configured with endpoints")
