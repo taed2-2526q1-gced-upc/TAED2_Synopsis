@@ -53,7 +53,8 @@ dependencies = [
     "triton==3.4.0",
     "webdriver-manager==4.0.2",
     "wsproto==1.2.0",
-    "cloudscraper"
+    "cloudscraper",
+    "pysentimiento",
 ]
 requires-python = "~=3.12.0"
 

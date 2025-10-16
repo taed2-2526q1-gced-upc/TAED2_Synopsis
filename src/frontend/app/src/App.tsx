@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import logo from '/src/assets/logo.png'
 import logoWhite from '/src/assets/logo-white.png'
+import EmotionChart from './components/EmotionChart'
 import newyorktimesLogo from '/src/assets/The_New_York_Times_icon.webp'
 import reutersLogo from '/src/assets/Reuters_2024_symbol.png'
 import theguardianLogo from '/src/assets/the-guardian.png'
@@ -27,10 +28,14 @@ function App() {
   // State variables
   const [articleUrl, setArticleUrl] = useState('')
   const [summary, setSummary] = useState<string | null>(null)
+  const [fullArticle, setFullArticle] = useState<string | null>(null)
+  const [showFullArticle, setShowFullArticle] = useState(false)
   const [title, setTitle] = useState<string | null>(null)
   const [healthStatus, setHealthStatus] = useState<string | null>(null)
   const [isCheckingHealth, setIsCheckingHealth] = useState(false)
   const [isSummarizing, setIsSummarizing] = useState(false)
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
+  const [sentimentAnalysis, setSentimentAnalysis] = useState<Record<string, number> | null>(null)
   const [urlError, setUrlError] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -44,10 +49,40 @@ function App() {
     }
   }
 
+  const handleAnalyze = async () => {
+    setIsAnalyzing(true);
+    try {
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          text: fullArticle
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setSentimentAnalysis(data.probabilities);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.detail || 'An error happened while analyzing sentiment. Please try again.');
+      }
+    } catch (err) {
+      setError('Error: Could not connect to the server');
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
   const handleReset = () => {
     setArticleUrl('');
     setSummary(null);
+    setFullArticle(null);
+    setShowFullArticle(false);
     setTitle(null);
+    setSentimentAnalysis(null);
     setError(null);
   }
 
@@ -91,11 +126,13 @@ function App() {
       if (response.ok) {
         const data = await response.json();
         setSummary(data.summary);
+        setFullArticle(data.full_article);
         setTitle(data.title);
       } else {
         const errorData = await response.json();
         setError(errorData.detail || 'An error happened. Try with a different article or again in a few minutes.');
         setSummary(null);
+        setFullArticle(null);
         setTitle(null);
       }
     } catch (err) {
@@ -174,7 +211,7 @@ function App() {
             trustworthy news summaries
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Paste a news URL, hit Summarize, get a compact neutral, and informative
+            Paste a news URL, hit Summarize, get a compact, neutral, and informative
             summary in seconds.
           </p>
         </div>
@@ -245,26 +282,82 @@ function App() {
             <>
               <div className="prose prose-invert max-w-none mb-6">
                 <h3 className="text-2xl md:text-4xl font-serif font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{title}</h3>
-                <p className="text-gray-300 whitespace-pre-wrap text-justify">{summary}</p>
+                <div className="text-gray-300 text-justify">
+                  {(showFullArticle ? fullArticle : summary)?.split('\n').map((paragraph, index) => (
+                    <p key={index} className={`${showFullArticle ? 'mb-6' : 'mb-2'}`}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
               <div className="flex flex-col gap-4 mt-4">
+                {!sentimentAnalysis ? (
+                  <button
+                    onClick={handleAnalyze}
+                    disabled={isAnalyzing}
+                    className="flex-1 bg-gray-800 hover:bg-purple-700 text-purple-300 py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors border border-purple-600 disabled:bg-gray-700 disabled:text-gray-500 disabled:border-gray-600 disabled:cursor-not-allowed"
+                  >
+                    {isAnalyzing ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Analyzing...</span>
+                      </>
+                    ) : (
+                      <>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                        </svg>
+                        Analyze Sentiment
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <div className="flex-1 bg-gray-800/50 rounded-lg p-6 border border-purple-600">
+                    <h4 className="text-white font-medium mb-4 text-center">Emotion Analysis</h4>
+                    <div className="grid grid-cols-3 gap-4">
+                      {Object.entries(sentimentAnalysis)
+                        .sort(([,a], [,b]) => b - a)
+                        .slice(0, 3)
+                        .map(([emotion, probability], index) => (
+                          <EmotionChart
+                            key={emotion}
+                            emotion={emotion}
+                            value={probability}
+                            color={
+                              index === 0 
+                                ? "text-purple-400" 
+                                : index === 1 
+                                  ? "text-blue-400" 
+                                  : "text-indigo-400"
+                            }
+                          />
+                        ))
+                      }
+                    </div>
+                  </div>
+                )}
                 <button
+                  onClick={() => setShowFullArticle(!showFullArticle)}
                   className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
-                // TODO: Implement show full news logic
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 17l4 4m0 0l4-4m-4 4V3" />
-                  </svg>
-                  Show Full News
-                </button>
-                <button
-                  className="flex-1 bg-gray-800 hover:bg-purple-700 text-purple-300 py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors border border-purple-600"
-                // TODO: Implement sentiment analysis logic
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                  </svg>
-                  Analyze Sentiment
+                  {showFullArticle ? (
+                    <>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                      </svg>
+                      Show Summary
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                      Show Full Article
+                    </>
+                  )}
                 </button>
                 <button
                   onClick={handleReset}

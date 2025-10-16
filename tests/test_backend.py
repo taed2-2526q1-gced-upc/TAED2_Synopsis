@@ -1,9 +1,42 @@
 from http import HTTPStatus
+import os
+from pathlib import Path
 
 from fastapi.testclient import TestClient
 import pytest
 
 from src.backend.app.main import app
+
+from src.backend.app.api.endpoints.summarize import MAX_INPUT_SIZE, MIN_INPUT_SIZE, MAX_OUTPUT_SIZE
+from src.backend.app.services.news_scraper import NewsScraper
+
+TESTS_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
+TEST_DATA_DIR = TESTS_DIR / "test_data"
+
+
+@pytest.fixture(scope="module", autouse=True)
+def scraper():
+    """Fixture that returns a NewsScraper instance."""
+    return NewsScraper()
+
+
+@pytest.fixture
+def valid_article():
+    """Returns a valid article for testing."""
+    return scraper.scrape_news("https://www.example.com/valid-article").get("text", "")
+
+
+@pytest.fixture
+def short_article():
+    """Returns an article that's too short."""
+    return "This is too short."
+
+
+@pytest.fixture
+def long_article():
+    """Returns an article that exceeds the maximum length."""
+    return "x" * (MAX_INPUT_SIZE + 1000)
+
 
 @pytest.fixture(scope="module", autouse=True)
 def client():
@@ -30,31 +63,34 @@ def test_health(client):
     assert json["status"] == "ok"
     assert json["message"] == "Synopsis API is healthy"
 
-# def long_review():
-#     """Fixture that returns a payload with long review."""
-#     with open(TESTS_DIR / "aux_files" / "long-review.txt", "r") as file:
-#         review = file.read()
-#     return {"reviews": [{"review": review}]}
 
+def test_summarize_success(client):
+    """Test successful article summarization with a real article."""
+    response = client.post("/api/summarize/", json={"url": "https://www.bbc.com/news/world-europe-67121924"})
+    
+    assert response.status_code == HTTPStatus.OK
+    json = response.json()
+    assert json["status"] == "ok"
+    assert json["title"] is not None
+    assert json["summary"] is not None
+    assert json["full_article"] is not None
+    # Verify length constraints
+    assert len(json["full_article"]) >= MIN_INPUT_SIZE
+    assert len(json["full_article"]) <= MAX_INPUT_SIZE
+    assert len(json["summary"]) <= MAX_OUTPUT_SIZE
 
-# def test_review_too_long(client, long_review):
-#     """Test that the API returns a 422 error when the review is too long."""
-#     response = client.post("/prediction", json=long_review)
-#     assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
-#     json = response.json()
-#     assert (
-#         json["detail"][0]["msg"] == "Value error, The input review exceeds with 898 the maximum number of 512 tokens."
-#     )
+def test_summarize_invalid_url(client):
+    """Test error handling with invalid URL."""
+    response = client.post("/api/summarize/", json={"url": "not-a-url"})
+    assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
 
+def test_summarize_nonexistent_url(client):
+    """Test error handling with URL that doesn't exist."""
+    response = client.post("/api/summarize/", json={"url": "https://www.bbc.com/news/nonexistent-article-12345"})
+    assert response.status_code == HTTPStatus.INTERNAL_SERVER_ERROR
 
-# def test_single_review(client):
-#     """Test the /predict endpoint with a single review."""
-#     response = client.post(
-#         "/prediction",
-#         json={"reviews": [{"review": "This is a great movie!"}]},
-#     )
-#     assert response.status_code == HTTPStatus.OK
-#     json = response.json()
-#     assert json[0]["review"] == "This is a great movie!"
-#     assert json[0]["label"] == "positive"
-#     assert isinstance(json[0]["score"], float)
+def test_summarize_not_news_url(client):
+    """Test error handling with URL that's not a news article."""
+    response = client.post("/api/summarize/", json={"url": "https://www.google.com"})
+    assert response.status_code == HTTPStatus.INTERNAL_SERVER_ERROR
+
