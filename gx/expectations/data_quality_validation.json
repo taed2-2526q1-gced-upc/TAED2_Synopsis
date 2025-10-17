@@ -1,7 +1,7 @@
 {
   "expectations": [
     {
-      "id": "d0c70a5f-0f2c-420e-8331-987f4ca34f5c",
+      "id": "2e88f187-4a4f-4ec9-958f-5a88861fb8a0",
       "kwargs": {
         "column": "id"
       },
@@ -10,7 +10,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "0699ee3b-3ad7-4436-853f-c63bcaf96a89",
+      "id": "5debc093-2f8a-40e4-a932-6354acd19526",
       "kwargs": {
         "column": "id",
         "type_": "str"
@@ -20,7 +20,7 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "b6b7092c-840a-4fc5-b3de-094d14b90c16",
+      "id": "635ec0cd-fb76-4e47-b309-1d79bf4174b1",
       "kwargs": {
         "column": "id"
       },
@@ -29,7 +29,7 @@
       "type": "expect_column_values_to_be_unique"
     },
     {
-      "id": "a3ebff76-b509-4e2b-aeb6-680453921216",
+      "id": "298cf6fc-bbd5-4792-bfcf-d49d155eb539",
       "kwargs": {
         "column": "id"
       },
@@ -38,7 +38,7 @@
       "type": "expect_column_values_to_not_be_null"
     },
     {
-      "id": "bac4b411-a97e-451c-9a9f-14e065e89b73",
+      "id": "93794c5d-be87-4517-b1b9-ad5156f90673",
       "kwargs": {
         "column": "article"
       },
@@ -47,7 +47,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "4718c3e0-6250-4ec1-b350-df195e3e7d0e",
+      "id": "6b9b94cb-4448-463e-aae0-1457b822e672",
       "kwargs": {
         "column": "article",
         "type_": "str"
@@ -57,7 +57,7 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "6ab59a97-9de3-429c-be17-8caf28f7b19f",
+      "id": "410e2130-0023-4a47-aaef-295d049334f7",
       "kwargs": {
         "column": "article"
       },
@@ -66,7 +66,7 @@
       "type": "expect_column_values_to_not_be_null"
     },
     {
-      "id": "7a35cc55-d121-4f68-9fac-cfb334a1b284",
+      "id": "b22c0e45-df9f-4cc9-82fa-c897bf90d39e",
       "kwargs": {
         "column": "article",
         "min_value": 50
@@ -76,7 +76,7 @@
       "type": "expect_column_value_lengths_to_be_between"
     },
     {
-      "id": "8cf33248-9b2b-4de9-9533-1e6fb81a5f89",
+      "id": "16bfb6d2-9681-43a3-b562-be210ffd477a",
       "kwargs": {
         "column": "highlights"
       },
@@ -85,7 +85,7 @@
       "type": "expect_column_to_exist"
     },
     {
-      "id": "c1392c81-c10d-4aca-9c37-3fe0bc243ce7",
+      "id": "ab965c7f-53b0-4881-a25e-b3bafa9484d0",
       "kwargs": {
         "column": "highlights",
         "type_": "str"
@@ -95,7 +95,7 @@
       "type": "expect_column_values_to_be_of_type"
     },
     {
-      "id": "a951e742-f01f-41cf-9d20-7d0ef0163da7",
+      "id": "32f34e4f-f058-4961-b29d-7270e5d8eb96",
       "kwargs": {
         "column": "highlights"
       },
@@ -104,7 +104,7 @@
       "type": "expect_column_values_to_not_be_null"
     },
     {
-      "id": "11717aca-b339-438f-85a8-845c02a6a4b1",
+      "id": "9a699fbd-557b-4ef8-9b14-8096ec2c1192",
       "kwargs": {
         "column": "highlights",
         "min_value": 10
@@ -114,7 +114,17 @@
       "type": "expect_column_value_lengths_to_be_between"
     },
     {
-      "id": "fd8c7468-b78d-4fa5-a53d-cafe9132350b",
+      "id": "330aeda9-043e-4024-8c4a-0ff75c9eab79",
+      "kwargs": {
+        "column_A": "highlights",
+        "column_B": "article"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_pair_values_column_shorter_than_column"
+    },
+    {
+      "id": "75c0c103-85ac-48db-8197-71cf4fe72827",
       "kwargs": {
         "column_list": [
           "article",

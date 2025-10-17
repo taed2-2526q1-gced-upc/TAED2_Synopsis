@@ -4,6 +4,7 @@ from datasets import load_from_disk
 import pandas as pd
 
 from src.config import PROCESSED_DATA_DIR, RAW_DATA_DIR, PROJ_ROOT
+from src.gx_customexpectation import ExpectColumnPairValuesColumnShorterThanColumn
 
 DATASOURCE_NAME = "data_check"
 RAW_TRAIN_DATA = "raw_train"
@@ -80,6 +81,7 @@ if __name__ == "__main__":
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToBeOfType(column="highlights", type_="str"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValuesToNotBeNull(column="highlights"))
     expectation_suite.add_expectation(gx.expectations.ExpectColumnValueLengthsToBeBetween(column='highlights', min_value = 10)) 
+    expectation_suite.add_expectation(ExpectColumnPairValuesColumnShorterThanColumn(column_A="highlights", column_B="article"))
 
     # Validate of column pair-wise article-highlight
     expectation_suite.add_expectation(gx.expectations.ExpectCompoundColumnsToBeUnique(column_list=["article", "highlights"]))

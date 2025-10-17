@@ -48,6 +48,14 @@ def remove_short_articles(dataframe:pl.DataFrame) -> pl.DataFrame:
     dataframe = dataframe.filter(pl.col("article").str.len_chars() > 50)
     return dataframe
 
+def remove_summary_longer_than_articles(dataframe:pl.DataFrame) -> pl.DataFrame:
+    """
+    Remove summaries that are longer or the same than the article
+    """
+
+    dataframe = dataframe.filter(pl.col("highlights").str.len_chars() < pl.col("article").str.len_chars())
+    return dataframe
+
 @app.command()
 def main():
 
@@ -74,6 +82,7 @@ def main():
 
     for name, df in tqdm(splits.items()):
         df_clean = remove_short_articles(remove_nulls_or_empty_or_duplicates(remove_special_characters((df))))
+        df_clean = remove_summary_longer_than_articles(df_clean)
         df_clean.write_parquet(PROCESSED_DATA_DIR / f"clean_{name}.parquet")
 
     logger.success("Processing dataset complete.")

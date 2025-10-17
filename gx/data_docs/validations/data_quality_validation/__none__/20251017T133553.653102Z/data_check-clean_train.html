@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251017T133658.503414Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-17T15:35:53Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                Table-Level Expectations
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-5"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">14</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">13</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">1</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈92.86%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-32b3ca64-7698-4664-93f3-6c86c019d55a" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-32b3ca64-7698-4664-93f3-6c86c019d55a class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-17T15:35:53Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251017T133627.287308Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >becd751684a1da13adf25260051cbe35</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\processed\clean_train.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Table-Level Expectations
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    <span class="badge badge-warning" >expect_column_pair_values_column_shorter_than_column</span>(**{'batch_id': 'data_check-clean_train', 'column_A': 'highlights', 'column_B': 'article'})
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>198 unexpected values found. ≈0.06971% of 284014 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-2-content-block-2-cell-1-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-1-1" ><div class="show-scrollbars"><span>Cristiano Ronaldo was given a straight red card for Real Madrid against Cordoba on Saturday .
+Despite having just 10 men the La Liga leaders won the match 2-1 .
+The 29-year-old was sent off for kicking Cordoba defender Edimar Fraga .
+Prior to that Ronaldo had slapped Jose Crespo - which went unseen by the referee Alejandro Jose Hernandez Hernandez .
+However, the eventual red card wasn't regarded as violent conduct meaning the Portugal star could get away with just a two-match ban .
+If the slap is included in the referee's report though, Ronaldo's ban could stretch to three games .</span><span>Real Madrid forward Cristiano Ronaldo could escape with just a two-match ban after seeing red on Saturday afternoon. The Portuguese was sent off for kicking out at Edimar Fraga during the 2-1 win against Cordoba. He had also slapped Jose Crespo – which went unseen by the referee – and the eventual red card wasn’t regarded as violent conduct. Ronaldo aims a personalised boot in the direction of Edimar Fraga's shin in the lead up to his red card . Fraga lies on the ground somewhat theoretically after the attack while Real Madrid star Ronaldo complains . Referee Alejandro Jose Hernandez Hernandez had little choice but to show Ronaldo a straight red card . Ronaldo also lashed out at Cordoba's Jose Angel Crespo prior to the kick out at Fraga . The official’s report does not contain any details of Ronaldo striking Crespo in the face. The Spanish football’s disciplinary committee could ask referee Alejandro Hernandez Hernandez to elaborate on his brief summary. If he chose to include the slap on Crespo, Ronaldo’s ban could stretch to three games. The Ballon d’Or winner would then miss the trip to the Vicente Calderon in La Liga on February 7.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-2-1" ><div class="show-scrollbars"><span>Dr Pam Spurr says that the majority of diets fail due to emotional eating .
+To diet successfully we need to establish what emotions cause us to snack .
+Take her quiz to discover what kind of emotional eater you are .
+Accept you're entitled to your feelings and 'own' your anger. This anger tells you a situation needs to be sorted.
+Record angry thoughts with a dictaphone/voice activated app. Listening back helps you understand these feelings, get them out of your system and choose an appropriate response.
+Now plan steps towards changing/solving what angers you.
+Challenge your negative belief system there's always someone/something to blame. The 'finger of blame' doesn't point to solutions!
+Begin to take a 'stuff happens' attitude.
+When angry 'think in ink', putting pen to paper, devise ways to approach the person you're upset with.
+Devise your own motto like: I won't let anger eat me up because then I'll emotionally eat!
+When angry and feeling the impulse to emotionally eat take a brisk five-minute walk - even if at work go back and forth briskly to the staff toilet. Remind yourself the issue you're angry about isn't worth it.
+Start saying 'no' to extra responsibilities. By cutting responsibilities you give yourself a better chance of de-stressing.
+Delegate as much as possible - many stressed-out people feel they have to do-it-all.
+Challenge your stressy' thinking - is this something you really need to stress about? Could you face it in a calm manner?
+Change your inner voice to one that repeatedly says it's going to be fine.
+Emotional stress causes physical tension to build. Subconsciously you're aware of this physical tension which feeds your cycle of stress. So do regular stress-busting exercise plus calming meditation.
+Oxytocin, the emotional bonding hormone, combats stress so get lots of hugs and physical affection from your partner, family, children, etc.
+Let go and live a little as many stressed-out people forget having fun is a fantastic stress-antidote. Go to a comedy night, have a picnic, meet up with friends, etc.
+Head off potential problems that cause you stress like allowing extra time to get out the door in the morning, to meet deadlines, etc.
+When tempted to emotionally eat take five minutes to look through photos of your last relaxing holiday or fun time with family and friends to calm you.
+Be aware of the emotionally draining 'disease-to-please' where insecurities mean you're always aiming to please others.
+List your three best qualities where you can see them many times a day – focus on these.
+Don't believe the myth that everyone else feels confident - many don't but they fake it to make it. 'Faking it to make it' can boost feelings of security.
+Insecure people remind themselves of recent failures instead remind yourself of when you coped well with something.
+Get more secure about expressing your feelings/beliefs/attitudes with the '3 Ps': plan what you want to say, Practice it so you feel confident, Put it into action.
+Switch off your negative inner voice that says you're 'useless”, etc. Challenge it each time it starts.
+Stop taking things personally like, e.g., your manager's criticism of a piece of work as about you as a person.
+When tempted to emotionally eat ring that person who always makes you feel better about yourself for a reassuring chat.
+If harbouring painful memories from past trauma or difficulties get professional help - it's never too late to start the healing process.
+If you don't want formal help there are support groups for many different issues. You'll feel better knowing you've started this journey.
+Dump the belief that you're not 'worth' the bother of professional help. You are!
+Start believing that it's okay to open up to people you trust.
+For some much of letting go of past pain is believing it's 'okay' to do so. Give yourself permission to say you can live life more happily from today.
+Ring fence new issues that you will face more positively from today. Don't allow them to be clouded by negative feelings from your past.
+When tempted to emotionally eat remind yourself you're getting stronger every day and make it your motto that your past won't dictate your present or future.</span><span>By . Pam Spurr . Dr Pam Spurr says that the majority of diets fail due to emotional niggles that trigger over-eating . If you're used to munching your way through a pack of biscuits because you're stressed, angry, or upset and you just want something to soothe you, you're in good company. Studies suggest 70 per cent of us go through phases of emotional eating. Not only does it leave you feeling guilty but emotional eating plays a large part in our falling off the diet-wagon. A major study into why 90 per cent of diets fail found the vast majority ditched their good intentions due to emotional issues and niggles. Although plenty of diets provide good nutritional information, if they don't address managing tricky emotions they're bound to fail. Picture this: you've stuck to correct portion sizes and healthy foods but had a long day, you're stuck in traffic, the children are fussing plus you have stacks to do. The delights of a slab of creamy chocolate play across your mind and you stop to buy a great big bar. Your temporary emotional relief evaporates almost instantly as you think 'there goes my diet.' In interviews for my new book The Emotional Eater's Diet I was struck how emotional eaters seem to fall into four 'profiles'. Identifying your profile is a first step towards . eating to fuel your energy needs and not to feed your emotional needs . Answer honestly to discover the profile you’re most . like: . Are you most likely to . emotionally eat when: . A Angry with someone else or myself . B When stressed and feel I can’t cope . C When feeling I’m not 'good enough'/self-doubt . D When I’m reminded of a painful experience/episode/event like divorce . If you’re feeling neglected or . undermined what’s your most likely reaction? A Inwardly I feel angry being treated like this . B I 'stress' over why they’re behaving that way . C It makes me struggle to feel good about anything the rest of the day . D I feel as I always feel – life’s tough for me . If you could change one . thing about your emotions what would you choose? A I'd stop feeling so much anger . B I'd sort out feeling so stressed . C I'd dump my feelings of insecurity . D I'd block out painful feelings from the past . Dr Pam Spurr says that in order to successfully lose weight we need to identify what kind of emotional eaters we are . What's your biggest fear when . you must face someone about an issue? A I won’t be able to control my temper . B I just keep worrying about how to do it . C I'll back down because I'm no good at conflict . D It'll be too painful to face them . When you emotionally eat what’s . most likely to go through your mind? A Angry feelings about being so weak . B If I wasn't so stressed I wouldn't be snacking . C How I'd love to have someone to lean on at that moment . D That I don't care about upsetting myself over potentially gaining weight . Make a note of how many As, Bs, Cs and Ds you chose. Check your relevant profile but it's extremely beneficial to look through all the profiles. Dr Pam Spurr says that emotional eating can be triggered by a number of different things. From stresses at work to feeling insecure, she says the biggest step to preventing it is identifying it . Mainly As: The Angry Eater Profile . Feeling angry towards others or situations, or turned in towards yourself, is probably key to your emotional eating. Try these: . Mainly Bs: The Stressed Eater Profile . Feeling unable to cope with stress is probably central to your emotional eating. Try these: . Mainly Cs: The Insecure Eater Profile . Dr Pam's book, The Emotional Eater's Diet gives details on how to combat emotional eating - for life! Feelings of insecurity and not being 'good enough' are likely to play a big part in your emotional eating. Try these: . Mainly Ds: The 'Emotionally Wounded' Eater Profile . Your answers suggest you've found it hard to heal past hurts and long-standing, unhappy feelings underlie your emotional eating. Try these: . Of course some people have a mix of answers and in this case it's helpful to look at all the advice for the four different profiles. Identifying your Emotional Eater Profile is one piece of the puzzle. In my book I cover many other key topics to overcoming your emotional eating including your personality traits, emotional life, upbringing, relationships, well-being, appetite control techniques, metabolism boosters and more. The Emotional Eater's Diet by Dr Pam Spurr, New Holland Publishers, £6.89, available at amazon.co.uk . Dr Pam Spurr is on twitter @drpamspurr .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-3-1" ><div class="show-scrollbars"><span>Mobile devices have changed the way that office workers sit at their desks, study shows .
+Office furniture maker Steelcase surveyed more than 2,000 people in countries to identify nine new postures .
+The Draw – Technology (small and mobile) allows people to pull back from their desks while they use it. They recline, signaling they’re contemplating or absorbing information and draw the device closer to their body to maintain an optimal focal length.
+The Multi-Device - This posture is representative of how people adapt to multitasking on multiple-devices. One hand holding a phone to the ear, the other tasking on a laptop. The result is a forward lean that is a symbol of concentration and an orientation to the smaller screen of a laptop.
+The Text - Smartphones are small compared to other forms of technology and, therefore, require unique postures. Workers bring arms in close as keying and gesturing are performed.
+The Cocoon - People recline, bring up their feet onto the seat, and draw their smartphone or tablet close, resting on their thighs. The result is a cocoon - small mobile technology allows people to remain productive in this posture.
+The Swipe - This posture results when the device is used on a work surface in 'surfing mode', in which people operate the device with one hand, typically with swiping gestures. Because it’s on a work surface, a person must keep their head a certain distance above the tablet in order to see it, and position their head to look down at it.
+The Smart Lean - This posture is the result of mobile devices that create the desire for people to temporarily 'pull away' from others without leaving a meeting or collaborative environment. This is typically a temporary posture and used for glancing at incoming texts or e-mails.
+The Trance - This posture was observed when people were focused on the screen and either mousing or using a touchpad to navigate on the screen for extended periods of time. This is a long duration posture.
+The Take It In - In this posture, people recline to view content on the large display and/or sit back to contemplate. This posture is about 'taking in' information rather than generating it.
+The Strunch .
+- The 'strunch' (stretched-out hunch) is a very common posture with .
+laptops. As people become fatigued, they gradually push their laptop .
+further from the edge of the worksurface, resting their weight on the .
+surface.  This causes them to reach forward to work. Since the back and .
+neck cannot sustain the reach and hunch posture for a long time, the .
+person begins to prop themselves up with their non- tasking arm.</span><span>By . Damien Gayle . PUBLISHED: . 07:45 EST, 26 February 2013 . | . UPDATED: . 11:08 EST, 26 February 2013 . Laptops, tablets and smartphones have dramatically changed the way we work - and even the way we sit, researchers have claimed. A new study has found that most desks, designed for traditional 'desktop' computers, have meant we have created a range of new ways to sit. They range from 'the cocoon', where people hunch up on their chair to be close to their phone, to 'the smart lean', used to  check emails during a meeting. The nine new workplace postures: These new ways of sitting and slouching to fit ourselves around new mobile computing technology have been identified by research from office furniture company Steelcase . Smartphones and tablet computers, small and light enough to be grasped in the hands, have liberated workers from postural slavery to our digital overseers. Now new research has shown that the change in the ways we deal with technology in the workplace is indeed changing the way that we sit and slouch while we're earning our keep. A survey of 2,000 office workers in 11 countries undertaken by office furniture maker Steelcase has identified nine new postures which have emerged in response to the new technologies we interact with. They are: . Contorting to fit: Office workers have hitherto been kept in postural bondage to the immobile machines they interact with to earn their keep . The new postures identified were a result of using small, mobile technology such as smartphones, tablets and laptops and new workplace behaviours. However, with furniture poorly adapted to these new ways of sitting and slouching, Steelcase notes, they frequently cause pain and long-term injuries, disrupting concentration and creativity. James Ludwig, vice president of global design for Steelcase, said: 'We love our technology – it’s become a ubiquitous extension of ourselves. 'But the way technology impacts our bodies as we work has been largely ignored.' Based on this research, Steelcase has designed a new chair – Gesture – that moves with the body and supports the user throughout the different postures.  It will be available in the UK later this year.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-4-1" ><div class="show-scrollbars"><span>Nigel Pearson is hopeful of persuading McArthur to join the Foxes .
+Crystal Palace and Burnley also moved for the Wigan midfielder, but Leicester have forced their rivals out .
+N'Doye is a Senegal international and Leicester have made a £5m bid .</span><span>Leicester City have had a £7million bid accepted for Wigan midfielder James McArthur and have offered £5m for Lokomotiv Moscow striker Dame N'Doye. Manager Nigel Pearson is hopeful of persuading McArthur to join after being given permission to speak to the 26-year-old with their offer forcing rivals Burnley out of the picture. Crystal Palace also had an interest. N'Doye, 29, is a Senegal international. Offer: Leicester . VIDEO Mourinho praised Leicester's play to win mentality .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-5-1" ><div class="show-scrollbars"><span>QPR won for the first time away this season at Sunderland on TuesdayÂ .
+However, it came at a cost as Holland midfielder Fer suffered a medial collateral ligament injury in the second half .
+The club have now confirmed Fer will be out for 8-10 weeks .
+Only recently Richard Dunne was ruled out for three months with a similar knee injury, after being forced off in the defeat by Southampton .
+The west London side are out of the bottom three on goal differenceÂ .</span><span>QPR midfielder Leroy Fer will be sidelined for up to ten weeks after suffering a medial collateral ligament injury in his side's win at Sunderland on Tuesday night. The 25-year-old, who scored the opener against the Black Cats, was forced from the fray on a stretcher  in the 75th minute at the Stadium of Light. The injury came as a result of a challenge between Fer and Sunderland midfielder Liam Bridcutt, with the former Norwich man immediately clutching his left knee in agony. Leroy Fer rises above Liam Bridcutt to head home emphatically and give QPR the lead on Tuesday night . The Dutchman is congratulated by his team-mates as the R's got to the perfect start at the Stadium of Light . Holland international Fer falls to the floor in agony after a challenge with Sunderland midfielder BridcuttÂ .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-6-1" ><div class="show-scrollbars"><span>Real Madrid take on Spanish rivals Sevilla in Cardiff on Tuesday .
+Gareth Bale and Cristiano Ronaldo to lead Real Madrid attack against Europa League holders Sevilla .
+New signings James Rodriguez and Toni Kroos set to feature for Champions League winners Real Madrid .
+The winner of the last 11 European Super Cups has alternated between the reigning Champions League winners and the reigning UEFA Cup/Europa League winners. With Bayern Munich winning last season, Sevilla must win the 2014 edition for this trend to continue.
+Real Madrid are the only team to lose a European Super Cup to a golden goal; they were beaten 2-1 by Galatasaray in 2000.
+The last UEFA Super Cup to feature two teams from the same country also featured Sevilla; they beat Barcelona 3-0 in the 2006 edition.
+Sevilla were also the last Spanish side to lose this game; they were beaten 3-1 by Milan in 2007. The last four Spanish sides to qualify for this competition have won.
+Real Madrid have won only one of their three previous European Super Cups. They were beaten in 1998 and 2000 before beating Feyenoord 3-1 in 2002. Iker Casillas started the 2000 and 2002 games.
+The last 13 La Liga meetings between Real Madrid and Sevilla have seen 64 goals scored; an average of just under five per game.
+The Whites have won nine of their last 11 meetings with the Andalusian side in all competitions, but have lost the last two away from the Bernabeu (both away league games).
+The one previous clash in a major European competition came in the 1958 European Cup quarter-final. Los Merengues won 8-0 at home before drawing 2-2 away to progress.
+Welshman Gareth Bale scored two goals and assisted two more in two league appearances against Sevilla last season.
+Cristiano Ronaldo has scored 16 goals in nine La Liga games against Sevilla; he has scored more goals against them than any other side in the competition.
+James Rodriguez could make his first competitive appearance for Real Madrid in this game. He scored six goals in five World Cup 2014 appearances, collecting the Golden Boot in the process.
+Keylor Navas made more saves than any other La Liga goalkeeper last season (160) and also had the best save percentage of any regular keeper (80.1%).</span><span>By . Simeon Gholam . Follow @@SimGholam . Champions League winners Real Madrid take on Europa League holders Sevilla in an all-Spanish encounter in Cardiff and Sportsmail  provides you with the latest team news, betting odds and Opta stats for Tuesday's Super Cup. VIDEO Scroll down to watch Ancelotti aware of expectation . Star appeal: Real Madrid's Gareth Bale (left), Toni Kroos (centre) and James Rodriguez . Venue: Cardiff City Stadium. Kick-off: 7.45pm . TV Coverage: LIVE on Sky Sports 5 and ITV 4 . Odds: Real Madrid 4/9, Draw 10/3, Sevilla 6/1 . Referee: Mark Clattenburg . Team news: Real Madrid boss Carlo Ancelotti is ready to unleash the full might of his enviable playing resources in Tuesday's UEFA Super Cup clash against La Liga rivals Sevilla. World Cup stars James Rodriguez and Toni Kroos, signed from Monaco and Bayern Munich this summer, are set to feature in Ancelotti's starting line-up at Cardiff City Stadium. Local hero: Real Madrid's Welsh forward Gareth Bale at Cardiff City Stadium on Monday . They will be paraded alongside the likes of Wales star Gareth Bale and Cristiano Ronaldo as Real target more European silverware just under a fortnight before their domestic campaign begins. Sevilla are expected to line up with Barcelona loanee Denis Suarez, who was part of the deal which saw skipper Ivan Rakitic sold to the Catalan club for £14million this summer. Iago Aspas and Grzegorz Krychowiak also joined Sevilla this summer - the former on loan from Liverpool, the latter bought from Reims - and both are predicted to start. VIDEO Ancelotti aware of expectation . Sharp shooter: Gareth Bale practices free kicks watched by Real Madrid coach Carlo Ancelotti . Opta Stats .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-7-1" ><div class="show-scrollbars"><span>Spain's clash with Holland is a repeat of the World Cup final in 2010 .
+Vicente Del Bosque are the current holders of the World Cup .
+Chile and Australia are the two other sides in Group B .
+This is the first time the two World Cup finalists have met in the tournament directly after contesting the final since 1990, when West Germany beat Argentina 1-0 in the final (after meeting each other in 1986).
+La Roja lost their opening game of the 2010 World Cup to Switzerland, but went on to become the first team to ever win the tournament having lost their first game.
+Vicente Del Bosque has only lost one of his 25 World Cup games as Spain head-coach, including qualifiers (W22 D2). That was against Switzerland (0-1) in 2010.
+David Villa - Spain’s top scorer at World Cup Finals (eight goals) - has been directly involved in seven of Spain’s last nine goals in the tournament (six goals, one assist).
+Spain have won their last six World Cup games, their best ever run in the tournament. Their last four games have ended in 1-0 wins.
+Spain have kept a clean sheet in each of their last four World Cup games, the longest current run. Indeed only Italy (five games in 1990) and Switzerland (five in 2006 & 2010) have ever had a longer run in the competition.
+Holland have made it past the group stages in their last seven previous World Cup participations.
+Robin van Persie was the top scorer in the 2014 European World Cup qualifiers (11 goals).
+Spain and Holland have a perfectly even head-to-head record with four wins apiece and one draw, though Spain won the only previous World Cup clash 1-0 in the 2010 final.
+The defending champions have only won their first game in three of the last 10 World Cups (D4 L3), with Italy drawing 1-1 with Paraguay last time out.
+Robin van Persie and Holland gear up for Spain clash .
+DM.later('bundle', function(){ .
+DM.has('v-3620925055001','BC', .
+{'renderConfig' : .
+{ .
+'css' : "videoplayer-large", .
+'autoplay' : false, .
+'muted' : false, .
+'title' : "Robin van Persie and Holland gear up for Spain clash", .
+'videoId' : 1099763, .
+'adsEnabled' : false, .
+'playerId' : "1989148206001", .
+'playerKey' : "AQ~~,AAAAAFSL1bg~,CmS1EFtcMWELN_eSE9A7gpcGWF5XAVmI", .
+'objId' : "v-3620925055001", .
+'videoPlayer' : "3620925055001", .
+'width' : 636, .
+'height' : 358, .
+'source' : "AP", .
+'rsi' : typeof(adverts) != 'undefined' && typeof (adverts.getRsiValues) != 'undefined' ? adverts.getRsiValues() : null, .
+'linkBaseURL' : "http://www.dailymail.co.uk/sport/worldcup2014/article-2656802/Spain-vs-Holland-All-stats-facts-team-news-game-Group-B.html#v-3620925055001", .
+'trackingType': "", .
+'freewheelIdent': "", .
+'channel': 'sport'
+} .
+}); .
+}); .</span><span>As the 2014 World Cup continues, Sportsmail will be providing you with all you need to know about every fixture in Brazil from team news and key battles to betting odds and Opta stats... Here is all the information you need for the first game in Group B between Spain and Holland. Click here to follow the Spain vs Holland World Cup 2014 action live . Venue: Arena Forte Nova, SalvadorKick-off: 8pm (4pm, Brazil time)TV coverage: BBC1, from 7.30pmOdds: Spain 8/11, Draw 23/10, Holland 9/2Referee: Nicola Rizzoli, ItalyVIDEO Scroll down to watch former Arsenal stars Cesc Fabregas and Robin van Persie preparing for the match . The future's bright: Holland fans look to turn Brazil orange . Managers: . Vicente Del Bosque (Spain)Louis van Gaal (Holland)Team news: Spain and Holland played out one of the most disappointing World Cup finals in history four years ago. They get a chance to make amends right away in Brazil. In one of the quirks of the draw for Brazil, Spain opens the defense of its title against the country it beat in the championship decider in Johannesburg four years ago. But while Vicente Del Bosque's team has stuck to its attacking philosophy, Holland coach Louis van Gaal is packing his defense and hoping one of his three star forwards, Robin van Persie, Arjen Robben or Wesley Sneijder, can snatch a goal on the counterattack in their Group B opener at the Arena Fonte Nova in Salvador. Key clash: Wesley Sneijder vs Sergio Busquets . Four years ago Sneijder’s performances placed him in FIFA’s All-Star team but he was stopped by Busquets. The Dutch still rely on the Galatasaray playmaker to dictate their tempo but in Busquets he faces an opponent that few get joy out of. Key men: Holland's Wesley Sneijder and Spain's Sergio Busquets could play key roles for their sides . One to watch: Daryl Janmaat (Holland) Louis van Gaal’s 5-3-2 experiment should get an outing here and the ‘Dutch Dani Alves’ from Feyenoord will be key to providing width in attack to feed Robin van Persie, as well as defensive cover. Head-to-head record: . Played 9 Spain Wins 4 Draws 1 Losses 4 . Dutch of class: Daryl Janmaat is one of the main men for Louis van Gaal's side . Making the move: Cesc Fabregas has made the switch from Barcelona to Chelsea .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-8-1" ><div class="show-scrollbars"><span>The Boeing 787 Dreamliner was grounded in January for battery problems .
+CNN's Thom Patterson was on the first U.S. commercial flight since the airliner was cleared to fly again .
+Aviation geeks have dubbed this latest stage in the new aircraft's history 'Dreamliner 2.0'</span><span>(CNN) -- CNN's Thom Patterson climbed aboard the Boeing 787 Dreamliner on Monday, May 20, for its first U.S. commercial flight since being grounded for safety concerns. Patterson traveled from Houston to Chicago on United Flight 1. Follow updates from his trip below. . Mobile users unable to see the Storify please click here.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-9-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+The weekly Newsquiz tests students' knowledge of stories covered on CNN Student News .</span><span>(CNN Student News) -- November 11, 2011 . Download PDF maps related to today's show: . South Korea . South Africa . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-10-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the End of Year Quiz to test your knowledge of stories you saw on CNN Student News in 2011 .</span><span>(CNN Student News) -- December 16, 2011 . Download PDF maps related to today's show: . Iraq . Washington, D.C. London, United Kingdom . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-11-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- April 12, 2013 . Download PDF maps related to today's show: . London . Wilcox County, Georgia; Oregon . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-12-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- April 27, 2012 . Download PDF maps related to today's show: . Liberia & Sierra Leone . Netherlands . California . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-13-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- August 26, 2011 . Download PDF maps related to today's show: . • Maryland, New Jersey, North Carolina & Virginia • Libya . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-14-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- December 2, 2011 . Download PDF maps related to today's show: . Iraq & Kuwait . California; Tennessee; Boca Raton, Florida . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-15-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- December 7, 2012 . Download PDF maps related to today's show: . Egypt . North Korea . Pearl Harbor, Hawaii . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-16-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- February 1, 2013 . Download PDF maps related to today's show: . Washington, D.C.; Greensboro, North Carolina . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-17-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- January 13, 2012 . Download PDF maps related to today's show: . Mississippi . Haiti . New Zealand & Papua New Guinea . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-18-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- January 25, 2013 . Download a PDF map related to today's show: . North Korea . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-19-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- May 11, 2012 . Download a PDF map related to today's show: . London, United Kingdom; Greece . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-20-1" ><div class="show-scrollbars"><span>The daily transcript is a written version of each day's CNN Student News program .
+Use this transcript to help students with reading comprehension and vocabulary .
+Use the weekly Newsquiz to test your knowledge of stories you saw on CNN Student News .</span><span>(CNN Student News) -- November 2, 2012 . Download PDF maps related to today's show: . New York City; New Jersey . Iran; Afghanistan . Vatican City . Click here to access the transcript of today's CNN Student News program. Please note that there may be a delay between the time when the video is available and when the transcript is published.</span></div></td></tr></tbody>
+</table></div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">≈0.069715% unexpected</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> characters long.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >10</span> characters long.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-5" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-5-content-block-1" class="col-12 p-0" >
+
+    <div id="section-5-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-5-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-5-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-5-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>
