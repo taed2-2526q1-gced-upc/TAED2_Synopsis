@@ -329,7 +329,7 @@ $(function() {
         <a href="../index.html">
           <img
             class="NO-CACHE"
-            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251017T142156.354227Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251017T144326.163660Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
             alt="Great Expectations"
             style="width: auto; height: 50px"
           />
@@ -561,9 +561,9 @@ $(function() {
     
             
         
-        <li class="alert alert-warning" >
+        <li >
                 <span >
-                    <span class="badge badge-warning" >expect_column_pair_values_column_shorter_than_column</span>(**{'column_A': 'highlights', 'column_B': 'article'})
+                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
                 </span>
             </li>
     
@@ -577,9 +577,9 @@ $(function() {
     
             
         
-        <li >
+        <li class="alert alert-warning" >
                 <span >
-                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
+                    <span class="badge badge-warning" >expect_column_pair_values_column_shorter_than_column</span>(**{'column_A': 'highlights', 'column_B': 'article'})
                 </span>
             </li>
     
