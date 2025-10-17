@@ -7,7 +7,6 @@ from src.backend.app.config import settings
 # Create the main API router
 api_router = APIRouter()
 
-
 # Root endpoint
 @api_router.get("/")
 async def root():
@@ -23,7 +22,6 @@ async def root():
     }
 
     return api_info
-
 
 # Include all endpoint routers
 api_router.include_router(health.router, prefix="/health", tags=["health"])

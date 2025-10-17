@@ -5,16 +5,14 @@ from pydantic import BaseModel
 from services.news_scraper import NewsScraper
 from services.summarizer import summarizer
 
-MAX_INPUT_SIZE = 25000
+# Constants for model constraints
+MAX_INPUT_SIZE = 4000
 MAX_OUTPUT_SIZE = 2000
 MIN_INPUT_SIZE = 150
 MAX_TOKENS = min(MAX_OUTPUT_SIZE // 4, 430)
 MIN_TOKENS = 30
 
-Scraper = NewsScraper()
-
-router = APIRouter()
-
+# Request and response models
 class SummaryRequest(BaseModel):
     url: str
 
@@ -23,6 +21,9 @@ class SummaryResponse(BaseModel):
     title: str
     summary: str
     full_article: str
+
+Scraper = NewsScraper()
+router = APIRouter()
 
 @router.post("/", response_model=SummaryResponse)
 async def summarize(request: SummaryRequest):
@@ -40,14 +41,8 @@ async def summarize(request: SummaryRequest):
             logger.error(f"[BACKEND] Scraped fields have wrong types: {result}")
             raise HTTPException(status_code=500, detail="An internal error occurred, scraped fields have wrong types. Please try again later.")
 
-        # Check input size limits
         article_length = len(result['text'])
-        if article_length > MAX_INPUT_SIZE:
-            logger.error(f"[BACKEND] Article too long: {article_length} characters")
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Article is too long ({article_length} characters). Maximum allowed size is {MAX_INPUT_SIZE} characters."
-            )
+     
         if article_length < MIN_INPUT_SIZE:
             logger.error(f"[BACKEND] Article too short: {article_length} characters")
             raise HTTPException(
@@ -59,21 +54,12 @@ async def summarize(request: SummaryRequest):
         logger.info(f"[BACKEND] Scraped article: {result}")
         logger.info("[BACKEND] Summarizing article...")
 
+        summary = summarizer(result['text'], max_length=MAX_TOKENS, min_length=MIN_TOKENS, do_sample=False, truncation=True, max=MAX_TOKENS)
 
-
-        summary = summarizer(result['text'], max_length=MAX_TOKENS, min_length=MIN_TOKENS, do_sample=False)
         if not isinstance(summary, list) or not summary or 'summary_text' not in summary[0]:
             logger.error(f"[BACKEND] Summarizer returned invalid output: {summary}")
             raise HTTPException(status_code=500, detail="An internal error occurred, summarizer output is invalid. Please try again later.")
             
-        summary_text = summary[0]["summary_text"]
-        if len(summary_text) > MAX_OUTPUT_SIZE:
-            logger.error(f"[BACKEND] Summary too long: {len(summary_text)} characters")
-            raise HTTPException(
-                status_code=500,
-                detail="Generated summary is too long. Please try again with a shorter article."
-            )
-
         logger.info("[BACKEND] Article summarized successfully")
         logger.info(f"[BACKEND] Summary: {summary}")
 

@@ -49,33 +49,6 @@ function App() {
     }
   }
 
-  const handleAnalyze = async () => {
-    setIsAnalyzing(true);
-    try {
-      const response = await fetch('/api/analyze', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          text: fullArticle
-        })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setSentimentAnalysis(data.probabilities);
-      } else {
-        const errorData = await response.json();
-        setError(errorData.detail || 'An error happened while analyzing sentiment. Please try again.');
-      }
-    } catch (err) {
-      setError('Error: Could not connect to the server');
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
-
   const handleReset = () => {
     setArticleUrl('');
     setSummary(null);
@@ -86,6 +59,7 @@ function App() {
     setError(null);
   }
 
+  // Main API Calls
   const checkHealth = async () => {
     setIsCheckingHealth(true)
     setHealthStatus(null)
@@ -103,7 +77,6 @@ function App() {
     }
   }
 
-  // Main API Call
   const handleSummarize = async () => {
     setUrlError(null);
     setError(null);
@@ -143,6 +116,33 @@ function App() {
       setIsSummarizing(false);
     }
   }
+
+  const handleAnalyze = async () => {
+    setIsAnalyzing(true);
+    try {
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          text: summary
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setSentimentAnalysis(data.probabilities);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.detail || 'An error happened while analyzing sentiment. Please try again.');
+      }
+    } catch (err) {
+      setError('Error: Could not connect to the server');
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
@@ -310,16 +310,16 @@ function App() {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
                         </svg>
-                        Analyze Sentiment
+                        Check Neutrality
                       </>
                     )}
                   </button>
                 ) : (
                   <div className="flex-1 bg-gray-800/50 rounded-lg p-6 border border-purple-600">
-                    <h4 className="text-white font-medium mb-4 text-center">Emotion Analysis</h4>
+                    <h4 className="text-white font-medium mb-4 text-center">Neutrality Analysis</h4>
                     <div className="grid grid-cols-3 gap-4">
                       {Object.entries(sentimentAnalysis)
-                        .sort(([,a], [,b]) => b - a)
+                        .sort(([, a], [, b]) => b - a)
                         .slice(0, 3)
                         .map(([emotion, probability], index) => (
                           <EmotionChart
@@ -327,10 +327,10 @@ function App() {
                             emotion={emotion}
                             value={probability}
                             color={
-                              index === 0 
-                                ? "text-purple-400" 
-                                : index === 1 
-                                  ? "text-blue-400" 
+                              index === 0
+                                ? "text-purple-400"
+                                : index === 1
+                                  ? "text-blue-400"
                                   : "text-indigo-400"
                             }
                           />
