@@ -54,7 +54,7 @@ async def summarize(request: SummaryRequest):
         logger.info(f"[BACKEND] Scraped article: {result}")
         logger.info("[BACKEND] Summarizing article...")
 
-        summary = summarizer(result['text'], max_length=MAX_TOKENS, min_length=MIN_TOKENS, do_sample=False, truncation=True, max=MAX_TOKENS)
+        summary = summarizer(result['text'], max_length=MAX_TOKENS, min_length=MIN_TOKENS, do_sample=False, truncation=True)
 
         if not isinstance(summary, list) or not summary or 'summary_text' not in summary[0]:
             logger.error(f"[BACKEND] Summarizer returned invalid output: {summary}")
