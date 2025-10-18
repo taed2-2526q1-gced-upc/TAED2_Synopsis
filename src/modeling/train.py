@@ -66,7 +66,7 @@ def main():
     with mlflow.start_run(run_name="bart_news_training"):
         mlflow.log_params(params)
         
-        data_path = Path("data")
+        data_path = Path("data/raw")
         dataset = load_from_disk(str(data_path))
         
         tokenizer = AutoTokenizer.from_pretrained(params['model_name'])
