@@ -94,7 +94,7 @@ def main():
             tokenizer = AutoTokenizer.from_pretrained(params['model_name'])
             model = AutoModelForSeq2SeqLM.from_pretrained(params['model_name'])
             
-            rouge_metric = load_metric("rouge")
+            rouge_metric = evaluate.load("rouge")
             data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
             
             logger.info("Configuring training arguments")
