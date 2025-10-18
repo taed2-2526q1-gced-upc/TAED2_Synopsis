@@ -18,7 +18,7 @@ from transformers import (
     Seq2SeqTrainer,
     DataCollatorForSeq2Seq
 )
-from evaluate import load as load_metric
+import evaluate
 
 
 def compute_metrics(eval_pred, tokenizer, rouge_metric):
