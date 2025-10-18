@@ -75,7 +75,7 @@ def main():
             mlflow.log_params(params)
             
             logger.info("Loading dataset from data/processed")
-            data_path = Path("data/processed")
+            data_path = Path("data/raw")
             
             if not data_path.exists():
                 raise FileNotFoundError(
