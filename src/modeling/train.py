@@ -45,6 +45,7 @@ def compute_metrics(eval_pred, tokenizer, rouge_metric):
 
 def main():
     """Main training function."""
+    # Track emissions
     tracker = EmissionsTracker(
         project_name="bart_news_summarization",
         output_dir="reports",
@@ -52,8 +53,11 @@ def main():
     )
     tracker.start()
     
-    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
-    
+    # Use local MLflow tracking
+    mlruns_path = Path.cwd() / "mlruns"
+    mlflow.set_tracking_uri(f"file://{mlruns_path}")
+    mlflow.set_experiment("bart_finetuning_local")
+
     params = {
         "model_name": "facebook/bart-large-cnn",
         "learning_rate": 2e-5,
@@ -63,7 +67,7 @@ def main():
         "weight_decay": 0.01,
     }
     
-    with mlflow.start_run(run_name="bart_news_training"):
+    with mlflow.start_run(run_name="bart_run_v1"):
         mlflow.log_params(params)
         
         data_path = Path("data/raw")
@@ -77,7 +81,7 @@ def main():
         
         training_args = Seq2SeqTrainingArguments(
             output_dir="models/checkpoints",
-            evaluation_strategy="steps",
+            eval_strategy="steps",            # modern keyword
             eval_steps=500,
             learning_rate=params['learning_rate'],
             per_device_train_batch_size=params['batch_size'],
@@ -101,11 +105,10 @@ def main():
             eval_dataset=dataset["validation"],
             tokenizer=tokenizer,
             data_collator=data_collator,
-            compute_metrics=lambda eval_pred: compute_metrics(
-                eval_pred, tokenizer, rouge_metric
-            )
+            compute_metrics=lambda eval_pred: compute_metrics(eval_pred, tokenizer, rouge_metric)
         )
         
+        # Train
         train_start = time.time()
         train_result = trainer.train()
         train_time = time.time() - train_start
@@ -115,8 +118,8 @@ def main():
             "train_time_hours": train_time / 3600,
         })
         
+        # Evaluate
         eval_results = trainer.evaluate(eval_dataset=dataset["test"])
-        
         mlflow.log_metrics({
             "test_rouge1": eval_results.get("eval_rouge1", 0),
             "test_rouge2": eval_results.get("eval_rouge2", 0),
@@ -124,6 +127,7 @@ def main():
             "test_loss": eval_results.get("eval_loss", 0),
         })
         
+        # Save model & tokenizer
         model_path = Path("models") / "bart_news_final"
         model_path.mkdir(parents=True, exist_ok=True)
         trainer.save_model(str(model_path))
@@ -135,6 +139,7 @@ def main():
             task="summarization"
         )
         
+        # Stop emissions tracking
         emissions = tracker.stop()
         mlflow.log_metrics({
             "co2_emissions_g": emissions * 1000,
