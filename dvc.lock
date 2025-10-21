@@ -13,3 +13,47 @@ stages:
       md5: 10aa9fcd0db59162a97632e2575b74f5.dir
       size: 1369471328
       nfiles: 12
+  train_model:
+    cmd: python src/modeling/train.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: dec1651b632c0f88e3234d49e25b413c.dir
+      size: 1369488392
+      nfiles: 15
+    - path: src/modeling/train.py
+      hash: md5
+      md5: f9104054b8af95f82ba1b4fdf78925d0
+      size: 5252
+    outs:
+    - path: models/bart-large-cnn-finetuned
+      hash: md5
+      md5: 584fc931c796d6eae0c4335299f2d2fe.dir
+      size: 1630245853
+      nfiles: 9
+  evaluate_model:
+    cmd: PYTHONPATH=. pytest tests/test_model.py -v --junitxml=results/eval.xml
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: dec1651b632c0f88e3234d49e25b413c.dir
+      size: 1369488392
+      nfiles: 15
+    - path: models/bart-large-cnn-finetuned
+      hash: md5
+      md5: 584fc931c796d6eae0c4335299f2d2fe.dir
+      size: 1630245853
+      nfiles: 9
+    - path: src/modeling/predict.py
+      hash: md5
+      md5: b3919156cc4721b43068d713c4709ee3
+      size: 3278
+    - path: tests/test_model.py
+      hash: md5
+      md5: c638097441772cb79d440ef914305ef9
+      size: 2970
+    outs:
+    - path: results/eval.xml
+      hash: md5
+      md5: 8e98659df455764f8e6c2b985416fdf0
+      size: 833
