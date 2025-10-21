@@ -58,8 +58,6 @@ def main(params_override=None):
     tracker = EmissionsTracker(project_name="bart_news_summarization", output_dir="reports", log_level="warning")
     tracker.start()
 
-    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-
     params = {
         "model_name": "facebook/bart-large-cnn",
         "learning_rate": 5e-5,
