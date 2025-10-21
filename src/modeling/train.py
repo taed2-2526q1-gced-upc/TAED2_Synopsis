@@ -62,7 +62,7 @@ def main(params_override=None):
 
     params = {
         "model_name": "facebook/bart-large-cnn",
-        "learning_rate": 0,
+        "learning_rate": 5e-5,
         "batch_size": 4,
         "num_epochs": 1,
         "warmup_steps": 500,
