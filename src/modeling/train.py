@@ -154,8 +154,6 @@ def main(params_override=None):
         emissions = tracker.stop()
         log_emissions_report(tracker, emissions)
 
-        mlflow.log_param("learning_rate", "5e-5")
-
 
 if __name__ == "__main__":
     main()
