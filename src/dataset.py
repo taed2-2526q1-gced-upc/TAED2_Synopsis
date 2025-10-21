@@ -20,7 +20,6 @@ def remove_special_characters(dataframe: pl.DataFrame) -> pl.DataFrame:
         "\U0001F1E0-\U0001F1FF"  \
         "\U00002700-\U000027BF"  \
         "\U000024C2-\U0001F251]+"
-    
 
     dataframe = dataframe.with_columns(
         pl.col("article").str.replace_all(emojis, "", literal=False).alias("article"),
@@ -34,7 +33,8 @@ def remove_nulls_or_empty_or_duplicates(dataframe: pl.DataFrame) -> pl.DataFrame
     Remove duplicates or rows with nulls
     """
 
-    dataframe = dataframe.filter(pl.col("article").is_not_null() & pl.col("highlights").is_not_null())
+    dataframe = dataframe.filter(
+        pl.col("article").is_not_null() & pl.col("highlights").is_not_null())
     dataframe = dataframe.filter((pl.col("article") != "") & (pl.col("highlights") != ""))
     dataframe = dataframe.unique("id")
     return dataframe.unique(subset=["article", "highlights"])
@@ -53,11 +53,15 @@ def remove_summary_longer_than_articles(dataframe:pl.DataFrame) -> pl.DataFrame:
     Remove summaries that are longer or the same than the article
     """
 
-    dataframe = dataframe.filter(pl.col("highlights").str.len_chars() < pl.col("article").str.len_chars())
+    dataframe = dataframe.filter(
+        pl.col("highlights").str.len_chars() < pl.col("article").str.len_chars())
     return dataframe
 
 @app.command()
 def main():
+    """
+    Preprocess the data and save it in the processed directory
+    """
 
     # ---- Preprocess data ----
     logger.info("Loading datasets...")
@@ -81,7 +85,8 @@ def main():
     Path(PROCESSED_DATA_DIR).mkdir(parents=True, exist_ok=True)
 
     for name, df in tqdm(splits.items()):
-        df_clean = remove_short_articles(remove_nulls_or_empty_or_duplicates(remove_special_characters((df))))
+        df_clean = remove_short_articles(remove_nulls_or_empty_or_duplicates(
+            remove_special_characters((df))))
         df_clean = remove_summary_longer_than_articles(df_clean)
         df_clean.write_parquet(PROCESSED_DATA_DIR / f"clean_{name}.parquet")
 
