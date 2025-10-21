@@ -2,8 +2,8 @@ from fastapi import APIRouter, HTTPException
 from typing import Any
 from loguru import logger
 from pydantic import BaseModel
-from services.news_scraper import NewsScraper
-from services.summarizer import summarizer
+from src.backend.app.services.news_scraper import NewsScraper
+from src.backend.app.services.summarizer import summarizer
 
 # Constants for model constraints
 MAX_INPUT_SIZE = 4000

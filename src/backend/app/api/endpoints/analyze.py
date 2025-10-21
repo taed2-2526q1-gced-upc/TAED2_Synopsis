@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from typing import Dict
 from loguru import logger
 from pydantic import BaseModel
-from services.analyzer import analyzer
+from src.backend.app.services.analyzer import analyzer
 
 # Constants for model constraints
 MAX_INPUT_SIZE = 2000 
