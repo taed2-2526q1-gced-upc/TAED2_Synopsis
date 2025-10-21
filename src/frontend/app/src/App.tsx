@@ -64,7 +64,7 @@ function App() {
     setIsCheckingHealth(true)
     setHealthStatus(null)
     try {
-      const response = await fetch('/api/health')
+      const response = await fetch('/api/health/')
       if (response.ok) {
         setHealthStatus('✅ Online')
       } else {
@@ -86,7 +86,7 @@ function App() {
     }
     setIsSummarizing(true)
     try {
-      const response = await fetch('/api/summarize', {
+      const response = await fetch('/api/summarize/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -120,7 +120,7 @@ function App() {
   const handleAnalyze = async () => {
     setIsAnalyzing(true);
     try {
-      const response = await fetch('/api/analyze', {
+      const response = await fetch('/api/analyze/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
