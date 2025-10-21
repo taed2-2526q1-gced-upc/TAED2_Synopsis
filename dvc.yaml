@@ -2,19 +2,24 @@ stages:
   get_raw_data:
     cmd: python -m src.data.scripts.get_raw_data
     deps:
-    - src/data/scripts/get_raw_data.py
+      - src/data/scripts/get_raw_data.py
     outs:
-    - data/raw
-  
+      - data/raw
+
   train_model:
-    cmd: python -m src.modeling.train
+    cmd: python src/modeling/train.py
     deps:
-    - src/modeling/train.py
-    - data/raw
-    params:
-    - model_name
-    - task
-    - max_length
-    - min_length
+      - data/raw
+      - src/modeling/train.py
     outs:
-    - models/bart_summarizer
+      - models/bart-large-cnn-finetuned
+
+  evaluate_model:
+    cmd: PYTHONPATH=. pytest tests/test_model.py -v --junitxml=results/eval.xml
+    deps:
+      - models/bart-large-cnn-finetuned
+      - data/raw
+      - tests/test_model.py
+      - src/modeling/predict.py
+    metrics:
+      - results/eval.xml
