@@ -55,6 +55,7 @@ dependencies = [
     "wsproto==1.2.0",
     "cloudscraper",
     "pysentimiento",
+    "evaluate"
 ]
 requires-python = "~=3.12.0"
 

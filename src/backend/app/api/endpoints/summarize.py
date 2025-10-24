@@ -10,7 +10,6 @@ from src.backend.app.services.summarizer import summarizer
 class SummaryRequest(BaseModel):
     url: str
 
-
 class SummaryResponse(BaseModel):
     status: str
     title: str
