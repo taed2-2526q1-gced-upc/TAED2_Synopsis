@@ -1,0 +1,145 @@
+{
+  "expectations": [
+    {
+      "id": "2ab9e530-bf2e-4321-ad71-34df7dd538eb",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "f0bb3862-0a3b-48a9-9538-802f5149dc27",
+      "kwargs": {
+        "column": "id",
+        "type_": "str"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "13383035-2439-41f7-ac86-f2b7ed9bd501",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "a77d0ab6-155a-4799-a41e-a3c4aca9cf0d",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "30f0937c-2a5e-433c-acdd-722d9dc87a27",
+      "kwargs": {
+        "column": "article"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "5769790e-0e65-40cd-b184-fcfb8f538742",
+      "kwargs": {
+        "column": "article",
+        "type_": "str"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "2a235ab6-a448-4d3a-a4d7-924e03521bc2",
+      "kwargs": {
+        "column": "article"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "0e400bce-3f14-44b5-ace8-f417a920282a",
+      "kwargs": {
+        "column": "article",
+        "min_value": 50
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_value_lengths_to_be_between"
+    },
+    {
+      "id": "2d40de47-bd76-4f3e-bb8f-c08eaaf385f4",
+      "kwargs": {
+        "column": "highlights"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_to_exist"
+    },
+    {
+      "id": "669e4223-a9fe-45e8-882d-e75b38314555",
+      "kwargs": {
+        "column": "highlights",
+        "type_": "str"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_of_type"
+    },
+    {
+      "id": "b65bbd8b-6fab-4ab2-a460-954cb6c0c0a0",
+      "kwargs": {
+        "column": "highlights"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "41279395-23ef-415f-bfb3-eac411bef6bc",
+      "kwargs": {
+        "column": "highlights",
+        "min_value": 10
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_value_lengths_to_be_between"
+    },
+    {
+      "id": "fbb55706-0176-49a1-8b1a-3c64bf99cf15",
+      "kwargs": {
+        "column_list": [
+          "article",
+          "highlights"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_compound_columns_to_be_unique"
+    },
+    {
+      "id": "d419c8f4-91bb-4103-9ad4-7c4c8e648608",
+      "kwargs": {
+        "column_A": "highlights",
+        "column_B": "article"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_pair_values_column_shorter_than_column"
+    }
+  ],
+  "id": "793cf347-f9a6-40d9-bd8c-31586f2ecb00",
+  "meta": {
+    "great_expectations_version": "1.7.0"
+  },
+  "name": "data_quality_validation",
+  "notes": null
+}

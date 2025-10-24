@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251017T140452.533389Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-17T16:03:51Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                Table-Level Expectations
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-5"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">14</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">13</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">1</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈92.86%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-660524eb-f886-46c8-b123-b2625ed9126e" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-660524eb-f886-46c8-b123-b2625ed9126e class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-17T16:03:51Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251017T140417.359399Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >becd751684a1da13adf25260051cbe35</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\processed\clean_train.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Table-Level Expectations
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    <span class="badge badge-warning" >expect_column_pair_values_column_shorter_than_column</span>(**{'batch_id': 'data_check-clean_train', 'column_A': 'highlights', 'column_B': 'article'})
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>26 unexpected values found. ≈0.009154% of 284014 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-2-content-block-2-cell-1-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-1-1" ><div class="show-scrollbars"><span>12 corpses were discovered beneath monastery in San Angel, Mexico City .
+They had been sealed away when Catholic college was abandoned in 1861 .
+Townsfolk urged to rebury mummies but insisted they were fellow citizens .
+So they were put in velvet-lined caskets where they remained for 85 years .</span><span>By . Dan Bloom . These are the 12 mummified corpses which were unearthed in a neighbourhood of Mexico City - and promptly adopted as beloved citizens. The remains lay undiscovered beneath a monastery in San Ã .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-2-1" ><div class="show-scrollbars"><span>Buyi is one of the bands breaking through the Beijing music scene .
+In the last ten years the number of garage bands in China has exploded .
+The internet and social software has helped create a vibrant underground scene .</span><span>(CNN) -- CNN explores Beijing's underground music scene and the bands making the rest of the world sit up and listen.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-3-1" ><div class="show-scrollbars"><span>Former Prime Minister set to be summoned by Northern Ireland committee .
+MPs warn there will be 'bad publicity' if Blair fails to make an appearance .
+Labour government did deal with Sinn Fein as part of the peace process .
+200 'comfort letters' told on-the-run IRA suspects they were not sought .
+May 21, 1974 - John Downey, then 22, is convicted in Dublin of membership of the IRA.
+Tuesday July 20, 1982 .
+- IRA Hyde Park bombing. A Morris Marina car containing 20-25 pounds of .
+explosives with wire nails as shrapnel is left in South Carriage Drive.
+It killed four soldiers as they rode through the park to the changing .
+of the guard. The explosion injured other members of the Royal Household .
+Cavalry and killed seven horses as they travelled from their barracks .
+to Buckingham Palace. An artist's impression of a suspect is released by .
+the police.
+1983 - Downey is identified as the suspect and an arrest warrant is issued over the bombing.
+October 21, 1984 - .
+The Sunday Times publishes Downey's picture and alleges he is wanted .
+over the bombing. Meanwhile, Scotland Yard prepares to seek his .
+extradition largely based on fingerprint evidence on parking tickets.
+1985-1987 - The Sunday Times publishes three more articles repeating that Downey is wanted by police.
+November 21, 1989 .
+- The then attorney general Sir Patrick Mayhew considers Downey's case .
+and decides the finger print evidence is not compelling enough to seek .
+extradition.
+June 1991 - a review by Scotland Yard backs up the decision not to seek extradition.
+1993 .
+- Scotland Yard decide: ‘The subject is not extraditable but is .
+obviously arrestable should he be detained within the UK .
+jurisdiction...’
+August 29, 1994 - the warrant for Downey's arrest is accidentally removed.
+October 31, 1994 - when the error is spotted the warrant is recirculated.
+April 10, 1998 - the historic Good Friday Agreement is signed. It provides a framework for the early release of serving prisoners.
+From July 1998 .
+- as part of the extended negotiations between the British government, .
+Sinn Fein, and the Northern Ireland government, the names of 187 On The .
+Runs (OTRs) - including Downey - can be submitted by Sinn Fein for .
+checks whether they are wanted by authorities in Northern Ireland or in .
+the UK.
+2001 - the UK makes a commitment not to pursue those who might benefit from early release schemes.
+July 20, 2007 .
+- Downey, 62, of County Donegal, receives a ‘letter of assurance’ that .
+he is not wanted in Northern Ireland or the UK when in fact there is an .
+outstanding warrant against him in the UK. The letter is sent by the .
+Police Service of Northern Ireland (PSNI) on behalf of the secretary of .
+state for Northern Ireland and the attorney general. The letter .
+reassures Downey that he can visit his son and grandchild in Canada. He .
+also travels several times to the UK and Northern Ireland.
+2008 - .
+a chain of emails between two PSNI officers indicates that the PSNI .
+knew that Downey was wanted over the Hyde Park bombing by the .
+Metropolitan Police and that this was not mentioned in the 2007 letter. In .
+the summer, before travelling with his wife to Canada, Downey contacts .
+the Canadian authorities for a temporary residence permit. He says: ‘The .
+reason for the above application is that I served a term of .
+imprisonment in Portlaoise prison in the Irish Republic in 1974...I was .
+named in some British newspapers as being responsible for the Hyde Park .
+& Regents Park bombings in 1982, which I strenuously deny. No .
+warrant was ever issued by the British authorities to have me extradited .
+and I understand from contacts which have taken place between British .
+and Sinn Fein that they, the British, have no further interest in me. I .
+have strongly supported the peace process from the very beginning of the .
+talks and I believe that the only way forward for all people on the .
+island of Ireland north and south is in peaceful co-operation and mutual .
+respect and understanding for each other...’ The application is .
+granted.
+2009 - .
+Downey visits Londonderry and Belfast in his role to promote greater .
+understanding between Republican and Loyalist ex prisoners.
+2010-2013 .
+- he visits the United Kingdom seven times without incident and in 2012 .
+attends the National Commemoration of the Hunger Strikes in Northern .
+Ireland.
+May 19, 2013 .
+- Downey is arrested at Gatwick Airport en route to Greece. He .
+allegedly told police: ‘I am surprised that this had come up as I have .
+travelled in and out of the UK on a number of occasions to see family .
+and I have travelled to Canada from Dublin. When I went to Canada I .
+contact the UK government to check it would be OK as I didn't want any .
+problems. They said that would be fine.’ He is subsequently charged over .
+the murder of four British soldiers and causing an explosion.
+January 2014 .
+- a trial date is listed at the Old Bailey before Mr Justice Sweeney.
+Instead, Downey's defence team launch an 11th hour bid for the case to .
+be thrown out due to an ‘abuse of process’.
+February 2014 - .
+Trial judge Mr Justice Sweeney throws out the case because of the PSNI .
+error in sending the letter and not correcting the false impression it .
+gives Downey. The final ruling was handed down on Friday February 21 but .
+could not be reported until the prosecution had decided in discussion .
+with the Attorney General not to appeal.</span><span>Ex-Prime Minister Tony Blair faces being called to give evidence in Parliament about the letters to on-the-run IRA suspects . Tony Blair faces being called to Parliament over a secret deal with Sinn Fein which allowed suspected IRA bombers to avoid prosecution. The former Prime Minister is set to be summoned by the Northern Ireland select committee to explain the controversial 'comfort letters' sent to on-the-run suspects telling them they were not being sought by the police. MPs are warning that if he fails to appear there will be 'bad publicity'. The policy led to the collapse of the trial of suspected Hyde Park bomber John Downing in March. The peace process plan agreed between Sinn Fein and Mr Blair's Labour government saw around 200 letters of assurance sent to on-the-runs telling them they were not wanted by UK authorities. The letters did not rule out future prosecutions if new evidence emerged. The Northern Ireland committee is investigating the deal after the collapse of the case against Downey, who was accused of the 1982 IRA Hyde Park bombing which killed four soldiers. In May last year Mr Downey was arrested at Gatwick Airport and charged with killing Squadron Quartermaster Corporal Roy Bright, Lieutenant Anthony Daly, Trooper Simon Tipper and Lance Corporal Jeffrey Young. Seven horses were also killed in the attack as the soldiers travelled from their barracks to Buckingham Palace. But the case against Mr Downey collapsed after it emerged he had received a letter clearing him to travel to the UK. The committee has taken evidence from senior police officers in Northern Ireland, and Labour politicians who served as Northern Ireland Secretary in the Labour government. Mr Blair is understood to have provided written evidence to the committee, but could be called to appear in person to answer questions direct from MPs. IRA suspect John Downey walked free from court in March after the Hyde Park bomb trial collapsed . Committee chairman Laurence Robertson told the Sunday Telegraph: ‘Mr Blair has not found a date in his diary. ‘We are going to have to press him. Technically we can compel him to attend. ‘I don’t want to have to get to that point yet but others on the committee will want to do that. ‘There is going to be bad publicity … if he doesn’t come because people will draw their own conclusion. ‘I take the view Mr Blair has a duty to come and explain it. He is right at the thick of it.’ Mr Blair’s office has previously suggested the sticking point has been finding a suitable date to fit in with his role as a Middle East peace envoy and when the committee is sitting. A spokesman for Mr Blair said: 'Tony Blair has already given evidence in person to the Hallett Review and has said he is happy to also give evidence to the Committee, we are in discussions about the best way to do that given the current demands of his Middle East role.' The spokesman said they did not know anything suggestions Mr Blair could appear via video link. On Thursday the results of another inquiry into the affair, led by Lady Justice Heather Hallett, will be published. Lady Justice Hallett's report is expected to address secret negotiations between Mr Blair and Gerry Adams, the Sinn Fein president, on how to deal with "on-the-run" suspects. Because they had not been convicted, they did not fall within the scope of the 1998 Good Friday Agreement, which saw jailed paramilitaries released early. For . more than 30 years, John Downey had the IRA bombing in Hyde Park . hanging over his head - and the families of four victims denied justice.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-4-1" ><div class="show-scrollbars"><span>Labour government did deal with Sinn Fein as part of the peace process .
+190 'comfort letters' told on-the-run IRA suspects they were not sought .
+Lady Justice Hallett says flawed scheme was hidden 'under the radar'
+First Minister Peter Robinson condemns 'get out of jail free card'
+The use of an incorrect date of birth to search a police database may have missed an offence potentially linked to an individual. An individual with the same name and same year of birth was wanted for a terrorist offence. It has not yet been established if this was the same individual who received the letter of assurance.
+An individual who was wanted for an offence committed after the 1998 Good Friday peace accord was sent a letter with a general assurance they were not wanted. The origin of the mistake lay in the fact the police believed they were only searching for pre-1998 offences and therefore did not outline details of the 2003 offence when informing the Northern Ireland Office that the individual was 'not wanted by the PSNI'.
+May 21, 1974 - John Downey, then 22, is convicted in Dublin of membership of the IRA.
+Tuesday July 20, 1982 .
+- IRA Hyde Park bombing. A Morris Marina car containing 20-25 pounds of .
+explosives with wire nails as shrapnel is left in South Carriage Drive.
+It killed four soldiers as they rode through the park to the changing .
+of the guard. The explosion injured other members of the Royal Household .
+Cavalry and killed seven horses as they travelled from their barracks .
+to Buckingham Palace. An artist's impression of a suspect is released by .
+the police.
+1983 - Downey is identified as the suspect and an arrest warrant is issued over the bombing.
+October 21, 1984 - .
+The Sunday Times publishes Downey's picture and alleges he is wanted .
+over the bombing. Meanwhile, Scotland Yard prepares to seek his .
+extradition largely based on fingerprint evidence on parking tickets.
+1985-1987 - The Sunday Times publishes three more articles repeating that Downey is wanted by police.
+November 21, 1989 .
+- The then attorney general Sir Patrick Mayhew considers Downey's case .
+and decides the finger print evidence is not compelling enough to seek .
+extradition.
+June 1991 - a review by Scotland Yard backs up the decision not to seek extradition.
+1993 .
+- Scotland Yard decide: ‘The subject is not extraditable but is .
+obviously arrestable should he be detained within the UK .
+jurisdiction...’
+August 29, 1994 - the warrant for Downey's arrest is accidentally removed.
+October 31, 1994 - when the error is spotted the warrant is recirculated.
+April 10, 1998 - the historic Good Friday Agreement is signed. It provides a framework for the early release of serving prisoners.
+From July 1998 .
+- as part of the extended negotiations between the British government, .
+Sinn Fein, and the Northern Ireland government, the names of 187 On The .
+Runs (OTRs) - including Downey - can be submitted by Sinn Fein for .
+checks whether they are wanted by authorities in Northern Ireland or in .
+the UK.
+2001 - the UK makes a commitment not to pursue those who might benefit from early release schemes.
+July 20, 2007 .
+- Downey, 62, of County Donegal, receives a ‘letter of assurance’ that .
+he is not wanted in Northern Ireland or the UK when in fact there is an .
+outstanding warrant against him in the UK. The letter is sent by the .
+Police Service of Northern Ireland (PSNI) on behalf of the secretary of .
+state for Northern Ireland and the attorney general. The letter .
+reassures Downey that he can visit his son and grandchild in Canada. He .
+also travels several times to the UK and Northern Ireland.
+2008 - .
+a chain of emails between two PSNI officers indicates that the PSNI .
+knew that Downey was wanted over the Hyde Park bombing by the .
+Metropolitan Police and that this was not mentioned in the 2007 letter. In .
+the summer, before travelling with his wife to Canada, Downey contacts .
+the Canadian authorities for a temporary residence permit. He says: ‘The .
+reason for the above application is that I served a term of .
+imprisonment in Portlaoise prison in the Irish Republic in 1974...I was .
+named in some British newspapers as being responsible for the Hyde Park .
+& Regents Park bombings in 1982, which I strenuously deny. No .
+warrant was ever issued by the British authorities to have me extradited .
+and I understand from contacts which have taken place between British .
+and Sinn Fein that they, the British, have no further interest in me. I .
+have strongly supported the peace process from the very beginning of the .
+talks and I believe that the only way forward for all people on the .
+island of Ireland north and south is in peaceful co-operation and mutual .
+respect and understanding for each other...’ The application is .
+granted.
+2009 - .
+Downey visits Londonderry and Belfast in his role to promote greater .
+understanding between Republican and Loyalist ex prisoners.
+2010-2013 .
+- he visits the United Kingdom seven times without incident and in 2012 .
+attends the National Commemoration of the Hunger Strikes in Northern .
+Ireland.
+May 19, 2013 .
+- Downey is arrested at Gatwick Airport en route to Greece. He .
+allegedly told police: ‘I am surprised that this had come up as I have .
+travelled in and out of the UK on a number of occasions to see family .
+and I have travelled to Canada from Dublin. When I went to Canada I .
+contact the UK government to check it would be OK as I didn't want any .
+problems. They said that would be fine.’ He is subsequently charged over .
+the murder of four British soldiers and causing an explosion.
+January 2014 .
+- a trial date is listed at the Old Bailey before Mr Justice Sweeney.
+Instead, Downey's defence team launch an 11th hour bid for the case to .
+be thrown out due to an ‘abuse of process’.
+February 2014 - .
+Trial judge Mr Justice Sweeney throws out the case because of the PSNI .
+error in sending the letter and not correcting the false impression it .
+gives Downey. The final ruling was handed down on Friday February 21 but .
+could not be reported until the prosecution had decided in discussion .
+with the Attorney General not to appeal.</span><span>By . Matt Chorley, Mailonline Political Editor . A review into how an IRA bomb suspect was wrongly told he was not wanted by police has found two other cases where similar errors were apparently made. Lady Justice Hallett found systematic flaws in the way so-called ‘comfort letters’ were sent to almost 200 republican suspected terrorists who were on-the-run. Critics today claimed it amounted to a ‘get out of jail free card’ for John Downey, who was accused of murdering four soldiers in the IRA's Hyde Park bombing in 1982. David Cameron ordered the review of the scheme after Downey’s trial collapsed after it emerged he had received a letter clearing him to travel to the UK. In May last year Mr Downey was arrested at Gatwick Airport and charged with killing Squadron Quartermaster Corporal Roy Bright, Lieutenant Anthony Daly, Trooper Simon Tipper and Lance Corporal Jeffrey Young. Seven horses were also killed in the attack as the soldiers travelled from their barracks to Buckingham Palace. But the existence of the letter telling him he was not wanted by police meant he walked free from court. The peace process plan agreed between Sinn Fein and Tony Blair's Labour government saw 190 letters of assurance sent to on-the-runs telling them they were not wanted by UK authorities. Lady Justice Hallett said the scheme was not well publicised, and effectively kept 'below the radar', but was not secret. 'The administrative scheme did not amount to an amnesty,' she said. 'Suspected terrorists were not handed a 'get out of jail free card'.' But shockingly she unearthed details of two more cases where errors were made. They included: . The Downey case triggered a political crisis at Stormont earlier this year. Many politicians, particularly unionists, reacted furiously, claiming they knew nothing about the letters. Democratic Unionist First Minister Peter Robinson threatened to resign over the matter - an ultimatum he withdrew when Mr Cameron ordered the review. A police commander subsequently claimed that 95 of those who received letters were linked, though only by intelligence, to 295 murders during the Troubles. Today Mr Robinson said the scheme was ‘wrong in principle and shambolic in practice’. He added: ‘Of course it was a get out of jail free card for Downey. 'It has the potential of being a get out of jail card for the two that Lady Justice Hallett refers to as in error, it has the potential of being a get out of jail free card for the others who were not given the caveat that was entered in some of the personal letters that were sent out. ‘And indeed it has the potential of being a get out of out jail free card for anyone who has received a letter because no one knows whether it would amount to an abuse of process application being accepted by a future judge.’ Northern Ireland's most senior police officer said it was 'highly unlikely' the two other letters sent in error would lead to the collapse of future court cases. Chief constable George Hamilton said he accepted Lady Justice Hallett's findings and apologised to the Hyde Park victims. He said: 'The difference though between those is that those errors have been identified and we have taken action around those so that even with those two additional errors mitigation is in place.' He added: 'If they ever were to come to court it is highly unlikely that an abuse of process application (to collapse the case) would be successful as it was in the Downey case because we have identified the mistake and we have done something about it.' Under the scheme the names of individuals were passed to the Government, mostly through Sinn Fein, before being handed to police and prosecutors to assess their status. A report on each individual was sent back to the Government and, if they were declared as not being wanted, a letter of assurance was then issued to the individuals. In the Commons today, Northern Ireland Secretary Theresa Villiers said: 'I know that recent events have revived painful memories for those affected by that terrible atrocity (Hyde Park) and I apologise again on behalf of this Government for any hurt that has caused.' She added: 'I fully accept the Hallett Report's conclusions and recommendations and am determined that the Government will act on them. 'But, as I have said before, as far as this Government is concerned, the OTR scheme is over.' For . more than 30 years, John Downey had the IRA bombing in Hyde Park . hanging over his head - and the families of four victims denied justice.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-5-1" ><div class="show-scrollbars"><span>Leading Women hosts Twitter Chat celebrating girls in science .
+Five questions on biggest inspirations, words of wisdom, secrets to success .
+Guests include race car drivers, software developers, coders .
+Huge response from STEM organizations and schoolgirls across the globe .</span><span>Editor's note: In celebration of International Day of the Girl (October 11) and Ada Lovelace Day (October 14), Leading Women is devoting the month of October to women and girls in STEM: science, technology, engineering and math.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-6-1" ><div class="show-scrollbars"><span>Mobile devices have changed the way that office workers sit at their desks, study shows .
+Office furniture maker Steelcase surveyed more than 2,000 people in countries to identify nine new postures .
+The Draw – Technology (small and mobile) allows people to pull back from their desks while they use it. They recline, signaling they’re contemplating or absorbing information and draw the device closer to their body to maintain an optimal focal length.
+The Multi-Device - This posture is representative of how people adapt to multitasking on multiple-devices. One hand holding a phone to the ear, the other tasking on a laptop. The result is a forward lean that is a symbol of concentration and an orientation to the smaller screen of a laptop.
+The Text - Smartphones are small compared to other forms of technology and, therefore, require unique postures. Workers bring arms in close as keying and gesturing are performed.
+The Cocoon - People recline, bring up their feet onto the seat, and draw their smartphone or tablet close, resting on their thighs. The result is a cocoon - small mobile technology allows people to remain productive in this posture.
+The Swipe - This posture results when the device is used on a work surface in 'surfing mode', in which people operate the device with one hand, typically with swiping gestures. Because it’s on a work surface, a person must keep their head a certain distance above the tablet in order to see it, and position their head to look down at it.
+The Smart Lean - This posture is the result of mobile devices that create the desire for people to temporarily 'pull away' from others without leaving a meeting or collaborative environment. This is typically a temporary posture and used for glancing at incoming texts or e-mails.
+The Trance - This posture was observed when people were focused on the screen and either mousing or using a touchpad to navigate on the screen for extended periods of time. This is a long duration posture.
+The Take It In - In this posture, people recline to view content on the large display and/or sit back to contemplate. This posture is about 'taking in' information rather than generating it.
+The Strunch .
+- The 'strunch' (stretched-out hunch) is a very common posture with .
+laptops. As people become fatigued, they gradually push their laptop .
+further from the edge of the worksurface, resting their weight on the .
+surface.  This causes them to reach forward to work. Since the back and .
+neck cannot sustain the reach and hunch posture for a long time, the .
+person begins to prop themselves up with their non- tasking arm.</span><span>By . Damien Gayle . PUBLISHED: . 07:45 EST, 26 February 2013 . | . UPDATED: . 11:08 EST, 26 February 2013 . Laptops, tablets and smartphones have dramatically changed the way we work - and even the way we sit, researchers have claimed. A new study has found that most desks, designed for traditional 'desktop' computers, have meant we have created a range of new ways to sit. They range from 'the cocoon', where people hunch up on their chair to be close to their phone, to 'the smart lean', used to  check emails during a meeting. The nine new workplace postures: These new ways of sitting and slouching to fit ourselves around new mobile computing technology have been identified by research from office furniture company Steelcase . Smartphones and tablet computers, small and light enough to be grasped in the hands, have liberated workers from postural slavery to our digital overseers. Now new research has shown that the change in the ways we deal with technology in the workplace is indeed changing the way that we sit and slouch while we're earning our keep. A survey of 2,000 office workers in 11 countries undertaken by office furniture maker Steelcase has identified nine new postures which have emerged in response to the new technologies we interact with. They are: . Contorting to fit: Office workers have hitherto been kept in postural bondage to the immobile machines they interact with to earn their keep . The new postures identified were a result of using small, mobile technology such as smartphones, tablets and laptops and new workplace behaviours. However, with furniture poorly adapted to these new ways of sitting and slouching, Steelcase notes, they frequently cause pain and long-term injuries, disrupting concentration and creativity. James Ludwig, vice president of global design for Steelcase, said: 'We love our technology – it’s become a ubiquitous extension of ourselves. 'But the way technology impacts our bodies as we work has been largely ignored.' Based on this research, Steelcase has designed a new chair – Gesture – that moves with the body and supports the user throughout the different postures.  It will be available in the UK later this year.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-7-1" ><div class="show-scrollbars"><span>Qatar hopes to host the 2022 World Cup in temperatures of over 40 C .
+It plans to use solar power to air condition its stadiums .
+Qatar will be the first country in the Middle East to stage the event .</span><span>(CNN) -- Qatar plans to build nine fully air-conditioned open-air stadiums to stage matches at the 2022 FIFA World Cup. Click through the gallery above to see how the stadiums will look.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-8-1" ><div class="show-scrollbars"><span>Real Madrid take on Spanish rivals Sevilla in Cardiff on Tuesday .
+Gareth Bale and Cristiano Ronaldo to lead Real Madrid attack against Europa League holders Sevilla .
+New signings James Rodriguez and Toni Kroos set to feature for Champions League winners Real Madrid .
+The winner of the last 11 European Super Cups has alternated between the reigning Champions League winners and the reigning UEFA Cup/Europa League winners. With Bayern Munich winning last season, Sevilla must win the 2014 edition for this trend to continue.
+Real Madrid are the only team to lose a European Super Cup to a golden goal; they were beaten 2-1 by Galatasaray in 2000.
+The last UEFA Super Cup to feature two teams from the same country also featured Sevilla; they beat Barcelona 3-0 in the 2006 edition.
+Sevilla were also the last Spanish side to lose this game; they were beaten 3-1 by Milan in 2007. The last four Spanish sides to qualify for this competition have won.
+Real Madrid have won only one of their three previous European Super Cups. They were beaten in 1998 and 2000 before beating Feyenoord 3-1 in 2002. Iker Casillas started the 2000 and 2002 games.
+The last 13 La Liga meetings between Real Madrid and Sevilla have seen 64 goals scored; an average of just under five per game.
+The Whites have won nine of their last 11 meetings with the Andalusian side in all competitions, but have lost the last two away from the Bernabeu (both away league games).
+The one previous clash in a major European competition came in the 1958 European Cup quarter-final. Los Merengues won 8-0 at home before drawing 2-2 away to progress.
+Welshman Gareth Bale scored two goals and assisted two more in two league appearances against Sevilla last season.
+Cristiano Ronaldo has scored 16 goals in nine La Liga games against Sevilla; he has scored more goals against them than any other side in the competition.
+James Rodriguez could make his first competitive appearance for Real Madrid in this game. He scored six goals in five World Cup 2014 appearances, collecting the Golden Boot in the process.
+Keylor Navas made more saves than any other La Liga goalkeeper last season (160) and also had the best save percentage of any regular keeper (80.1%).</span><span>By . Simeon Gholam . Follow @@SimGholam . Champions League winners Real Madrid take on Europa League holders Sevilla in an all-Spanish encounter in Cardiff and Sportsmail  provides you with the latest team news, betting odds and Opta stats for Tuesday's Super Cup. VIDEO Scroll down to watch Ancelotti aware of expectation . Star appeal: Real Madrid's Gareth Bale (left), Toni Kroos (centre) and James Rodriguez . Venue: Cardiff City Stadium. Kick-off: 7.45pm . TV Coverage: LIVE on Sky Sports 5 and ITV 4 . Odds: Real Madrid 4/9, Draw 10/3, Sevilla 6/1 . Referee: Mark Clattenburg . Team news: Real Madrid boss Carlo Ancelotti is ready to unleash the full might of his enviable playing resources in Tuesday's UEFA Super Cup clash against La Liga rivals Sevilla. World Cup stars James Rodriguez and Toni Kroos, signed from Monaco and Bayern Munich this summer, are set to feature in Ancelotti's starting line-up at Cardiff City Stadium. Local hero: Real Madrid's Welsh forward Gareth Bale at Cardiff City Stadium on Monday . They will be paraded alongside the likes of Wales star Gareth Bale and Cristiano Ronaldo as Real target more European silverware just under a fortnight before their domestic campaign begins. Sevilla are expected to line up with Barcelona loanee Denis Suarez, who was part of the deal which saw skipper Ivan Rakitic sold to the Catalan club for £14million this summer. Iago Aspas and Grzegorz Krychowiak also joined Sevilla this summer - the former on loan from Liverpool, the latter bought from Reims - and both are predicted to start. VIDEO Ancelotti aware of expectation . Sharp shooter: Gareth Bale practices free kicks watched by Real Madrid coach Carlo Ancelotti . Opta Stats .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-9-1" ><div class="show-scrollbars"><span>Scientists had hunting for evidence of the Higgs boson for over 40 years .
+Physicists using found it using Cern's £2.6billion atom smasher .
+Journal Science also lists nine runners up .
+The Denisovan Genome: Scientists sequenced the DNA blueprint of the Denisovans, an extinct species of human that lived alongside Neanderthals and the ancestors of people living today.
+Making Eggs From Stem Cells: Japanese researchers showed that embryonic stem cells from mice could be coaxed into becoming viable egg cells.
+Curiosity's Landing System: Mission engineers at the American space agency Nasa safely and precisely placed the Curiosity rover on the surface of Mars. They used a 'sky crane' that dropped the 3.3 ton rover to the surface from a hovering platform on three cables.
+X-ray Laser Provides Protein Structure: Researchers used an X-ray laser, which shines a billion times brighter than traditional synchrotron sources, to determine the structure of an enzyme required by the parasite that causes African sleeping sickness. The advance demonstrated the potential of X-ray lasers to decipher proteins that conventional X-ray sources cannot.
+Precision Engineering of Genomes: The revision and deletion of DNA in higher organisms has generally been hit-or-miss. In 2012, a tool known as TALENs, which stands for 'transcription activator-like effector nucleases,' allowed scientists to alter or inactivate specific genes in animals such as zebra fish and toads, and cells from patients with disease.
+Majorana Fermions: The existence of Majorana fermions, particles that act as their own antimatter and annihilate themselves, has been debated for more than seven decades. This year, a team of physicists and chemists in the Netherlands provided the first solid evidence that such exotic matter exists, in the form of quasi-particles. These are groups of interacting electrons that behave like single particles.
+The ENCODE Project: A decade-long study reported this year in more than 30 papers revealed that the human genetic code is more functional than researchers had believed. Although just 2% of the genome codes for actual proteins, the Encyclopaedia of DNA Elements, or ENCODE, project indicated that about 80% of it is active in ways such as helping to switch genes on or off.
+Brain-Machine Interfaces: Scientists showed that paralysed human patients could move a mechanical arm with their minds and perform complex movements in three dimensions. The technology is still experimental, and costly, but the team is hopeful that one day it will help patients paralysed by strokes, spinal injuries and other conditions.
+Neutrino Mixing Angle: Hundreds of researchers working on the Daya Bay Reactor Neutrino Experiment in China found the last part of the jigsaw describing how particles known as neutrinos morph from one strain or 'flavour' to another as they travel at near-light speed. Neutrinos may someday help researchers to explain why the universe contains so much matter and so little antimatter.</span><span>The capture of the most wanted sub-atomic particle in physics was today named as Science journal's Breakthrough of the Year. Scientists had been chasing the Higgs boson, nicknamed the 'God particle' for more than four decades. In July the team from the European nuclear research facility at Cern in Geneva announced the detection of a particle that fitted the description of the elusive Higgs. Top breakthrough: A representation of traces of traces of a proton-proton collision measured in the Compact Muon Solenoid (CMS) experience in the search for the Higgs boson . The boson is believed to give matter mass via an associated 'Higgs field' that permeates space. Without the property of mass, the universe we live in could not exist. Scientists used the world's biggest atom smashing machine, the £2.6billion Large Hadron Collider on the Swiss-French border, to track down the missing particle. Finding the Higgs topped the list of most important discoveries of 2012 released today by Science, one of the world's most prestigious scientific journals. The particle was first proposed by a British physicist Professor Peter Higgs almost 50 years ago when he was a 34-year-old scientist working at the University of Edinburgh. Emotional moment: Professor Peter Higgs appears to wipe away a tear after scientists at the Large Hadron Collider claim to have possibly discovered a particle believed to be the Higgs boson . But until this year, no-one had been able to prove that his theory was right. Science news journalist Adrian Cho, who wrote about the discovery in the journal's latest issue, said: 'Mass must somehow emerge from interactions of the otherwise mass-less particles themselves. that's where the Higgs comes in. 'Just as an electric field consists of particles called photons, the Higgs field consists of Higgs bosons woven into the vacuum. Physicists have now blasted them out of the vacuum and into brief existence.' Science also lists nine other pioneering achievements from 2012. Curiosity coming into land on Mars: The rover's landing system was another scientific achievement hailed by the journal in its end-of-year round up . Brain-machine interface: Jan Scheuermann, a 52 year-old woman who was diagnosed with a degenerative brain disorder 13 years ago, using a mechanical arm controlled by her brain to feed herself .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-10-1" ><div class="show-scrollbars"><span>Simultaneous orgasms are, largely, a myth .
+75% of men always have orgasms during sex, but only 30% of women do .
+Taking turns is more practical, says leading sex expert Tracey Cox .
+'The best tip I could possibly give you to achieve simultaneous orgasm is to make friends with her vibrator'
+Get him to have an orgasm first and make the 'together' orgasm the second one. Most men find they have much better control second time around.
+Ignore the old advice of getting him to think about big pants or count backwards. The aim is distraction but it simply doesn't work. New research shows even as he's manically saying '459, 458' in his brain, another part is saying 'What does he think I am, stupid? As if this is going to grab my attention when I've got a pair of breasts bobbling in front of me, my penis is nestled in a nice, warm, sexy place, my girlfriend's moaning and throwing her head back and….'
+Use the bridge manoeuvre: This is the technique most sex therapists recommend. The basic idea is to give you clitoral stimulation up to the point of, but not actually to, orgasm and let his thrusting trigger off the orgastic reflex. This effectively provides a 'bridge' between clitoral stimulation and intercourse.
+Choose the right position. Woman on top or him from behind are the most likely positions to stimulate the front vaginal wall and up your chances of a penetrative orgasm.
+Talk lots, telling each other exactly where you're at by using a number system. Groaning out a 'Nine!' or delivering a curt 'Still two' might seem odd to start, but it's a quick and effective way to communicate in bed.
+Switch stimulation regularly. Not only will it keep you both hovering rather than climbing steadily toward a climax, it stops sex becoming too orgasm focused. Change positions. Change rooms. Change the CD. Anything to change the mood, keeping it hot and sexy but maintaining a measure of control.
+Make friends with her vibrator. If you asked me the best tip I could possibly give you to achieve simultaneous orgasm, this would be it. One of you holding a wand vibrator (slim, cylindrical, non-intrusive) over the clitoral area during penetrative sex is the most effective way to ensure a shared orgasm experience.</span><span>By . Tracey Cox . Are there ways to help you and your partner orgasm at the same time? The myth of the simultaneous orgasm is still clutching onto the bed sheets tenaciously - and judging by the amount of couples on telly still moaning 'Yes! Yes! Yes!' in unison, it's going to hang on there for some time yet. The reality is, you'd be hard pressed to find the same scene recreated in bedrooms at home because couples rarely climax together. Let's take a look at the facts. Roughly 75% of men in relationships always have an orgasm with their partner, compared to 30% of women. Men's orgasms last around 5-10 seconds (if he's lucky), women's orgasms can last 15 seconds or more (much more, if she's lucky and he's adept). Do the math and you'll soon see the chances of both of you orbiting into orgasmic ecstasy at exactly the same moment is highly unlikely. Romantic, yes. Likely, no. Quite frankly, taking turns - you have your orgasm first, he has his later - is not only more practical, it's sometimes a lot more satisfying. Having an orgasm is a selfish experience: you're totally and utterly fixated on your own pleasure. Having to pay attention to your partner's bits to guarantee they're enjoying themselves at exactly the same moment doesn't enhance the experience, it interferes with it . For men, this is less of a problem. Their orgasms are easier to trigger and once triggered, continue. Women's require a lot more attention and, unless tended from start to finish, can halt or merely trickle away halfway through. While he's twitching and moaning with orgasmic joy, we're often twitching and moaning with resentment at having been robbed at the last moment. Yes simultaneous orgasm can be an incredibly bonding moment but you're still better off making it a pleasant bonus rather than an aim. Women's require a lot more attention and, unless tended from start to finish, can halt or merely trickle away halfway through . 'The best tip I could possibly give you to achieve simultaneous orgasm is to make friends with her vibrator'</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-11-1" ><div class="show-scrollbars"><span>Spain's clash with Holland is a repeat of the World Cup final in 2010 .
+Vicente Del Bosque are the current holders of the World Cup .
+Chile and Australia are the two other sides in Group B .
+This is the first time the two World Cup finalists have met in the tournament directly after contesting the final since 1990, when West Germany beat Argentina 1-0 in the final (after meeting each other in 1986).
+La Roja lost their opening game of the 2010 World Cup to Switzerland, but went on to become the first team to ever win the tournament having lost their first game.
+Vicente Del Bosque has only lost one of his 25 World Cup games as Spain head-coach, including qualifiers (W22 D2). That was against Switzerland (0-1) in 2010.
+David Villa - Spain’s top scorer at World Cup Finals (eight goals) - has been directly involved in seven of Spain’s last nine goals in the tournament (six goals, one assist).
+Spain have won their last six World Cup games, their best ever run in the tournament. Their last four games have ended in 1-0 wins.
+Spain have kept a clean sheet in each of their last four World Cup games, the longest current run. Indeed only Italy (five games in 1990) and Switzerland (five in 2006 & 2010) have ever had a longer run in the competition.
+Holland have made it past the group stages in their last seven previous World Cup participations.
+Robin van Persie was the top scorer in the 2014 European World Cup qualifiers (11 goals).
+Spain and Holland have a perfectly even head-to-head record with four wins apiece and one draw, though Spain won the only previous World Cup clash 1-0 in the 2010 final.
+The defending champions have only won their first game in three of the last 10 World Cups (D4 L3), with Italy drawing 1-1 with Paraguay last time out.
+Robin van Persie and Holland gear up for Spain clash .
+DM.later('bundle', function(){ .
+DM.has('v-3620925055001','BC', .
+{'renderConfig' : .
+{ .
+'css' : "videoplayer-large", .
+'autoplay' : false, .
+'muted' : false, .
+'title' : "Robin van Persie and Holland gear up for Spain clash", .
+'videoId' : 1099763, .
+'adsEnabled' : false, .
+'playerId' : "1989148206001", .
+'playerKey' : "AQ~~,AAAAAFSL1bg~,CmS1EFtcMWELN_eSE9A7gpcGWF5XAVmI", .
+'objId' : "v-3620925055001", .
+'videoPlayer' : "3620925055001", .
+'width' : 636, .
+'height' : 358, .
+'source' : "AP", .
+'rsi' : typeof(adverts) != 'undefined' && typeof (adverts.getRsiValues) != 'undefined' ? adverts.getRsiValues() : null, .
+'linkBaseURL' : "http://www.dailymail.co.uk/sport/worldcup2014/article-2656802/Spain-vs-Holland-All-stats-facts-team-news-game-Group-B.html#v-3620925055001", .
+'trackingType': "", .
+'freewheelIdent': "", .
+'channel': 'sport'
+} .
+}); .
+}); .</span><span>As the 2014 World Cup continues, Sportsmail will be providing you with all you need to know about every fixture in Brazil from team news and key battles to betting odds and Opta stats... Here is all the information you need for the first game in Group B between Spain and Holland. Click here to follow the Spain vs Holland World Cup 2014 action live . Venue: Arena Forte Nova, SalvadorKick-off: 8pm (4pm, Brazil time)TV coverage: BBC1, from 7.30pmOdds: Spain 8/11, Draw 23/10, Holland 9/2Referee: Nicola Rizzoli, ItalyVIDEO Scroll down to watch former Arsenal stars Cesc Fabregas and Robin van Persie preparing for the match . The future's bright: Holland fans look to turn Brazil orange . Managers: . Vicente Del Bosque (Spain)Louis van Gaal (Holland)Team news: Spain and Holland played out one of the most disappointing World Cup finals in history four years ago. They get a chance to make amends right away in Brazil. In one of the quirks of the draw for Brazil, Spain opens the defense of its title against the country it beat in the championship decider in Johannesburg four years ago. But while Vicente Del Bosque's team has stuck to its attacking philosophy, Holland coach Louis van Gaal is packing his defense and hoping one of his three star forwards, Robin van Persie, Arjen Robben or Wesley Sneijder, can snatch a goal on the counterattack in their Group B opener at the Arena Fonte Nova in Salvador. Key clash: Wesley Sneijder vs Sergio Busquets . Four years ago Sneijder’s performances placed him in FIFA’s All-Star team but he was stopped by Busquets. The Dutch still rely on the Galatasaray playmaker to dictate their tempo but in Busquets he faces an opponent that few get joy out of. Key men: Holland's Wesley Sneijder and Spain's Sergio Busquets could play key roles for their sides . One to watch: Daryl Janmaat (Holland) Louis van Gaal’s 5-3-2 experiment should get an outing here and the ‘Dutch Dani Alves’ from Feyenoord will be key to providing width in attack to feed Robin van Persie, as well as defensive cover. Head-to-head record: . Played 9 Spain Wins 4 Draws 1 Losses 4 . Dutch of class: Daryl Janmaat is one of the main men for Louis van Gaal's side . Making the move: Cesc Fabregas has made the switch from Barcelona to Chelsea .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-12-1" ><div class="show-scrollbars"><span>Sportsmail exclusively revealed Malky Mackay and Iain Moody's text exchange on Thursday .
+Chief Sports Reporter Matt Lawton had chased story for weeks .
+Mackay pulled out of running to be new Crystal Palace boss .
+Moody resigned from post at Selhursrt Park following revelations .
+On Friday, Mackay publically apologised for the abusive texts .
+After weeks of chasing the story, Chief Sports Reporter Matt Lawton discovers Cardiff have sent a dossier to the FA, claiming former Cardiff City manager Malky Mackay and Crystal Palace Sporting Director Iain Moody had exchanged ‘racist, sexist and homophobic’ texts and email messages. With the final piece of his investigation falling into place, Lawton contacts all parties for comments.
+Sky Sports News reports that Mackay, who was expected to be named as the new Crystal Palace manager, has pulled out of the running to replace Tony Pulis.
+Moody’s lawyers attempt unsuccessfully to stop the Daily Mail from publishing the allegations.
+The Daily Mail publishes the exclusive story. Shortly after, former Cardiff City midfielder Ibrahim Farah takes to Twitter to label Mackay ‘disgusting’ and to complain about his treatment at the hands of Mackay.
+Moody resigns from his role at Crystal Palace.
+Leading football figures and anti-bigotry campaigners welcome the story, and call for swift action if allegations are substantiated.
+Early in the evening, Mackay’s agent speaks to Sky Sports News, saying the former Cardiff manager is shocked by the allegations and will fight them.
+Later in the evening, the League Managers Association issues an apology on Mackay’s behalf. Mackay denies allegations he is a racist and claims only ‘two’ of the text messages in question were sent by him. The ill-judged statement tries to dismiss the sordid exchanges between the two men as ‘friendly text banter’.
+Twitter responds by pouring scorn on the statement, with prominent former footballers Jason Roberts and Stan Collymore leading the criticism.
+Sportsmail publishes further details, with Lawton pointing out that, contrary to Mackay’s claims, the former Cardiff manager was reponsible for both racist and homophobic texts.
+Rio Ferdinand publicly criticises the LMA as ‘disgraceful’ and ‘insensitive’.
+The LMA apologises for its previous statement, conceding that ‘some of its wording’ was ‘inappropriate and has been perceived to trivialise matters of a racist, sexist or homophobic nature’.
+Cardiff officials question Mackay’s assertion that he was only responsible for two offensive texts and express horror at the LMA’s choice of words. Cardiff also call for the LMA’s chief executive Richard Bevan to resign.
+Sportsmail publishes further Textgate revelations from Lawton, with Mackay accused of calling the Cardiff owner Vincent Tan a ‘chink’.</span><span>Sportmsmail's Chief Sports Reporter Matt Lawton broke the story of Malky Mackay and Iain Moody's text exchange. Here's how the news rocked the football world... Wednesday . Exclusive: Chief Sports Reporter Matt Lawton's story in Thursday's Daily Mail . Thursday . Revelation: Sportsmail broke the story of Mackay and Moody's text message exchanges . Friday . Saturday . Texts: The LMA described Malky Mackay's messages to Iain Moody as ‘friendly text message banter’ Offensive: Sportsmail can reveal Malky Mackay called Vincent Tan a 'chink' in a disturbing text exchange .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-13-1" ><div class="show-scrollbars"><span>Stewart announced on Tuesday that after 16 years he will step down from Comedy Central's The Daily Show later in the year .
+Hunt is now on to find someone worthy of filling the enormous hole he is leaving behind .
+Early favorite is British comedian John Oliver who stood in for Stewart in 2013, but left soon after to host a similar show at HBO .
+List of potential replacements also includes Tina Fey, Chris Rock, Amy Schumer and even disgraced NBC anchor Brian Williams .
+John Oliver: He's top of the list for a reason: He proved he could emerge from the Daily Show ranks and succeed as host when Stewart took a movie-making break. Oliver and his dimples defected to HBO, but his return home would be triumphant.
+Tina Fey or Amy Poehler: Paired for efficiency's sake given their frequent collaborations. Like Stewart and Oliver, they've got the likability that helps make hard-hitting satire palatable — and how about at least one woman in late-night TV?
+Amy Schumer: There is a growing argument that late-night television is long overdue a female host. The vacancy at The Daily Show could be an ideal opportunity for Schumer, whose Comedy Central series premiere in 2013 was the network’s most-watched premiere that year.
+Chris Hardwick: A growing star at Comedy Central where he already hosts the social media-oriented show @midnight. The comedian also has a regular gig fronting Walking Dead spin-off The Talking Dead. Could be a strong contender because of his youthful fan base.
+Chris Rock: Brilliantly funny, certainly fearless. He wrote an essay about being black in an entertainment industry that is 'kind of racist' in its hiring practices — although he said he wasn't being political at all, adding, 'that's Stewart, that's (Bill) Maher.'
+Seth MacFarlane: He's a writer, performer and singer who can summon the juvenile glee, if not the artfulness, that Stewart employs to leaven the angst. And he could bring a sidekick, his devilish movie creation Ted the teddy bear.
+Aisha Tyler: An experienced all-rounder with talent to spare. She co-hosts The Talk, has acted in series including Ghost Whisperer, CSI, Talk Soup and Friends and also hosts Whose Line is it Anyway?
+Jessica Williams: A Daily Show player whose titles include 'senior youth' and 'senior Beyonce' correspondent, she's brimming with energy and edgy charm. Whether she has the experience and heft to step into the center ring is an open question.
+Aasif Mandvi, Samantha Bee and Jason Jones: Experienced Daily Show regulars but when Stewart took a break during the Summer of 2013 to direct his movie Rosewater, it was their colleague Oliver who was trusted in the big chair.
+Joel McHale: The Soup host already balances his Community sitcom role with a host gig, so why not step it up? He's quick witted, lovable and has a following that encompasses the frat-boy demo that is undeniably part of the Daily Show fan base.
+Brian Williams: The disgraced NBC Nightly News host has technically been sacked but is starting a six month suspension. Williams may use his extended break to reconsider where his career is going and isn't it his desire to be considered more than just a news anchor that got him into trouble in the first place? Could be just the reinvention he needs.</span><span>No sooner had Jon Stewart left Daily Show fans gobsmacked with his decision to bow out after 16 years at Comedy Central than the race has begun to find someone with the right credentials to adequately replace him. 'This show doesn't deserve an even slightly restless host and neither do you,' he told his audience on Tuesday night. He said he might depart in July, September or maybe December. Stewart's passion, wit and boldness make for a magical combination that will be difficult to re-create when he steps away later this year. Scroll down for video . No sooner had Jon Stewart left Daily Show fans gobsmacked with his decision to bow out after 16 years than the race has begun to find someone with the right credentials to adequately replace him . Big shoes to fill: Late-night television is long overdue a female host and Amy Schumer could be the ideal candidate, while hosting The Daily Show could be just the reinvention Brian Williams needs . An early favorite to replace Stewart is British comedian John Oliver who stood in for him in 2013, but left soon after to host a similar show at HBO . 'The X-factor here is Stewart's charisma. It's significant,' said Sophia McClennen, a Penn State professor and author of Is Satire Saving Our Nation?: Mockery And American Politics. The Daily Show averages just slightly more than 1 million viewers a night - a far smaller audience than his late-night competition on the big networks - but during his time as host Stewart has became disproportionately influential in U.S. politics and culture. Under Stewart, the show has won 18 Emmys, taking home the award for Best Variety Series every year from 2003 to 2012. It also won two Peabody Awards, for its election coverage in 2000 and 2004. In a 2004 poll by the Pew Research Center for the People and the Press, 21 percent of respondents aged 18 to 29 cited The Daily Show as a regular source of political news. The Daily Show boot camp has graduated a number of impressive talents who might prove to be worthy of the host chair, McClennen said, counting John Oliver first among a group including Aasif Mandvi, Samantha Bee and Jason Jones. There are outsiders who certainly have the comedic chops. But do they have the star power and the backbone to speak punchlines to power, and on a nightly basis? Possible successors: Jessica Williams is already The Daily Show's 'senior youth' correspondent, while Chris Rock is an established comedian known for his outspoken views on modern America . Daily Show regulars Samantha Bee and Jason Jones are other names that have been thrown in the hat as the search begins to replace Jon Stewart . Looking over the possibilities, here are some candidates to consider: . Ex-SNL alumnae Tina Fey and Amy Poehler have been mentioned as possible replacements for Jon Stewart . Other names in the frame for The Daily Show include Aisha Tyler and Joel McHale .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-14-1" ><div class="show-scrollbars"><span>The Great British Bake Off final expects to draw an audience of over 4 million tonight .
+27% of Britons say they will bake more in the next year .
+National Baking Week runs 15th -21st October .
+Baking is most popular in Yorkshire .
+1 in 7 adults bake at least twice a week .
+Servants leave for the First World War and work in other careers. Women work in armament factories and in other jobs, giving them less time to bake .
+The Women’s Institute is founded in 1915. Advice on cookery is offered and members share their experiences at meetings. After the war their magazine Home and Country, offers recipes and advice .
+The National Confectionary Industry started to issue adverts in press, encouraging women to take up home baking as a source of extra income .
+Good Housekeeping Magazine is first published in 1922 .
+Ready shredded packets of beef suet are advertised with the strapline of “What visions of delight...”. The advert refers to Spotted Dick amongst others recipes - this is for women who continue to bake .
+Increase in car travel meant out-of-home dining experiences such as picnics became popular, with a variety of baking recipes dedicated to on-the-go food .
+The Great Depression migrating to the UK meant that many households were unable to sustain their purchase of luxury baking ingredients, so alternative products such as margarine (instead of butter) became commonplace in the pantry.  Home baking with these cheaper products was encouraged as a way of stretching the pennies .
+Leaflets from organisations such as the Potato Marketing Board issued recipe books, and companies like Stork, who had big advertising campaigns, promoted margarine .
+Banana Cakes first appeared in cookbooks – grocers would share these recipes with customers when the fruit became over ripe to avoid wastage .
+The rationing of the war era meant that homes had to make do with what little fresh produce they could source. Kitchen waste was eliminated and the likes of Dripping Cake recipes were eagerly shared between housewives .
+Alternative cooking methods, such as pressure cookers, started to appear in the kitchen following the war – therefore it was no longer all about the oven as the main way to cook food, reducing the need to bake .
+Bread consumption was at a consistently high level in the 1940s (~1700g) - DEFRA .
+The consumption of cakes stood at 190g per person per week in 1950 - DEFRA .
+The introduction of the Kenwood Chef to market, in 1950, prompted a shift in how housewives made their home baked goods in the UK and globally .
+Baking oligopolies were producing sliced loaves such as Mother’s Pride and Sunblest, while Lyons was the major supplier of inexpensive cakes, producing Swiss Roll by the mile .
+After the Coronation, more homes had acquired televisions, so TV cookery now had a wider audience. Among the earliest TV cooks was Philip Harben .
+With the continued rationing of sugar until 1953, a variety of alternatives were commonly used to satisfy the nation’s sweet tooth. These included Golden Syrup, treacle, condensed milk and honey .
+The 1960s saw TV chef Fanny Craddock inspire housewives to become more adventurous with their cooking .
+The traditional ‘tea time’ of a cuppa with homemade cakes and buns faded from everyday life .
+Mass produced goods, such as bread and biscuits, became staples in the local stores .
+During a 50 year research window, the consumption of biscuits peaked at 166g per person in 1967 - DEFRA .
+Local charity groups encouraged women to get involved and raise money by baking at home for bake-sales, as ‘their contribution’ to the cause .
+Introduction of ‘foreign food’ such as pizza and pasta to the home meant that even more choice became available to the everyday family cook, not all of which would need to be baked .
+The first campaign for real bread is launched in 1976 promoting better quality commercial baking and home baking. The emphasis focused on wholemeal bread, which was a minority taste .
+The rise of the ‘middle classes’ meant that the dinner party became the  way to outdo the Jones, typified by the likes of Mike Leigh’s ‘Abigail’s Party’.  The need for special creations meant that many experimented with new and challenging recipes such as soufflé .
+Another campaign for Real Bread is launched, this time by ‘The Sunday Times’ with food writer Caroline Conran, medical correspondent Oliver Gillie and journalist Michael Bateman .
+The rise in popularity of the prefab kitchen meant that the kitchen essentials – such as the oven and hob – were ‘out of sight and out of mind’ for many homecooks .
+By 1986, 1 in 5 households was estimated to have a microwave which was said to help reduce cooking time by 75% and gave rise to the influx of ready meals .
+The consumption of cakes had dropped to a half century low at 69g per person per week in 1989 – DEFRA .
+At home, popular tray bakes - cakes baked in a square pan using flour, eggs, sugar butter or margarine - were a simple answer to producing cake in a hurry .
+In 1988, Edwina Curry resigned from the Conservative government over her statement that British eggs were contaminated with Salmonella. This caused a fall in sales and problems for domestic cooks .
+Delia Smith’s TV series ‘How to Cook’
+acknowledges that many people do not even know how to boil an egg. The .
+series and her book were best sellers .
+New style wedding cakes were made by arranging cup cakes on tiered wire stands. An individual cake for each guest and nothing for the couple to cut, a true creation for the age of individualism .
+A new enthusiasm for artisan baking was typified by De Gustibus bakery, opened in Oxfordshire in 1990. The bakery was originally based on a home baking business. De Gustibus has won several awards including Best Independent Baker of the Year in 1997. Enthusiasts like these bakers were producing similar products at home using organic craft milled flours .
+Up until 2000, there was little indication that home baking had increased with a steady drop in the consumption of flour (206g in 1950 to 67g in 2000) and sugar (287g in 1950 to 105g in 2000) - DEFRA .
+From 2001-2006 the sale of home baking products increased by 25%, bringing total sales to £429 million in 2006 - Mintel .
+Luxury cupcakes started to become the ‘must munch’ baked good after Carrie Bradshaw from Sex in the City bought one from the New York Magnolia Bakery.  By 2010 cupcakes became the second most popular type of cake to bake at home - Mintel .
+The government’s ‘Reduce, Reuse and Recycle’ campaign hit home, with many households looking at inventive ways to bake with leftovers or surplus vegetables .
+The revival in home baking helped the sector to grow by 13% between 2007 and 2009 - Mintel .
+2010 research shows that over half of Brits (52%) say that they get recipe ideas from online websites compared to the 46% who rely on cookbooks, driving easy access to baking inspiration - Mintel .
+Tightening the belt to stave off the recession in the home has resulted in many families baking their own bread to combat rocketing pre-made loaf prices .
+The royal wedding gave rise to street parties lined with Union Jack cupcakes and iced versions of Will and Kate .
+Home-made cakes have started to gained in popularity as an alternative to expensive gifts .
+The TV show ‘Great British Bake Off’ has captured the imagination of the nation and highlighted the joys of baking .</span><span>By . Toni Jones . PUBLISHED: . 09:29 EST, 16 October 2012 . | . UPDATED: . 12:26 EST, 16 October 2012 . Tonight's grand final of the Great British Bake Off is expected to draw over four million viewers. Not bad for a genteel BBC2 show about cakes. The show has become one of BBC2’s biggest success stories with a peak of 4.6 million tuning in each week to see presenters Sue Perkins and Mel Giedroyc and judges Paul Hollywood and Mary Berry whip up a TV storm. The show has been credited with making baking cool again, and reminding boys where the kitchen is (tonight's final is all male and judge Paul Hollywood's heartthrob status continues to soar). But Brtiain's love of baking isn't really new at all - just ask your grandmother. The trend for home baking has been in and out of vogue many times over the last century . From the launch of Good Housekeeping magazine in the 1920s to the introduction of TV chefs post-Coronation in the 1950s, the last century has seen the popularity of baking rise and fall according to social and economic trends. Today's thrifty climate means that we are enjoying home comforts as well as needing to stretch our bank accounts while in the 1930s the increasing popularity of cars and therefore picnics caused a boom in baking, and in the 1980s celebrity chef Delia Smith stirred our passions for the kitchen with her 'How to Cook' book. Factors contributing to the decline in home baking over the century include women going to work in the 1910s, rationing in the 1940s and mass produced processed food arriving in homes in the 1960s. To celebrate National Baking Week (which runs from 15th-21st October) and the Great British Bake Off final kitchen appliance company Kenwood has compiled a time line of baking trends with help from Wendy Wilson, archivist from Britain's oldest weekly women's magazine The Lady, and Dr Valerie Mars, a food historian. Dr Mars says: 'Baking trends are essentially uneven. Some people will always bake, especially in places with a long-standing tradition such as Yorkshire, but fashion also has a huge influence. In the current economic climate, an increase in baking at home by those who discover and enjoy the craft provides a logical way of economising during hard times.' Bake Off judge and trained baker Paul Hollywood seen today ahead of the final . Paul and fellow judge Mary Berry have gained a cult following on the show . Paul and fellow judge Mary Berry have gained a cult following on the show . Good Housekeeping magazine in 1932 focused on 'meals for the business girl' The popularity of new domestic appliances in the 1950s led to a rise in the trend for home baking . In the seventies the rise of the middle class meant that dinner parties became popular . Delia Smith, celebrity chef and Norwich fan lured us back in to the kitchen in the nineties with her back to basics approach . 4 million viewers are expected to watch finalists John Waite, James Morton and Brendan Lynch battle it out for the Great British Bake Off crown tonight in front of judges Paul Hollywood and Mary Berry and presenters Sue Perkins and Mel Giedroyc .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-15-1" ><div class="show-scrollbars"><span>The Passat has been around for 42 years, the first model came out in 1973 .
+The estate car is the fourth biggest-selling VW in the UK .
+The new model has everything from keyless entry to heated seats .
+Only diesel models will be on sale initially and there will be a beefed-up 4x4 version hitting the road in July .
+It's hard to believe, but the Passat has been around for 42 years. More than 22 million have been made since 1973. So this is the eighth generation. It's a proven and indefatigable workhorse — the fact that the estate version comfortably outsells the svelte saloon testifies to that.
+Brits bought 10,000 estates in 2013, against 7,600 saloons. The Passat is the fourth biggest-selling VW here after the Golf, Polo and Up!.
+Used as much for work as for leisure and pleasure, these estates can take a pounding. This new version really does look and feel like the business, but is it more than just a pretty face?
+It certainly has kerb appeal with elegant styling. Even the doorman at a fivestar London hotel — more used to parking Ferraris, and Bentleys — was moved unprompted to comment on how smart it looked.
+Goes from rest to 62mph in 8.9 seconds — and feels faster as you go through the six-speed manual gearbox. Top speed is 135mph.
+Five driving modes include comfort, normal, sport or 'eco'. I kept it mainly on sport and enjoyed plenty of power when needed, yet with a nimble, well-balanced ride on all types of road.
+Excellent economy. It averaged 68.9mpg — 76.3mpg when cruising and 59.9mpg around town. CO2 emissions are a low 107g/ km. An even more frugal 78mpg BlueMotion version arrives in June.
+A stop-start system helps keep fuel bills low. There's keyless entry, plus and heated seats and steering wheel for which, in this cold snap, I was very grateful.
+Ample flexible interior space; slightly more than in the outgoing model, even though its exterior dimensions are slightly smaller. The three rear seats fold nearly flat for extra load lugging capability.
+Smart but unfussy interior, with supportive seats that have plenty of reclining and setting options to ensure comfort for drivers and passengers of all shapes and sizes. Stylish cloth fabric on the seats with silver inserts also add to the business-like feel.
+Easy to drive and intuitive to a degree that means you quickly become at home.
+Five trim levels from launch: S, SE, SE Business (my vehicle), GT and R-Line. The latter two include a range topping two-litre bi-turbo TDi diesel engine with 240 bhp and four-wheel drive. From £22,215 for the saloon, but add on £1,530 for the estate.
+Lots of electronic kit to keep you safe and stable on the road.
+Easy-to-read dials, but VW plans an optional 12.3 in display to replace the conventional instrument cluster.
+Rear cameras make reversing into the tightest of spaces much easier.
+There may be a lot of technology on board but it's simply displayed on an uncluttered dashboard. The touchscreen is relatively easy to navigate.
+For anyone keen on the great outdoors, a 'trailer-assist' feature helps to manoeuvre trailers more accurately.
+Only diesel models are on sale at first. A frugal plug-in hybrid GTE version with a 1.4-litre TSi petrol and electric motor version is to follow in October, promising a combined range of more than 620 miles or 31 miles in pure electric mode. A beefed-up 4x4 version will hit the road in July.
+Extras hiked the base price of the version I drove from £26,665 to £31,270. These included the winter pack of heated front seats, windscreen washer jets (£280), heated steering wheel (£135), heated windscreen (£150), and a whole lot more. The dynamic chassis control (£700), 18-inch anthracite alloys (£665), sound insulating glass (£310), climate control (£590), all-round cameras (£590), and a system that enables you to connect your smartphone to the car's information and entertainment system (£160).</span><span>Volkswagen Passat Estate SE Business 2.0 TDI 150PS . Price as driven: £31,270 . GOOD . The Volkswagen Passat Estate SE Business 2.0 TDI 150PS (pictured) is the eighth generation of the model . BAD . The Passat has been around for 42 years, pictured here is the first generation of the model in 1973 .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-16-1" ><div class="show-scrollbars"><span>The company have put a great deal of attention to detail into this model .
+The new Zetec is both effortless and nimble to drive .
+Ford have listened to their customers and simplified the car's interior .
+Were it not for a Press leak, this would be a test of the latest version of the Ford Fusion. That was the name planned for the mid-size hatchback, which in 1998 replaced the longrunning Escort. But Ford's then boss, the mercurial Jac Nasser, was so incensed that the cat had got out of the bag, he changed the name and revealed it just seconds before the curtains came up at its Geneva Motor Show launch. Now with 12 million sold worldwide, we're on the third generation.
+Ford does so many things without fuss that it's easy to take its cars for granted. A big mistake. The company puts a great deal of attention to detail into each model. So this newcomer is both effortless and nimble to drive, but also engaging, thanks to a crisp six-speed manual gearbox linked to a willing, yet frugal and award-winning, 1-litre 125bhp EcoBoost engine.
+The base price of the car I drove was £18,795, but it came with a few extras including Frozen White paint (£250), door edge protectors (£85), but most significantly the Ford Sync2 DAB navigation system (£500) with a big 8in touch-screen with on the central dashboard. It includes a splitscreen display, voice-control of audio, satnav, climate control and mobile phones, spoken street names, 3-D highway, junction and landmark views and even the Michelin guide. A chunk of money, but well worth it.
+The ergonomics make it easy to sit in and drive. Buttons tend to be where you want them.
+Ford said it's listened to customers who asked for simplicity inside the car with fewer controls and switches to navigate around.
+So a sensible de-clutter results in a cleaner, more modern feel to the interior with black satin trim and chrome detailing. Sufficient space in the back. The boot is big enough for the weekly shop.
+Good economy at around 60mpg — almost 50mpg in town, helped by stop-start technology. Acceleration from rest to 62 mph is 11 seconds which, while it won't break any speed records, is fine for family motoring. CO2 emissions are low at 108g/km.
+My Zetec trim level is the third of six which range from basic Studio to Style, Zetec, Zetec S, Titanium and Titanium X. Standard equipment includes 16 in alloy wheels, a quick-clear heated windscreen, air conditioning, remote central locking, hill-start assist, Thatcham category 1 alarm, halogen headlamps, sports-style front seats and a driver-seat lumbar adjust.
+Exterior styling has been refined to make it look more streamlined, but the main brief seems to have been, if it ain't broke, don't fix it.
+Up against tough competition such as the Volkswagen Golf which, although more expensive, is a hard act to follow.
+There are some handy parking aids on offer, which use ultrasonic sensors to locate parking spaces and steer the car into them automatically. Sadly on the model I tested, they were not fitted.
+Having plumped for a midrange model, you might ask what else is on offer. Beyond the standard Titanium X trim there's the 135mph ST, with its 250 bhp 2-litre EcoBoost petrol engine, which hits showrooms this month from £22,195. There's also a 185 bhp diesel with a top speed of 135mph and 19in alloys, and a high-performance 320 bhp 2.3-litre allwheel drive RS — the 30th vehicle to wear the RS badge since 1968.</span><span>Ford Focus Zetec, 5-door 1.0T . Price as driven: £19,630 . Ray Massey tested the new 5-door Ford Focus Zetec (pictured) this week and was impressed by the car's simple interior and streamlined exterior styling . GOOD . BAD . Golden Globewinning actor and car fan Idris Elba — star of the film Mandela: Long Walk to Freedom — has been putting Jaguar's new XE compact salon through its paces before it goes on sale in June priced from £26,995. Golden Globewinning actor and car fan Idris Elba (pictured) has been putting Jaguar's new XE compact salon through its paces before it goes on sale in June . As well as driving an XE from London to Berlin for a four-part documentary, he's taken part in a high-octane test at Spa, Belgium, with the help of ex-F1 driver Martin Brundle. He said: 'My work takes me around the world, but I rarely have the time to get behind the wheel myself.' Prime Minister David Cameron welcomed Rolls-Royce's official announcement that it's to build its first ever 4x4, creating hundreds of new jobs. He was present as the firm announced the multi-million pound investment at its Goodwood factory, in West Sussex, on Wednesday and hailed it as a huge vote of confidence in the UK and its economy. Rolls Royce officially announced this week that they will be building their first ever 4x4 and creating hundreds of new jobs - this photograph demonstrates how the new 4x4 could look . He said: 'The Government will do everything we can to support you because it is something the country needs more of.' The new super-luxury offroader (as imagined by Auto Express above) is set to go into production within three years, adding to a line-up which includes the Phantom and Ghost limousines and variants, plus the Wraith fastback. It will be a high-bodied allterrain vehicle with all-new aluminium architecture, which Rolls-Royce says is 'worthy of carrying the Spirit of Ecstasy into the future'.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-17-1" ><div class="show-scrollbars"><span>The fantastic flexibility of features makes this car great for families .
+The car is highly rated with more emergency braking and stability control .
+Only the 2.2 litre SD4 diesel version will be on sale in the UK .
+Just in time for the Christmas break, I took the handsome new seven-seater Discovery Sport to Iceland — no, not the High Street frozen food chain, but a proper epic across ice and snow-covered landscapes on that Viking island south of the Arctic Circle.
+We may have been promised a disco inferno near the still-smouldering volcanoes, but it was more like Ice Station Zebra on the road. I've never seen so many fur-clad parkas since a screening of the Mod film Quadrophenia.
+This was no road test for sissies. I don't recall meeting any tarmac outside Reykjavik. Most of the crosscountry driving was on thick ice, thin ice, or snow. There was a constant threat of blizzard when, I'm told, visibility drops to nil. Thankfully the winter tyres and onboard safety features were up to it.
+On looks alone it's a winner. It may be a replacement for the Freelander, but it's bigger, smarter, more luxurious and flexible, even though the engine and much of the underpinnings remain the same.
+Great for families, thanks to fantastic flexibility. There are five seats for everyday use. But two extra ones pop up from the rear to create a magnificent seven.
+The willing 2.2 litre SD4 diesel is linked to a smooth 9-speed ZF automatic gearbox and accelerates briskly from rest to 62mph in 8.4 seconds so it's pretty nimble around town and when cruising, as well as off road. Top speed is 117mph. CO2 emissions are a fair 161g/km, helped by a 'stop-start' system.
+There's the option of manual override via paddles on the steering wheel. And boy did I use them as I traversed slippery glaciers and stormed up steep, snowclad hills. For winter in Britain, it'll do the job.
+The hill-descent control was a godsend. It takes control of the low gearing and braking to give you a reassuringly confident descent.
+It's been built with about 2ft (600mm) of wading depth, with a short overhang at the front and rear to help you cross shallow rivers and fords.
+The car has achieved the top 5-star rating with more emergency braking and stability control systems than you could wave a stick at — plus a pedestrian airbag.
+A comfortable and comforting interior with a commanding view of the road ahead and ample head and legroom in the back.
+It goes on sale on January 22, with first deliveries set for late February.
+Not the cheapest 4x4 by far and the 'extras' will soon mount up. You are paying a hefty premium for the badge and the engineering expertise behind it.
+Only the 2.2 litre SD4 diesel version will be on sale in the UK, no petrol option.
+There will be a 'greener' two-wheel-drive version soon, producing a 119g/km and costing less than £30,000. Great for looking the part, but frankly if you're going to buy a proper Land Rover, why have one that's not a 4x4?
+The hill descent control button needs to be more prominent so you could whack it into play in transit — when you suddenly realise you need it — rather than groping to find it.</span><span>New Land Rover Discovery Sport . HSE Luxury 2.2L SD4 diesel . On sale: early 2015 Price: £41,195 . GOOD . Ray Massey (pictured) tests the features on the new seven-seater Land Rover Discovery Sport in Iceland . BAD .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-18-1" ><div class="show-scrollbars"><span>Two freshman representatives document their experience for CNN .
+Rep. Jared Polis is a Democrat representing Colorado's Second district .
+Rep. Jason Chaffetz is a Republican representing Utah's Third district .</span><span>Congressman Jared Polis . (D) Colorado: District 02 . Congressman Jason Chaffetz . (R) Utah: District 03 .</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-19-1" ><div class="show-scrollbars"><span>U.S. panel reports examples of intimidation, violence against Christians in Iraq .
+Report: Christians urged to convert to Islam, attacked if they don't obey Islamic laws .
+Christian priests, missionaries have been kidnapped and killed, report says .</span><span>(CNN) -- The U.S. Commission on International Religious Freedom cited several examples in a recent report of abuse toward Christians in Iraq. Iraqis rush to a car bomb explosion at a Christian church in Kirkuk in January.</span></div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-20-1" ><div class="show-scrollbars"><span>Video: Hand-held cams track freshmen moves .
+Two freshman representatives document their experience for CNN .
+Rep. Jared Polis is a Democrat representing Colorado's Second district .
+Rep. Jason Chaffetz is a Republican representing Utah's Third district .</span><span>Congressman Jared Polis . (D) Colorado: District 02 . Congressman Jason Chaffetz . (R) Utah: District 03 .</span></div></td></tr></tbody>
+</table></div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">≈0.0091545% unexpected</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> characters long.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >10</span> characters long.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-5" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-5-content-block-1" class="col-12 p-0" >
+
+    <div id="section-5-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-5-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-5-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-5-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>

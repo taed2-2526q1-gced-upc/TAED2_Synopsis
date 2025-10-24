@@ -1,0 +1,136 @@
+# Welcome to Great Expectations! Always know what to expect from your data.
+#
+# Here you can define datasources, batch kwargs generators, integrations and
+# more. This file is intended to be committed to your repo. For help with
+# configuration please:
+#   - Read our docs: https://docs.greatexpectations.io/docs/guides/connecting_to_your_data/connect_to_data_overview/#2-configure-your-datasource
+#   - Join our slack channel: http://greatexpectations.io/slack
+
+# config_version refers to the syntactic version of this config file, and is used in maintaining backwards compatibility
+# It is auto-generated and usually does not need to be changed.
+config_version: 4.0
+
+# This config file supports variable substitution which enables: 1) keeping
+# secrets out of source control & 2) environment-based configuration changes
+# such as staging vs prod.
+#
+# When GX encounters substitution syntax (like `my_key: ${my_value}` or
+# `my_key: $my_value`) in the great_expectations.yml file, it will attempt
+# to replace the value of `my_key` with the value from an environment
+# variable `my_value` or a corresponding key read from this config file,
+# which is defined through the `config_variables_file_path`.
+# Environment variables take precedence over variables defined here.
+#
+# Substitution values defined here can be a simple (non-nested) value,
+# nested value such as a dictionary, or an environment variable (i.e. ${ENV_VAR})
+#
+#
+# https://docs.greatexpectations.io/docs/guides/setup/configuring_data_contexts/how_to_configure_credentials
+
+
+config_variables_file_path: uncommitted/config_variables.yml
+
+# The plugins_directory will be added to your python path for custom modules
+# used to override and extend Great Expectations.
+plugins_directory: plugins/
+
+stores:
+# Stores are configurable places to store things like Expectations, Validations
+# Data Docs, and more. These are for advanced users only - most users can simply
+# leave this section alone.
+  expectations_store:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: expectations/
+
+  validation_results_store:
+    class_name: ValidationResultsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/validations/
+
+  checkpoint_store:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      suppress_store_backend_id: true
+      base_directory: checkpoints/
+
+  validation_definition_store:
+    class_name: ValidationDefinitionStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: validation_definitions/
+
+expectations_store_name: expectations_store
+validation_results_store_name: validation_results_store
+checkpoint_store_name: checkpoint_store
+
+data_docs_sites:
+  # Data Docs make it simple to visualize data quality in your project. These
+  # include Expectations, Validations & Profiles. The are built for all
+  # Datasources from JSON artifacts in the local repo including validations &
+  # profiles from the uncommitted directory. Read more at https://docs.greatexpectations.io/docs/terms/data_docs
+  local_site:
+    class_name: SiteBuilder
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: data_docs
+fluent_datasources:
+  data_check:
+    type: pandas
+    id: 2c394697-3ccd-4111-ac63-a5a77b83e5a3
+    assets:
+      raw_train:
+        type: parquet
+        id: ac677e85-becd-41a5-8a9e-97ac4dbeb508
+        batch_definitions:
+          batch_raw_train:
+            id: b40066a1-4a8c-433b-a439-8768e67883ac
+            partitioner:
+        path: C:\Users\k2627\TAED2_Synopsis\data\raw\train.parquet
+      raw_val:
+        type: parquet
+        id: a51f126b-ab78-4788-9435-9fff08588b50
+        batch_definitions:
+          batch_raw_val:
+            id: e17713ba-6cae-4d88-ba9a-8806b1625b11
+            partitioner:
+        path: C:\Users\k2627\TAED2_Synopsis\data\raw\validation.parquet
+      raw_test:
+        type: parquet
+        id: 7a7398eb-e138-49a0-a929-bbf751f38f9e
+        batch_definitions:
+          batch_raw_test:
+            id: 28cf1b5a-7481-41ae-bb1a-b6fa5546b86d
+            partitioner:
+        path: C:\Users\k2627\TAED2_Synopsis\data\raw\test.parquet
+      clean_train:
+        type: parquet
+        id: 22ce95e0-07d7-44b6-8f5d-363bd25b81e8
+        batch_definitions:
+          batch_clean_train:
+            id: b41b9711-73f7-4d8e-b940-17eb152076dd
+            partitioner:
+        path: C:\Users\k2627\TAED2_Synopsis\data\processed\clean_train.parquet
+      clean_val:
+        type: parquet
+        id: 4182fcc4-0689-4aff-910f-b3123b31b78a
+        batch_definitions:
+          batch_clean_val:
+            id: c64a59a4-b3ab-4423-867a-861283572b1a
+            partitioner:
+        path: C:\Users\k2627\TAED2_Synopsis\data\processed\clean_val.parquet
+      clean_test:
+        type: parquet
+        id: 50f2b1c6-a253-4dd0-ad6d-88c145b4f734
+        batch_definitions:
+          batch_clean_test:
+            id: b690c279-2b77-481a-b4ff-cf5323301a79
+            partitioner:
+        path: C:\Users\k2627\TAED2_Synopsis\data\processed\clean_test.parquet
+analytics_enabled:
+data_context_id: c6f02c50-e9f1-48e6-87a9-ae118a51fc59

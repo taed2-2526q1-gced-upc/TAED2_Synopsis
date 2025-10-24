@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data documentation compiled by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+  
+
+
+  
+
+<link rel="shortcut icon" href="../../../static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+  
+
+
+
+
+
+  
+
+<script type="text/javascript">
+$(function() {
+    $('button.copy-edit-command').click(function() {
+        $('.edit-command').focus();
+        $('.edit-command').select();
+        document.execCommand('copy');
+    });
+});
+</script>
+
+<div class="modal fade ge-expectation-editing-instructions-modal" tabindex="-1" role="dialog" aria-labelledby="ge-expectation-editing-instructions-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ge-expectation-editing-instructions-modal-title">How to Edit This Expectation Suite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height: 350px">
+        <p>Expectations are best <strong>edited interactively in Jupyter notebooks</strong>.</p>
+        <p>To automatically generate a notebook that does this run:</p>
+        <div class="input-group mb-3">
+          
+            <input type="text" class="form-control edit-command" readonly value="great_expectations suite edit data_quality_validation">
+          
+            <div class="input-group-append">
+                <button class="btn btn-primary copy-edit-command" type="button"><i class="far fa-clipboard"></i> Copy</button>
+            </div>
+        </div>
+      <p>Once you have made your changes and <strong>run the entire notebook</strong> you can kill the notebook by pressing <strong>Ctr-C</strong> in your terminal.</p>
+      <p>Because these notebooks are generated from an Expectation Suite, these notebooks are <strong>entirely disposable</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="../../../../index.html">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20251016T105853.343312Z&dataContextId=c6f02c50-e9f1-48e6-87a9-ae118a51fc59"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+        <ol class="ge-breadcrumbs breadcrumb d-md-inline-flex bg-light ml-2 mr-0 mt-0 mb-0 pt-0 pb-0 d-none">
+            <li class="ge-breadcrumbs-item breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+            <li class="ge-breadcrumbs-item breadcrumb-item active" aria-current="page">Validations / data_quality_validation / __none__ / 2025-10-16T12:57:57Z</li>
+        </ol>
+      
+    </nav>
+  </div>
+</nav>
+    
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <h4>Expectation Validation Result</h4>
+      <p class="lead">Evaluates whether a batch of data matches expectations.</p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+      <div class="mb-2">
+        <p class="card-text col-12 p-0 mb-1">
+          Validation Filter:
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary active" onclick="showAllValidations()">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Show All
+            </label>
+            <label class="btn btn-primary" onclick="hideSucceededValidations()">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Failed Only
+            </label>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        <div class="mb-2">
+          <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".ge-expectation-editing-instructions-modal">
+              <i class="fas fa-edit"></i> How to Edit This Suite
+            </button>
+          </div>
+        </div>
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+      <div class="card d-md-block d-none" style="max-height: 75vh">
+  <div class="card-header p-2">
+    <strong>Table of Contents</strong>
+  </div>
+  <div class="card-body p-0" style="overflow: auto; height: 100%">
+    <nav id="navigation" class="rounded navbar   bg-light ge-navigation-sidebar-container p-1" style="max-height: 65vh;">
+      <ul class="nav nav-pills ge-navigation-sidebar-content col-12 p-0" style="max-height: 65vh">
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link" href="#section-1"
+               style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                <strong>Overview</strong>
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-2"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                Table-Level Expectations
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-3"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                article
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-4"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                highlights
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item col-12">
+              <a class="nav-link ge-navigation-sidebar-link ml-1" href="#section-5"
+                 style="white-space: normal; word-break: break-all;overflow-wrap: normal;">
+                id
+              </a>
+            </li>
+          
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+        
+          <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 p-0" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Overview
+                </h5>
+            
+        </div>
+      
+    
+        <div id="section-1-content-block-1-subheader" >
+          
+                <span class="mb-0 mt-1" >
+                    <span class="h6" >Expectation Suite:</span> <a href="..\..\..\..\expectations\data_quality_validation.html" >data_quality_validation</a><br> Data asset: None<br> <span class="h6" >Status:</span> <i class="fas fa-times text-danger" aria-hidden="true"></i> Failed
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-6 table-responsive mt-1 p-1" >
+
+    <div id="section-1-content-block-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Statistics
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-2-cell-1-1" ><div class="show-scrollbars">Evaluated Expectations</div></td><td id="section-1-content-block-2-cell-1-2" ><div class="show-scrollbars">13</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-2-1" ><div class="show-scrollbars">Successful Expectations</div></td><td id="section-1-content-block-2-cell-2-2" ><div class="show-scrollbars">11</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-3-1" ><div class="show-scrollbars">Unsuccessful Expectations</div></td><td id="section-1-content-block-2-cell-3-2" ><div class="show-scrollbars">2</div></td></tr><tr>
+          <td id="section-1-content-block-2-cell-4-1" ><div class="show-scrollbars">Success Percent</div></td><td id="section-1-content-block-2-cell-4-2" ><div class="show-scrollbars">≈84.62%</div></td></tr></tbody>
+</table>
+
+</div>
+        
+
+<div id="section-1-content-block-3" class="col-12 p-1" >
+
+    
+
+
+  
+    
+    
+  
+    
+  
+
+
+
+
+
+
+<div id="section-1-content-block-3-parent" >
+  
+    <p class="m-0">
+      <a data-toggle="collapse" href="#section-1-content-block-3-collapse-body-354944eb-d2ec-4cc0-98ae-df897e61b4aa" aria-expanded="false" aria-controls="section-1-content-block-3-collapse-body" >
+        Show more info...
+      </a>
+    </p>
+  
+
+  <div id=section-1-content-block-3-collapse-body-354944eb-d2ec-4cc0-98ae-df897e61b4aa class="card card-body collapse m-2" >
+    
+    
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-1-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Info
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-1-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-1-1" ><div class="show-scrollbars">Great Expectations Version</div></td><td id="section-1-content-block-3-collapse-item-1-cell-1-2" ><div class="show-scrollbars">1.7.0</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-2-1" ><div class="show-scrollbars">Run Name</div></td><td id="section-1-content-block-3-collapse-item-1-cell-2-2" ><div class="show-scrollbars">__none__</div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-1-cell-3-1" ><div class="show-scrollbars">Run Time</div></td><td id="section-1-content-block-3-collapse-item-1-cell-3-2" ><div class="show-scrollbars">2025-10-16T12:57:57Z</div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-2-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Markers
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-2-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >ge_load_time</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >20251016T105820.065255Z</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-2-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >pandas_data_fingerprint</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-2-cell-2-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >69d26744c97b319cd3d7092d706f04a0</span>
+                </span>
+            </div></td></tr></tbody>
+</table>
+    
+      
+      
+      <div id="section-1-content-block-3-collapse-item-3-header" >
+        
+          
+            <div>
+              
+                <h6 class="m-0" >
+                    Batch Spec
+                </h6>
+            
+            </div>
+          
+        </div>
+
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-body"
+  class="table table-sm" style="margin-bottom:0.5rem !important; margin-top:0.5rem !important;" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_method</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >read_parquet</span>
+                </span>
+            </div></td></tr><tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >reader_options</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2" class="pt-0 pl-0 border-top-0" ><div class="show-scrollbars">
+
+
+
+<table
+  id="section-1-content-block-3-collapse-item-3-cell-2-2-content-body"
+  class="table table-sm m-0" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+      
+      
+    
+      <thead hidden>
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+                
+                <th
+                  
+                >
+                  
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-1" class="pr-3" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >path</span>
+                </span>
+            </div></td><td id="section-1-content-block-3-collapse-item-3-cell-2-2-content-cell-1-2" class="" ><div class="show-scrollbars">
+                <span >
+                    <span style="word-break:break-all;" >C:\Users\k2627\TAED2_Synopsis\data\raw\test.parquet</span>
+                </span>
+            </div></td></tr></tbody>
+</table></div></td></tr></tbody>
+</table>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-2" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-2-content-block-1" class="col-12 p-0" >
+
+    <div id="section-2-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    Table-Level Expectations
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-2-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-2-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-2-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    Values for given compound columns must be unique together: <span class="badge badge-secondary" >article</span>, <span class="badge badge-secondary" >highlights</span>
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>4 unexpected values found. ≈0.03481% of 11490 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-2-content-block-2-cell-1-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Unexpected Value
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Count
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-1-1" ><div class="show-scrollbars"><span>(CNN)Tornadoes, fierce winds and severe thunderstorms with large hail are predicted for the Midwest and for the Plains, from the Ozarks eastward to the lower Ohio Valley, on Thursday and Friday, the National Weather Service said. Severe weather is perilous anytime, of course, but CNN meteorologist Chad Myers says that tornado conditions are more dangerous during the night. "Tornadoes can be more deadly when people are sleeping and not paying attention to the warnings," he said. Scattered storms will soak Illinois and Missouri, and wind and hail will continue to be moderate in those states, the National Weather Service said. By Thursday afternoon, storms will hit parts of Indiana and Kentucky. Earlier this week, severe weather struck the South. Alabama, Arkansas, Oklahoma and Georgia reported large hail. Residents in Shawnee, Oklahoma, were awakened early Wednesday morning by a severe storm producing golf ball-sized hail. "The hail came out of nowhere so it was kind of shocking," Sherri McDonald said to CNN in an iReport. The hail dinged her car.</span><span>Thunderstorms with large hail are predicted for the Midwest and the Plains .
+Tornadoes could strike Thursday night and Friday .</span></div></td><td id="section-2-content-block-2-cell-1-2-content-2-cell-1-2" ><div class="show-scrollbars">2</div></td></tr><tr>
+          <td id="section-2-content-block-2-cell-1-2-content-2-cell-2-1" ><div class="show-scrollbars"><span>Defiant Nigel Farage today insisted he did not 'lose my rag' after rounding on the audience of a live TV debate for being too left wing. The Ukip leader was booed by voters at Westminster's Methodist Central Hall as he faced claims he blamed all of Britain's problems on migrants. Pollster ICM, which was hired by the BBC to select the audience members, today defended its process 'using random location selection techniques'. Nigel Farage today insisted he did not 'lose my rag' after rounding on the audience of a live TV debate for being too left wing . Mr Farage, pictured today, risked alienating those watching at Westminster's Central Hall in London as he protested they were 'a remarkable audience even by the Left-wing standards of the BBC' The BBC stressed that the audience was carefully selected by an process, but Mr Farage said something had gone 'wrong' with the process. Asked whether he had lost his temper, Mr Farage told the BBC News Channel: 'I was very calm about it. I didn't lose my rag.' He said his protest had been sparked by the hostile audience reaction to his argument that high levels of immigration were increasing pressure on the housing market, something he said would be accepted by 'most rational people'. And he added: 'This is not the first time I've seen this. The night of the by-election that Douglas Carswell won in Clacton with a landslide, there was a Ukip representative - Patrick O'Flynn - on Question Time in Clacton and the audience were deeply hostile to him.' Asked if he blamed the BBC, Mr Farage said: 'Sometimes these things go wrong, sometimes you get groups who apply to be on programmes who perhaps aren't as truthful on their applications as they could be. 'In this case, the BBC gave the job to a polling company called ICM who are famous for getting everything about Ukip wrong and that I think was the mistake. 'Am I going to make a complaint? I've got an election to fight. What matters isn't the 200 people in the room, what really matters are the millions of people watching on television.' Mr Farage's outburst came less than half an hour into the event after some of his comments about pressure on housing due to immigration were greeted with mutters from those watching . Independent pollsters ICM were hired by the BBC to select the audience of around 250 people. After facing stiff criticism from Ukip, the firm today released a statement on how it chose the audience members. They were selected from a 20-mile radius of the venue in Westminster. The region was broken up into 30 small areas, and at least 8 people were chosen from each area. Each person was selected to reflect the 'composition of the UK population by gender, age, ethnicity, and social grade, and political protocols that reflected the balance as agreed between the broadcasters and the political parties', ICM said. A fifth of the people declared themselves to be 'undecided voters'. A 'small number' of SNP and Plaid Cymru supporters were brought in from Scotland and Wales. ICM added: 'The recruitment approach replicated those used by ICM at all the 2010 leader debates, both the Clegg vs Farage debates last year, and the recent ITV debate.' Mr Farage was widely considered to have won the debates against Nick Clegg last year, after which the Ukip leader made no complaint about the audience composition. Last night saw five opposition party leaders go head-to-head in a 90-minute live TV debate. Mr Farage appeared alongside Labour's Ed Miliband, SNP leader Nicola Sturgeon, Green Natalie Bennett and Plaid Cymru's Leanne Wood. During the earlier exchanges, the leaders on Mr Farage for his anti-immigration policies, attracting applause from the audience. Mr Farage was taken aback, and attacked a 'total lack of comprehension' from those watching and protested they were 'a remarkable audience even by the Left-wing standards of the BBC'. His outburst came less than half an hour into the event after some of his comments about pressure on housing due to immigration were greeted with mutters from those watching. Mr Farage warned that foreigners arriving in the UK 'has directly contributed to the housing crisis'. But he came under fire for linking all of the countries problems to immigration. Green party leader Natalie Bennett took a swipe at Mr Farage: 'There is someone here on this platform who wants to totally demonise migrants and you know who I mean.' She hit back at claims migrants are causing a crisis in the health service: 'One in four doctors is foreign born, 40 per cent of NHS staff are foreign born. Mr Miliband said told Mr Farage: 'You abuse immigrants and those with HIV and then you complain that Ukip is being abused.' Miss Sturgeon won loud applause as she urged Mr Farage to 'put the bogeyman to one side'. She told him: 'We have a housing crisis across this country. You know what, Nigel Farage? It isn't caused by immigrants. In your world every problem is caused by immigrants.' But Mr Farage claimed the audience was biased against him: 'There just seems to be a total lack of comprehension on this panel, and indeed amongst this audience, which is a remarkable audience even by the Left-wing standards of the BBC.' Mr Farage was heckled by members of the audience before David Dimbleby, who was presenting the broadcast on BBC1, intervened to say: 'Nigel, let me just say one thing. 'This is an audience that has been carefully chosen not by the BBC, but by an independent polling organisation to represent the balance between all parties.' Labour leader Ed Miliband gave the Ukip leader the advice: 'It's never a great idea to attack the audience, Nigel, in my opinion.' But Mr Farage retorted: 'The real audience are sitting at home.' Explanation: Mr Farage was heckled before David Dimbleby (pictured), who was presenting the broadcast on BBC1, intervened to say how the audience had been chosen . The BBC insists the audience was carefully selected by an independent pollster, but Mr Farage said something had gone 'wrong' with the process . Unimpressed: Ukip voter Mike Cripps, 44 . A Ukip voter has insisted he is having second thoughts about backing the party after Nigel Farage attacked the studio audience. Security worker Mike Cripps, 44, of Bromley, south-east London, believed the Ukip leader had 'done a couple of stupid things'. The first was his comment on the audience and the second was raising his views on people with HIV visiting the UK for NHS treatment, Mr Cripps said. Asked if Mr Farage's remarks had put him off supporting Ukip, Mr Cripps said: 'It did a bit, yeah. I don't think he put himself across right. 'If we're just talking about the debate tonight - it's what we should be talking about, not what he's done six years ago or two years ago or yesterday - for me, Nicola Sturgeon was the best. 'She was slick, she was well prepared, she had been well briefed, that's my personal opinion. Ed Miliband - it was like he was reading off a script.' The BBC insisted the audience had been chosen by an independent polling organisation to reflect the supporters of all parties - not just those represented by their leaders last night. A spokesman for the corporation told MailOnline yesterday: 'ICM recruited an audience to give a cross section of political opinion.' ICM, a public opinion research company founded in 1989, was unavailable for comment last night. Ukip meanwhile was said to be pressing for an inquiry into how the audience was chosen. Asked after the debate about Mr Farage's criticism of the audience, Ukip deputy leader Paul Nuttall said: 'I am not sure whether we will complain. All I will say is I didn't think the audience was representative of the views of British people. 'I think Nigel Farage would have done very well with people sitting at home.' Mr Nuttall said he had spoken about things which had happened to him on Question Time, telling reporters: 'Who knows, may be some people are being disingenuous on their application forms.' Asked if adopting an attack on the audience was an easy get out clause for dismissing opposition to Ukip's views, he added: 'Oh no. People at home agree with us and that's what really matters - the millions of people at home watching this. 'We know, for example, on immigration, on the European Union they agree with where Ukip stands. What the audience in here really think is, I suppose, irrelevant.' Tweeting during the debate, Lord Ashcroft said: 'A minority view once again. Nigel Farage having a go at the BBC audience may well appeal to the viewers whose vote he is targeting.' And Sky News presenter Kay Burley tweeted: 'Farage having a pop at balance of audience. Dodgy ground there. Broadcasters jump through hoops to make sure studio is fair.' As the end credits rolled following the BBC debate last night, four of the five party leaders shook hands with each other - but Mr Farage just drank from a glass of water from behind his stand. As Miss Bennett and Miss Wood walked away, Miss Sturgeon then went to shake Mr Farage's hand - and Mr Miliband offered the Ukip leader a pat on the back. Then, all of the leaders went to the audience to shake their hands - with the exception, again, of Mr Farage. He shook hands with Mr Dimbleby before leaving without going up to the audience. Left alone: As the end credits rolled following the BBC debate last night, four of the five party leaders shook hands with each other - but Mr Farage (right) just drank from a glass of water from behind his stand . All of the leaders went to the audience to shake their hands - with the exception, again, of Mr Farage. He shook hands with Mr Dimbleby before leaving (circled in red) without going up to the audience .</span><span>Ukip leader Nigel Farage risks alienating those watching debate last night .
+Complains of 'remarkable audience even by Left-wing standards of BBC'
+Comments on housing pressure due to immigration greeted with mutters .
+David Dimbleby says independent polling firm chose 'balanced' audience .</span></div></td><td id="section-2-content-block-2-cell-1-2-content-2-cell-2-2" ><div class="show-scrollbars">2</div></td></tr></tbody>
+</table></div></td><td id="section-2-content-block-2-cell-1-3" ><div class="show-scrollbars">≈0.034813% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-3" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-3-content-block-1" class="col-12 p-0" >
+
+    <div id="section-3-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    article
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-3-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-3-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-3-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-3-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >50</span> characters long.
+                </span>
+            </div></td><td id="section-3-content-block-2-cell-4-3" ><div class="show-scrollbars">0% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-4" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-4-content-block-1" class="col-12 p-0" >
+
+    <div id="section-4-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    highlights
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-4-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive" >
+
+    
+
+
+
+<table
+  id="section-4-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-3-3" ><div class="show-scrollbars">100% not null</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-1" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-times text-danger" ></i>
+                </span>
+            </div></td><td id="section-4-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must always be greater than or equal to <span class="badge badge-secondary" >10</span> and less than or equal to <span class="badge badge-secondary" >700</span> characters long.
+                </span>
+            
+                <strong class="text-danger" >
+                    <br><br>118 unexpected values found. ≈1.027% of 11490 total rows.
+                </strong>
+            
+
+
+
+<table
+  id="section-4-content-block-2-cell-4-2-content-2-body"
+  class="table-bordered table-sm mt-3" 
+  data-toggle="table"
+  
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  
+                >
+                  Sampled Unexpected Values
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-1-1" ><div class="show-scrollbars">ASU linebacker Davon Durant, 19, was arrested last month after he allegedly hit his girlfriend of 18 months in the face and choked her .
+Kelsi Langley, 19, posted his bail and recanted her story to police the next day .
+Witness called 911 on the day of alleged attack saying he had seen a man hit a woman in a car .
+Durant pleaded not guilty to aggravated assault and disorderly conduct, and has been suspended indefinitely from the team .
+Langley later claimed she got angry with Durant and lied to police .
+Said finger marks on her neck were hickeys and her eyes were red from crying, not bruised .
+The female ASU student and a civil rights activist accused police of making Durant out to be a thug .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-2-1" ><div class="show-scrollbars">Aguero opened scoring in the 8th minute, tapping in Silva's pinpoint cross .
+Young levels minutes six minutes later, reacting to a loose ball in the box .
+Fellaini nods in Young's cross for his sixth of the season in the 28th minute .
+Mata punished weak City defending to add a breakaway third in the 66th .
+An unmarked Smalling nodded home Young's free-kick to make it four .
+Aguero finished Zabaleta's cross to add a his second late on .
+Vincent Kompany's challenge on Daley Blind attracted criticism - and a booking - and he was subbed after half-time .
+City had won the last four Manchester derbies but sank to their fourth defeat in six Premier League games .
+For United, this was a sixth successive win, and a hugely impressive one .
+View all the stats and pitch maps from the game with our Match Zone .
+READ: Ashley Young laughs at Manchester City as Manchester United silence 'noisy neighbours' with big derby win .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-3-1" ><div class="show-scrollbars">Brady Eaves, 18, was filmed biting the head off a live hamster at a party .
+He is the stepson of John Arthur Eaves Jr, Democratic candidate for Mississippi governor in 2007, now an esteemed pro-life lawyer .
+The teenager is a University of Mississippi scholar, Phi Delta Theta frat member, star soccer player, was a top student at private school in Jackson .
+Sources told DailyMail.com he is an 'animal lover' with a pet raccoon .
+They said Eaves and his friends fed the hamster vodka and 'hot-boxed' its cage with marijuana before the sickening stunt was caught on camera .
+Eaves could be charged with felony animal cruelty charges if it was filmed in Florida, where there is 5-year maximum jail term and $5,000 fine .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-4-1" ><div class="show-scrollbars">Danny Alexander exposes 'secret' plans by Tories for £8billion welfare cuts .
+Accuses Conservatives a 'con' by keeping cuts secret until after election .
+Tories hit back and brand their former coalition partners 'desperate'
+Growing dissent in Lib Dem ranks over  a second coaliton with Tories .
+No income tax on earnings less than £12,500 .
+Cut £12billion from the welfare bill .
+Introduce a new law to ensure those working up to 30 hours a week on the minimum wage are never subject to income tax .
+Raise the 40p Income Tax threshold to £50,000 .
+Guarantee not to raise VAT, National Insurance contributions or Income Tax .
+Cap benefits at £23,000 a year .
+Increase the Inheritance Tax threshold for married couples and civil partners to £1million .
+Abolish the Bedroom Tax .
+Re-introduce the 50p top rate of tax on those earning more than £150,000 .
+Guarantee not to increase the basic 20p or higher 40p Income Tax rate .
+Guarantee not to raise VAT, National Insurance contributions or Income Tax .
+Introduce a new 10p tax rate for the first £1,000 of taxable income .
+Abolish 'non dom' status .
+Cut and then freeze business rates .
+Increase corporation tax by 1 per cent .
+Increase working tax credits .
+Halt and review Universal Credit .
+No income tax on earnings less than £12,500 .
+Consider raising the employee National Insurance threshold to the Income Tax threshold .
+'Limit' welfare reductions .
+Introduce a mansion tax on properties worth over £2million .
+Cut £3billion from the welfare bill .
+Cap increases in working-age benefits to 1 per cent until 2017/18 (not including disability or parental leave benefits)
+Increase benefits in line with inflation once the deficit has been cut .
+No income tax on earnings less than £13,000 .
+Raise the threshold for paying 40 per cent income tax to £55,000 .
+Abolish inheritance tax .
+Introduce a new tax rate of 30 per cent on incomes ranging between £43,500 and £55,000 .
+Remove VAT completely from repairs to listed buildings .
+Reduce the annual cap on benefits .
+Scrap the 'bedroom tax'
+Increase taxes by £200billion by 2019 .
+Introduce a wealth tax of 2 per cent on people worth £3m or more .
+Bring in a new 60 per cent income tax rate on earnings over £150,000 .
+Double child benefit .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-5-1" ><div class="show-scrollbars">Gate at Border Field State Park, California, was opened for selected families on Sunday in honor of Children's Day .
+It was only the second time it had been unlocked by Border Patrol Officers since it was put in place in mid-1990s .
+Two young boys fell to their knees as they saw mom for first time in two years after she was deported to Mexico .
+'We talked about how life was without our mom. About how much we love each other,' said one of boys, aged 10 .
+Meanwhile, one grandmother wept as she embraced her seven-year-old granddaughter in front of photographers .
+Many of the deported relatives had been living in US without documentation - and had not seen families for years .
+They were given just minutes to hug and kiss their loved ones; event was organised by non-profit Border Angels .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-6-1" ><div class="show-scrollbars">Harry Kane is the Premier League's joint-top goalscorer with 19 but was 500/1 to win the Golden Boot at the beginning of the season .
+Michael Owen emerged in 1997-98 but managed to maintain his form .
+Kane has captured the imagination since earning his senior England debut .
+Nobody had ever won Player of the Month three times in a row but Kane went desperately close after winning it in January and February .
+Olivier Giroud beat him to March despite Kane's five goals that month .
+Vincent Kompany and Kane have coincidentally played 1,876 minutes each this season, and both have won 25 tackles apiece .
+Kane features twice in the top 20 most distances covered in a match .
+He was given a taster of what is to come by Italy defender Giorgio Chiellini .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-7-1" ><div class="show-scrollbars">Leah Williamson reveals she couldn't sleep ahead of crucial penalty retake as England earn 2-2 against Norway .
+Mo Marley's side qualify for European Championships in Israel .
+UEFA ordered the final 18 seconds of the qualifier to be replayed after a refereeing mistake .
+Referee Marija Kurtes incorrectly awarded an indirect free-kick to Norway for encroachment after disallowing England's penalty on Saturday .
+England were 2-1 down to Norway at the time in the 96th minute .
+German Kurtes, 28, has been sent home following her error .
+It is the first time ever that a decision like this has been taken by UEFA .
+Watch VIDEO below of the controversial penalty incident .
+READ: Graham Poll's expert verdict on UEFA's bizarre decision .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-8-1" ><div class="show-scrollbars">Louis Jordan, 37, had been missing at sea for more than two months before he was picked up off the North Carolina coast by a ship on Thursday .
+Jordan had told his family in January that he was 'going into the open water' to go fishing but the boat capsized and the mast broke .
+He was found sitting on the capsized hull of his sailboat and plucked from the sea by a helicopter .
+He had a broken collarbone and was dehydrated but looked in good health and was able to walk to the hospital unaided .
+'To us it's just a miracle. We're just so thrilled that he was found alive,' said his mother Norma Davis .
+Jordan told rescuers he survived drinking rain water and eating raw fish and read a bible repeatedly from cover to cover .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-9-1" ><div class="show-scrollbars">Man City's last Premier League win having trailed at half-time was in 1995 .
+Man City came from behind to beat Blackburn Rovers 3-2 at Ewood Park .
+Uwe Rosler, Keith Curle and Paul Walsh scored in the comeback win .
+Manchester City lost to Crystal Palace on Monday night .
+CLICK HERE for all the latest Man City news .
+City have lost their last three Premier League away games, after losing two of the preceding 26 on the road.
+The last time Man City lost three straight league away games was between February and March 2011.
+City have scored more than once in a game once in their last six away from home in the league; they scored two or more in 11 of their 13 preceding away games.
+They have kept three clean sheets in their last 16 PL matches.
+They have lost six Premier League games in 2014/15, the same number as in 2012/13 and 2013/14.
+Swansea have won two more Premier League points than Manchester City (16-14) since selling Wilfried Bony on January 14.</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-10-1" ><div class="show-scrollbars">Manchester United beat Manchester City 4-2 at Old Trafford on Sunday .
+Ashley Young, Marouane Fellaini, Juan Mata and Chris Smalling scored .
+Not many would have expected them to be key men for Louis van Gaal .
+James Ward-Prowse can reach the top if he adds goals to his game .
+I've got a sneaky feeling one of the promoted teams will survive .
+Aaron Lennon looks happy at Everton and he could move permanently .
+Aaron Cresswell scored one of the free-kicks of the season against Stoke .
+Yannick Bolasie is terrorising defenders with his blistering speed .
+Francis Coquelin and Harry Kane show clubs don't  need to spend big .
+Have Tottenham really improved this season under Mauricio Pochettino?
+Visiting Augusta showed just how dedicated you must be to be the best .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-11-1" ><div class="show-scrollbars">Police caught baggage handlers at Miami International Airport stealing from passenger luggage after installing a hidden camera .
+This as it is revealed that airline customers have reported $2.5million in lost property from 2010 to 2014 .
+31 employees have been arrested for theft at Miami International Airport since 2012, including six this year .
+There have been 30,621 claims of missing valuables since 2010, with most claims coming from John F. Kennedy Airport in New York .
+Since 2002, the TSA has fired 513 workers for theft, though it is now known how many of them faced criminal charges .
+Last year, 16 employees at Los Angeles International Airport were fired for theft after police searched their homes and found luxury items .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-12-1" ><div class="show-scrollbars">Raheem Sterling is currently earning less than half Mario Balotelli's salary .
+Even signing new £100,000-a-week deal would only take him to parity .
+Liverpool boss Brendan Rodgers has insisted Sterling will put pen to paper .
+But he has assumed he'll stay at Liverpool when he has other ambitions .
+Sterling should be playing in the Champions League .
+And Liverpool, seven points off fourth place, may not be able to offer that .
+Adrian Durham: Arsenal only turn it on when the pressure is off .
+Durham: Rooney and Carrick are Man Utd's only players with the 'football intelligence' demanded by Louis van Gaal .
+CLICK HERE for all the latest Liverpool news .
+Raheem Sterling is a very good player .
+He's been performing at a high level consistently for two seasons .
+If a club is prepared to pay £50m he would play regularly for them .
+There would be no shortage of clubs wanting to sign him – Real Madrid have already said they are monitoring his situation .
+Rodgers says they won't sell this summer, but it's more bluster I'm afraid. Common sense dictates they can't afford to let his contract run down to its final year. The situation needs to be addressed .
+Sterling wants to play Champions League football. What's so wrong with that?</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-13-1" ><div class="show-scrollbars">Raheem Sterling wants to be known as 'a kid that loves to play football'
+The England star has rejected a new deal and put off talks until the summer .
+Sterling was attempting to call the shots during interview with the BBC .
+20-year-old has come a long way since being lectured by Rodgers in TV documentary in the summer of 2012 .
+Sterling has two years left to run on his existing £35,000-a-week contract .
+He says he would have signed a new deal at this point last season .
+Sterling admits it is 'quite flattering' to be linked with a move to Arsenal .
+Liverpool are infuriated that Sterling gave interview in the first place .
+Some feel he and his representatives are pushing for summer departure .
+Sterling: What he said about contract talks... and what he meant .
+READ: Sportsmail answers five questions on Sterling's future .
+CLICK HERE for latest Liverpool news and reaction to Sterling's interview .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-14-1" ><div class="show-scrollbars">The 11 teachers, testing coordinators and other administrators were convicted Wednesday of racketeering after a five-year investigation .
+Evidence of cheating was found in 44 schools across the Atlanta school system, with nearly 180 educators involved .
+A racketeering charge could carry up to 20 years in prison and most of the defendants will be sentenced on April 8 .
+The cheating came to light after The Atlanta Journal-Constitution reported in 2008 that some student's scores were statistically improbable .
+Prosecutors said the educators were guaranteed bonuses by inflating scores, while improving the poor reputation of their school system .
+Superintendent Beverly Hall , the alleged ringleader who received up to $500,000 in payouts , died of breast cancer as the scandal went to trial .
+One principal would wear gloves to erase answers and write in new ones .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-15-1" ><div class="show-scrollbars">The PFA Awards ceremony is being held in London on Sunday evening .
+The famous faces turned out to attend the gala at the Grosvenor House .
+Harry Kane, nominated for two awards, appeared excited beforehand .
+Fellow Young Player of the Year nominee Philippe Coutinho arrived with Liverpool team-mates Steven Gerrard and Kolo Toure .
+Manchester United goalkeeper David De Gea looked pensive following Sunday's 3-0 defeat by Everton .
+Manchester City midfielder Frank Lampard was also in attendance .
+Eden Hazard is hot favourite to land the PFA Player of the Year award .
+Hazard's Chelsea team-mate Diego Costa is also shortlisted for the gong .
+The Belgian star was named in the PFA Premier League Team of the Year .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-16-1" ><div class="show-scrollbars">The mother of North Charleston Police Officer Michael Slager is speaking out as her son is behind bars for the the shooting death of Walter Scott .
+Karen Sharpe defended her son, saying she could not imagine him ever murdering someone and that he loved being a police officer .
+She also revealed that Slager's pregnant wife is devastated about what has happened as she is set to give birth next month .
+Sharpe said she has not watched the video of the shooting or read any news reports or watched any news coverage of the incident .
+She also expressed sympathy for the Scott family, noting this event has caused them both to 'change forever'
+Slager has not entered a plea to the murder charge nor commented publicly on the killing .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-17-1" ><div class="show-scrollbars">The self-proclaimed kidnapper behind 'Gone Girl abduction' of Denise Huskins now says he will turn himself in to police .
+He revealed this in an email to the San Francisco Chronicle, and said that his co-conspirators must be given immunity .
+He then said if police did not agree to this deal, he would go teach English overseas or 'go off the grid'
+Huskins and her boyfriend Aaron Quinn have yet to make a public statement about the kidnapping .
+Huskins, 29, was allegedly snatched from her home  on March 23, then released one day later 400 miles away in her childhood hometown .
+Her boyfriend Quinn, 30, was allegedly tied up and monitored by the kidnappers, which is why he could not go to police for 12 hours .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-18-1" ><div class="show-scrollbars">This 4x4 from Russia is a fraction of the price of a new Land Rover .
+Off-road, the Niva is in its element, with low and highrange gears .
+But, forget luxuries because the Niva is an unabashed frills-free zone .
+A highly capable, ruftytufty 4x4 from Russia — for a fraction of the price of a new Land Rover.
+It's a confident charmer that stands out from the crowd, with high suspension, pressed steel wheels, Soviet-style looks and real rarity value. Expect to get gawped at: someone offered to buy mine on its second trip out. Always fun.
+Now available in the UK from Niva imports through its dealer, BB Motors, in Corby, Northamptonshire (01536 202207, lada4x4.co.uk).
+On the road, the basic 1.7-litre petrol engine (your only option) is deafeningly noisy, but tolerably smooth. Power steering, manageable dimensions and a tight turning circle make it reasonably practical for the supermarket or school run.
+The seats are comfy and thanks to a high driving position and large wing mirrors, all-round visibility is good. Top speed is 91 mph.
+Off-road, the Niva is in its element, with low and highrange gears, differential lock and a sturdy monocoque construction. It is lighter and more sprightly in the mud than many big-name utility 4x4s, with 220mm ground clearance, a 600mm wading depth and a climbing ability of up to 58 per cent. Tall, slender tyres give it an added advantage when things get mucky.
+You won't have to agonise over pages of extras... they're more or less nonexistent. This is a very basic utility vehicle, after all.
+Choose in white, blue, green or red, then decide whether you'd like the snorkel or snow plough (really) attachments. An LPG option is available for an extra £999 — but you lose boot space.
+Reasonable fuel economy at 33mpg and affordable to insure — once you've explained exactly what it is. Meets Euro 5 emissions standards. The heated blower, presumably designed with Siberia in mind, has plenty of muscle for icy winter mornings.
+Also available in a compact van format (£10,590, excluding VAT and road tax).
+Spartan on the inside. Forget luxuries such as radios, cup-holders, central locking and electric windows — the Niva is an unabashed frills-free zone. The upside of its simplicity is that the plastic interior is easy to mop down after a day in the mud, and there's not much to break or go wrong.
+There are only four seatbelts and a slightly pokey boot.
+Don't trust the petrol gauge, which regularly aims to deceive.
+No warranty is offered as standard — although a two-year plan is coming soon — and spares may need to be imported (BB Motors will assist).
+Only available in lefthand drive — unless you put in an order for more than 500 of them!
+Shhhh! You didn't hear it from me. But patriotic Russian President Vladimir Putin made a big play of driving a Lada Niva back in 2009 — but fitted it with a German engine.</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-19-1" ><div class="show-scrollbars">UEFA have ordered the final 18 seconds of the qualifier to be replayed .
+England will resume the match against Norway from the penalty spot .
+The Elite Round qualifier resumes in Belfast on Thursday at 9:45pm .
+Referee Marija Kurtes incorrectly awarded an indirect free-kick to Norway for encroachment after disallowing England's penalty on Saturday .
+England were 2-1 down to Norway at the time in the 96th minute .
+German Kurtes, 28, has been sent home following her error .
+Three Lions earn 3-1 victory against Switzerland meaning a 2-2 will be enough for European Championship qualification .
+Norway beat Northern Ireland 8-1 to keep things tight in Group 4 .
+It is the first time ever that a decision like this has been taken by UEFA .
+Watch VIDEO below of the controversial penalty incident .
+READ: Graham Poll's expert verdict on UEFA's bizarre decision .</div></td></tr><tr>
+          <td id="section-4-content-block-2-cell-4-2-content-2-cell-20-1" ><div class="show-scrollbars">We've enjoyed some of the highest temperatures of the year this week .
+The range starts at £31,995 and the Audi can cost as much as £50,000 .
+No matter how good, the new Audi TT still has nothing on the 1999 model .
+With the sunshine beaming this week and some of the highest temperatures recorded so far this year, what better moment to splash out on the new third-generation Audi TT Roadster. It goes on sale this month. Just the time to get the roof off on this softtop German sports car, which has established itself as a firm favourite in the 16 years it has been on the road.
+I drove the fully stocked four-wheel-drive 2-litre TFSI in S-line quattro trim with 230 bhp, which was adept at whipping around the Cotswolds in style.
+Sure-footed and fun to drive with lively acceleration that takes it from rest to 62 mph in just 6.1 seconds up to a top speed electronically limited to 155 mph. CO2 emissions are a fair 154g/km.
+Supportively cossetting sports seats leave you sitting comfortably at the wheel.
+A nicely tuned exhaust pipe gives the TT Roadster a most satisfying 'brrrm brrrm'.
+You won't break the bank at the filling station. Even with the satisfying performance you'll average 43.5mpg, rising to 52.3mpg when cruising and still managing a respectable 33.6 mpg around town.
+Great wind-in-the-hair motoring with a top that will come down in ten seconds at speeds of up to 31mph, and a more streamlined body.
+It's easy to make a hands-free phone call with the automatic three-layer fabric hood down because microphones are embedded in the safety belt.
+Auto-dim LED headlights have been transferred across from the flagship Audi A8 saloon.
+If it ain't broke, don't fix it. Though this version is on an allnew platform, the progression is evolution, not revolution.
+The car I drove cost well in excess of £50,000. The range starts from £31,995 for the 2-litre TDi Sport in six-speed manual.
+The optional open-top driving package includes head-level heating to keep your bonce from getting chilly, an electrically operated wind deflector, which stops parky draughts whistling behind your neck, and handily heated super sports seats.
+No matter how good, nothing will have the jaw-dropping impact on the car market as the original Audi TT of 1999. It was dubbed the 'Bauhaus Bullet' because of its clean, minimalist lines reminiscent of the German art movement of the Twenties and early Thirties.
+Hefty prestige price tag. The base price of the car I drove was £41,630. But it was loaded up with extras adding another £13,000 — or the price of a half-decent family runaround.
+These include an open-top driving package (£1,000), rotorgrey fine Nappa leather and super-sports seats (£1,390), a comfort and sound package (£1,590), technology package (£1,795), electric front seats (£995), 19 in twin-spoke alloy wheels (£450), metallic paint (£545), and LED headlights (£945).</div></td></tr></tbody>
+</table></div></td><td id="section-4-content-block-2-cell-4-3" ><div class="show-scrollbars">≈1.027% unexpected</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+          <div id="section-5" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-5-content-block-1" class="col-12 p-0" >
+
+    <div id="section-5-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <h5 class="m-0" >
+                    id
+                </h5>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-5-content-block-2" class="ml-2 mr-2 mt-0 mb-0 table-responsive hide-succeeded-validations-column-section-target-child" >
+
+    
+
+
+
+<table
+  id="section-5-content-block-2-body"
+  class="table" 
+  data-toggle="table"
+  data-search="True" data-icon-size="sm" 
+>
+    
+    
+    
+      
+    
+      <thead >
+        <tr>
+            
+                
+                <th
+                  data-sortable="True" 
+                >
+                  Status
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Expectation
+                </th>
+            
+                
+                <th
+                  
+                >
+                  Observed Value
+                </th>
+            
+        </tr>
+      </thead>
+
+    <tbody>
+      <tr>
+          <td id="section-5-content-block-2-cell-1-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-2" ><div class="show-scrollbars">
+                <span >
+                    is a required field.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-1-3" ><div class="show-scrollbars">--</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-2-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-2" ><div class="show-scrollbars">
+                <span >
+                    values must be of type <span class="badge badge-secondary" >str</span>.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-2-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-3-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-2" ><div class="show-scrollbars">
+                <span >
+                    values must be unique.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-3-3" ><div class="show-scrollbars">0% unexpected</div></td></tr><tr>
+          <td id="section-5-content-block-2-cell-4-1" class="hide-succeeded-validation-target-child" ><div class="show-scrollbars">
+                <span >
+                    <i class="fas fa-check-circle text-success" ></i>
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-2" ><div class="show-scrollbars">
+                <span >
+                    values must never be null.
+                </span>
+            </div></td><td id="section-5-content-block-2-cell-4-3" ><div class="show-scrollbars">100% not null</div></td></tr></tbody>
+</table>
+
+</div>
+        
+    </div>
+</div>
+        
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+  </body>
+</html>
