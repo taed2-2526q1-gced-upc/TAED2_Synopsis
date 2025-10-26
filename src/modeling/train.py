@@ -1,10 +1,3 @@
-"""
-Training script for BART news summarization model.
-
-This module handles fine-tuning of facebook/bart-large-cnn model
-on the CNN/DailyMail dataset with MLflow tracking and emissions monitoring.
-"""
-
 import os
 import time
 import json
