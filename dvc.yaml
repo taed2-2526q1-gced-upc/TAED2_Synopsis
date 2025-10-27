@@ -11,15 +11,14 @@ stages:
     deps:
       - data/raw
       - src/modeling/train.py
-    outs:
-      - models/bart-large-cnn-finetuned
+    metrics:
+      - reports/emissions_report.json
 
   evaluate_model:
     cmd: PYTHONPATH=. pytest tests/test_model.py -v --junitxml=results/eval.xml
     deps:
-      - models/bart-large-cnn-finetuned
       - data/raw
-      - tests/test_model.py
       - src/modeling/predict.py
+      - tests/test_model.py
     metrics:
       - results/eval.xml
