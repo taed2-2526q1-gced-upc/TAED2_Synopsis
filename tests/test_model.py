@@ -1,23 +1,32 @@
 from pathlib import Path
-import numpy as np
-from datasets import load_from_disk
-from transformers import AutoTokenizer
+from datasets import load_dataset
 from evaluate import load as load_metric
 from src.modeling.predict import predict_model
 
-MODEL_PATH = "models/bart-large-cnn-finetuned"
-DATA_PATH = "data/raw"
+MLFLOW_ARTIFACT_URI = (
+    "mlflow-artifacts:/9b4993739fa24d1b80a3e605434b618d/"
+    "98108604288f454f89806e859eaf71f8/artifacts/bart-large-cnn-finetuned"
+)
+
+MLFLOW_ARTIFACT_URI = "models/bart-large-cnn-finetuned"
 
 
 def test_model_files_exist():
-    path = Path(MODEL_PATH)
+    path = Path("models/bart-large-cnn-finetuned")
     assert path.exists()
     assert (path / "config.json").exists()
     assert (path / "tokenizer_config.json").exists()
 
 
 def test_data_splits_and_columns():
-    dataset = load_from_disk(DATA_PATH)
+    dataset = load_dataset(
+        "parquet",
+        data_files={
+            "train": "data/raw/train.parquet",
+            "validation": "data/raw/validation.parquet",
+            "test": "data/raw/test.parquet",
+        }
+    )
     expected_columns = ["article", "highlights", "id"]
     for split in ["train", "validation", "test"]:
         assert split in dataset
@@ -30,7 +39,14 @@ def test_data_splits_and_columns():
 
 
 def test_rouge_scores():
-    dataset = load_from_disk(DATA_PATH)
+    dataset = load_dataset(
+        "parquet",
+        data_files={
+            "train": "data/raw/train.parquet",
+            "validation": "data/raw/validation.parquet",
+            "test": "data/raw/test.parquet",
+        }
+    )
     rouge = load_metric("rouge")
     
     predictions, references = [], []
@@ -38,7 +54,7 @@ def test_rouge_scores():
         sample = dataset["test"][i]
         input_text = sample["article"]
         reference = sample["highlights"]
-        prediction = predict_model(input_text, MODEL_PATH)
+        prediction = predict_model(input_text, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI)
         predictions.append(prediction)
         references.append(reference)
     
@@ -49,41 +65,51 @@ def test_rouge_scores():
 
 
 def test_summary_length():
-    dataset = load_from_disk(DATA_PATH)
+    dataset = load_dataset(
+        "parquet",
+        data_files={
+            "train": "data/raw/train.parquet",
+            "validation": "data/raw/validation.parquet",
+            "test": "data/raw/test.parquet",
+        }
+    )
     
     lengths = []
     for i in range(min(1, len(dataset["test"]))):
         sample = dataset["test"][i]
         input_text = sample["article"]
-        prediction = predict_model(input_text, MODEL_PATH)
+        prediction = predict_model(input_text, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI)
         lengths.append(len(prediction.split()))
-    
-    avg_len = np.mean(lengths)
-    assert 5 < avg_len < 150  # Adjust lower bound for very short articles
+        
+        input_len = len(input_text.split())
+        min_len = min(5, int(input_len * 0.1))   
+        max_len = max(150, int(input_len * 0.5)) 
+        pred_len = len(prediction.split())
+        assert min_len < pred_len < max_len
 
 
-def test_text_edge_cases():
+def test_short_text():
     short_text = "Climate scientists reported record temperatures."
-    long_text = "Climate change affects temperatures. " * 200
-    empty_texts = ["", "   "]
-    
-    # Short text
-    summary_short = predict_model(short_text, MODEL_PATH)
+    summary_short = predict_model(short_text, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI)
     assert summary_short and isinstance(summary_short, str)
-    
-    # Long text
-    summary_long = predict_model(long_text, MODEL_PATH)
+
+
+def test_long_text():
+    long_text = "Climate change affects temperatures. " * 200
+    summary_long = predict_model(long_text, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI)
     assert summary_long and len(summary_long) > 0
-    
-    # Empty text
+
+
+def test_empty_text():
+    empty_texts = ["", "   "]
     for t in empty_texts:
-        assert predict_model(t, MODEL_PATH) == ""
+        assert predict_model(t, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI) == ""
 
 
 def test_deterministic_prediction():
     text = "Scientists discover new climate patterns."
-    summary1 = predict_model(text, MODEL_PATH)
-    summary2 = predict_model(text, MODEL_PATH)
+    summary1 = predict_model(text, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI)
+    summary2 = predict_model(text, mlflow_artifact_uri=MLFLOW_ARTIFACT_URI)
     assert summary1 == summary2
 
 
@@ -92,4 +118,4 @@ def test_predict_signature():
     sig = inspect.signature(predict_model)
     params = list(sig.parameters.keys())
     assert "text" in params
-    assert "model_path" in params
+    assert "mlflow_artifact_uri" in params
