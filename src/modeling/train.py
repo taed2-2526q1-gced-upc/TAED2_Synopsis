@@ -1,4 +1,3 @@
-import os
 import time
 import json
 from pathlib import Path
@@ -19,7 +18,6 @@ import evaluate
 import torch
 
 EMISSIONS_REPORT_PATH = Path("reports/emissions_report.json")
-
 
 def _load_report():
     """Load existing emissions report or create new one."""
@@ -113,7 +111,7 @@ def load_and_prepare_data(params, tokenizer):
 
 
 def main():
-    """Training function."""
+    """Main training function."""
     tracker = EmissionsTracker(
         project_name="bart_news_summarization",
         output_dir="reports",
