@@ -1,4 +1,3 @@
-import os
 import json
 from pathlib import Path
 from typing import List
@@ -6,9 +5,6 @@ from datetime import datetime
 from codecarbon import EmissionsTracker
 from transformers import pipeline, AutoTokenizer
 import mlflow
-
-os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/bielupc/TAED2_Synopsis.mlflow"
-mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
 
 EMISSIONS_REPORT_PATH = Path("reports/emissions_report.json")
 
